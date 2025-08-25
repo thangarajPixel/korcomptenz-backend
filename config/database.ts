@@ -11,9 +11,7 @@ export default ({ env }) => {
         database: env('DATABASE_NAME', 'korcomptenz-two'),
         user: env('DATABASE_USERNAME', 'root'),
         password: env('DATABASE_PASSWORD', ''),
-        ssl: {
-          rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false), // For self-signed certificates
-        },
+         ssl: false, 
       },
       debug: false,
     },
