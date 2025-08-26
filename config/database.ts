@@ -11,9 +11,14 @@ export default ({ env }) => {
         database: env('DATABASE_NAME', 'korcomptenz-two'),
         user: env('DATABASE_USERNAME', 'root'),
         password: env('DATABASE_PASSWORD', ''),
-         ssl: false, 
+        ssl: false,
+        flags: ['--default-storage-engine=InnoDB']
       },
       debug: false,
+      options: {
+        charset: 'utf8mb4_unicode_ci',
+        engine: 'InnoDB', // Force InnoDB engine
+      }
     },
     sqlite: {
       connection: {
