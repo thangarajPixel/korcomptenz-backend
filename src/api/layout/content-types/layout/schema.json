@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "layouts",
+  "info": {
+    "singularName": "layout",
+    "pluralName": "layouts",
+    "displayName": "layout"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "footer": {
+      "type": "component",
+      "component": "global.global-field",
+      "repeatable": false
+    },
+    "header": {
+      "type": "dynamiczone",
+      "components": [
+        "global.global-field"
+      ]
+    },
+    "check_demo": {
+      "type": "string"
+    }
+  }
+}
