@@ -7,9 +7,12 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
     icon: 'refresh';
   };
   attributes: {
+    buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files'>;
+    link: Schema.Attribute.String;
     mobile_image: Schema.Attribute.Media<'images' | 'files'>;
+    subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }

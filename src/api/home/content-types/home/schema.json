@@ -10,5 +10,11 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "heroSection": {
+      "type": "component",
+      "component": "global.global-field",
+      "repeatable": true
+    }
+  }
 }

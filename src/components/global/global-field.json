@@ -27,6 +27,15 @@
         "images",
         "files"
       ]
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
     }
   },
   "config": {}
