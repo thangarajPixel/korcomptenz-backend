@@ -14,10 +14,24 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
   };
 }
 
+export interface SeoSeo extends Struct.ComponentSchema {
+  collectionName: 'components_seo_seos';
+  info: {
+    displayName: 'SEO';
+    icon: 'alien';
+  };
+  attributes: {
+    descripition: Schema.Attribute.String;
+    meta_tag: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'global.global-field': GlobalGlobalField;
+      'seo.seo': SeoSeo;
     }
   }
 }

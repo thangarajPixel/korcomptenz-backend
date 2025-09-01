@@ -15,15 +15,6 @@
       "type": "component",
       "component": "global.global-field",
       "repeatable": false
-    },
-    "header": {
-      "type": "dynamiczone",
-      "components": [
-        "global.global-field"
-      ]
-    },
-    "check_demo": {
-      "type": "string"
     }
   }
 }

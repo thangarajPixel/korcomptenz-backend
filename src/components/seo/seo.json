@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_seo_seos",
+  "info": {
+    "displayName": "SEO",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "descripition": {
+      "type": "string"
+    },
+    "meta_tag": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
