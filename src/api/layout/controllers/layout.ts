@@ -3,35 +3,37 @@
  */
 
 import { factories } from '@strapi/strapi';
-
-interface PopulateQuery {
-  [key: string]: any;
-}
+import qs from 'qs';
 
 export default factories.createCoreController('api::layout.layout', ({ strapi }) => ({
   async find(ctx) {
-    // Default populate for the layout
-    const populate = {
-      footer: {
-        populate: {
-          image: true,
-          mobile_image: true,
+    const companyDetail = await strapi.service('api::company-detail.company-detail').find({
+      populate: {
+        companyLogo: true,
+        companyFullLogo: true,
+      },
+    })
+    const populateQuery = qs.stringify({
+      populate: {
+        footer: {
+          populate: {
+            image: true,
+            mobile_image: true,
+          },
         },
       },
-    };
-
-    // Merge with any existing populate from query
-    const existingPopulate = (ctx.query.populate || {}) as PopulateQuery;
-    const populateQuery = { ...populate, ...existingPopulate };
+    }, {
+      encode: false,
+    })
 
     ctx.query = {
       ...ctx.query,
-      populate: populateQuery,
+      ...qs.parse(populateQuery),
     };
 
     // Calling the default core action
     const { data, meta } = await super.find(ctx);
-    return { data, meta };
+    return { data: { ...data, companyDetail }, meta };
   },
 })
 );
