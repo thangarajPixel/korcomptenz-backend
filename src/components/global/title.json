@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_global_titles",
+  "info": {
+    "displayName": "Title"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

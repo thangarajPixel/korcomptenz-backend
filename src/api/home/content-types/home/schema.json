@@ -15,6 +15,11 @@
       "type": "component",
       "component": "global.global-field",
       "repeatable": true
+    },
+    "WeAreKorcomptenzSection": {
+      "type": "component",
+      "component": "seo.we-are-korcomptenz-section",
+      "repeatable": false
     }
   }
 }

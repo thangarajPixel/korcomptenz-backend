@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_seo_we_are_korcomptenz_sections",
+  "info": {
+    "displayName": "WeAreKorcomptenzSection"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "link": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

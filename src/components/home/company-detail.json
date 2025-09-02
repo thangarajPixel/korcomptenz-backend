@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_home_company_details",
+  "info": {
+    "displayName": "company-detail"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

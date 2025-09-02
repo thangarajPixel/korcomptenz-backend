@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_home_schedule_calls",
+  "info": {
+    "displayName": "schedule-call"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "cta": {
+      "type": "string"
+    },
+    "highlight": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

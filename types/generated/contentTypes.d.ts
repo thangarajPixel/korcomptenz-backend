@@ -395,6 +395,10 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    WeAreKorcomptenzSection: Schema.Attribute.Component<
+      'seo.we-are-korcomptenz-section',
+      false
+    >;
   };
 }
 
@@ -419,6 +423,36 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
       'api::layout.layout'
     > &
       Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNavbarNavbar extends Struct.CollectionTypeSchema {
+  collectionName: 'navbars';
+  info: {
+    displayName: 'header';
+    pluralName: 'navbars';
+    singularName: 'navbar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'home.button', true>;
+    companyDetail: Schema.Attribute.Component<'home.company-detail', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::navbar.navbar'
+    > &
+      Schema.Attribute.Private;
+    navItems: Schema.Attribute.Component<'home.nav-item', true>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -937,6 +971,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::home.home': ApiHomeHome;
       'api::layout.layout': ApiLayoutLayout;
+      'api::navbar.navbar': ApiNavbarNavbar;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
