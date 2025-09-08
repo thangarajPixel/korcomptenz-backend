@@ -18,6 +18,16 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
             image: true,
           },
         },
+        service_sections: {
+          populate: {
+             image: true,
+          },
+        },
+        card: {
+          populate: {
+             card: true,
+          },
+        },
       },
     }, {
       encode: false,

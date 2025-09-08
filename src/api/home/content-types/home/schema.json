@@ -20,6 +20,16 @@
       "type": "component",
       "component": "seo.we-are-korcomptenz-section",
       "repeatable": false
+    },
+    "service_sections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-section.service-section"
+    },
+    "card": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::card.card"
     }
   }
 }
