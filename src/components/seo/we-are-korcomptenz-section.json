@@ -5,10 +5,10 @@
   },
   "options": {},
   "attributes": {
-    "Title": {
+    "titleH1": {
       "type": "string"
     },
-    "Description": {
+    "titleSpan": {
       "type": "string"
     },
     "image": {
@@ -23,6 +23,12 @@
     },
     "link": {
       "type": "string"
+    },
+    "p1": {
+      "type": "text"
+    },
+    "p2": {
+      "type": "text"
     }
   },
   "config": {}

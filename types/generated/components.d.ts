@@ -109,13 +109,15 @@ export interface SeoWeAreKorcomptenzSection extends Struct.ComponentSchema {
     displayName: 'WeAreKorcomptenzSection';
   };
   attributes: {
-    Description: Schema.Attribute.String;
     image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
     link: Schema.Attribute.String;
-    Title: Schema.Attribute.String;
+    p1: Schema.Attribute.Text;
+    p2: Schema.Attribute.Text;
+    titleH1: Schema.Attribute.String;
+    titleSpan: Schema.Attribute.String;
   };
 }
 
