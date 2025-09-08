@@ -401,6 +401,10 @@ export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    social_medias: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::social-media.social-media'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -447,6 +451,10 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    company_detail: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::company-detail.company-detail'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -488,6 +496,36 @@ export interface ApiNavbarNavbar extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     navItems: Schema.Attribute.Component<'home.nav-item', true>;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSocialMediaSocialMedia extends Struct.CollectionTypeSchema {
+  collectionName: 'social_medias';
+  info: {
+    displayName: 'socialMedia';
+    pluralName: 'social-medias';
+    singularName: 'social-media';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    href: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::social-media.social-media'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1007,6 +1045,7 @@ declare module '@strapi/strapi' {
       'api::home.home': ApiHomeHome;
       'api::layout.layout': ApiLayoutLayout;
       'api::navbar.navbar': ApiNavbarNavbar;
+      'api::social-media.social-media': ApiSocialMediaSocialMedia;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -70,8 +70,11 @@ export interface HomeNavItem extends Struct.ComponentSchema {
     displayName: 'nav-item';
   };
   attributes: {
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
     href: Schema.Attribute.String;
     label: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 

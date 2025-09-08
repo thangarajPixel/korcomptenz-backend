@@ -10,6 +10,15 @@
     },
     "href": {
       "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string"
     }
   },
   "config": {}

@@ -15,6 +15,11 @@
       "type": "component",
       "component": "global.global-field",
       "repeatable": false
+    },
+    "company_detail": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::company-detail.company-detail"
     }
   }
 }

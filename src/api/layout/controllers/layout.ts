@@ -7,12 +7,11 @@ import qs from 'qs';
 
 export default factories.createCoreController('api::layout.layout', ({ strapi }) => ({
   async find(ctx) {
-    const companyDetail = await strapi.service('api::company-detail.company-detail').find({
-      populate: {
-        companyLogo: true,
-        companyFullLogo: true,
-      },
-    })
+    // Get company details using the service method
+    const companyDetailService = strapi.service('api::company-detail.company-detail');
+    const companyDetail = await companyDetailService.findWithPopulate();
+
+    // Set up layout query
     const populateQuery = qs.stringify({
       populate: {
         footer: {
@@ -21,19 +20,28 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
             mobile_image: true,
           },
         },
+        company_detail: true
       },
     }, {
       encode: false,
-    })
+    });
 
     ctx.query = {
       ...ctx.query,
       ...qs.parse(populateQuery),
     };
 
-    // Calling the default core action
+    // Get layout data
     const { data, meta } = await super.find(ctx);
-    return { data: { ...data, companyDetail }, meta };
+
+    // Combine layout data with company details
+    return {
+      data: {
+        ...data,
+        companyDetail: Array.isArray(companyDetail) ? companyDetail[0] : companyDetail
+      },
+      meta
+    };
   },
 })
 );
