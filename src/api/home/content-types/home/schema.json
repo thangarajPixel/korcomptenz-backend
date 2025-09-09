@@ -30,6 +30,16 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::card.card"
+    },
+    "insightSection": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::card.card"
+    },
+    "inspireSection": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::card.card"
     }
   }
 }

@@ -36,6 +36,20 @@
     },
     "link": {
       "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "postion": {
+      "type": "enumeration",
+      "enum": [
+        "top",
+        "bottom",
+        "topAbove"
+      ]
+    },
+    "number": {
+      "type": "string"
     }
   },
   "config": {}

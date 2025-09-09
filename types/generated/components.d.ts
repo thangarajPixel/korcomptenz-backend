@@ -8,10 +8,13 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String;
+    category: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files'>;
     link: Schema.Attribute.String;
     mobile_image: Schema.Attribute.Media<'images' | 'files'>;
+    number: Schema.Attribute.String;
+    postion: Schema.Attribute.Enumeration<['top', 'bottom', 'topAbove']>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };

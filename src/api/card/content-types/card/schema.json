@@ -17,7 +17,7 @@
     "button": {
       "type": "string"
     },
-    "card": {
+    "content": {
       "type": "component",
       "component": "global.global-field",
       "repeatable": true

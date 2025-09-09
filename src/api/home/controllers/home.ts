@@ -25,7 +25,29 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
         },
         card: {
           populate: {
-             card: true,
+             content:{
+              populate:{
+                image:true,
+              }
+             }
+          },
+        },
+        insightSection: {
+          populate: {
+              content:{
+              populate:{
+                image:true,
+              }
+             }
+          },
+        },
+        inspireSection: {
+          populate: {
+              content:{
+              populate:{
+                image:true,
+              }
+             }
           },
         },
       },

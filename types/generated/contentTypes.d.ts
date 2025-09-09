@@ -385,7 +385,7 @@ export interface ApiCardCard extends Struct.CollectionTypeSchema {
   };
   attributes: {
     button: Schema.Attribute.String;
-    card: Schema.Attribute.Component<'global.global-field', true>;
+    content: Schema.Attribute.Component<'global.global-field', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -454,6 +454,8 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     heroSection: Schema.Attribute.Component<'global.global-field', true>;
+    insightSection: Schema.Attribute.Relation<'oneToOne', 'api::card.card'>;
+    inspireSection: Schema.Attribute.Relation<'oneToOne', 'api::card.card'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;
