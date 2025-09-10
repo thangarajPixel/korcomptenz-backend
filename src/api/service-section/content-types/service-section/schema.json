@@ -14,10 +14,10 @@
     "lable": {
       "type": "string"
     },
-    "title": {
+    "heading": {
       "type": "text"
     },
-    "discription": {
+    "subheading": {
       "type": "text"
     },
     "button": {
