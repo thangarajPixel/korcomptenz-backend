@@ -14,7 +14,6 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
     link: Schema.Attribute.String;
     mobile_image: Schema.Attribute.Media<'images' | 'files'>;
     number: Schema.Attribute.String;
-    postion: Schema.Attribute.Enumeration<['top', 'bottom', 'topAbove']>;
     subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -64,6 +63,22 @@ export interface HomeCompanyDetail extends Struct.ComponentSchema {
       true
     >;
     name: Schema.Attribute.String;
+  };
+}
+
+export interface HomeInspireSection extends Struct.ComponentSchema {
+  collectionName: 'components_home_inspire_sections';
+  info: {
+    displayName: 'inspireSection';
+  };
+  attributes: {
+    h3: Schema.Attribute.String;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    p: Schema.Attribute.Text;
+    postion: Schema.Attribute.Enumeration<['top', 'bottom', 'topabove']>;
   };
 }
 
@@ -132,6 +147,7 @@ declare module '@strapi/strapi' {
       'home.address': HomeAddress;
       'home.button': HomeButton;
       'home.company-detail': HomeCompanyDetail;
+      'home.inspire-section': HomeInspireSection;
       'home.nav-item': HomeNavItem;
       'home.schedule-call': HomeScheduleCall;
       'seo.seo': SeoSeo;

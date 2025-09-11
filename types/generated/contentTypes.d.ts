@@ -455,12 +455,15 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     heroSection: Schema.Attribute.Component<'global.global-field', true>;
     insightSection: Schema.Attribute.Relation<'oneToOne', 'api::card.card'>;
-    inspireSection: Schema.Attribute.Relation<'oneToOne', 'api::card.card'>;
+    inspireSection: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::inspire-section.inspire-section'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    service_sections: Schema.Attribute.Relation<
+    serviceSection: Schema.Attribute.Relation<
       'oneToMany',
       'api::service-section.service-section'
     >;
@@ -471,6 +474,37 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       'seo.we-are-korcomptenz-section',
       false
     >;
+  };
+}
+
+export interface ApiInspireSectionInspireSection
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'inspire_sections';
+  info: {
+    displayName: 'inspireSection';
+    pluralName: 'inspire-sections';
+    singularName: 'inspire-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    button: Schema.Attribute.String;
+    content: Schema.Attribute.Component<'home.inspire-section', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    h1: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::inspire-section.inspire-section'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -530,6 +564,37 @@ export interface ApiNavbarNavbar extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     navItems: Schema.Attribute.Component<'home.nav-item', true>;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPagePage extends Struct.CollectionTypeSchema {
+  collectionName: 'pages';
+  info: {
+    displayName: 'pages';
+    pluralName: 'pages';
+    singularName: 'page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    list: Schema.Attribute.DynamicZone<
+      ['seo.we-are-korcomptenz-section', 'global.global-field']
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    service_sections: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::service-section.service-section'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1111,8 +1176,10 @@ declare module '@strapi/strapi' {
       'api::card.card': ApiCardCard;
       'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;
       'api::home.home': ApiHomeHome;
+      'api::inspire-section.inspire-section': ApiInspireSectionInspireSection;
       'api::layout.layout': ApiLayoutLayout;
       'api::navbar.navbar': ApiNavbarNavbar;
+      'api::page.page': ApiPagePage;
       'api::service-section.service-section': ApiServiceSectionServiceSection;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
       'plugin::content-releases.release': PluginContentReleasesRelease;

@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_home_inspire_sections",
+  "info": {
+    "displayName": "inspireSection"
+  },
+  "options": {},
+  "attributes": {
+    "h3": {
+      "type": "string"
+    },
+    "p": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "postion": {
+      "type": "enumeration",
+      "enum": [
+        "top",
+        "bottom",
+        "topabove"
+      ]
+    }
+  },
+  "config": {}
+}

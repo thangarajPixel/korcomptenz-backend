@@ -18,7 +18,7 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
             image: true,
           },
         },
-        service_sections: {
+       serviceSection: {
           populate: {
              image: true,
           },

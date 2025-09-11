@@ -21,7 +21,7 @@
       "component": "seo.we-are-korcomptenz-section",
       "repeatable": false
     },
-    "service_sections": {
+    "serviceSection": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::service-section.service-section"
@@ -39,7 +39,7 @@
     "inspireSection": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::card.card"
+      "target": "api::inspire-section.inspire-section"
     }
   }
 }

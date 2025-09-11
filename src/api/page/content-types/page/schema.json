@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "pages"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "list": {
+      "type": "dynamiczone",
+      "components": [
+        "seo.we-are-korcomptenz-section",
+        "global.global-field"
+      ]
+    },
+    "service_sections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-section.service-section"
+    }
+  }
+}
