@@ -41,6 +41,18 @@ export interface HomeAddress extends Struct.ComponentSchema {
   };
 }
 
+export interface HomeBanner extends Struct.ComponentSchema {
+  collectionName: 'components_home_banners';
+  info: {
+    displayName: 'banner';
+  };
+  attributes: {
+    button: Schema.Attribute.String;
+    content: Schema.Attribute.Component<'global.global-field', true>;
+    h1: Schema.Attribute.String;
+  };
+}
+
 export interface HomeButton extends Struct.ComponentSchema {
   collectionName: 'components_home_buttons';
   info: {
@@ -63,6 +75,18 @@ export interface HomeCompanyDetail extends Struct.ComponentSchema {
       true
     >;
     name: Schema.Attribute.String;
+  };
+}
+
+export interface HomeInspireBanner extends Struct.ComponentSchema {
+  collectionName: 'components_home_inspire_banners';
+  info: {
+    displayName: 'inspireBanner';
+  };
+  attributes: {
+    button: Schema.Attribute.String;
+    content: Schema.Attribute.Component<'home.inspire-section', true>;
+    h1: Schema.Attribute.String;
   };
 }
 
@@ -108,6 +132,16 @@ export interface HomeScheduleCall extends Struct.ComponentSchema {
   };
 }
 
+export interface HomeServiceBanner extends Struct.ComponentSchema {
+  collectionName: 'components_home_service_banners';
+  info: {
+    displayName: 'serviceBanner';
+  };
+  attributes: {
+    content: Schema.Attribute.Component<'global.global-field', true>;
+  };
+}
+
 export interface SeoSeo extends Struct.ComponentSchema {
   collectionName: 'components_seo_seos';
   info: {
@@ -145,11 +179,14 @@ declare module '@strapi/strapi' {
       'global.global-field': GlobalGlobalField;
       'global.title': GlobalTitle;
       'home.address': HomeAddress;
+      'home.banner': HomeBanner;
       'home.button': HomeButton;
       'home.company-detail': HomeCompanyDetail;
+      'home.inspire-banner': HomeInspireBanner;
       'home.inspire-section': HomeInspireSection;
       'home.nav-item': HomeNavItem;
       'home.schedule-call': HomeScheduleCall;
+      'home.service-banner': HomeServiceBanner;
       'seo.seo': SeoSeo;
       'seo.we-are-korcomptenz-section': SeoWeAreKorcomptenzSection;
     }

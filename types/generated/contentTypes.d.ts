@@ -585,7 +585,12 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     list: Schema.Attribute.DynamicZone<
-      ['seo.we-are-korcomptenz-section', 'global.global-field']
+      [
+        'seo.we-are-korcomptenz-section',
+        'home.banner',
+        'home.inspire-banner',
+        'home.service-banner',
+      ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &

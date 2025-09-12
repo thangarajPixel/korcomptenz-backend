@@ -15,7 +15,9 @@
       "type": "dynamiczone",
       "components": [
         "seo.we-are-korcomptenz-section",
-        "global.global-field"
+        "home.banner",
+        "home.inspire-banner",
+        "home.service-banner"
       ]
     },
     "service_sections": {

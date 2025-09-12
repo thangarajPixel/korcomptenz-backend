@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_home_service_banners",
+  "info": {
+    "displayName": "serviceBanner"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "component",
+      "component": "global.global-field",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
