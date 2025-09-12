@@ -21,22 +21,22 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               'global.global-field': { populate: true },
               'home.banner': {
                 populate: {
-                  content: {   
-                    populate: true, 
+                  content: {
+                    populate: true,
                   },
                 },
               },
               'home.inspire-banner': {
                 populate: {
-                  content: {   
-                    populate: true, 
+                  content: {
+                    populate: true,
                   },
                 },
               },
-               'home.service-banner': {
+              'home.service-banner': {
                 populate: {
-                  content: {   
-                    populate: true, 
+                  content: {
+                    populate: true,
                   },
                 },
               },
@@ -54,6 +54,58 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
     } catch (error) {
       strapi.log.error('Page find error:', error);
       return ctx.internalServerError('Failed to fetch page data');
+    }
+  },
+  async findOneBySlug(ctx) {
+    try {
+      const { slug } = ctx.query;
+      console.log(ctx.query, 'ctx.query');
+      if (!slug) {
+        return ctx.badRequest('Slug parameter is required');
+      }
+
+      const entity = await strapi.db.query('api::page.page').findOne({
+        where: { slug },
+        populate: {
+          list: {
+            on: {
+              'seo.we-are-korcomptenz-section': {
+                populate: { image: true },
+              },
+              'global.global-field': { populate: true },
+              'home.banner': {
+                populate: {
+                  content: {
+                    populate: true,
+                  },
+                },
+              },
+              'home.inspire-banner': {
+                populate: {
+                  content: {
+                    populate: true,
+                  },
+                },
+              },
+              'home.service-banner': {
+                populate: {
+                  content: {
+                    populate: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      });
+
+      if (!entity) {
+        return ctx.notFound('Page not found');
+      }
+      const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+      return this.transformResponse(sanitizedEntity);
+    } catch (error) {
+      return ctx.internalServerError('An error occurred while fetching the page');
     }
   },
 }));

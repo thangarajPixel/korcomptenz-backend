@@ -20,10 +20,10 @@
         "home.service-banner"
       ]
     },
-    "service_sections": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::service-section.service-section"
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }
