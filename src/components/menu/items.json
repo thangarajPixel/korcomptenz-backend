@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_menu_items",
+  "info": {
+    "displayName": "serviceItems"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "side": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right",
+        "top",
+        "bottom"
+      ]
+    },
+    "child": {
+      "type": "component",
+      "component": "menu.home-menu",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

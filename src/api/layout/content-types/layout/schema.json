@@ -11,15 +11,30 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "footer": {
+    "navItems": {
       "type": "component",
-      "component": "global.global-field",
+      "component": "home.header",
+      "repeatable": true
+    },
+    "companyDetail": {
+      "type": "component",
+      "component": "home.company-detail",
       "repeatable": false
     },
-    "company_detail": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::company-detail.company-detail"
+    "button": {
+      "type": "component",
+      "component": "home.button-header",
+      "repeatable": false
+    },
+    "serviceData": {
+      "type": "component",
+      "component": "menu.section",
+      "repeatable": true
+    },
+    "industriesData": {
+      "type": "component",
+      "component": "menu.industry-cloumn",
+      "repeatable": true
     }
   }
 }

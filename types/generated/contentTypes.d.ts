@@ -519,21 +519,21 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    company_detail: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::company-detail.company-detail'
-    >;
+    button: Schema.Attribute.Component<'home.button-header', false>;
+    companyDetail: Schema.Attribute.Component<'home.company-detail', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    footer: Schema.Attribute.Component<'global.global-field', false>;
+    industriesData: Schema.Attribute.Component<'menu.industry-cloumn', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::layout.layout'
     > &
       Schema.Attribute.Private;
+    navItems: Schema.Attribute.Component<'home.header', true>;
     publishedAt: Schema.Attribute.DateTime;
+    serviceData: Schema.Attribute.Component<'menu.section', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_menu_home_menus",
+  "info": {
+    "displayName": "serviceChild"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

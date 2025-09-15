@@ -64,6 +64,17 @@ export interface HomeButton extends Struct.ComponentSchema {
   };
 }
 
+export interface HomeButtonHeader extends Struct.ComponentSchema {
+  collectionName: 'components_home_button_headers';
+  info: {
+    displayName: 'button-header';
+  };
+  attributes: {
+    href: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+  };
+}
+
 export interface HomeCompanyDetail extends Struct.ComponentSchema {
   collectionName: 'components_home_company_details';
   info: {
@@ -75,6 +86,17 @@ export interface HomeCompanyDetail extends Struct.ComponentSchema {
       true
     >;
     name: Schema.Attribute.String;
+  };
+}
+
+export interface HomeHeader extends Struct.ComponentSchema {
+  collectionName: 'components_home_headers';
+  info: {
+    displayName: 'header';
+  };
+  attributes: {
+    href: Schema.Attribute.String;
+    label: Schema.Attribute.String;
   };
 }
 
@@ -142,6 +164,71 @@ export interface HomeServiceBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface MenuHomeMenu extends Struct.ComponentSchema {
+  collectionName: 'components_menu_home_menus';
+  info: {
+    displayName: 'serviceChild';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    type: Schema.Attribute.String;
+  };
+}
+
+export interface MenuIndustryCloumn extends Struct.ComponentSchema {
+  collectionName: 'components_menu_industry_cloumns';
+  info: {
+    displayName: 'industryCloumn';
+  };
+  attributes: {
+    colSpan: Schema.Attribute.String;
+    sectionName: Schema.Attribute.String;
+    sections: Schema.Attribute.Component<'menu.industry-items', true>;
+  };
+}
+
+export interface MenuIndustryItems extends Struct.ComponentSchema {
+  collectionName: 'components_menu_industry_items';
+  info: {
+    displayName: 'industrySection';
+  };
+  attributes: {
+    heigh: Schema.Attribute.Enumeration<['tall', 'short']>;
+    imagePath: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    imagePostion: Schema.Attribute.Enumeration<['side', 'down']>;
+    name: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface MenuItems extends Struct.ComponentSchema {
+  collectionName: 'components_menu_items';
+  info: {
+    displayName: 'serviceItems';
+  };
+  attributes: {
+    child: Schema.Attribute.Component<'menu.home-menu', true>;
+    side: Schema.Attribute.Enumeration<['left', 'right', 'top', 'bottom']>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface MenuSection extends Struct.ComponentSchema {
+  collectionName: 'components_menu_sections';
+  info: {
+    displayName: 'serviceSection';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    items: Schema.Attribute.Component<'menu.items', true>;
+    name: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SeoSeo extends Struct.ComponentSchema {
   collectionName: 'components_seo_seos';
   info: {
@@ -181,12 +268,19 @@ declare module '@strapi/strapi' {
       'home.address': HomeAddress;
       'home.banner': HomeBanner;
       'home.button': HomeButton;
+      'home.button-header': HomeButtonHeader;
       'home.company-detail': HomeCompanyDetail;
+      'home.header': HomeHeader;
       'home.inspire-banner': HomeInspireBanner;
       'home.inspire-section': HomeInspireSection;
       'home.nav-item': HomeNavItem;
       'home.schedule-call': HomeScheduleCall;
       'home.service-banner': HomeServiceBanner;
+      'menu.home-menu': MenuHomeMenu;
+      'menu.industry-cloumn': MenuIndustryCloumn;
+      'menu.industry-items': MenuIndustryItems;
+      'menu.items': MenuItems;
+      'menu.section': MenuSection;
       'seo.seo': SeoSeo;
       'seo.we-are-korcomptenz-section': SeoWeAreKorcomptenzSection;
     }
