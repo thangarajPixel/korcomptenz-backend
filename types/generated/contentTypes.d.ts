@@ -533,6 +533,7 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     navItems: Schema.Attribute.Component<'home.header', true>;
     publishedAt: Schema.Attribute.DateTime;
+    scheduleCall: Schema.Attribute.Component<'home.schedule-call', false>;
     serviceData: Schema.Attribute.Component<'menu.section', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -590,12 +591,14 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'home.banner',
         'home.inspire-banner',
         'home.service-banner',
+        'page-componets.faq-title',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;

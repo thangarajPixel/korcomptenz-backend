@@ -17,13 +17,19 @@
         "seo.we-are-korcomptenz-section",
         "home.banner",
         "home.inspire-banner",
-        "home.service-banner"
+        "home.service-banner",
+        "page-componets.faq-title"
       ]
     },
     "slug": {
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
     }
   }
 }

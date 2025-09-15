@@ -229,6 +229,30 @@ export interface MenuSection extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsFaq extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_faqs';
+  info: {
+    displayName: 'faq';
+    icon: 'quote';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsFaqTitle extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_faq_titles';
+  info: {
+    displayName: 'faq title';
+    icon: 'car';
+  };
+  attributes: {
+    faq: Schema.Attribute.Component<'page-componets.faq', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SeoSeo extends Struct.ComponentSchema {
   collectionName: 'components_seo_seos';
   info: {
@@ -281,6 +305,8 @@ declare module '@strapi/strapi' {
       'menu.industry-items': MenuIndustryItems;
       'menu.items': MenuItems;
       'menu.section': MenuSection;
+      'page-componets.faq': PageComponetsFaq;
+      'page-componets.faq-title': PageComponetsFaqTitle;
       'seo.seo': SeoSeo;
       'seo.we-are-korcomptenz-section': SeoWeAreKorcomptenzSection;
     }

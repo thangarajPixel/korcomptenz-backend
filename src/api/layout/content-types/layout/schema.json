@@ -35,6 +35,11 @@
       "type": "component",
       "component": "menu.industry-cloumn",
       "repeatable": true
+    },
+    "scheduleCall": {
+      "type": "component",
+      "component": "home.schedule-call",
+      "repeatable": false
     }
   }
 }
