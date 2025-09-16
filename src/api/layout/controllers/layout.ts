@@ -62,7 +62,7 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
             },
           },
           button: true,
-        serviceData: {
+          serviceData: {
             populate: {
               image: true,
               items: {
@@ -72,6 +72,58 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
               },
             },
           },
+
+          industriesData:{
+            populate:{
+              sections:{
+                populate:{imagePath:true}
+              }
+            }
+          },
+          scheduleCall: true,
+
+          EcosystemData: {
+            populate: {
+              item: {
+                populate: {
+                  child: true,
+                },
+              },
+              items: {
+                populate: {
+                  child: {
+                    populate: {
+                      ecosystem_discriptions: true, 
+                    },
+                  },
+                },
+              },
+            },
+          },
+
+          insightsData: {
+            populate: {
+              heroImage: true,
+              categories: true,
+            },
+          },
+
+          aboutData: {
+            populate: {
+              about_us: true,
+              who_we_are: true,
+              navigationItems: true,
+              sidebarSections: {
+                populate: {
+                  icon: true,
+                },
+              },
+            },
+          },
+
+          careers: true,
+          successStories: true
+
         },
       };
       const entity = await strapi.service('api::layout.layout').find(ctx.query);

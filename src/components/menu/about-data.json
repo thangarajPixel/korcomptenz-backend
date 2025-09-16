@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_menu_about_data",
+  "info": {
+    "displayName": "aboutData"
+  },
+  "options": {},
+  "attributes": {
+    "about_us": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::about-us.about-us"
+    },
+    "who_we_are": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::who-we-are.who-we-are"
+    },
+    "navigationItems": {
+      "type": "component",
+      "component": "menu.aboutus-navigationitems",
+      "repeatable": true
+    },
+    "sidebarSections": {
+      "type": "component",
+      "component": "menu.sidebar-aboutus",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

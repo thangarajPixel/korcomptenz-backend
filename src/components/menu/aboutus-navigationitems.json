@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_menu_aboutus_navigationitems",
+  "info": {
+    "displayName": "aboutusNavigationitems"
+  },
+  "options": {},
+  "attributes": {
+    "idName": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

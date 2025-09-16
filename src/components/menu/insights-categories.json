@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_menu_insights_categories",
+  "info": {
+    "displayName": "insightsCategories"
+  },
+  "options": {},
+  "attributes": {
+    "idName": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

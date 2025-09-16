@@ -373,6 +373,34 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutUsAboutUs extends Struct.CollectionTypeSchema {
+  collectionName: 'about_uses';
+  info: {
+    displayName: 'aboutUs';
+    pluralName: 'about-uses';
+    singularName: 'about-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-us.about-us'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCardCard extends Struct.CollectionTypeSchema {
   collectionName: 'cards';
   info: {
@@ -438,6 +466,36 @@ export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiEcosystemdiscriptionEcosystemdiscription
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'ecosystemdiscriptions';
+  info: {
+    displayName: 'ecosystemDiscription';
+    pluralName: 'ecosystemdiscriptions';
+    singularName: 'ecosystemdiscription';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    href: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ecosystemdiscription.ecosystemdiscription'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
@@ -474,6 +532,36 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       'seo.we-are-korcomptenz-section',
       false
     >;
+  };
+}
+
+export interface ApiImageAboutUsImageAboutUs
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'image_about_uses';
+  info: {
+    displayName: 'image_aboutUs';
+    pluralName: 'image-about-uses';
+    singularName: 'image-about-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::image-about-us.image-about-us'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    src: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -519,12 +607,19 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    aboutData: Schema.Attribute.Component<'menu.about-data', true>;
     button: Schema.Attribute.Component<'home.button-header', false>;
+    careers: Schema.Attribute.Component<
+      'menu.careersands-successtories',
+      false
+    >;
     companyDetail: Schema.Attribute.Component<'home.company-detail', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    EcosystemData: Schema.Attribute.Component<'menu.ecosystem-sidebar', true>;
     industriesData: Schema.Attribute.Component<'menu.industry-cloumn', true>;
+    insightsData: Schema.Attribute.Component<'menu.insights-data', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -535,6 +630,10 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     scheduleCall: Schema.Attribute.Component<'home.schedule-call', false>;
     serviceData: Schema.Attribute.Component<'menu.section', true>;
+    successStories: Schema.Attribute.Component<
+      'menu.careersands-successtories',
+      false
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -661,6 +760,39 @@ export interface ApiSocialMediaSocialMedia extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::social-media.social-media'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWhoWeAreWhoWeAre extends Struct.CollectionTypeSchema {
+  collectionName: 'who_we_ares';
+  info: {
+    displayName: 'whoWeAre';
+    pluralName: 'who-we-ares';
+    singularName: 'who-we-are';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image_about_us: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::image-about-us.image-about-us'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::who-we-are.who-we-are'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -1180,15 +1312,19 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::card.card': ApiCardCard;
       'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;
+      'api::ecosystemdiscription.ecosystemdiscription': ApiEcosystemdiscriptionEcosystemdiscription;
       'api::home.home': ApiHomeHome;
+      'api::image-about-us.image-about-us': ApiImageAboutUsImageAboutUs;
       'api::inspire-section.inspire-section': ApiInspireSectionInspireSection;
       'api::layout.layout': ApiLayoutLayout;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::page.page': ApiPagePage;
       'api::service-section.service-section': ApiServiceSectionServiceSection;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
+      'api::who-we-are.who-we-are': ApiWhoWeAreWhoWeAre;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

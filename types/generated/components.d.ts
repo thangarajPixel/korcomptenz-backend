@@ -164,6 +164,104 @@ export interface HomeServiceBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface MenuAboutData extends Struct.ComponentSchema {
+  collectionName: 'components_menu_about_data';
+  info: {
+    displayName: 'aboutData';
+  };
+  attributes: {
+    about_us: Schema.Attribute.Relation<'oneToOne', 'api::about-us.about-us'>;
+    navigationItems: Schema.Attribute.Component<
+      'menu.aboutus-navigationitems',
+      true
+    >;
+    sidebarSections: Schema.Attribute.Component<'menu.sidebar-aboutus', true>;
+    who_we_are: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::who-we-are.who-we-are'
+    >;
+  };
+}
+
+export interface MenuAboutusNavigationitems extends Struct.ComponentSchema {
+  collectionName: 'components_menu_aboutus_navigationitems';
+  info: {
+    displayName: 'aboutusNavigationitems';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    idName: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface MenuCareersandsSuccesstories extends Struct.ComponentSchema {
+  collectionName: 'components_menu_careersands_successtories';
+  info: {
+    displayName: 'careersandsSuccesstories';
+  };
+  attributes: {
+    href: Schema.Attribute.String;
+    isChild: Schema.Attribute.Boolean;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface MenuEcosystemChild extends Struct.ComponentSchema {
+  collectionName: 'components_menu_ecosystem_children';
+  info: {
+    displayName: 'ecosystemChild';
+  };
+  attributes: {
+    ecosystem_discriptions: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ecosystemdiscription.ecosystemdiscription'
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface MenuEcosystemItems extends Struct.ComponentSchema {
+  collectionName: 'components_menu_ecosystem_items';
+  info: {
+    displayName: 'ecosystemItems';
+  };
+  attributes: {
+    buttontext: Schema.Attribute.String;
+    child: Schema.Attribute.Component<'menu.home-menu', true>;
+    childtype: Schema.Attribute.String;
+    discription: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface MenuEcosystemSidebar extends Struct.ComponentSchema {
+  collectionName: 'components_menu_ecosystem_sidebars';
+  info: {
+    displayName: 'ecosystemSidebar';
+  };
+  attributes: {
+    item: Schema.Attribute.Component<'menu.ecosystem-items', true>;
+    items: Schema.Attribute.Component<'menu.ecosysystem-items-type2', true>;
+    menu: Schema.Attribute.String;
+    number: Schema.Attribute.String;
+  };
+}
+
+export interface MenuEcosysystemItemsType2 extends Struct.ComponentSchema {
+  collectionName: 'components_menu_ecosysystem_items_type2s';
+  info: {
+    displayName: 'ecosysystemItems_type2';
+  };
+  attributes: {
+    buttontext: Schema.Attribute.String;
+    child: Schema.Attribute.Component<'menu.ecosystem-child', true>;
+    childtype: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface MenuHomeMenu extends Struct.ComponentSchema {
   collectionName: 'components_menu_home_menus';
   info: {
@@ -196,7 +294,38 @@ export interface MenuIndustryItems extends Struct.ComponentSchema {
     heigh: Schema.Attribute.Enumeration<['tall', 'short']>;
     imagePath: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     imagePostion: Schema.Attribute.Enumeration<['side', 'down']>;
+    items: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::ecosystemdiscription.ecosystemdiscription'
+    >;
     name: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface MenuInsightsCategories extends Struct.ComponentSchema {
+  collectionName: 'components_menu_insights_categories';
+  info: {
+    displayName: 'insightsCategories';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    idName: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface MenuInsightsData extends Struct.ComponentSchema {
+  collectionName: 'components_menu_insights_data';
+  info: {
+    displayName: 'insightsData';
+  };
+  attributes: {
+    categories: Schema.Attribute.Component<'menu.insights-categories', true>;
+    heroImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     title: Schema.Attribute.String;
   };
 }
@@ -225,6 +354,19 @@ export interface MenuSection extends Struct.ComponentSchema {
     >;
     items: Schema.Attribute.Component<'menu.items', true>;
     name: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface MenuSidebarAboutus extends Struct.ComponentSchema {
+  collectionName: 'components_menu_sidebar_aboutuses';
+  info: {
+    displayName: 'sidebarAboutus';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    idName: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -300,11 +442,21 @@ declare module '@strapi/strapi' {
       'home.nav-item': HomeNavItem;
       'home.schedule-call': HomeScheduleCall;
       'home.service-banner': HomeServiceBanner;
+      'menu.about-data': MenuAboutData;
+      'menu.aboutus-navigationitems': MenuAboutusNavigationitems;
+      'menu.careersands-successtories': MenuCareersandsSuccesstories;
+      'menu.ecosystem-child': MenuEcosystemChild;
+      'menu.ecosystem-items': MenuEcosystemItems;
+      'menu.ecosystem-sidebar': MenuEcosystemSidebar;
+      'menu.ecosysystem-items-type2': MenuEcosysystemItemsType2;
       'menu.home-menu': MenuHomeMenu;
       'menu.industry-cloumn': MenuIndustryCloumn;
       'menu.industry-items': MenuIndustryItems;
+      'menu.insights-categories': MenuInsightsCategories;
+      'menu.insights-data': MenuInsightsData;
       'menu.items': MenuItems;
       'menu.section': MenuSection;
+      'menu.sidebar-aboutus': MenuSidebarAboutus;
       'page-componets.faq': PageComponetsFaq;
       'page-componets.faq-title': PageComponetsFaqTitle;
       'seo.seo': SeoSeo;

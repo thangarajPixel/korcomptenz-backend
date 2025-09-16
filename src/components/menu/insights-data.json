@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_menu_insights_data",
+  "info": {
+    "displayName": "insightsData"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "categories": {
+      "type": "component",
+      "component": "menu.insights-categories",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

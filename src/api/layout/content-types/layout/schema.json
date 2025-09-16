@@ -40,6 +40,31 @@
       "type": "component",
       "component": "home.schedule-call",
       "repeatable": false
+    },
+    "EcosystemData": {
+      "type": "component",
+      "component": "menu.ecosystem-sidebar",
+      "repeatable": true
+    },
+    "insightsData": {
+      "type": "component",
+      "component": "menu.insights-data",
+      "repeatable": true
+    },
+    "aboutData": {
+      "type": "component",
+      "component": "menu.about-data",
+      "repeatable": true
+    },
+    "careers": {
+      "type": "component",
+      "component": "menu.careersands-successtories",
+      "repeatable": false
+    },
+    "successStories": {
+      "type": "component",
+      "component": "menu.careersands-successtories",
+      "repeatable": false
     }
   }
 }
