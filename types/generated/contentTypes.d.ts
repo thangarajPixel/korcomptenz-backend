@@ -691,6 +691,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'home.inspire-banner',
         'home.service-banner',
         'page-componets.faq-title',
+        'home.service-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

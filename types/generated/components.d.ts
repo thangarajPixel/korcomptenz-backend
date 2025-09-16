@@ -164,6 +164,19 @@ export interface HomeServiceBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface HomeServiceSection extends Struct.ComponentSchema {
+  collectionName: 'components_home_service_sections';
+  info: {
+    displayName: 'serviceSection';
+  };
+  attributes: {
+    service_sections: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::service-section.service-section'
+    >;
+  };
+}
+
 export interface MenuAboutData extends Struct.ComponentSchema {
   collectionName: 'components_menu_about_data';
   info: {
@@ -442,6 +455,7 @@ declare module '@strapi/strapi' {
       'home.nav-item': HomeNavItem;
       'home.schedule-call': HomeScheduleCall;
       'home.service-banner': HomeServiceBanner;
+      'home.service-section': HomeServiceSection;
       'menu.about-data': MenuAboutData;
       'menu.aboutus-navigationitems': MenuAboutusNavigationitems;
       'menu.careersands-successtories': MenuCareersandsSuccesstories;

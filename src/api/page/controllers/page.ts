@@ -59,6 +59,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
   async findOneBySlug(ctx) {
     try {
       const { slug } = ctx.query as { slug: string[] };
+      console.log(slug)
       const customSlug = slug?.join('/');
       if (!customSlug) {
         return ctx.badRequest('Slug parameter is required');
