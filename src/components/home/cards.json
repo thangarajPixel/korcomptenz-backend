@@ -4,40 +4,6 @@
     "displayName": "cards"
   },
   "options": {},
-  "attributes": {
-    "idnumber": {
-      "type": "string"
-    },
-    "position": {
-      "type": "enumeration",
-      "enum": [
-        "bottom",
-        "top",
-        "topAbove"
-      ]
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "alt": {
-      "type": "string"
-    },
-    "title": {
-      "type": "string"
-    },
-    "order": {
-      "type": "string"
-    },
-    "description": {
-      "type": "text"
-    }
-  },
+  "attributes": {},
   "config": {}
 }

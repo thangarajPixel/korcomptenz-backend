@@ -1,17 +1,17 @@
 {
-  "collectionName": "components_menu_sidebar_aboutuses",
+  "collectionName": "components_service_salesforces",
   "info": {
-    "displayName": "sidebar-aboutUs"
+    "displayName": "salesforce"
   },
   "options": {},
   "attributes": {
-    "idName": {
-      "type": "string"
-    },
     "title": {
       "type": "string"
     },
-    "icon": {
+    "description": {
+      "type": "text"
+    },
+    "image": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -20,9 +20,6 @@
         "videos",
         "audios"
       ]
-    },
-    "description": {
-      "type": "text"
     }
   },
   "config": {}

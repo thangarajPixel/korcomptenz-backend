@@ -14,12 +14,15 @@
     "list": {
       "type": "dynamiczone",
       "components": [
-        "home.banner",
-        "home.inspire-banner",
-        "home.service-banner",
         "page-componets.faq-title",
-        "home.service-section",
-        "home.inspire-section"
+        "service.sap-section-data",
+        "service.banner-section-data",
+        "service.solutions-data",
+        "service.manuel-slider-data",
+        "service.salesforce-services",
+        "service.domain-data",
+        "service.benefit-data",
+        "service.build-data"
       ]
     },
     "slug": {

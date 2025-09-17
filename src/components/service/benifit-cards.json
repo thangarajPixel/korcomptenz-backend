@@ -1,14 +1,14 @@
 {
-  "collectionName": "components_menu_insights_categories",
+  "collectionName": "components_service_benifit_cards",
   "info": {
-    "displayName": "insights-categories"
+    "displayName": "benifit-cards"
   },
   "options": {},
   "attributes": {
-    "idName": {
+    "idnumber": {
       "type": "string"
     },
-    "title": {
+    "number": {
       "type": "string"
     },
     "description": {

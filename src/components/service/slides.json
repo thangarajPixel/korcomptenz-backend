@@ -1,17 +1,14 @@
 {
-  "collectionName": "components_menu_sidebar_aboutuses",
+  "collectionName": "components_service_slides",
   "info": {
-    "displayName": "sidebar-aboutUs"
+    "displayName": "slides"
   },
   "options": {},
   "attributes": {
-    "idName": {
+    "idNumber": {
       "type": "string"
     },
-    "title": {
-      "type": "string"
-    },
-    "icon": {
+    "image": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -21,8 +18,14 @@
         "audios"
       ]
     },
+    "alt": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
     "description": {
-      "type": "text"
+      "type": "string"
     }
   },
   "config": {}

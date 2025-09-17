@@ -1,14 +1,14 @@
 {
-  "collectionName": "components_menu_home_menus",
+  "collectionName": "components_service_cards",
   "info": {
-    "displayName": "service-child"
+    "displayName": "card"
   },
   "options": {},
   "attributes": {
-    "title": {
+    "value": {
       "type": "string"
     },
-    "type": {
+    "content": {
       "type": "string"
     }
   },

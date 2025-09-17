@@ -1,16 +1,16 @@
 {
-  "collectionName": "components_menu_insights_data",
+  "collectionName": "components_service_benefit_data",
   "info": {
-    "displayName": "insights-data"
+    "displayName": "benefit-data"
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "text"
     },
-    "heroImage": {
+    "image": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",
@@ -18,9 +18,9 @@
         "audios"
       ]
     },
-    "categories": {
+    "cards": {
       "type": "component",
-      "component": "menu.insights-categories",
+      "component": "service.benifit-cards",
       "repeatable": true
     }
   },

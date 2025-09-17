@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_service_manuel_slider_data",
+  "info": {
+    "displayName": "manuel-slider-data"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "text"
+    },
+    "slides": {
+      "type": "component",
+      "component": "service.slides",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,16 +1,16 @@
 {
-  "collectionName": "components_menu_insights_data",
+  "collectionName": "components_service_solutions_data",
   "info": {
-    "displayName": "insights-data"
+    "displayName": "solutions-data"
   },
   "options": {},
   "attributes": {
     "title": {
       "type": "string"
     },
-    "heroImage": {
+    "image": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",
@@ -18,9 +18,12 @@
         "audios"
       ]
     },
-    "categories": {
+    "alt": {
+      "type": "string"
+    },
+    "slideContent": {
       "type": "component",
-      "component": "menu.insights-categories",
+      "component": "service.slide-content",
       "repeatable": true
     }
   },

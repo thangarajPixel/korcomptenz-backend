@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_service_salesforce_services",
+  "info": {
+    "displayName": "salesforce-services"
+  },
+  "options": {},
+  "attributes": {
+    "salesforceServices": {
+      "type": "component",
+      "component": "service.salesforce",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

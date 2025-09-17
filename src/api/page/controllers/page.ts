@@ -15,37 +15,66 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
         populate: {
           list: {
             on: {
-              'seo.we-are-korcomptenz-section': {
-                populate: { image: true },
-              },
-              'global.global-field': { populate: true },
-              'home.banner': {
+              'page-componets.faq-title': { populate: true },
+
+              'service.sap-section-data': {
                 populate: {
-                  content: {
-                    populate: true,
-                  },
+                  imageSection: { populate: true },
+                  card: { populate: true },
                 },
               },
-              'home.inspire-banner': {
+
+              'service.banner-section-data': {
                 populate: {
-                  content: {
-                    populate: true,
-                  },
+                  imageMobile: true,
+                  image: true,
+                  logo: true,
+                  logoMobile: true,
                 },
               },
-              'home.service-banner': {
+
+              'service.solutions-data': {
                 populate: {
-                  content: {
-                    populate: true,
-                  },
+                  image: true,
+                  slideContent: { populate: true },
+                },
+              },
+
+              'service.manuel-slider-data': {
+                populate: {
+                  slides: { populate: true },
+                },
+              },
+
+              'service.salesforce-services': {
+                populate: {
+                  salesforceServices: { populate: true },
+                },
+              },
+
+              'service.domain-data': {
+                populate: {
+                  slides: { populate: true },
+                },
+              },
+
+              'service.benefit-data': {
+                populate: {
+                  image: true,
+                  cards: { populate: true },
+                },
+              },
+
+              'service.build-data': {
+                populate: {
+                  image: true,
+                  imagemobile: true,
                 },
               },
             },
           },
-          // service_sections: {
-          //  populate: {image: true},
-          // },
-        },
+          seo: true,
+        }
       };
 
       const { results, pagination } = await strapi.service('api::page.page').find(ctx.query);
@@ -70,34 +99,66 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
         populate: {
           list: {
             on: {
-              'seo.we-are-korcomptenz-section': {
-                populate: { image: true },
-              },
-              'global.global-field': { populate: true },
-              'home.banner': {
+              'page-componets.faq-title': { populate: true },
+
+              'service.sap-section-data': {
                 populate: {
-                  content: {
-                    populate: true,
-                  },
+                  imageSection: { populate: true },
+                  card: { populate: true },
                 },
               },
-              'home.inspire-banner': {
+
+              'service.banner-section-data': {
                 populate: {
-                  content: {
-                    populate: true,
-                  },
+                  imageMobile: true,
+                  image: true,
+                  logo: true,
+                  logoMobile: true,
                 },
               },
-              'home.service-banner': {
+
+              'service.solutions-data': {
                 populate: {
-                  content: {
-                    populate: true,
-                  },
+                  image: true,
+                  slideContent: { populate: true },
+                },
+              },
+
+              'service.manuel-slider-data': {
+                populate: {
+                  slides: { populate: true },
+                },
+              },
+
+              'service.salesforce-services': {
+                populate: {
+                  salesforceServices: { populate: true },
+                },
+              },
+
+              'service.domain-data': {
+                populate: {
+                  slides: { populate: true },
+                },
+              },
+
+              'service.benefit-data': {
+                populate: {
+                  image: true,
+                  cards: { populate: true },
+                },
+              },
+
+              'service.build-data': {
+                populate: {
+                  image: true,
+                  imagemobile: true,
                 },
               },
             },
           },
-        },
+          seo: true,
+        }
       });
 
       if (!entity) {

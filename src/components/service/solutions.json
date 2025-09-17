@@ -1,13 +1,10 @@
 {
-  "collectionName": "components_menu_insights_categories",
+  "collectionName": "components_service_solutions",
   "info": {
-    "displayName": "insights-categories"
+    "displayName": "solutions"
   },
   "options": {},
   "attributes": {
-    "idName": {
-      "type": "string"
-    },
     "title": {
       "type": "string"
     },
