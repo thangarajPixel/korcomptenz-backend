@@ -585,12 +585,12 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     list: Schema.Attribute.DynamicZone<
       [
         'home.hero-section-one',
-        'home.inspire-section',
         'home.we-are-korcomptenz',
         'home.services-section',
         'page-componets.sticky-cards-list',
         'page-componets.insights-section',
         'home.opportunity',
+        'page-componets.inspire-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

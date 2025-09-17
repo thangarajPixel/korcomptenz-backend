@@ -569,6 +569,37 @@ export interface PageComponetsInsightsSectionCard
   };
 }
 
+export interface PageComponetsInspireSection extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_inspire_sections';
+  info: {
+    displayName: 'inspire-section';
+    icon: 'dashboard';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    list: Schema.Attribute.Component<
+      'page-componets.inspire-section-card',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsInspireSectionCard
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_inspire_section_cards';
+  info: {
+    displayName: 'inspire-section-card';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    position: Schema.Attribute.Enumeration<['bottom', 'top', 'topAbove']>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsStickyCard extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_sticky_cards';
   info: {
@@ -655,6 +686,8 @@ declare module '@strapi/strapi' {
       'page-componets.faq-title': PageComponetsFaqTitle;
       'page-componets.insights-section': PageComponetsInsightsSection;
       'page-componets.insights-section-card': PageComponetsInsightsSectionCard;
+      'page-componets.inspire-section': PageComponetsInspireSection;
+      'page-componets.inspire-section-card': PageComponetsInspireSectionCard;
       'page-componets.sticky-card': PageComponetsStickyCard;
       'page-componets.sticky-cards-list': PageComponetsStickyCardsList;
       'seo.seo': SeoSeo;

@@ -15,12 +15,12 @@
       "type": "dynamiczone",
       "components": [
         "home.hero-section-one",
-        "home.inspire-section",
         "home.we-are-korcomptenz",
         "home.services-section",
         "page-componets.sticky-cards-list",
         "page-componets.insights-section",
-        "home.opportunity"
+        "home.opportunity",
+        "page-componets.inspire-section"
       ]
     }
   }

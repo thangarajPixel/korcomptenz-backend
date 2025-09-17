@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_page_componets_inspire_section_cards",
+  "info": {
+    "displayName": "inspire-section-card",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "position": {
+      "type": "enumeration",
+      "enum": [
+        "bottom",
+        "top",
+        "topAbove"
+      ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
