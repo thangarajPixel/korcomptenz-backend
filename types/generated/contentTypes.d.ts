@@ -720,7 +720,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'home.inspire-banner',
         'home.service-banner',
         'page-componets.faq-title',
-        'service.salesforce-services',
         'home.service-section',
         'home.inspire-section',
       ]
