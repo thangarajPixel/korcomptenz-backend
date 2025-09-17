@@ -716,15 +716,13 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     list: Schema.Attribute.DynamicZone<
       [
+        'home.banner',
+        'home.inspire-banner',
+        'home.service-banner',
         'page-componets.faq-title',
-        'service.sap-section-data',
-        'service.banner-section-data',
-        'service.solutions-data',
-        'service.manuel-slider-data',
         'service.salesforce-services',
-        'service.domain-data',
-        'service.benefit-data',
-        'service.build-data',
+        'home.service-section',
+        'home.inspire-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -794,38 +792,6 @@ export interface ApiSocialMediaSocialMedia extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::social-media.social-media'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiStickyCardStickyCard extends Struct.CollectionTypeSchema {
-  collectionName: 'sticky_cards';
-  info: {
-    displayName: 'stickyCard';
-    pluralName: 'sticky-cards';
-    singularName: 'sticky-card';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    buttonText: Schema.Attribute.String;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    idNumber: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::sticky-card.sticky-card'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -1391,7 +1357,6 @@ declare module '@strapi/strapi' {
       'api::page.page': ApiPagePage;
       'api::service-section.service-section': ApiServiceSectionServiceSection;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
-      'api::sticky-card.sticky-card': ApiStickyCardStickyCard;
       'api::who-we-are.who-we-are': ApiWhoWeAreWhoWeAre;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
