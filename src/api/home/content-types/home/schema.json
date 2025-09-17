@@ -37,9 +37,9 @@
       "target": "api::card.card"
     },
     "inspireSection": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::inspire-section.inspire-section"
+      "type": "component",
+      "component": "home.inspire-section",
+      "repeatable": false
     }
   }
 }

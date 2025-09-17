@@ -513,10 +513,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     heroSection: Schema.Attribute.Component<'global.global-field', true>;
     insightSection: Schema.Attribute.Relation<'oneToOne', 'api::card.card'>;
-    inspireSection: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::inspire-section.inspire-section'
-    >;
+    inspireSection: Schema.Attribute.Component<'home.inspire-section', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;
@@ -692,6 +689,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'home.service-banner',
         'page-componets.faq-title',
         'home.service-section',
+        'home.inspire-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

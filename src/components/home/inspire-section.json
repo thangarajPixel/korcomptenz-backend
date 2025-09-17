@@ -5,29 +5,10 @@
   },
   "options": {},
   "attributes": {
-    "h3": {
-      "type": "string"
-    },
-    "p": {
-      "type": "text"
-    },
-    "image": {
-      "type": "media",
-      "multiple": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "postion": {
-      "type": "enumeration",
-      "enum": [
-        "top",
-        "bottom",
-        "topabove"
-      ]
+    "mainheading": {
+      "type": "component",
+      "component": "home.mainheading",
+      "repeatable": true
     }
   },
   "config": {}

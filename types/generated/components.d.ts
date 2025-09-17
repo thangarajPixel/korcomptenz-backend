@@ -75,6 +75,22 @@ export interface HomeButtonHeader extends Struct.ComponentSchema {
   };
 }
 
+export interface HomeCards extends Struct.ComponentSchema {
+  collectionName: 'components_home_cards';
+  info: {
+    displayName: 'cards';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    idnumber: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    order: Schema.Attribute.String;
+    position: Schema.Attribute.Enumeration<['bottom', 'top', 'topAbove']>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface HomeCompanyDetail extends Struct.ComponentSchema {
   collectionName: 'components_home_company_details';
   info: {
@@ -118,13 +134,19 @@ export interface HomeInspireSection extends Struct.ComponentSchema {
     displayName: 'inspireSection';
   };
   attributes: {
-    h3: Schema.Attribute.String;
-    image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    p: Schema.Attribute.Text;
-    postion: Schema.Attribute.Enumeration<['top', 'bottom', 'topabove']>;
+    mainheading: Schema.Attribute.Component<'home.mainheading', true>;
+  };
+}
+
+export interface HomeMainheading extends Struct.ComponentSchema {
+  collectionName: 'components_home_mainheadings';
+  info: {
+    displayName: 'mainheading';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    cards: Schema.Attribute.Component<'home.cards', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -160,7 +182,10 @@ export interface HomeServiceBanner extends Struct.ComponentSchema {
     displayName: 'serviceBanner';
   };
   attributes: {
-    content: Schema.Attribute.Component<'global.global-field', true>;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    label: Schema.Attribute.String;
+    subheading: Schema.Attribute.Text;
   };
 }
 
@@ -448,10 +473,12 @@ declare module '@strapi/strapi' {
       'home.banner': HomeBanner;
       'home.button': HomeButton;
       'home.button-header': HomeButtonHeader;
+      'home.cards': HomeCards;
       'home.company-detail': HomeCompanyDetail;
       'home.header': HomeHeader;
       'home.inspire-banner': HomeInspireBanner;
       'home.inspire-section': HomeInspireSection;
+      'home.mainheading': HomeMainheading;
       'home.nav-item': HomeNavItem;
       'home.schedule-call': HomeScheduleCall;
       'home.service-banner': HomeServiceBanner;

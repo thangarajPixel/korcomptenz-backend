@@ -5,10 +5,24 @@
   },
   "options": {},
   "attributes": {
-    "content": {
-      "type": "component",
-      "component": "global.global-field",
-      "repeatable": true
+    "label": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   },
   "config": {}

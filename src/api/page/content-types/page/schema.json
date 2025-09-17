@@ -19,7 +19,8 @@
         "home.inspire-banner",
         "home.service-banner",
         "page-componets.faq-title",
-        "home.service-section"
+        "home.service-section",
+        "home.inspire-section"
       ]
     },
     "slug": {

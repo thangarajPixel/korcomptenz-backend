@@ -41,15 +41,20 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
              }
           },
         },
-        inspireSection: {
+      inspireSection: {
+  populate: {
+    mainheading: {
+      populate: {
+        cards: {
           populate: {
-              content:{
-              populate:{
-                image:true,
-              }
-             }
-          },
-        },
+            image: true
+          }
+        }
+      }
+    }
+  }
+}
+
       },
     }, {
       encode: false,
