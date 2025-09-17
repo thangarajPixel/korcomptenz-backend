@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_home_we_are_korcomptenzs",
+  "info": {
+    "displayName": "weAreKorcomptenz",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "titleH1": {
+      "type": "string"
+    },
+    "titleSpan": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "link": {
+      "type": "string"
+    },
+    "p1": {
+      "type": "text"
+    },
+    "p2": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

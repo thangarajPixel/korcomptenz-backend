@@ -8,13 +8,12 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String;
-    category: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files'>;
     link: Schema.Attribute.String;
     mobile_image: Schema.Attribute.Media<'images' | 'files'>;
-    number: Schema.Attribute.String;
     subtitle: Schema.Attribute.String;
+    subTitleTwo: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -116,6 +115,31 @@ export interface HomeHeader extends Struct.ComponentSchema {
   };
 }
 
+export interface HomeHeroSectionOne extends Struct.ComponentSchema {
+  collectionName: 'components_home_hero_section_ones';
+  info: {
+    displayName: 'heroSectionOne';
+    icon: 'cog';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'global.global-field', true>;
+  };
+}
+
+export interface HomeInsightSection extends Struct.ComponentSchema {
+  collectionName: 'components_home_insight_sections';
+  info: {
+    displayName: 'insightSection';
+    icon: 'cloud';
+  };
+  attributes: {
+    inspire_section: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::inspire-section.inspire-section'
+    >;
+  };
+}
+
 export interface HomeInspireBanner extends Struct.ComponentSchema {
   collectionName: 'components_home_inspire_banners';
   info: {
@@ -164,6 +188,46 @@ export interface HomeNavItem extends Struct.ComponentSchema {
   };
 }
 
+export interface HomeOpportunity extends Struct.ComponentSchema {
+  collectionName: 'components_home_opportunities';
+  info: {
+    displayName: 'opportunity';
+    icon: 'briefcase';
+  };
+  attributes: {
+    arrowImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    bannerImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    breakFour: Schema.Attribute.String;
+    breakOne: Schema.Attribute.String;
+    breakThree: Schema.Attribute.String;
+    breakTwo: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    profiles: Schema.Attribute.Component<'home.opportunity-profile', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+        },
+        number
+      >;
+  };
+}
+
+export interface HomeOpportunityProfile extends Struct.ComponentSchema {
+  collectionName: 'components_home_opportunity_profiles';
+  info: {
+    displayName: 'opportunity-profile';
+    icon: 'picture';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface HomeScheduleCall extends Struct.ComponentSchema {
   collectionName: 'components_home_schedule_calls';
   info: {
@@ -199,6 +263,48 @@ export interface HomeServiceSection extends Struct.ComponentSchema {
       'oneToMany',
       'api::service-section.service-section'
     >;
+  };
+}
+
+export interface HomeServicesSection extends Struct.ComponentSchema {
+  collectionName: 'components_home_services_sections';
+  info: {
+    displayName: 'services-section';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'home.services-section-list', true>;
+  };
+}
+
+export interface HomeServicesSectionList extends Struct.ComponentSchema {
+  collectionName: 'components_home_services_section_lists';
+  info: {
+    displayName: 'services-section-list';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    label: Schema.Attribute.String;
+  };
+}
+
+export interface HomeWeAreKorcomptenz extends Struct.ComponentSchema {
+  collectionName: 'components_home_we_are_korcomptenzs';
+  info: {
+    displayName: 'weAreKorcomptenz';
+    icon: 'code';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    link: Schema.Attribute.String;
+    p1: Schema.Attribute.Text;
+    p2: Schema.Attribute.Text;
+    titleH1: Schema.Attribute.String;
+    titleSpan: Schema.Attribute.String;
   };
 }
 
@@ -433,6 +539,64 @@ export interface PageComponetsFaqTitle extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsInsightsSection extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_insights_sections';
+  info: {
+    displayName: 'insights-section';
+    icon: 'book';
+  };
+  attributes: {
+    buttontext: Schema.Attribute.String;
+    list: Schema.Attribute.Component<
+      'page-componets.insights-section-card',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsInsightsSectionCard
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_insights_section_cards';
+  info: {
+    displayName: 'insights-section-card';
+    icon: 'collapse';
+  };
+  attributes: {
+    category: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsStickyCard extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_sticky_cards';
+  info: {
+    displayName: 'sticky-card';
+    icon: 'book';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    specificId: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsStickyCardsList extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_sticky_cards_lists';
+  info: {
+    displayName: 'sticky-cards-list';
+    icon: 'arrowDown';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    list: Schema.Attribute.Component<'page-componets.sticky-card', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SeoSeo extends Struct.ComponentSchema {
   collectionName: 'components_seo_seos';
   info: {
@@ -443,24 +607,6 @@ export interface SeoSeo extends Struct.ComponentSchema {
     descripition: Schema.Attribute.String;
     meta_tag: Schema.Attribute.String;
     title: Schema.Attribute.String;
-  };
-}
-
-export interface SeoWeAreKorcomptenzSection extends Struct.ComponentSchema {
-  collectionName: 'components_seo_we_are_korcomptenz_sections';
-  info: {
-    displayName: 'WeAreKorcomptenzSection';
-  };
-  attributes: {
-    image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    link: Schema.Attribute.String;
-    p1: Schema.Attribute.Text;
-    p2: Schema.Attribute.Text;
-    titleH1: Schema.Attribute.String;
-    titleSpan: Schema.Attribute.String;
   };
 }
 
@@ -476,13 +622,20 @@ declare module '@strapi/strapi' {
       'home.cards': HomeCards;
       'home.company-detail': HomeCompanyDetail;
       'home.header': HomeHeader;
+      'home.hero-section-one': HomeHeroSectionOne;
+      'home.insight-section': HomeInsightSection;
       'home.inspire-banner': HomeInspireBanner;
       'home.inspire-section': HomeInspireSection;
       'home.mainheading': HomeMainheading;
       'home.nav-item': HomeNavItem;
+      'home.opportunity': HomeOpportunity;
+      'home.opportunity-profile': HomeOpportunityProfile;
       'home.schedule-call': HomeScheduleCall;
       'home.service-banner': HomeServiceBanner;
       'home.service-section': HomeServiceSection;
+      'home.services-section': HomeServicesSection;
+      'home.services-section-list': HomeServicesSectionList;
+      'home.we-are-korcomptenz': HomeWeAreKorcomptenz;
       'menu.about-data': MenuAboutData;
       'menu.aboutus-navigationitems': MenuAboutusNavigationitems;
       'menu.careersands-successtories': MenuCareersandsSuccesstories;
@@ -500,8 +653,11 @@ declare module '@strapi/strapi' {
       'menu.sidebar-aboutus': MenuSidebarAboutus;
       'page-componets.faq': PageComponetsFaq;
       'page-componets.faq-title': PageComponetsFaqTitle;
+      'page-componets.insights-section': PageComponetsInsightsSection;
+      'page-componets.insights-section-card': PageComponetsInsightsSectionCard;
+      'page-componets.sticky-card': PageComponetsStickyCard;
+      'page-componets.sticky-cards-list': PageComponetsStickyCardsList;
       'seo.seo': SeoSeo;
-      'seo.we-are-korcomptenz-section': SeoWeAreKorcomptenzSection;
     }
   }
 }

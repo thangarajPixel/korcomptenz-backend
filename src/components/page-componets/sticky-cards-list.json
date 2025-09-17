@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_page_componets_sticky_cards_lists",
+  "info": {
+    "displayName": "sticky-cards-list",
+    "icon": "arrowDown"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.sticky-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -496,6 +496,78 @@ export interface ApiEcosystemdiscriptionEcosystemdiscription
   };
 }
 
+export interface ApiHeroSectionHeroSection extends Struct.CollectionTypeSchema {
+  collectionName: 'hero_sections';
+  info: {
+    displayName: 'hero section';
+    pluralName: 'hero-sections';
+    singularName: 'hero-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hero-section.hero-section'
+    > &
+      Schema.Attribute.Private;
+    mobile_image: Schema.Attribute.Media<'images' | 'files'>;
+    publishedAt: Schema.Attribute.DateTime;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
+  collectionName: 'home_pages';
+  info: {
+    displayName: 'home-page';
+    pluralName: 'home-pages';
+    singularName: 'home-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    list: Schema.Attribute.DynamicZone<
+      [
+        'home.hero-section-one',
+        'home.inspire-section',
+        'home.we-are-korcomptenz',
+        'home.services-section',
+        'page-componets.sticky-cards-list',
+        'page-componets.insights-section',
+        'home.opportunity',
+      ]
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-page.home-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
@@ -507,28 +579,27 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    card: Schema.Attribute.Relation<'oneToOne', 'api::card.card'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    heroSection: Schema.Attribute.Component<'global.global-field', true>;
-    insightSection: Schema.Attribute.Relation<'oneToOne', 'api::card.card'>;
-    inspireSection: Schema.Attribute.Component<'home.inspire-section', false>;
+    list: Schema.Attribute.DynamicZone<
+      [
+        'home.hero-section-one',
+        'home.inspire-section',
+        'home.we-are-korcomptenz',
+        'home.services-section',
+        'page-componets.sticky-cards-list',
+        'page-componets.insights-section',
+        'home.opportunity',
+      ]
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    serviceSection: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::service-section.service-section'
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    WeAreKorcomptenzSection: Schema.Attribute.Component<
-      'seo.we-are-korcomptenz-section',
-      false
-    >;
   };
 }
 
@@ -683,7 +754,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     list: Schema.Attribute.DynamicZone<
       [
-        'seo.we-are-korcomptenz-section',
         'home.banner',
         'home.inspire-banner',
         'home.service-banner',
@@ -1315,6 +1385,8 @@ declare module '@strapi/strapi' {
       'api::card.card': ApiCardCard;
       'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;
       'api::ecosystemdiscription.ecosystemdiscription': ApiEcosystemdiscriptionEcosystemdiscription;
+      'api::hero-section.hero-section': ApiHeroSectionHeroSection;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'api::home.home': ApiHomeHome;
       'api::image-about-us.image-about-us': ApiImageAboutUsImageAboutUs;
       'api::inspire-section.inspire-section': ApiInspireSectionInspireSection;

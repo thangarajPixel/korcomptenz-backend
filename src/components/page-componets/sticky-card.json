@@ -1,19 +1,23 @@
 {
-  "collectionName": "components_seo_we_are_korcomptenz_sections",
+  "collectionName": "components_page_componets_sticky_cards",
   "info": {
-    "displayName": "WeAreKorcomptenzSection"
+    "displayName": "sticky-card",
+    "icon": "book"
   },
   "options": {},
   "attributes": {
-    "titleH1": {
+    "title": {
       "type": "string"
     },
-    "titleSpan": {
+    "description": {
+      "type": "text"
+    },
+    "buttonText": {
       "type": "string"
     },
     "image": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",
@@ -21,14 +25,8 @@
         "audios"
       ]
     },
-    "link": {
+    "specificId": {
       "type": "string"
-    },
-    "p1": {
-      "type": "text"
-    },
-    "p2": {
-      "type": "text"
     }
   },
   "config": {}

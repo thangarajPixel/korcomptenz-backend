@@ -8,52 +8,52 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
   async find(ctx) {
     const populateQuery = qs.stringify({
       populate: {
-        WeAreKorcomptenzSection: {
-          populate: {
-            image: true,
-          },
-        },
-        heroSection: {
-          populate: {
-            image: true,
-          },
-        },
-       serviceSection: {
-          populate: {
-             image: true,
-          },
-        },
-        card: {
-          populate: {
-             content:{
-              populate:{
-                image:true,
-              }
-             }
-          },
-        },
-        insightSection: {
-          populate: {
-              content:{
-              populate:{
-                image:true,
-              }
-             }
-          },
-        },
-      inspireSection: {
-  populate: {
-    mainheading: {
-      populate: {
-        cards: {
-          populate: {
-            image: true
-          }
-        }
-      }
-    }
-  }
-}
+        // WeAreKorcomptenzSection: {
+        //   populate: {
+        //     image: true,
+        //   },
+        // },
+        // heroSection: {
+        //   populate: {
+        //     image: true,
+        //   },
+        // },
+        // serviceSection: {
+        //   populate: {
+        //     image: true,
+        //   },
+        // },
+        // card: {
+        //   populate: {
+        //     content: {
+        //       populate: {
+        //         image: true,
+        //       }
+        //     }
+        //   },
+        // },
+        // insightSection: {
+        //   populate: {
+        //     content: {
+        //       populate: {
+        //         image: true,
+        //       }
+        //     }
+        //   },
+        // },
+        // inspireSection: {
+        //   populate: {
+        //     mainheading: {
+        //       populate: {
+        //         cards: {
+        //           populate: {
+        //             image: true
+        //           }
+        //         }
+        //       }
+        //     }
+        //   }
+        // }
 
       },
     }, {

@@ -14,7 +14,6 @@
     "list": {
       "type": "dynamiczone",
       "components": [
-        "seo.we-are-korcomptenz-section",
         "home.banner",
         "home.inspire-banner",
         "home.service-banner",

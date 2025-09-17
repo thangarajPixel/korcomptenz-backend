@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_page_componets_insights_sections",
+  "info": {
+    "displayName": "insights-section",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "buttontext": {
+      "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.insights-section-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

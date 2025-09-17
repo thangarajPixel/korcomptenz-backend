@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_home_insight_sections",
+  "info": {
+    "displayName": "insightSection",
+    "icon": "cloud"
+  },
+  "options": {},
+  "attributes": {
+    "inspire_section": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::inspire-section.inspire-section"
+    }
+  },
+  "config": {}
+}

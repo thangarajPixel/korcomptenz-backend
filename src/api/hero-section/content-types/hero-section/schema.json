@@ -1,10 +1,15 @@
 {
-  "collectionName": "components_global_global_fields",
+  "kind": "collectionType",
+  "collectionName": "hero_sections",
   "info": {
-    "displayName": "global_field",
-    "icon": "refresh"
+    "singularName": "hero-section",
+    "pluralName": "hero-sections",
+    "displayName": "hero section"
   },
-  "options": {},
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
   "attributes": {
     "title": {
       "type": "string"
@@ -36,10 +41,6 @@
     },
     "link": {
       "type": "string"
-    },
-    "subTitleTwo": {
-      "type": "string"
     }
-  },
-  "config": {}
+  }
 }

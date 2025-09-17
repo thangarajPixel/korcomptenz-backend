@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_home_services_sections",
+  "info": {
+    "displayName": "services-section"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "component": "home.services-section-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
