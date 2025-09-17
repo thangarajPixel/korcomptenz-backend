@@ -11,15 +11,15 @@
     "description": {
       "type": "text"
     },
-    "imageSection": {
-      "type": "component",
-      "component": "service.image-section",
-      "repeatable": false
-    },
     "card": {
       "type": "component",
-      "component": "service.card",
+      "component": "page-componets.card",
       "repeatable": false
+    },
+    "imageSection": {
+      "type": "component",
+      "component": "page-componets.sap-image-section",
+      "repeatable": true
     }
   },
   "config": {}

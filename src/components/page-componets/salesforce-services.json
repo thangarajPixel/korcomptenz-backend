@@ -7,7 +7,7 @@
   "attributes": {
     "salesforceServices": {
       "type": "component",
-      "component": "service.salesforce",
+      "component": "page-componets.salesforce",
       "repeatable": true
     }
   },

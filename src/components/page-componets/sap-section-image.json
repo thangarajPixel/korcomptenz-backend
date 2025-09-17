@@ -1,13 +1,13 @@
 {
-  "collectionName": "components_service_images",
+  "collectionName": "components_page_componets_sap_section_images",
   "info": {
-    "displayName": "image"
+    "displayName": "sap-section-image"
   },
   "options": {},
   "attributes": {
     "src": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",

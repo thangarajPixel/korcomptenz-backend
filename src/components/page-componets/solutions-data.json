@@ -1,12 +1,12 @@
 {
-  "collectionName": "components_service_benefit_data",
+  "collectionName": "components_service_solutions_data",
   "info": {
-    "displayName": "benefit-data"
+    "displayName": "solutions-data"
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "text"
+      "type": "string"
     },
     "image": {
       "type": "media",
@@ -18,9 +18,12 @@
         "audios"
       ]
     },
-    "cards": {
+    "alt": {
+      "type": "string"
+    },
+    "slideContent": {
       "type": "component",
-      "component": "service.benifit-cards",
+      "component": "page-componets.slide-content",
       "repeatable": true
     }
   },

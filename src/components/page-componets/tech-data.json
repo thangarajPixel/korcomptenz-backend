@@ -1,11 +1,11 @@
 {
-  "collectionName": "components_service_solutions_data",
+  "collectionName": "components_service_tech_data",
   "info": {
-    "displayName": "solutions-data"
+    "displayName": "tech-data"
   },
   "options": {},
   "attributes": {
-    "title": {
+    "heading": {
       "type": "string"
     },
     "image": {
@@ -18,12 +18,22 @@
         "audios"
       ]
     },
+    "mobileimage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
     "alt": {
       "type": "string"
     },
-    "slideContent": {
+    "techslides": {
       "type": "component",
-      "component": "service.slide-content",
+      "component": "page-componets.solutions",
       "repeatable": true
     }
   },

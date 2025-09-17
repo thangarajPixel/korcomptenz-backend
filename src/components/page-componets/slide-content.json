@@ -10,7 +10,7 @@
     },
     "solutions": {
       "type": "component",
-      "component": "service.solutions",
+      "component": "page-componets.solutions",
       "repeatable": true
     }
   },

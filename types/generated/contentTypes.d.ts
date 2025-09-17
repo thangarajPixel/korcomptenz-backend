@@ -503,13 +503,13 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       [
         'page-componets.faq-title',
         'service.sap-section-data',
-        'service.banner-section-data',
         'service.solutions-data',
         'service.manuel-slider-data',
         'service.salesforce-services',
         'service.domain-data',
         'service.benefit-data',
         'service.build-data',
+        'page-componets.banner-section-data',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

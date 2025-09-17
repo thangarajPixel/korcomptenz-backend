@@ -1,18 +1,18 @@
 {
-  "collectionName": "components_service_image_sections",
+  "collectionName": "components_page_componets_sap_image_sections",
   "info": {
-    "displayName": "image-section"
+    "displayName": "sap-image-section"
   },
   "options": {},
   "attributes": {
     "image1": {
       "type": "component",
-      "component": "service.image",
+      "component": "page-componets.sap-section-image",
       "repeatable": false
     },
     "image2": {
       "type": "component",
-      "component": "service.image",
+      "component": "page-componets.sap-section-image",
       "repeatable": false
     }
   },

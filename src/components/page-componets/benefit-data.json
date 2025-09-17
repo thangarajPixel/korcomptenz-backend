@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_service_benefit_data",
+  "info": {
+    "displayName": "benefit-data"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "cards": {
+      "type": "component",
+      "component": "page-componets.benifit-cards",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -370,6 +370,114 @@ export interface MenuSidebarAboutus extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsBannerSectionData extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_banner_section_data';
+  info: {
+    displayName: 'Banner-section-data';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    altMobile: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    idnumber: Schema.Attribute.String;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    imageMobile: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    logo: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    logoMobile: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsBenefitData extends Struct.ComponentSchema {
+  collectionName: 'components_service_benefit_data';
+  info: {
+    displayName: 'benefit-data';
+  };
+  attributes: {
+    cards: Schema.Attribute.Component<'page-componets.benifit-cards', true>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsBenifitCards extends Struct.ComponentSchema {
+  collectionName: 'components_service_benifit_cards';
+  info: {
+    displayName: 'benifit-cards';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    idnumber: Schema.Attribute.String;
+    number: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsBuildData extends Struct.ComponentSchema {
+  collectionName: 'components_service_build_data';
+  info: {
+    displayName: 'build-data';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    imagemobile: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsCard extends Struct.ComponentSchema {
+  collectionName: 'components_service_cards';
+  info: {
+    displayName: 'card';
+  };
+  attributes: {
+    content: Schema.Attribute.String;
+    value: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsDomainData extends Struct.ComponentSchema {
+  collectionName: 'components_service_domain_data';
+  info: {
+    displayName: 'domain-data';
+  };
+  attributes: {
+    slides: Schema.Attribute.Component<'page-componets.domain-slides', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsDomainSlides extends Struct.ComponentSchema {
+  collectionName: 'components_service_domain_slides';
+  info: {
+    displayName: 'domain-slides';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    idNumber: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<['odd', 'even']>;
+  };
+}
+
 export interface PageComponetsFaq extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_faqs';
   info: {
@@ -391,6 +499,47 @@ export interface PageComponetsFaqTitle extends Struct.ComponentSchema {
   attributes: {
     faq: Schema.Attribute.Component<'page-componets.faq', true>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsImage extends Struct.ComponentSchema {
+  collectionName: 'components_service_images';
+  info: {
+    displayName: 'image';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    altMobile: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    idnumber: Schema.Attribute.String;
+    image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    imageMobile: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    logo: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    logoMobile: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsImageSection extends Struct.ComponentSchema {
+  collectionName: 'components_service_image_sections';
+  info: {
+    displayName: 'image-section';
+  };
+  attributes: {
+    image1: Schema.Attribute.Component<'page-componets.image', false>;
+    image2: Schema.Attribute.Component<'page-componets.image', false>;
   };
 }
 
@@ -455,6 +604,139 @@ export interface PageComponetsInspireSectionCard
   };
 }
 
+export interface PageComponetsManuelSliderData extends Struct.ComponentSchema {
+  collectionName: 'components_service_manuel_slider_data';
+  info: {
+    displayName: 'manuel-slider-data';
+  };
+  attributes: {
+    heading: Schema.Attribute.Text;
+    slides: Schema.Attribute.Component<'page-componets.slides', true>;
+  };
+}
+
+export interface PageComponetsSalesforce extends Struct.ComponentSchema {
+  collectionName: 'components_service_salesforces';
+  info: {
+    displayName: 'salesforce';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsSalesforceServices
+  extends Struct.ComponentSchema {
+  collectionName: 'components_service_salesforce_services';
+  info: {
+    displayName: 'salesforce-services';
+  };
+  attributes: {
+    salesforceServices: Schema.Attribute.Component<
+      'page-componets.salesforce',
+      true
+    >;
+  };
+}
+
+export interface PageComponetsSapImageSection extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_sap_image_sections';
+  info: {
+    displayName: 'sap-image-section';
+  };
+  attributes: {
+    image1: Schema.Attribute.Component<
+      'page-componets.sap-section-image',
+      false
+    >;
+    image2: Schema.Attribute.Component<
+      'page-componets.sap-section-image',
+      false
+    >;
+  };
+}
+
+export interface PageComponetsSapSectionData extends Struct.ComponentSchema {
+  collectionName: 'components_service_sap_section_data';
+  info: {
+    displayName: 'sapSection-data';
+  };
+  attributes: {
+    card: Schema.Attribute.Component<'page-componets.card', false>;
+    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.String;
+    imageSection: Schema.Attribute.Component<
+      'page-componets.sap-image-section',
+      true
+    >;
+  };
+}
+
+export interface PageComponetsSapSectionImage extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_sap_section_images';
+  info: {
+    displayName: 'sap-section-image';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    src: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface PageComponetsSlideContent extends Struct.ComponentSchema {
+  collectionName: 'components_service_slide_contents';
+  info: {
+    displayName: 'slide-content';
+  };
+  attributes: {
+    idnumber: Schema.Attribute.String;
+    solutions: Schema.Attribute.Component<'page-componets.solutions', true>;
+  };
+}
+
+export interface PageComponetsSlides extends Struct.ComponentSchema {
+  collectionName: 'components_service_slides';
+  info: {
+    displayName: 'slides';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    idNumber: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsSolutions extends Struct.ComponentSchema {
+  collectionName: 'components_service_solutions';
+  info: {
+    displayName: 'solutions';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsSolutionsData extends Struct.ComponentSchema {
+  collectionName: 'components_service_solutions_data';
+  info: {
+    displayName: 'solutions-data';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    slideContent: Schema.Attribute.Component<
+      'page-componets.slide-content',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsStickyCard extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_sticky_cards';
   info: {
@@ -480,6 +762,22 @@ export interface PageComponetsStickyCardsList extends Struct.ComponentSchema {
     buttonText: Schema.Attribute.String;
     list: Schema.Attribute.Component<'page-componets.sticky-card', true>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsTechData extends Struct.ComponentSchema {
+  collectionName: 'components_service_tech_data';
+  info: {
+    displayName: 'tech-data';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    mobileimage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    techslides: Schema.Attribute.Component<'page-componets.solutions', true>;
   };
 }
 
@@ -526,217 +824,6 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
   };
 }
 
-export interface ServiceBenefitData extends Struct.ComponentSchema {
-  collectionName: 'components_service_benefit_data';
-  info: {
-    displayName: 'benefit-data';
-  };
-  attributes: {
-    cards: Schema.Attribute.Component<'service.benifit-cards', true>;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    title: Schema.Attribute.Text;
-  };
-}
-
-export interface ServiceBenifitCards extends Struct.ComponentSchema {
-  collectionName: 'components_service_benifit_cards';
-  info: {
-    displayName: 'benifit-cards';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
-    idnumber: Schema.Attribute.String;
-    number: Schema.Attribute.String;
-  };
-}
-
-export interface ServiceBuildData extends Struct.ComponentSchema {
-  collectionName: 'components_service_build_data';
-  info: {
-    displayName: 'build-data';
-  };
-  attributes: {
-    alt: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    imagemobile: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface ServiceCard extends Struct.ComponentSchema {
-  collectionName: 'components_service_cards';
-  info: {
-    displayName: 'card';
-  };
-  attributes: {
-    content: Schema.Attribute.String;
-    value: Schema.Attribute.String;
-  };
-}
-
-export interface ServiceDomainData extends Struct.ComponentSchema {
-  collectionName: 'components_service_domain_data';
-  info: {
-    displayName: 'domain-data';
-  };
-  attributes: {
-    slides: Schema.Attribute.Component<'service.domain-slides', true>;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface ServiceDomainSlides extends Struct.ComponentSchema {
-  collectionName: 'components_service_domain_slides';
-  info: {
-    displayName: 'domain-slides';
-  };
-  attributes: {
-    alt: Schema.Attribute.String;
-    buttonText: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
-    idNumber: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    title: Schema.Attribute.String;
-    type: Schema.Attribute.Enumeration<['odd', 'even']>;
-  };
-}
-
-export interface ServiceImage extends Struct.ComponentSchema {
-  collectionName: 'components_service_images';
-  info: {
-    displayName: 'image';
-  };
-  attributes: {
-    alt: Schema.Attribute.String;
-    src: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
-  };
-}
-
-export interface ServiceImageSection extends Struct.ComponentSchema {
-  collectionName: 'components_service_image_sections';
-  info: {
-    displayName: 'image-section';
-  };
-  attributes: {
-    image1: Schema.Attribute.Component<'service.image', false>;
-    image2: Schema.Attribute.Component<'service.image', false>;
-  };
-}
-
-export interface ServiceManuelSliderData extends Struct.ComponentSchema {
-  collectionName: 'components_service_manuel_slider_data';
-  info: {
-    displayName: 'manuel-slider-data';
-  };
-  attributes: {
-    heading: Schema.Attribute.Text;
-    slides: Schema.Attribute.Component<'service.slides', true>;
-  };
-}
-
-export interface ServiceSalesforce extends Struct.ComponentSchema {
-  collectionName: 'components_service_salesforces';
-  info: {
-    displayName: 'salesforce';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface ServiceSalesforceServices extends Struct.ComponentSchema {
-  collectionName: 'components_service_salesforce_services';
-  info: {
-    displayName: 'salesforce-services';
-  };
-  attributes: {
-    salesforceServices: Schema.Attribute.Component<'service.salesforce', true>;
-  };
-}
-
-export interface ServiceSapSectionData extends Struct.ComponentSchema {
-  collectionName: 'components_service_sap_section_data';
-  info: {
-    displayName: 'sapSection-data';
-  };
-  attributes: {
-    card: Schema.Attribute.Component<'service.card', false>;
-    description: Schema.Attribute.Text;
-    heading: Schema.Attribute.String;
-    imageSection: Schema.Attribute.Component<'service.image-section', false>;
-  };
-}
-
-export interface ServiceSlideContent extends Struct.ComponentSchema {
-  collectionName: 'components_service_slide_contents';
-  info: {
-    displayName: 'slide-content';
-  };
-  attributes: {
-    idnumber: Schema.Attribute.String;
-    solutions: Schema.Attribute.Component<'service.solutions', true>;
-  };
-}
-
-export interface ServiceSlides extends Struct.ComponentSchema {
-  collectionName: 'components_service_slides';
-  info: {
-    displayName: 'slides';
-  };
-  attributes: {
-    alt: Schema.Attribute.String;
-    description: Schema.Attribute.String;
-    idNumber: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface ServiceSolutions extends Struct.ComponentSchema {
-  collectionName: 'components_service_solutions';
-  info: {
-    displayName: 'solutions';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface ServiceSolutionsData extends Struct.ComponentSchema {
-  collectionName: 'components_service_solutions_data';
-  info: {
-    displayName: 'solutions-data';
-  };
-  attributes: {
-    alt: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    slideContent: Schema.Attribute.Component<'service.slide-content', true>;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface ServiceTechData extends Struct.ComponentSchema {
-  collectionName: 'components_service_tech_data';
-  info: {
-    displayName: 'tech-data';
-  };
-  attributes: {
-    alt: Schema.Attribute.String;
-    heading: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    mobileimage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    techslides: Schema.Attribute.Component<'service.solutions', true>;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -767,33 +854,36 @@ declare module '@strapi/strapi' {
       'menu.items': MenuItems;
       'menu.section': MenuSection;
       'menu.sidebar-aboutus': MenuSidebarAboutus;
+      'page-componets.banner-section-data': PageComponetsBannerSectionData;
+      'page-componets.benefit-data': PageComponetsBenefitData;
+      'page-componets.benifit-cards': PageComponetsBenifitCards;
+      'page-componets.build-data': PageComponetsBuildData;
+      'page-componets.card': PageComponetsCard;
+      'page-componets.domain-data': PageComponetsDomainData;
+      'page-componets.domain-slides': PageComponetsDomainSlides;
       'page-componets.faq': PageComponetsFaq;
       'page-componets.faq-title': PageComponetsFaqTitle;
+      'page-componets.image': PageComponetsImage;
+      'page-componets.image-section': PageComponetsImageSection;
       'page-componets.insights-section': PageComponetsInsightsSection;
       'page-componets.insights-section-card': PageComponetsInsightsSectionCard;
       'page-componets.inspire-section': PageComponetsInspireSection;
       'page-componets.inspire-section-card': PageComponetsInspireSectionCard;
+      'page-componets.manuel-slider-data': PageComponetsManuelSliderData;
+      'page-componets.salesforce': PageComponetsSalesforce;
+      'page-componets.salesforce-services': PageComponetsSalesforceServices;
+      'page-componets.sap-image-section': PageComponetsSapImageSection;
+      'page-componets.sap-section-data': PageComponetsSapSectionData;
+      'page-componets.sap-section-image': PageComponetsSapSectionImage;
+      'page-componets.slide-content': PageComponetsSlideContent;
+      'page-componets.slides': PageComponetsSlides;
+      'page-componets.solutions': PageComponetsSolutions;
+      'page-componets.solutions-data': PageComponetsSolutionsData;
       'page-componets.sticky-card': PageComponetsStickyCard;
       'page-componets.sticky-cards-list': PageComponetsStickyCardsList;
+      'page-componets.tech-data': PageComponetsTechData;
       'seo.seo': SeoSeo;
       'service.banner-section-data': ServiceBannerSectionData;
-      'service.benefit-data': ServiceBenefitData;
-      'service.benifit-cards': ServiceBenifitCards;
-      'service.build-data': ServiceBuildData;
-      'service.card': ServiceCard;
-      'service.domain-data': ServiceDomainData;
-      'service.domain-slides': ServiceDomainSlides;
-      'service.image': ServiceImage;
-      'service.image-section': ServiceImageSection;
-      'service.manuel-slider-data': ServiceManuelSliderData;
-      'service.salesforce': ServiceSalesforce;
-      'service.salesforce-services': ServiceSalesforceServices;
-      'service.sap-section-data': ServiceSapSectionData;
-      'service.slide-content': ServiceSlideContent;
-      'service.slides': ServiceSlides;
-      'service.solutions': ServiceSolutions;
-      'service.solutions-data': ServiceSolutionsData;
-      'service.tech-data': ServiceTechData;
     }
   }
 }

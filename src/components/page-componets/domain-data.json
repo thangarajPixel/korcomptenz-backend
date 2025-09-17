@@ -10,7 +10,7 @@
     },
     "slides": {
       "type": "component",
-      "component": "service.domain-slides",
+      "component": "page-componets.domain-slides",
       "repeatable": true
     }
   },
