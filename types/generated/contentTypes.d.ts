@@ -501,15 +501,18 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     list: Schema.Attribute.DynamicZone<
       [
+        'page-componets.banner-section-list',
+        'page-componets.sap-section-data',
+        'page-componets.solutions-data',
+        'page-componets.salesforce-services',
+        'page-componets.domain-data',
+        'page-componets.benefit-data',
+        'page-componets.build-data',
+        'page-componets.inspire-section',
         'page-componets.faq-title',
-        'service.sap-section-data',
-        'service.solutions-data',
-        'service.manuel-slider-data',
-        'service.salesforce-services',
-        'service.domain-data',
-        'service.benefit-data',
-        'service.build-data',
-        'page-componets.banner-section-data',
+        'page-componets.dark-slider-list',
+        'page-componets.light-slider-list',
+        'page-componets.sticky-title-list',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

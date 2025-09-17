@@ -18,18 +18,6 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
   };
 }
 
-export interface HomeBanner extends Struct.ComponentSchema {
-  collectionName: 'components_home_banners';
-  info: {
-    displayName: 'banner';
-  };
-  attributes: {
-    button: Schema.Attribute.String;
-    content: Schema.Attribute.Component<'global.global-field', true>;
-    h1: Schema.Attribute.String;
-  };
-}
-
 export interface HomeCompanyDetail extends Struct.ComponentSchema {
   collectionName: 'components_home_company_details';
   info: {
@@ -164,10 +152,7 @@ export interface HomeWeAreKorcomptenz extends Struct.ComponentSchema {
     icon: 'code';
   };
   attributes: {
-    image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     link: Schema.Attribute.String;
     p1: Schema.Attribute.Text;
     p2: Schema.Attribute.Text;
@@ -373,13 +358,10 @@ export interface MenuSidebarAboutus extends Struct.ComponentSchema {
 export interface PageComponetsBannerSectionData extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_banner_section_data';
   info: {
-    displayName: 'Banner-section-data';
+    displayName: 'banner-section';
   };
   attributes: {
-    alt: Schema.Attribute.String;
-    altMobile: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    idnumber: Schema.Attribute.String;
     image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
@@ -397,6 +379,17 @@ export interface PageComponetsBannerSectionData extends Struct.ComponentSchema {
       true
     >;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsBannerSectionList extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_banner_section_lists';
+  info: {
+    displayName: 'banner-section-list';
+    icon: 'book';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'service.banner-section-data', true>;
   };
 }
 
@@ -448,6 +441,31 @@ export interface PageComponetsCard extends Struct.ComponentSchema {
   attributes: {
     content: Schema.Attribute.String;
     value: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsDarkSliderCard extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_dark_slider_cards';
+  info: {
+    displayName: 'dark-slider-card';
+    icon: 'briefcase';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsDarkSliderList extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_dark_slider_lists';
+  info: {
+    displayName: 'dark-slider-list';
+    icon: 'briefcase';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    slides: Schema.Attribute.Component<'page-componets.dark-slider-card', true>;
   };
 }
 
@@ -604,14 +622,41 @@ export interface PageComponetsInspireSectionCard
   };
 }
 
-export interface PageComponetsManuelSliderData extends Struct.ComponentSchema {
-  collectionName: 'components_service_manuel_slider_data';
+export interface PageComponetsLightSliderCard extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_light_slider_cards';
   info: {
-    displayName: 'manuel-slider-data';
+    displayName: 'light-slider-card';
+    icon: 'briefcase';
   };
   attributes: {
-    heading: Schema.Attribute.Text;
-    slides: Schema.Attribute.Component<'page-componets.slides', true>;
+    solutions: Schema.Attribute.Component<
+      'page-componets.light-slider-group-list',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsLightSliderGroupList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_light_slider_group_lists';
+  info: {
+    displayName: 'light-slider-group-list';
+    icon: 'collapse';
+  };
+  attributes: {};
+}
+
+export interface PageComponetsLightSliderList extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_light_slider_lists';
+  info: {
+    displayName: 'light-slider-list';
+    icon: 'briefcase';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    list: Schema.Attribute.Component<'page-componets.light-slider-card', true>;
+    title: Schema.Attribute.Text;
   };
 }
 
@@ -661,7 +706,7 @@ export interface PageComponetsSapImageSection extends Struct.ComponentSchema {
 export interface PageComponetsSapSectionData extends Struct.ComponentSchema {
   collectionName: 'components_service_sap_section_data';
   info: {
-    displayName: 'sapSection-data';
+    displayName: 'sap-section-data';
   };
   attributes: {
     card: Schema.Attribute.Component<'page-componets.card', false>;
@@ -693,20 +738,6 @@ export interface PageComponetsSlideContent extends Struct.ComponentSchema {
   attributes: {
     idnumber: Schema.Attribute.String;
     solutions: Schema.Attribute.Component<'page-componets.solutions', true>;
-  };
-}
-
-export interface PageComponetsSlides extends Struct.ComponentSchema {
-  collectionName: 'components_service_slides';
-  info: {
-    displayName: 'slides';
-  };
-  attributes: {
-    alt: Schema.Attribute.String;
-    description: Schema.Attribute.String;
-    idNumber: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -762,6 +793,30 @@ export interface PageComponetsStickyCardsList extends Struct.ComponentSchema {
     buttonText: Schema.Attribute.String;
     list: Schema.Attribute.Component<'page-componets.sticky-card', true>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsStickyTitleCard extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_sticky_title_cards';
+  info: {
+    displayName: 'sticky-title-card';
+    icon: 'briefcase';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsStickyTitleList extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_sticky_title_lists';
+  info: {
+    displayName: 'sticky-title-list';
+    icon: 'briefcase';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'page-componets.sticky-title-card', true>;
   };
 }
 
@@ -828,7 +883,6 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'global.global-field': GlobalGlobalField;
-      'home.banner': HomeBanner;
       'home.company-detail': HomeCompanyDetail;
       'home.header': HomeHeader;
       'home.hero-section-one': HomeHeroSectionOne;
@@ -855,10 +909,13 @@ declare module '@strapi/strapi' {
       'menu.section': MenuSection;
       'menu.sidebar-aboutus': MenuSidebarAboutus;
       'page-componets.banner-section-data': PageComponetsBannerSectionData;
+      'page-componets.banner-section-list': PageComponetsBannerSectionList;
       'page-componets.benefit-data': PageComponetsBenefitData;
       'page-componets.benifit-cards': PageComponetsBenifitCards;
       'page-componets.build-data': PageComponetsBuildData;
       'page-componets.card': PageComponetsCard;
+      'page-componets.dark-slider-card': PageComponetsDarkSliderCard;
+      'page-componets.dark-slider-list': PageComponetsDarkSliderList;
       'page-componets.domain-data': PageComponetsDomainData;
       'page-componets.domain-slides': PageComponetsDomainSlides;
       'page-componets.faq': PageComponetsFaq;
@@ -869,18 +926,21 @@ declare module '@strapi/strapi' {
       'page-componets.insights-section-card': PageComponetsInsightsSectionCard;
       'page-componets.inspire-section': PageComponetsInspireSection;
       'page-componets.inspire-section-card': PageComponetsInspireSectionCard;
-      'page-componets.manuel-slider-data': PageComponetsManuelSliderData;
+      'page-componets.light-slider-card': PageComponetsLightSliderCard;
+      'page-componets.light-slider-group-list': PageComponetsLightSliderGroupList;
+      'page-componets.light-slider-list': PageComponetsLightSliderList;
       'page-componets.salesforce': PageComponetsSalesforce;
       'page-componets.salesforce-services': PageComponetsSalesforceServices;
       'page-componets.sap-image-section': PageComponetsSapImageSection;
       'page-componets.sap-section-data': PageComponetsSapSectionData;
       'page-componets.sap-section-image': PageComponetsSapSectionImage;
       'page-componets.slide-content': PageComponetsSlideContent;
-      'page-componets.slides': PageComponetsSlides;
       'page-componets.solutions': PageComponetsSolutions;
       'page-componets.solutions-data': PageComponetsSolutionsData;
       'page-componets.sticky-card': PageComponetsStickyCard;
       'page-componets.sticky-cards-list': PageComponetsStickyCardsList;
+      'page-componets.sticky-title-card': PageComponetsStickyTitleCard;
+      'page-componets.sticky-title-list': PageComponetsStickyTitleList;
       'page-componets.tech-data': PageComponetsTechData;
       'seo.seo': SeoSeo;
       'service.banner-section-data': ServiceBannerSectionData;

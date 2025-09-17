@@ -1,13 +1,11 @@
 {
-  "collectionName": "components_service_slides",
+  "collectionName": "components_page_componets_dark_slider_cards",
   "info": {
-    "displayName": "slides"
+    "displayName": "dark-slider-card",
+    "icon": "briefcase"
   },
   "options": {},
   "attributes": {
-    "idNumber": {
-      "type": "string"
-    },
     "image": {
       "type": "media",
       "multiple": false,
@@ -17,9 +15,6 @@
         "videos",
         "audios"
       ]
-    },
-    "alt": {
-      "type": "string"
     },
     "title": {
       "type": "string"

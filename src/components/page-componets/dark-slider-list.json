@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_componets_dark_slider_lists",
+  "info": {
+    "displayName": "dark-slider-list",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "slides": {
+      "type": "component",
+      "component": "page-componets.dark-slider-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

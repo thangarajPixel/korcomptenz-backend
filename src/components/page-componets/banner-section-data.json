@@ -1,13 +1,10 @@
 {
   "collectionName": "components_page_componets_banner_section_data",
   "info": {
-    "displayName": "Banner-section-data"
+    "displayName": "banner-section"
   },
   "options": {},
   "attributes": {
-    "idnumber": {
-      "type": "string"
-    },
     "imageMobile": {
       "type": "media",
       "multiple": true,
@@ -28,9 +25,6 @@
         "audios"
       ]
     },
-    "alt": {
-      "type": "string"
-    },
     "logo": {
       "type": "media",
       "multiple": true,
@@ -50,9 +44,6 @@
         "videos",
         "audios"
       ]
-    },
-    "altMobile": {
-      "type": "string"
     },
     "title": {
       "type": "string"
