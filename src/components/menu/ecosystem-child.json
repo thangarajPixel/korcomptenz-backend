@@ -7,11 +7,6 @@
   "attributes": {
     "title": {
       "type": "string"
-    },
-    "ecosystem_discriptions": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::ecosystemdiscription.ecosystemdiscription"
     }
   },
   "config": {}

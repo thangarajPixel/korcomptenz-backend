@@ -21,11 +21,6 @@
       "component": "home.company-detail",
       "repeatable": false
     },
-    "button": {
-      "type": "component",
-      "component": "home.button-header",
-      "repeatable": false
-    },
     "serviceData": {
       "type": "component",
       "component": "menu.section",

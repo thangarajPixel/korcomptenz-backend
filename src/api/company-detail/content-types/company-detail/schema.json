@@ -14,11 +14,6 @@
     "companyName": {
       "type": "string"
     },
-    "social_medias": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::social-media.social-media"
-    },
     "companyLogo": {
       "type": "media",
       "multiple": false,

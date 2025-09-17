@@ -5,16 +5,6 @@
   },
   "options": {},
   "attributes": {
-    "about_us": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::about-us.about-us"
-    },
-    "who_we_are": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::who-we-are.who-we-are"
-    },
     "navigationItems": {
       "type": "component",
       "component": "menu.aboutus-navigationitems",

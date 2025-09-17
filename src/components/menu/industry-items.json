@@ -34,11 +34,6 @@
         "side",
         "down"
       ]
-    },
-    "items": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::ecosystemdiscription.ecosystemdiscription"
     }
   },
   "config": {}
