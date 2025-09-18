@@ -95,6 +95,15 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   list: { image: true, position: true },
                 },
               },
+              'page-componets.demonstrate-section': {
+                populate: {
+                  list: {
+                    populate: {
+                      populate:'*'
+                    }
+                  }
+                },
+              },
             },
           },
           seo: true,
@@ -233,12 +242,18 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
-              'page-componets.demonstrate-section': {
+             'page-componets.demonstrate-section': {
                 populate: {
-                  list: true
+                  list: {
+                    populate:{
+                      image:true
+                    }
+                  }
                 }
-              }
+              },
+
             },
+       
           },
           seo: true,
         }
