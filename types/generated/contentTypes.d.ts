@@ -514,6 +514,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.light-slider-list',
         'page-componets.sticky-title-list',
         'page-componets.insights-section',
+        'page-componets.demonstrate-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

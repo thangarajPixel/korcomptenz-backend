@@ -469,6 +469,35 @@ export interface PageComponetsDarkSliderList extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsDemonstrateCard extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_demonstrate_cards';
+  info: {
+    displayName: 'demonstrate-card';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsDemonstrateSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_demonstrate_sections';
+  info: {
+    displayName: 'demonstrate-section';
+    icon: 'clock';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+    list: Schema.Attribute.Component<'page-componets.demonstrate-card', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsDomainData extends Struct.ComponentSchema {
   collectionName: 'components_service_domain_data';
   info: {
@@ -916,6 +945,8 @@ declare module '@strapi/strapi' {
       'page-componets.card': PageComponetsCard;
       'page-componets.dark-slider-card': PageComponetsDarkSliderCard;
       'page-componets.dark-slider-list': PageComponetsDarkSliderList;
+      'page-componets.demonstrate-card': PageComponetsDemonstrateCard;
+      'page-componets.demonstrate-section': PageComponetsDemonstrateSection;
       'page-componets.domain-data': PageComponetsDomainData;
       'page-componets.domain-slides': PageComponetsDomainSlides;
       'page-componets.faq': PageComponetsFaq;
