@@ -187,7 +187,6 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   list: {
                     populate: {
                       image: true,
-                      position: true,
                     },
                   }
                 }
@@ -199,7 +198,11 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               },
               'page-componets.dark-slider-list': {
                 populate: {
-                  slides: { image: true },
+                  slides: {
+                    populate: {
+                      image: true
+                    }
+                  },
                 },
               },
               'page-componets.light-slider-list': {
@@ -210,12 +213,20 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               },
               'page-componets.sticky-title-list': {
                 populate: {
-                  list: { image: true },
+                  list: {
+                    populate: {
+                      image: true
+                    }
+                  },
                 },
               },
               'page-componets.insights-section': {
                 populate: {
-                  list: { image: true, position: true },
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
                 },
               },
               'page-componets.demonstrate-section': {

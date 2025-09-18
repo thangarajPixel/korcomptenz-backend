@@ -10,6 +10,9 @@
       "type": "component",
       "component": "page-componets.sticky-title-card",
       "repeatable": true
+    },
+    "title": {
+      "type": "string"
     }
   },
   "config": {}

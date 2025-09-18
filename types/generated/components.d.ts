@@ -856,6 +856,7 @@ export interface PageComponetsStickyTitleList extends Struct.ComponentSchema {
   };
   attributes: {
     list: Schema.Attribute.Component<'page-componets.sticky-title-card', true>;
+    title: Schema.Attribute.String;
   };
 }
 
