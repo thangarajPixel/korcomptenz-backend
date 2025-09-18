@@ -167,7 +167,11 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               },
               'page-componets.domain-data': {
                 populate: {
-                  slides: { image: true },
+                  slides: {
+                    populate: {
+                      image: true
+                    }
+                  },
                 },
               },
               'page-componets.benefit-data': {
