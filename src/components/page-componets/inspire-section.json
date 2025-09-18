@@ -12,7 +12,10 @@
     "list": {
       "type": "component",
       "component": "page-componets.inspire-section-card",
-      "repeatable": true
+      "repeatable": true,
+      "required": true,
+      "min": 2,
+      "max": 5
     },
     "buttonText": {
       "type": "string"

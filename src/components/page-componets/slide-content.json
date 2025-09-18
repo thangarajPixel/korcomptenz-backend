@@ -5,9 +5,6 @@
   },
   "options": {},
   "attributes": {
-    "idnumber": {
-      "type": "string"
-    },
     "solutions": {
       "type": "component",
       "component": "page-componets.solutions",

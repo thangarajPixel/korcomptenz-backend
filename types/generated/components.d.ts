@@ -436,7 +436,7 @@ export interface PageComponetsBuildData extends Struct.ComponentSchema {
 export interface PageComponetsCard extends Struct.ComponentSchema {
   collectionName: 'components_service_cards';
   info: {
-    displayName: 'card';
+    displayName: 'sap-card-detail';
   };
   attributes: {
     content: Schema.Attribute.String;
@@ -602,7 +602,15 @@ export interface PageComponetsInspireSection extends Struct.ComponentSchema {
     list: Schema.Attribute.Component<
       'page-componets.inspire-section-card',
       true
-    >;
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 5;
+          min: 2;
+        },
+        number
+      >;
     title: Schema.Attribute.String;
   };
 }
@@ -644,7 +652,10 @@ export interface PageComponetsLightSliderGroupList
     displayName: 'light-slider-group-list';
     icon: 'collapse';
   };
-  attributes: {};
+  attributes: {
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
 }
 
 export interface PageComponetsLightSliderList extends Struct.ComponentSchema {
@@ -736,7 +747,6 @@ export interface PageComponetsSlideContent extends Struct.ComponentSchema {
     displayName: 'slide-content';
   };
   attributes: {
-    idnumber: Schema.Attribute.String;
     solutions: Schema.Attribute.Component<'page-componets.solutions', true>;
   };
 }

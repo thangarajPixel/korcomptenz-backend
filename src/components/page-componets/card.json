@@ -1,7 +1,7 @@
 {
   "collectionName": "components_service_cards",
   "info": {
-    "displayName": "card"
+    "displayName": "sap-card-detail"
   },
   "options": {},
   "attributes": {
