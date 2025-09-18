@@ -515,13 +515,10 @@ export interface PageComponetsDomainSlides extends Struct.ComponentSchema {
     displayName: 'domain-slides';
   };
   attributes: {
-    alt: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    idNumber: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Schema.Attribute.String;
-    type: Schema.Attribute.Enumeration<['odd', 'even']>;
   };
 }
 
