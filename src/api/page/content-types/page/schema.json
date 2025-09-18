@@ -25,7 +25,8 @@
         "page-componets.faq-title",
         "page-componets.dark-slider-list",
         "page-componets.light-slider-list",
-        "page-componets.sticky-title-list"
+        "page-componets.sticky-title-list",
+        "page-componets.insights-section"
       ]
     },
     "seo": {

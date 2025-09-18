@@ -623,8 +623,10 @@ export interface PageComponetsInspireSectionCard
     icon: 'chartBubble';
   };
   attributes: {
+    buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.String;
     position: Schema.Attribute.Enumeration<['bottom', 'top', 'topAbove']>;
     title: Schema.Attribute.String;
   };
