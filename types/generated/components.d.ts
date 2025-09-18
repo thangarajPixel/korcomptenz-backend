@@ -526,10 +526,7 @@ export interface PageComponetsImage extends Struct.ComponentSchema {
     displayName: 'image';
   };
   attributes: {
-    alt: Schema.Attribute.String;
-    altMobile: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    idnumber: Schema.Attribute.String;
     image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
@@ -727,7 +724,7 @@ export interface PageComponetsSapSectionData extends Struct.ComponentSchema {
     heading: Schema.Attribute.String;
     imageSection: Schema.Attribute.Component<
       'page-componets.sap-image-section',
-      true
+      false
     >;
   };
 }
@@ -814,8 +811,10 @@ export interface PageComponetsStickyTitleCard extends Struct.ComponentSchema {
     icon: 'briefcase';
   };
   attributes: {
+    buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }

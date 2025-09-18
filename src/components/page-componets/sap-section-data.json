@@ -19,7 +19,7 @@
     "imageSection": {
       "type": "component",
       "component": "page-componets.sap-image-section",
-      "repeatable": true
+      "repeatable": false
     }
   },
   "config": {}
