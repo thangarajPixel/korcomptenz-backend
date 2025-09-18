@@ -10,7 +10,7 @@
     },
     "imageMobile": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",
@@ -20,7 +20,7 @@
     },
     "image": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",
@@ -28,12 +28,9 @@
         "audios"
       ]
     },
-    "alt": {
-      "type": "string"
-    },
     "logo": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",
@@ -43,16 +40,13 @@
     },
     "logoMobile": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
       ]
-    },
-    "altMobile": {
-      "type": "string"
     },
     "title": {
       "type": "string"

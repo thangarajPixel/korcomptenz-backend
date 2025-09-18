@@ -15,60 +15,84 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
         populate: {
           list: {
             on: {
-              'page-componets.faq-title': { populate: true },
-
-              'service.sap-section-data': {
+              'page-componets.banner-section-list': {
+                list: {
+                  populate: {
+                    imageMobile: true,
+                    image: true,
+                    logo: true,
+                    logoMobile: true,
+                  },
+                }
+              },
+              'page-componets.sap-section-data': {
                 populate: {
                   imageSection: { populate: true },
                   card: { populate: true },
                 },
               },
-
-              'service.banner-section-data': {
-                populate: {
-                  imageMobile: true,
-                  image: true,
-                  logo: true,
-                  logoMobile: true,
-                },
-              },
-
-              'service.solutions-data': {
+              'page-componets.solutions-data': {
                 populate: {
                   image: true,
                   slideContent: { populate: true },
                 },
               },
-
-              'service.manuel-slider-data': {
+              'page-componets.salesforce-services': {
                 populate: {
-                  slides: { populate: true },
+                  salesforceServices: { image: true },
                 },
               },
-
-              'service.salesforce-services': {
+              'page-componets.domain-data': {
                 populate: {
-                  salesforceServices: { populate: true },
+                  slides: { image: true },
                 },
               },
-
-              'service.domain-data': {
-                populate: {
-                  slides: { populate: true },
-                },
-              },
-
-              'service.benefit-data': {
+              'page-componets.benefit-data': {
                 populate: {
                   image: true,
                   cards: { populate: true },
                 },
               },
-
-              'service.build-data': {
+              'page-componets.build-data': {
                 populate: {
                   image: true,
                   imagemobile: true,
+                },
+              },
+              'page-componets.inspire-section': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                      position: true,
+                    },
+                  }
+                }
+              },
+              'page-componets.faq-title': {
+                populate: {
+                  faq: true
+                }
+              },
+              'page-componets.dark-slider-list': {
+                populate: {
+                  slides: { image: true },
+                },
+              },
+              'page-componets.light-slider-list': {
+                populate: {
+                  list: { solutions: true },
+                  image: true
+                },
+              },
+              'page-componets.sticky-title-list': {
+                populate: {
+                  list: { image: true },
+                },
+              },
+              'page-componets.insights-section': {
+                populate: {
+                  list: { image: true, position: true },
                 },
               },
             },
@@ -88,71 +112,110 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
   async findOneBySlug(ctx) {
     try {
       const { slug } = ctx.query as { slug: string[] };
-      console.log(slug)
       const customSlug = slug?.join('/');
       if (!customSlug) {
         return ctx.badRequest('Slug parameter is required');
       }
-
       const entity = await strapi.db.query('api::page.page').findOne({
-        where: { slug: slug ? `/${customSlug}` : '/' },
+        where: {
+          slug:
+            slug ? `/${customSlug}` : '/'
+        },
         populate: {
           list: {
             on: {
-              'page-componets.faq-title': { populate: true },
-
-              'service.sap-section-data': {
+              'page-componets.banner-section-list': {
                 populate: {
-                  imageSection: { populate: true },
+                  list: {
+                    populate: {
+                      imageMobile: true,
+                      image: true,
+                      logo: true,
+                      logoMobile: true,
+                    }
+                  },
+                }
+              },
+              'page-componets.sap-section-data': {
+                populate: {
+                  imageSection: {
+                    populate: {
+                      image1: {
+                        populate: {
+                          image: true,
+                        }
+                      }, image2: {
+                        populate: {
+                          image: true,
+                        }
+                      }
+                    }
+                  },
                   card: { populate: true },
                 },
               },
-
-              'service.banner-section-data': {
-                populate: {
-                  imageMobile: true,
-                  image: true,
-                  logo: true,
-                  logoMobile: true,
-                },
-              },
-
-              'service.solutions-data': {
+              'page-componets.solutions-data': {
                 populate: {
                   image: true,
                   slideContent: { populate: true },
                 },
               },
-
-              'service.manuel-slider-data': {
+              'page-componets.salesforce-services': {
                 populate: {
-                  slides: { populate: true },
+                  salesforceServices: { image: true },
                 },
               },
-
-              'service.salesforce-services': {
+              'page-componets.domain-data': {
                 populate: {
-                  salesforceServices: { populate: true },
+                  slides: { image: true },
                 },
               },
-
-              'service.domain-data': {
-                populate: {
-                  slides: { populate: true },
-                },
-              },
-
-              'service.benefit-data': {
+              'page-componets.benefit-data': {
                 populate: {
                   image: true,
                   cards: { populate: true },
                 },
               },
-
-              'service.build-data': {
+              'page-componets.build-data': {
                 populate: {
                   image: true,
                   imagemobile: true,
+                },
+              },
+              'page-componets.inspire-section': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                      position: true,
+                    },
+                  }
+                }
+              },
+              'page-componets.faq-title': {
+                populate: {
+                  faq: true
+                }
+              },
+              'page-componets.dark-slider-list': {
+                populate: {
+                  slides: { image: true },
+                },
+              },
+              'page-componets.light-slider-list': {
+                populate: {
+                  list: { populate: { solutions: true } },
+                  image: true
+                },
+              },
+              'page-componets.sticky-title-list': {
+                populate: {
+                  list: { image: true },
+                },
+              },
+              'page-componets.insights-section': {
+                populate: {
+                  list: { image: true, position: true },
                 },
               },
             },

@@ -738,8 +738,7 @@ export interface PageComponetsSapSectionImage extends Struct.ComponentSchema {
     displayName: 'sap-section-image';
   };
   attributes: {
-    alt: Schema.Attribute.String;
-    src: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -867,25 +866,15 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
     displayName: 'Banner-section-data';
   };
   attributes: {
-    alt: Schema.Attribute.String;
-    altMobile: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     idnumber: Schema.Attribute.String;
-    image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     imageMobile: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
+      'images' | 'files' | 'videos' | 'audios'
     >;
-    logo: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     logoMobile: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
+      'images' | 'files' | 'videos' | 'audios'
     >;
     title: Schema.Attribute.String;
   };

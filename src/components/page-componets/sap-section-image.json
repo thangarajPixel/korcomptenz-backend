@@ -5,7 +5,7 @@
   },
   "options": {},
   "attributes": {
-    "src": {
+    "image": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -14,9 +14,6 @@
         "videos",
         "audios"
       ]
-    },
-    "alt": {
-      "type": "string"
     }
   },
   "config": {}
