@@ -423,13 +423,23 @@ export interface PageComponetsBuildData extends Struct.ComponentSchema {
     displayName: 'build-data';
   };
   attributes: {
-    alt: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    imagemobile: Schema.Attribute.Media<
+    link: Schema.Attribute.String;
+    mobileImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsBuildDatas extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_build_datas';
+  info: {
+    displayName: 'build-datas';
+  };
+  attributes: {
+    buildData: Schema.Attribute.Component<'page-componets.build-data', false>;
   };
 }
 
@@ -863,7 +873,6 @@ export interface PageComponetsTechData extends Struct.ComponentSchema {
     displayName: 'tech-data';
   };
   attributes: {
-    alt: Schema.Attribute.String;
     heading: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     mobileimage: Schema.Attribute.Media<
@@ -893,7 +902,6 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    idnumber: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     imageMobile: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
@@ -940,6 +948,7 @@ declare module '@strapi/strapi' {
       'page-componets.benefit-data': PageComponetsBenefitData;
       'page-componets.benifit-cards': PageComponetsBenifitCards;
       'page-componets.build-data': PageComponetsBuildData;
+      'page-componets.build-datas': PageComponetsBuildDatas;
       'page-componets.card': PageComponetsCard;
       'page-componets.dark-slider-card': PageComponetsDarkSliderCard;
       'page-componets.dark-slider-list': PageComponetsDarkSliderList;

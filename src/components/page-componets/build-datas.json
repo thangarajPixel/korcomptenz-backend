@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_page_componets_build_datas",
+  "info": {
+    "displayName": "build-datas"
+  },
+  "options": {},
+  "attributes": {
+    "buildData": {
+      "type": "component",
+      "component": "page-componets.build-data",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

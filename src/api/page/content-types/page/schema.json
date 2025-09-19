@@ -27,7 +27,10 @@
         "page-componets.light-slider-list",
         "page-componets.sticky-title-list",
         "page-componets.insights-section",
-        "page-componets.demonstrate-section"
+        "page-componets.demonstrate-section",
+        "page-componets.sticky-cards-list",
+        "page-componets.build-datas",
+        "page-componets.tech-data"
       ]
     },
     "seo": {

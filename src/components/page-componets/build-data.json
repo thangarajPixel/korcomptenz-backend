@@ -21,7 +21,7 @@
         "audios"
       ]
     },
-    "imagemobile": {
+    "mobileImage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -31,7 +31,7 @@
         "audios"
       ]
     },
-    "alt": {
+    "link": {
       "type": "string"
     }
   },
