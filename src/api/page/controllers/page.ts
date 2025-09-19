@@ -3,111 +3,12 @@
  */
 
 import { factories } from '@strapi/strapi'
-import qs from 'qs';
-
-
 
 export default factories.createCoreController('api::page.page', ({ strapi }) => ({
   async find(ctx) {
     try {
       ctx.query = {
         ...ctx.query,
-        populate: {
-          list: {
-            on: {
-              'page-componets.banner-section-list': {
-                list: {
-                  populate: {
-                    imageMobile: true,
-                    image: true,
-                    logo: true,
-                    logoMobile: true,
-                  },
-                }
-              },
-              'page-componets.sap-section-data': {
-                populate: {
-                  imageSection: { populate: true },
-                  card: { populate: true },
-                },
-              },
-              'page-componets.solutions-data': {
-                populate: {
-                  image: true,
-                  slideContent: { populate: true },
-                },
-              },
-              'page-componets.salesforce-services': {
-                populate: {
-                  salesforceServices: { image: true },
-                },
-              },
-              'page-componets.domain-data': {
-                populate: {
-                  slides: { image: true },
-                },
-              },
-              'page-componets.benefit-data': {
-                populate: {
-                  image: true,
-                  cards: { populate: true },
-                },
-              },
-              'page-componets.build-data': {
-                populate: {
-                  image: true,
-                  imagemobile: true,
-                },
-              },
-              'page-componets.inspire-section': {
-                populate: {
-                  list: {
-                    populate: {
-                      image: true,
-                      position: true,
-                    },
-                  }
-                }
-              },
-              'page-componets.faq-title': {
-                populate: {
-                  faq: true
-                }
-              },
-              'page-componets.dark-slider-list': {
-                populate: {
-                  slides: { image: true },
-                },
-              },
-              'page-componets.light-slider-list': {
-                populate: {
-                  list: { solutions: true },
-                  image: true
-                },
-              },
-              'page-componets.sticky-title-list': {
-                populate: {
-                  list: { image: true },
-                },
-              },
-              'page-componets.insights-section': {
-                populate: {
-                  list: { image: true, position: true },
-                },
-              },
-              'page-componets.demonstrate-section': {
-                populate: {
-                  list: {
-                    populate: {
-                      populate:'*'
-                    }
-                  }
-                },
-              },
-            },
-          },
-          seo: true,
-        }
       };
 
       const { results, pagination } = await strapi.service('api::page.page').find(ctx.query);
@@ -242,18 +143,18 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
-             'page-componets.demonstrate-section': {
+              'page-componets.demonstrate-section': {
                 populate: {
                   list: {
-                    populate:{
-                      image:true
+                    populate: {
+                      image: true
                     }
                   }
                 }
               },
 
             },
-       
+
           },
           seo: true,
         }
