@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_service_cards",
+  "info": {
+    "displayName": "sap-card-detail"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

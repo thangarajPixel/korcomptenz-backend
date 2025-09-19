@@ -3,36 +3,170 @@
  */
 
 import { factories } from '@strapi/strapi'
-import qs from 'qs';
 
-
-export default factories.createCoreController('api::page.page',({ strapi }) => ({
+export default factories.createCoreController('api::page.page', ({ strapi }) => ({
   async find(ctx) {
-    const populateQuery = qs.stringify({
-      populate: {
-        // list: {
-        //   populate: {
-        //     image: true,
-        //   },
-        
-        // },
-    //    service_sections: {
-    //       populate: {
-    //          image: true,
-    //       },
-    //     },
-      },
-    }, {
-      encode: false,
-    })
+    try {
+      ctx.query = {
+        ...ctx.query,
+      };
 
-    ctx.query = {
-      ...ctx.query,
-      ...qs.parse(populateQuery),
-    };
+      const { results, pagination } = await strapi.service('api::page.page').find(ctx.query);
 
-    // Calling the default core action
-    const { data, meta } = await super.find(ctx);
-    return { data: { ...data }, meta };
-  }
+      return { data: results, meta: { pagination } };
+    } catch (error) {
+      strapi.log.error('Page find error:', error);
+      return ctx.internalServerError('Failed to fetch page data');
+    }
+  },
+  async findOneBySlug(ctx) {
+    try {
+      const { slug } = ctx.query as { slug: string[] };
+      const customSlug = slug?.join('/');
+      if (!customSlug) {
+        return ctx.badRequest('Slug parameter is required');
+      }
+      const entity = await strapi.db.query('api::page.page').findOne({
+        where: {
+          slug:
+            slug ? `/${customSlug}` : '/'
+        },
+        populate: {
+          list: {
+            on: {
+              'page-componets.banner-section-list': {
+                populate: {
+                  list: {
+                    populate: {
+                      imageMobile: true,
+                      image: true,
+                      logo: true,
+                      logoMobile: true,
+                    }
+                  },
+                }
+              },
+              'page-componets.sap-section-data': {
+                populate: {
+                  imageSection: {
+                    populate: {
+                      image1: {
+                        populate: {
+                          image: true,
+                        }
+                      }, image2: {
+                        populate: {
+                          image: true,
+                        }
+                      }
+                    }
+                  },
+                  card: { populate: true },
+                },
+              },
+              'page-componets.solutions-data': {
+                populate: {
+                  image: true,
+                  slideContent: { populate: true },
+                },
+              },
+              'page-componets.salesforce-services': {
+                populate: {
+                  salesforceServices: { image: true },
+                },
+              },
+              'page-componets.domain-data': {
+                populate: {
+                  slides: {
+                    populate: {
+                      image: true
+                    }
+                  },
+                },
+              },
+              'page-componets.benefit-data': {
+                populate: {
+                  image: true,
+                  cards: { populate: true },
+                },
+              },
+              'page-componets.build-data': {
+                populate: {
+                  image: true,
+                  imagemobile: true,
+                },
+              },
+              'page-componets.inspire-section': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  }
+                }
+              },
+              'page-componets.faq-title': {
+                populate: {
+                  faq: true
+                }
+              },
+              'page-componets.dark-slider-list': {
+                populate: {
+                  slides: {
+                    populate: {
+                      image: true
+                    }
+                  },
+                },
+              },
+              'page-componets.light-slider-list': {
+                populate: {
+                  list: { populate: { solutions: true } },
+                  image: true
+                },
+              },
+              'page-componets.sticky-title-list': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true
+                    }
+                  },
+                },
+              },
+              'page-componets.insights-section': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
+              'page-componets.demonstrate-section': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true
+                    }
+                  }
+                }
+              },
+
+            },
+
+          },
+          seo: true,
+        }
+      });
+
+      if (!entity) {
+        return ctx.notFound('Page not found');
+      }
+      const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+      return this.transformResponse(sanitizedEntity);
+    } catch (error) {
+      return ctx.internalServerError('An error occurred while fetching the page');
+    }
+  },
 }));

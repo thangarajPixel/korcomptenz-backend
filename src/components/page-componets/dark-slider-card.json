@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_page_componets_dark_slider_cards",
+  "info": {
+    "displayName": "dark-slider-card",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

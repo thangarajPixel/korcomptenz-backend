@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_page_componets_faqs",
+  "info": {
+    "displayName": "faq",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

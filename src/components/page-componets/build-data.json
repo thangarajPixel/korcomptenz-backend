@@ -1,13 +1,12 @@
 {
-  "collectionName": "components_global_global_fields",
+  "collectionName": "components_service_build_data",
   "info": {
-    "displayName": "global-field",
-    "icon": "refresh"
+    "displayName": "build-data"
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "text"
+      "type": "string"
     },
     "description": {
       "type": "text"
@@ -17,27 +16,22 @@
       "multiple": false,
       "allowedTypes": [
         "images",
-        "files"
+        "files",
+        "videos",
+        "audios"
       ]
     },
-    "mobile_image": {
+    "imagemobile": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
         "images",
-        "files"
+        "files",
+        "videos",
+        "audios"
       ]
     },
-    "subtitle": {
-      "type": "string"
-    },
-    "buttonText": {
-      "type": "string"
-    },
-    "link": {
-      "type": "string"
-    },
-    "subTitleTwo": {
+    "alt": {
       "type": "string"
     }
   },

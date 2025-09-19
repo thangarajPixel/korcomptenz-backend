@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_menu_ecosystem_children",
+  "info": {
+    "displayName": "ecosystem-child"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

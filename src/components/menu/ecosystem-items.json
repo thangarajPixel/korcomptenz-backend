@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_menu_ecosystem_items",
+  "info": {
+    "displayName": "ecosystem-Items"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "discription": {
+      "type": "text"
+    },
+    "buttontext": {
+      "type": "string"
+    },
+    "childtype": {
+      "type": "string"
+    },
+    "child": {
+      "type": "component",
+      "component": "menu.home-menu",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

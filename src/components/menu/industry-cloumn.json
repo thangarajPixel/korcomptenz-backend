@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_menu_industry_cloumns",
+  "info": {
+    "displayName": "industry-Cloumn"
+  },
+  "options": {},
+  "attributes": {
+    "sectionName": {
+      "type": "string"
+    },
+    "colSpan": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "component",
+      "component": "menu.industry-items",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

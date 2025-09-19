@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_menu_sections",
+  "info": {
+    "displayName": "service-section"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "items": {
+      "type": "component",
+      "component": "menu.items",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

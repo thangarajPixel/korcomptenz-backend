@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_service_domain_slides",
+  "info": {
+    "displayName": "domain-slides"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "buttonText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

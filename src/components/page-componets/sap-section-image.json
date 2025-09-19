@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_page_componets_sap_section_images",
+  "info": {
+    "displayName": "sap-section-image"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

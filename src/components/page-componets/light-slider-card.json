@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_componets_light_slider_cards",
+  "info": {
+    "displayName": "light-slider-card",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "solutions": {
+      "type": "component",
+      "component": "page-componets.light-slider-group-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

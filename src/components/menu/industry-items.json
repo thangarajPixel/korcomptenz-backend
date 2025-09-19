@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_menu_industry_items",
+  "info": {
+    "displayName": "industry-section"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "imagePath": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "heigh": {
+      "type": "enumeration",
+      "enum": [
+        "tall",
+        "short"
+      ]
+    },
+    "imagePostion": {
+      "type": "enumeration",
+      "enum": [
+        "side",
+        "down"
+      ]
+    }
+  },
+  "config": {}
+}

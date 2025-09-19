@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_componets_sticky_title_lists",
+  "info": {
+    "displayName": "sticky-title-list",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "component": "page-componets.sticky-title-card",
+      "repeatable": true
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

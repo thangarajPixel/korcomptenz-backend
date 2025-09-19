@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_page_componets_light_slider_lists",
+  "info": {
+    "displayName": "light-slider-list",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.light-slider-card",
+      "repeatable": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

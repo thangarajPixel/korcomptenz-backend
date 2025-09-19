@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_componets_faq_titles",
+  "info": {
+    "displayName": "faq-title",
+    "icon": "car"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "faq": {
+      "type": "component",
+      "component": "page-componets.faq",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

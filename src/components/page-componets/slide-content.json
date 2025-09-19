@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_service_slide_contents",
+  "info": {
+    "displayName": "slide-content"
+  },
+  "options": {},
+  "attributes": {
+    "solutions": {
+      "type": "component",
+      "component": "page-componets.solutions",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_page_componets_demonstrate_sections",
+  "info": {
+    "displayName": "demonstrate-section",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.demonstrate-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

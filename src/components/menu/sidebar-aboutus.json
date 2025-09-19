@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_menu_sidebar_aboutuses",
+  "info": {
+    "displayName": "sidebar-aboutUs"
+  },
+  "options": {},
+  "attributes": {
+    "idName": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

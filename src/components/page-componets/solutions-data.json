@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_service_solutions_data",
+  "info": {
+    "displayName": "solutions-data"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "alt": {
+      "type": "string"
+    },
+    "slideContent": {
+      "type": "component",
+      "component": "page-componets.slide-content",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

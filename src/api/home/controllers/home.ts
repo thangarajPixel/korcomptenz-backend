@@ -4,52 +4,77 @@
 
 import { factories } from '@strapi/strapi'
 import qs from 'qs';
+
 export default factories.createCoreController('api::home.home', ({ strapi }) => ({
   async find(ctx) {
     const populateQuery = qs.stringify({
       populate: {
-        WeAreKorcomptenzSection: {
-          populate: {
-            image: true,
-          },
-        },
-        heroSection: {
-          populate: {
-            image: true,
-          },
-        },
-       serviceSection: {
-          populate: {
-             image: true,
-          },
-        },
-        card: {
-          populate: {
-             content:{
-              populate:{
-                image:true,
-              }
-             }
-          },
-        },
-        insightSection: {
-          populate: {
-              content:{
-              populate:{
-                image:true,
-              }
-             }
-          },
-        },
-        inspireSection: {
-          populate: {
-              content:{
-              populate:{
-                image:true,
-              }
-             }
-          },
-        },
+        list: {
+          on: {
+            'home.hero-section-one': {
+              populate: {
+                list: {
+                  populate: {
+                    image: true,
+                    mobile_image: true,
+                  },
+                },
+              },
+            },
+            'home.we-are-korcomptenz': {
+              populate: {
+                image: true,
+              },
+            },
+            'home.services-section': {
+              populate: {
+                list: {
+                  populate: {
+                    image: true,
+                  },
+                },
+              },
+            },
+            'page-componets.sticky-cards-list': {
+              populate: {
+                list: {
+                  populate: {
+                    image: true,
+                  },
+                },
+              },
+            },
+            'page-componets.insights-section': {
+              populate: {
+                list: {
+                  populate: {
+                    image: true,
+                  },
+                },
+              },
+            },
+            'home.opportunity': {
+              populate: {
+                bannerImage: true,
+                arrowImage: true,
+                profiles: {
+                  populate: {
+                    image: true
+                  }
+                }
+              },
+            },
+            'page-componets.inspire-section': {
+              populate: {
+                list: {
+                  populate: {
+                    image: true
+                  }
+                }
+              },
+            },
+          }
+        }
       },
     }, {
       encode: false,

@@ -11,35 +11,17 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "heroSection": {
-      "type": "component",
-      "component": "global.global-field",
-      "repeatable": true
-    },
-    "WeAreKorcomptenzSection": {
-      "type": "component",
-      "component": "seo.we-are-korcomptenz-section",
-      "repeatable": false
-    },
-    "serviceSection": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::service-section.service-section"
-    },
-    "card": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::card.card"
-    },
-    "insightSection": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::card.card"
-    },
-    "inspireSection": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::inspire-section.inspire-section"
+    "list": {
+      "type": "dynamiczone",
+      "components": [
+        "home.hero-section-one",
+        "home.we-are-korcomptenz",
+        "home.services-section",
+        "page-componets.sticky-cards-list",
+        "page-componets.insights-section",
+        "home.opportunity",
+        "page-componets.inspire-section"
+      ]
     }
   }
 }

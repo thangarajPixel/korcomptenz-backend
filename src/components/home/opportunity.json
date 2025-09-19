@@ -1,0 +1,55 @@
+{
+  "collectionName": "components_home_opportunities",
+  "info": {
+    "displayName": "opportunity",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "breakOne": {
+      "type": "string"
+    },
+    "breakTwo": {
+      "type": "string"
+    },
+    "breakThree": {
+      "type": "string"
+    },
+    "breakFour": {
+      "type": "string"
+    },
+    "bannerImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "arrowImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "profiles": {
+      "type": "component",
+      "component": "home.opportunity-profile",
+      "repeatable": true,
+      "max": 3
+    }
+  },
+  "config": {}
+}

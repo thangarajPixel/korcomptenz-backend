@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_page_componets_sticky_cards",
+  "info": {
+    "displayName": "sticky-card",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "specificId": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

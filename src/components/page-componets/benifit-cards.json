@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_service_benifit_cards",
+  "info": {
+    "displayName": "benifit-cards"
+  },
+  "options": {},
+  "attributes": {
+    "idnumber": {
+      "type": "string"
+    },
+    "number": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

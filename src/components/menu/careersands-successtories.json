@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_menu_careersands_successtories",
+  "info": {
+    "displayName": "careers-and-success-stories"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "isChild": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

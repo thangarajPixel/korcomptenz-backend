@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_page_componets_banner_section_lists",
+  "info": {
+    "displayName": "banner-section-list",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "component": "service.banner-section-data",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

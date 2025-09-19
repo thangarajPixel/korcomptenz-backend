@@ -14,14 +14,31 @@
     "list": {
       "type": "dynamiczone",
       "components": [
-        "seo.we-are-korcomptenz-section",
-        "global.global-field"
+        "page-componets.banner-section-list",
+        "page-componets.sap-section-data",
+        "page-componets.solutions-data",
+        "page-componets.salesforce-services",
+        "page-componets.domain-data",
+        "page-componets.benefit-data",
+        "page-componets.build-data",
+        "page-componets.inspire-section",
+        "page-componets.faq-title",
+        "page-componets.dark-slider-list",
+        "page-componets.light-slider-list",
+        "page-componets.sticky-title-list",
+        "page-componets.insights-section",
+        "page-componets.demonstrate-section"
       ]
     },
-    "service_sections": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::service-section.service-section"
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

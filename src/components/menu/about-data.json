@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_menu_about_data",
+  "info": {
+    "displayName": "aboutData"
+  },
+  "options": {},
+  "attributes": {
+    "navigationItems": {
+      "type": "component",
+      "component": "menu.aboutus-navigationitems",
+      "repeatable": true
+    },
+    "sidebarSections": {
+      "type": "component",
+      "component": "menu.sidebar-aboutus",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

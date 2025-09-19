@@ -1,20 +1,14 @@
 {
-  "kind": "singleType",
-  "collectionName": "company_details",
+  "collectionName": "components_service_tech_data",
   "info": {
-    "singularName": "company-detail",
-    "pluralName": "company-details",
-    "displayName": "company-detail"
+    "displayName": "tech-data"
   },
-  "options": {
-    "draftAndPublish": true
-  },
-  "pluginOptions": {},
+  "options": {},
   "attributes": {
-    "companyName": {
+    "heading": {
       "type": "string"
     },
-    "companyLogo": {
+    "image": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -24,7 +18,7 @@
         "audios"
       ]
     },
-    "companyFullLogo": {
+    "mobileimage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -33,6 +27,15 @@
         "videos",
         "audios"
       ]
+    },
+    "alt": {
+      "type": "string"
+    },
+    "techslides": {
+      "type": "component",
+      "component": "page-componets.solutions",
+      "repeatable": true
     }
-  }
+  },
+  "config": {}
 }

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_home_opportunity_profiles",
+  "info": {
+    "displayName": "opportunity-profile",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

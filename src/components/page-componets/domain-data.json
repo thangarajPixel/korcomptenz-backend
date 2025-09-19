@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_service_domain_data",
+  "info": {
+    "displayName": "domain-data"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slides": {
+      "type": "component",
+      "component": "page-componets.domain-slides",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
