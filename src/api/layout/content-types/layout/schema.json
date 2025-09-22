@@ -21,12 +21,12 @@
       "component": "home.company-detail",
       "repeatable": false
     },
-    "serviceData": {
+    "service-menu": {
       "type": "component",
       "component": "menu.section",
       "repeatable": true
     },
-    "industriesData": {
+    "industries-menu": {
       "type": "component",
       "component": "menu.industry-cloumn",
       "repeatable": true
@@ -36,17 +36,17 @@
       "component": "home.schedule-call",
       "repeatable": false
     },
-    "EcosystemData": {
+    "ecosystem-menu": {
       "type": "component",
       "component": "menu.ecosystem-sidebar",
       "repeatable": true
     },
-    "insightsData": {
+    "insight-menu": {
       "type": "component",
       "component": "menu.insights-data",
       "repeatable": true
     },
-    "aboutData": {
+    "about-menu": {
       "type": "component",
       "component": "menu.about-data",
       "repeatable": true
@@ -59,6 +59,11 @@
     "successStories": {
       "type": "component",
       "component": "menu.careersands-successtories",
+      "repeatable": false
+    },
+    "copyright": {
+      "type": "component",
+      "component": "menu.copy-right-section",
       "repeatable": false
     }
   }

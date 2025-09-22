@@ -28,9 +28,6 @@
         "audios"
       ]
     },
-    "alt": {
-      "type": "string"
-    },
     "techslides": {
       "type": "component",
       "component": "page-componets.solutions",

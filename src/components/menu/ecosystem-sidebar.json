@@ -1,24 +1,16 @@
 {
   "collectionName": "components_menu_ecosystem_sidebars",
   "info": {
-    "displayName": "ecosystem-sidebar"
+    "displayName": "ecosystem-menu"
   },
   "options": {},
   "attributes": {
-    "number": {
-      "type": "string"
-    },
     "menu": {
       "type": "string"
     },
     "item": {
       "type": "component",
       "component": "menu.ecosystem-items",
-      "repeatable": true
-    },
-    "items": {
-      "type": "component",
-      "component": "menu.ecosysystem-items-type2",
       "repeatable": true
     }
   },

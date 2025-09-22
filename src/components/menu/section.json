@@ -1,7 +1,7 @@
 {
   "collectionName": "components_menu_sections",
   "info": {
-    "displayName": "service-section"
+    "displayName": "service-menu"
   },
   "options": {},
   "attributes": {
@@ -13,7 +13,7 @@
     },
     "image": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",

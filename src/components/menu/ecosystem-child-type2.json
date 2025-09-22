@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_menu_ecosystem_child_type2s",
+  "info": {
+    "displayName": "ecosystem-child-type2"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "component",
+      "component": "menu.ecosystem-child-description",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

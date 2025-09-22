@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_menu_about_menu_who_we_ares",
+  "info": {
+    "displayName": "about-menu-whoWeAre"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    },
+    "image": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

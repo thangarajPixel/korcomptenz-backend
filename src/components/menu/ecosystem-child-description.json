@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_menu_ecosystem_child_descriptions",
+  "info": {
+    "displayName": "ecosystem-child-description"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

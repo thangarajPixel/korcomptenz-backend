@@ -1,7 +1,7 @@
 {
   "collectionName": "components_menu_ecosystem_items",
   "info": {
-    "displayName": "ecosystem-Items"
+    "displayName": "ecosystem-menu-Items"
   },
   "options": {},
   "attributes": {
@@ -21,6 +21,11 @@
       "type": "component",
       "component": "menu.home-menu",
       "repeatable": true
+    },
+    "childtype2": {
+      "type": "component",
+      "component": "menu.ecosystem-child-type2",
+      "repeatable": false
     }
   },
   "config": {}
