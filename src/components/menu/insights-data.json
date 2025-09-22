@@ -1,7 +1,7 @@
 {
   "collectionName": "components_menu_insights_data",
   "info": {
-    "displayName": "insights-data"
+    "displayName": "insights-menu"
   },
   "options": {},
   "attributes": {
@@ -10,7 +10,7 @@
     },
     "heroImage": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",

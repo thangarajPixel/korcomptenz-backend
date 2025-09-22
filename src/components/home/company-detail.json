@@ -17,6 +17,25 @@
         "videos",
         "audios"
       ]
+    },
+    "Address1": {
+      "type": "string"
+    },
+    "Address2": {
+      "type": "string"
+    },
+    "Address3": {
+      "type": "string"
+    },
+    "socialMediaPlatform": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     }
   },
   "config": {}
