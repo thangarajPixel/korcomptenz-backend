@@ -11,7 +11,7 @@ module.exports = ({ env }) => {
           serviceBaseURL: env('AZURE_SERVICE_BASE_URL'),
           accountKey: env('AZURE_ACCOUNT_KEY'),
           containerName: env('AZURE_CONTAINER_NAME'),
-          defaultPath: env('AZURE_DEFAULT_PATH', 'uploads'),
+          defaultPath: env('AZURE_DEFAULT_PATH'),
           // cdnBaseURL: env('AZURE_CDN_BASE_URL'),
           // defaultCacheControl: env('AZURE_DEFAULT_CACHE_CONTROL'),
           // removeCN: env('AZURE_REMOVE_CN'),
