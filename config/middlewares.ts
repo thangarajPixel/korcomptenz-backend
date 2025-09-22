@@ -2,20 +2,31 @@ export default ({ env }) => [
   'strapi::logger',
   'strapi::errors',
   'strapi::security',
-  // {
-  //   name: ,
-  //   config: {
-  //     contentSecurityPolicy: {
-  //       useDefaults: true,
-  //       directives: {
-  //         'connect-src': ["'self'", 'https:'],
-  //         'img-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com'],
-  //         'media-src': ["'self'", 'data:', 'blob:'],
-  //         upgradeInsecureRequests: null,
-  //       },
-  //     },
-  //   },
-  // },
+  {
+    name: "strapi::security",
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          "connect-src": ["'self'", "https:"],
+          "img-src": [
+            "'self'",
+            "data:",
+            "blob:",
+            "https://market-assets.strapi.io", // Required for Strapi >= 4.10.6; you can remove it otherwise
+            env('AZURE_SERVICE_BASE_URL'),
+          ],
+          "media-src": [
+            "'self'",
+            "data:",
+            "blob:",
+            env('AZURE_SERVICE_BASE_URL'),
+          ],
+          upgradeInsecureRequests: null,
+        },
+      },
+    },
+  },
   {
     name: 'strapi::cors',
     config: {
