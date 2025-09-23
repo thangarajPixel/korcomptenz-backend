@@ -93,7 +93,16 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               'page-componets.build-data': {
                 populate: {
                   image: true,
-                  imagemobile: true,
+                  mobileImage: true,
+                },
+              },
+              'page-componets.sticky-cards-list': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
                 },
               },
               'page-componets.inspire-section': {
