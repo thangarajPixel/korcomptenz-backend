@@ -16,11 +16,6 @@
       "component": "home.header",
       "repeatable": true
     },
-    "companyDetail": {
-      "type": "component",
-      "component": "home.company-detail",
-      "repeatable": false
-    },
     "serviceMenu": {
       "type": "component",
       "component": "menu.section",
@@ -65,6 +60,11 @@
       "type": "component",
       "component": "menu.copy-right-section",
       "repeatable": false
+    },
+    "company": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::company-detail.company-detail"
     }
   }
 }

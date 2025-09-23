@@ -8,7 +8,7 @@
     "title": {
       "type": "string"
     },
-    "child": {
+    "description": {
       "type": "component",
       "component": "menu.ecosystem-child-description",
       "repeatable": true

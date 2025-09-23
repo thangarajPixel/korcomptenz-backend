@@ -18,24 +18,16 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
   };
 }
 
-export interface HomeCompanyDetail extends Struct.ComponentSchema {
-  collectionName: 'components_home_company_details';
+export interface GlobalSocialPlatform extends Struct.ComponentSchema {
+  collectionName: 'components_global_social_platforms';
   info: {
-    displayName: 'company-detail';
+    displayName: 'social-platform';
+    icon: 'layer';
   };
   attributes: {
-    Address1: Schema.Attribute.String;
-    Address2: Schema.Attribute.String;
-    Address3: Schema.Attribute.String;
-    logo: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    name: Schema.Attribute.String;
-    socialMediaPlatform: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    labal: Schema.Attribute.String;
+    link: Schema.Attribute.String;
   };
 }
 
@@ -249,7 +241,10 @@ export interface MenuEcosystemChildType2 extends Struct.ComponentSchema {
     displayName: 'ecosystem-child-type2';
   };
   attributes: {
-    child: Schema.Attribute.Component<'menu.ecosystem-child-description', true>;
+    description: Schema.Attribute.Component<
+      'menu.ecosystem-child-description',
+      true
+    >;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
     type: Schema.Attribute.String;
@@ -263,7 +258,7 @@ export interface MenuEcosystemItems extends Struct.ComponentSchema {
   };
   attributes: {
     buttontext: Schema.Attribute.String;
-    child: Schema.Attribute.Component<'menu.ecosystem-child-type2', false>;
+    child: Schema.Attribute.Component<'menu.ecosystem-child-type2', true>;
     description: Schema.Attribute.Text;
     title: Schema.Attribute.String;
   };
@@ -470,8 +465,10 @@ export interface PageComponetsDarkSliderCard extends Struct.ComponentSchema {
     icon: 'briefcase';
   };
   attributes: {
+    buttonText: Schema.Attribute.String;
     description: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -803,7 +800,9 @@ export interface PageComponetsSolutions extends Struct.ComponentSchema {
     displayName: 'solutions';
   };
   attributes: {
+    buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
+    link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -932,7 +931,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'global.global-field': GlobalGlobalField;
-      'home.company-detail': HomeCompanyDetail;
+      'global.social-platform': GlobalSocialPlatform;
       'home.header': HomeHeader;
       'home.hero-section-one': HomeHeroSectionOne;
       'home.nav-item': HomeNavItem;

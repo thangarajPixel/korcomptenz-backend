@@ -17,7 +17,7 @@
     "child": {
       "type": "component",
       "component": "menu.ecosystem-child-type2",
-      "repeatable": false
+      "repeatable": true
     }
   },
   "config": {}

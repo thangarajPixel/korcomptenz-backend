@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_global_social_platforms",
+  "info": {
+    "displayName": "social-platform",
+    "icon": "layer"
+  },
+  "options": {},
+  "attributes": {
+    "labal": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

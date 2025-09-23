@@ -33,6 +33,14 @@
         "videos",
         "audios"
       ]
+    },
+    "address": {
+      "type": "text"
+    },
+    "socialPlatforms": {
+      "type": "component",
+      "component": "global.social-platform",
+      "repeatable": true
     }
   }
 }

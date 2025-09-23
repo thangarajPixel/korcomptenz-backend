@@ -384,6 +384,7 @@ export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    address: Schema.Attribute.Text;
     companyFullLogo: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
@@ -401,6 +402,7 @@ export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    socialPlatforms: Schema.Attribute.Component<'global.social-platform', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -458,7 +460,10 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
       'menu.careersands-successtories',
       false
     >;
-    companyDetail: Schema.Attribute.Component<'home.company-detail', false>;
+    company: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::company-detail.company-detail'
+    >;
     copyright: Schema.Attribute.Component<'menu.copy-right-section', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
