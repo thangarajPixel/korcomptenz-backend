@@ -8,7 +8,7 @@
     "title": {
       "type": "string"
     },
-    "discription": {
+    "description": {
       "type": "text"
     },
     "buttontext": {
@@ -16,11 +16,6 @@
     },
     "childtype": {
       "type": "string"
-    },
-    "child": {
-      "type": "component",
-      "component": "menu.home-menu",
-      "repeatable": true
     },
     "childtype2": {
       "type": "component",

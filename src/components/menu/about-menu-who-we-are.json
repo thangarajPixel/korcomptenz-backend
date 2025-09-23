@@ -11,8 +11,13 @@
     "content": {
       "type": "text"
     },
-    "image": {
-      "type": "string"
+    "imageT": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     }
   },
   "config": {}

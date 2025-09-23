@@ -8,10 +8,16 @@
     "title": {
       "type": "string"
     },
-    "description": {
+    "child": {
       "type": "component",
       "component": "menu.ecosystem-child-description",
       "repeatable": true
+    },
+    "link": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
     }
   },
   "config": {}

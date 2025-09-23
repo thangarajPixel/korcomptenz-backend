@@ -15,15 +15,13 @@
       "component": "menu.sidebar-aboutus",
       "repeatable": true
     },
-    "aboutUs": {
-      "type": "component",
-      "component": "menu.about-menu-about-us",
-      "repeatable": false
-    },
     "whoWeAre": {
       "type": "component",
       "component": "menu.about-menu-who-we-are",
       "repeatable": false
+    },
+    "title": {
+      "type": "string"
     }
   },
   "config": {}

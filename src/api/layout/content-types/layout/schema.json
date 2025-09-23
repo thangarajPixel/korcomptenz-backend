@@ -36,20 +36,20 @@
       "component": "home.schedule-call",
       "repeatable": false
     },
-    "ecosystem-menu": {
+    "ecosystemMenu": {
       "type": "component",
       "component": "menu.ecosystem-sidebar",
       "repeatable": true
     },
-    "insight-menu": {
+    "insightMenu": {
       "type": "component",
       "component": "menu.insights-data",
       "repeatable": true
     },
-    "about-menu": {
+    "aboutMenu": {
       "type": "component",
       "component": "menu.about-data",
-      "repeatable": true
+      "repeatable": false
     },
     "careers": {
       "type": "component",
