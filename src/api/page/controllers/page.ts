@@ -161,9 +161,14 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   }
                 }
               },
-
+              "page-componets.tech-data": {
+                populate: {
+                  image: true,
+                  mobileimage: true,
+                  techslides: true
+                },
+              },
             },
-
           },
           seo: true,
         }
