@@ -453,18 +453,19 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    aboutData: Schema.Attribute.Component<'menu.about-data', true>;
+    aboutMenu: Schema.Attribute.Component<'menu.about-data', false>;
     careers: Schema.Attribute.Component<
       'menu.careersands-successtories',
       false
     >;
     companyDetail: Schema.Attribute.Component<'home.company-detail', false>;
+    copyright: Schema.Attribute.Component<'menu.copy-right-section', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    EcosystemData: Schema.Attribute.Component<'menu.ecosystem-sidebar', true>;
-    industriesData: Schema.Attribute.Component<'menu.industry-cloumn', true>;
-    insightsData: Schema.Attribute.Component<'menu.insights-data', true>;
+    ecosystemMenu: Schema.Attribute.Component<'menu.ecosystem-sidebar', true>;
+    industriesMenu: Schema.Attribute.Component<'menu.industry-cloumn', true>;
+    insightMenu: Schema.Attribute.Component<'menu.insights-data', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -474,7 +475,7 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
     navItems: Schema.Attribute.Component<'home.header', true>;
     publishedAt: Schema.Attribute.DateTime;
     scheduleCall: Schema.Attribute.Component<'home.schedule-call', false>;
-    serviceData: Schema.Attribute.Component<'menu.section', true>;
+    serviceMenu: Schema.Attribute.Component<'menu.section', true>;
     successStories: Schema.Attribute.Component<
       'menu.careersands-successtories',
       false

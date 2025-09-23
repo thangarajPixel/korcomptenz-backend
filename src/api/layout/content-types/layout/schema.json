@@ -26,7 +26,7 @@
       "component": "menu.section",
       "repeatable": true
     },
-    "industries-menu": {
+    "industriesMenu": {
       "type": "component",
       "component": "menu.industry-cloumn",
       "repeatable": true

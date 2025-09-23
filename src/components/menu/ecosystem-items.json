@@ -14,10 +14,7 @@
     "buttontext": {
       "type": "string"
     },
-    "childtype": {
-      "type": "string"
-    },
-    "childtype2": {
+    "child": {
       "type": "component",
       "component": "menu.ecosystem-child-type2",
       "repeatable": false

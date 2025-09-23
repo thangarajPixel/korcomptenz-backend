@@ -59,11 +59,11 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
           companyDetail: {
             populate: {
               logo: true,
-              socialMediaPlatform:true
+              socialMediaPlatform: true
             },
           },
           // button: true,
-          'service-menu': {
+          'serviceMenu': {
             populate: {
               image: true,
               items: {
@@ -74,36 +74,38 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
             },
           },
 
-          'industries-menu':{
-            populate:{
-              sections:{
-                populate:{imagePath:true}
+          'industriesMenu': {
+            populate: {
+              sections: {
+                populate: { image: true, items: true }
               }
             }
           },
           scheduleCall: true,
 
-          'ecosystem-menu': {
+          'ecosystemMenu': {
             populate: {
               item: {
                 populate: {
-                  child: true,
-                  childtype2:true,
+                  child: {
+                    populate: {
+                      child: true
+                    }
+                  },
                 },
-              },
+              }
             },
           },
 
-          'insight-menu': {
+          'insightMenu': {
             populate: {
               heroImage: true,
               categories: true,
             },
           },
 
-          'about-menu': {
+          'aboutMenu': {
             populate: {
-              aboutUs: true,
               whoWeAre: true,
               navigationItems: true,
               sidebarSections: {

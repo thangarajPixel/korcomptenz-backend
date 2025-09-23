@@ -24,11 +24,18 @@ export interface HomeCompanyDetail extends Struct.ComponentSchema {
     displayName: 'company-detail';
   };
   attributes: {
+    Address1: Schema.Attribute.String;
+    Address2: Schema.Attribute.String;
+    Address3: Schema.Attribute.String;
     logo: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
     name: Schema.Attribute.String;
+    socialMediaPlatform: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
   };
 }
 
@@ -164,7 +171,7 @@ export interface HomeWeAreKorcomptenz extends Struct.ComponentSchema {
 export interface MenuAboutData extends Struct.ComponentSchema {
   collectionName: 'components_menu_about_data';
   info: {
-    displayName: 'aboutData';
+    displayName: 'about-menu';
   };
   attributes: {
     navigationItems: Schema.Attribute.Component<
@@ -172,6 +179,20 @@ export interface MenuAboutData extends Struct.ComponentSchema {
       true
     >;
     sidebarSections: Schema.Attribute.Component<'menu.sidebar-aboutus', true>;
+    title: Schema.Attribute.String;
+    whoWeAre: Schema.Attribute.Component<'menu.about-menu-who-we-are', false>;
+  };
+}
+
+export interface MenuAboutMenuWhoWeAre extends Struct.ComponentSchema {
+  collectionName: 'components_menu_about_menu_who_we_ares';
+  info: {
+    displayName: 'about-menu-whoWeAre';
+  };
+  attributes: {
+    content: Schema.Attribute.Text;
+    imageT: Schema.Attribute.Media<'images' | 'files'>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -182,7 +203,6 @@ export interface MenuAboutusNavigationitems extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    idName: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -199,26 +219,52 @@ export interface MenuCareersandsSuccesstories extends Struct.ComponentSchema {
   };
 }
 
-export interface MenuEcosystemChild extends Struct.ComponentSchema {
-  collectionName: 'components_menu_ecosystem_children';
+export interface MenuCopyRightSection extends Struct.ComponentSchema {
+  collectionName: 'components_menu_copy_right_sections';
   info: {
-    displayName: 'ecosystem-child';
+    displayName: 'copy-right-section';
   };
   attributes: {
+    copyright: Schema.Attribute.String;
+    policy1: Schema.Attribute.String;
+    policy2: Schema.Attribute.String;
+    policy3: Schema.Attribute.String;
+  };
+}
+
+export interface MenuEcosystemChildDescription extends Struct.ComponentSchema {
+  collectionName: 'components_menu_ecosystem_child_descriptions';
+  info: {
+    displayName: 'ecosystem-child-description';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    href: Schema.Attribute.String;
+  };
+}
+
+export interface MenuEcosystemChildType2 extends Struct.ComponentSchema {
+  collectionName: 'components_menu_ecosystem_child_type2s';
+  info: {
+    displayName: 'ecosystem-child-type2';
+  };
+  attributes: {
+    child: Schema.Attribute.Component<'menu.ecosystem-child-description', true>;
+    link: Schema.Attribute.String;
     title: Schema.Attribute.String;
+    type: Schema.Attribute.String;
   };
 }
 
 export interface MenuEcosystemItems extends Struct.ComponentSchema {
   collectionName: 'components_menu_ecosystem_items';
   info: {
-    displayName: 'ecosystem-Items';
+    displayName: 'ecosystem-menu-Items';
   };
   attributes: {
     buttontext: Schema.Attribute.String;
-    child: Schema.Attribute.Component<'menu.home-menu', true>;
-    childtype: Schema.Attribute.String;
-    discription: Schema.Attribute.Text;
+    child: Schema.Attribute.Component<'menu.ecosystem-child-type2', false>;
+    description: Schema.Attribute.Text;
     title: Schema.Attribute.String;
   };
 }
@@ -226,27 +272,11 @@ export interface MenuEcosystemItems extends Struct.ComponentSchema {
 export interface MenuEcosystemSidebar extends Struct.ComponentSchema {
   collectionName: 'components_menu_ecosystem_sidebars';
   info: {
-    displayName: 'ecosystem-sidebar';
+    displayName: 'ecosystem-menu';
   };
   attributes: {
     item: Schema.Attribute.Component<'menu.ecosystem-items', true>;
-    items: Schema.Attribute.Component<'menu.ecosysystem-items-type2', true>;
     menu: Schema.Attribute.String;
-    number: Schema.Attribute.String;
-  };
-}
-
-export interface MenuEcosysystemItemsType2 extends Struct.ComponentSchema {
-  collectionName: 'components_menu_ecosysystem_items_type2s';
-  info: {
-    displayName: 'ecosysystemItems_type2';
-  };
-  attributes: {
-    buttontext: Schema.Attribute.String;
-    child: Schema.Attribute.Component<'menu.ecosystem-child', true>;
-    childtype: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -256,6 +286,7 @@ export interface MenuHomeMenu extends Struct.ComponentSchema {
     displayName: 'service-child';
   };
   attributes: {
+    link: Schema.Attribute.String;
     title: Schema.Attribute.String;
     type: Schema.Attribute.String;
   };
@@ -264,7 +295,7 @@ export interface MenuHomeMenu extends Struct.ComponentSchema {
 export interface MenuIndustryCloumn extends Struct.ComponentSchema {
   collectionName: 'components_menu_industry_cloumns';
   info: {
-    displayName: 'industry-Cloumn';
+    displayName: 'industry-menu';
   };
   attributes: {
     colSpan: Schema.Attribute.String;
@@ -280,9 +311,20 @@ export interface MenuIndustryItems extends Struct.ComponentSchema {
   };
   attributes: {
     heigh: Schema.Attribute.Enumeration<['tall', 'short']>;
-    imagePath: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     imagePostion: Schema.Attribute.Enumeration<['side', 'down']>;
-    name: Schema.Attribute.String;
+    items: Schema.Attribute.Component<'menu.industry-menu-items', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface MenuIndustryMenuItems extends Struct.ComponentSchema {
+  collectionName: 'components_menu_industry_menu_items';
+  info: {
+    displayName: 'industry-section-items';
+  };
+  attributes: {
+    href: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -294,7 +336,6 @@ export interface MenuInsightsCategories extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    idName: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -302,14 +343,11 @@ export interface MenuInsightsCategories extends Struct.ComponentSchema {
 export interface MenuInsightsData extends Struct.ComponentSchema {
   collectionName: 'components_menu_insights_data';
   info: {
-    displayName: 'insights-data';
+    displayName: 'insights-menu';
   };
   attributes: {
     categories: Schema.Attribute.Component<'menu.insights-categories', true>;
-    heroImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    heroImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Schema.Attribute.String;
   };
 }
@@ -321,6 +359,7 @@ export interface MenuItems extends Struct.ComponentSchema {
   };
   attributes: {
     child: Schema.Attribute.Component<'menu.home-menu', true>;
+    link: Schema.Attribute.String;
     side: Schema.Attribute.Enumeration<['left', 'right', 'top', 'bottom']>;
     title: Schema.Attribute.String;
   };
@@ -329,15 +368,11 @@ export interface MenuItems extends Struct.ComponentSchema {
 export interface MenuSection extends Struct.ComponentSchema {
   collectionName: 'components_menu_sections';
   info: {
-    displayName: 'service-section';
+    displayName: 'service-menu';
   };
   attributes: {
-    image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     items: Schema.Attribute.Component<'menu.items', true>;
-    name: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -350,34 +385,6 @@ export interface MenuSidebarAboutus extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Text;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    idName: Schema.Attribute.String;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface PageComponetsBannerSectionData extends Struct.ComponentSchema {
-  collectionName: 'components_page_componets_banner_section_data';
-  info: {
-    displayName: 'banner-section';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    imageMobile: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    logo: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    logoMobile: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
     title: Schema.Attribute.String;
   };
 }
@@ -423,8 +430,10 @@ export interface PageComponetsBuildData extends Struct.ComponentSchema {
     displayName: 'build-data';
   };
   attributes: {
+    buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    imageCaption: Schema.Attribute.String;
     link: Schema.Attribute.String;
     mobileImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
@@ -688,7 +697,9 @@ export interface PageComponetsLightSliderGroupList
     icon: 'collapse';
   };
   attributes: {
+    buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
+    link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -700,6 +711,7 @@ export interface PageComponetsLightSliderList extends Struct.ComponentSchema {
     icon: 'briefcase';
   };
   attributes: {
+    description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     list: Schema.Attribute.Component<'page-componets.light-slider-card', true>;
     title: Schema.Attribute.Text;
@@ -901,11 +913,13 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
     displayName: 'Banner-section-data';
   };
   attributes: {
+    buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     imageMobile: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
+    link: Schema.Attribute.String;
     logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     logoMobile: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
@@ -929,21 +943,23 @@ declare module '@strapi/strapi' {
       'home.services-section-list': HomeServicesSectionList;
       'home.we-are-korcomptenz': HomeWeAreKorcomptenz;
       'menu.about-data': MenuAboutData;
+      'menu.about-menu-who-we-are': MenuAboutMenuWhoWeAre;
       'menu.aboutus-navigationitems': MenuAboutusNavigationitems;
       'menu.careersands-successtories': MenuCareersandsSuccesstories;
-      'menu.ecosystem-child': MenuEcosystemChild;
+      'menu.copy-right-section': MenuCopyRightSection;
+      'menu.ecosystem-child-description': MenuEcosystemChildDescription;
+      'menu.ecosystem-child-type2': MenuEcosystemChildType2;
       'menu.ecosystem-items': MenuEcosystemItems;
       'menu.ecosystem-sidebar': MenuEcosystemSidebar;
-      'menu.ecosysystem-items-type2': MenuEcosysystemItemsType2;
       'menu.home-menu': MenuHomeMenu;
       'menu.industry-cloumn': MenuIndustryCloumn;
       'menu.industry-items': MenuIndustryItems;
+      'menu.industry-menu-items': MenuIndustryMenuItems;
       'menu.insights-categories': MenuInsightsCategories;
       'menu.insights-data': MenuInsightsData;
       'menu.items': MenuItems;
       'menu.section': MenuSection;
       'menu.sidebar-aboutus': MenuSidebarAboutus;
-      'page-componets.banner-section-data': PageComponetsBannerSectionData;
       'page-componets.banner-section-list': PageComponetsBannerSectionList;
       'page-componets.benefit-data': PageComponetsBenefitData;
       'page-componets.benifit-cards': PageComponetsBenifitCards;
