@@ -17,6 +17,9 @@
         "bottom"
       ]
     },
+    "link": {
+      "type": "string"
+    },
     "child": {
       "type": "component",
       "component": "menu.home-menu",

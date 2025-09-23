@@ -33,6 +33,12 @@
     },
     "link": {
       "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "imageCaption": {
+      "type": "string"
     }
   },
   "config": {}

@@ -10,6 +10,9 @@
     },
     "type": {
       "type": "string"
+    },
+    "link": {
+      "type": "string"
     }
   },
   "config": {}

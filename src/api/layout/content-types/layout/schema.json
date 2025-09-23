@@ -21,7 +21,7 @@
       "component": "home.company-detail",
       "repeatable": false
     },
-    "service-menu": {
+    "serviceMenu": {
       "type": "component",
       "component": "menu.section",
       "repeatable": true
