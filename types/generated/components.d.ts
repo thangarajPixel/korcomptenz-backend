@@ -114,7 +114,7 @@ export interface HomeScheduleCall extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files'>;
+    image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     title: Schema.Attribute.Text;
   };
@@ -184,7 +184,7 @@ export interface MenuAboutMenuWhoWeAre extends Struct.ComponentSchema {
   };
   attributes: {
     content: Schema.Attribute.Text;
-    imageT: Schema.Attribute.Media<'images' | 'files'>;
+    imageT: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
@@ -261,7 +261,7 @@ export interface MenuEcosystemItems extends Struct.ComponentSchema {
     buttontext: Schema.Attribute.String;
     child: Schema.Attribute.Component<'menu.ecosystem-child-type2', true>;
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files'>;
+    image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
@@ -308,7 +308,7 @@ export interface MenuIndustryItems extends Struct.ComponentSchema {
   };
   attributes: {
     heigh: Schema.Attribute.Enumeration<['tall', 'short']>;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     imagePostion: Schema.Attribute.Enumeration<['side', 'down']>;
     items: Schema.Attribute.Component<'menu.industry-menu-items', true>;
     title: Schema.Attribute.String;
@@ -368,7 +368,7 @@ export interface MenuSection extends Struct.ComponentSchema {
     displayName: 'service-menu';
   };
   attributes: {
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     items: Schema.Attribute.Component<'menu.items', true>;
     title: Schema.Attribute.String;
   };
@@ -429,12 +429,10 @@ export interface PageComponetsBuildData extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     imageCaption: Schema.Attribute.String;
     link: Schema.Attribute.String;
-    mobileImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    mobileImage: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
@@ -469,7 +467,7 @@ export interface PageComponetsDarkSliderCard extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -573,22 +571,10 @@ export interface PageComponetsImage extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    imageMobile: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    logo: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    logoMobile: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    image: Schema.Attribute.Media<'images'>;
+    imageMobile: Schema.Attribute.Media<'images'>;
+    logo: Schema.Attribute.Media<'images'>;
+    logoMobile: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
@@ -713,7 +699,7 @@ export interface PageComponetsLightSliderList extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     list: Schema.Attribute.Component<'page-componets.light-slider-card', true>;
     title: Schema.Attribute.Text;
   };
@@ -918,15 +904,11 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    imageMobile: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    image: Schema.Attribute.Media<'images'>;
+    imageMobile: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
-    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    logoMobile: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    logo: Schema.Attribute.Media<'images'>;
+    logoMobile: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
