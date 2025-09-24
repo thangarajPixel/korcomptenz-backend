@@ -404,7 +404,7 @@ export interface PageComponetsBenefitData extends Struct.ComponentSchema {
   };
   attributes: {
     cards: Schema.Attribute.Component<'page-componets.benifit-cards', true>;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.Text;
   };
 }
@@ -804,7 +804,7 @@ export interface PageComponetsSolutionsData extends Struct.ComponentSchema {
   };
   attributes: {
     alt: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     slideContent: Schema.Attribute.Component<
       'page-componets.slide-content',
       true
@@ -822,7 +822,7 @@ export interface PageComponetsStickyCard extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     specificId: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -850,7 +850,7 @@ export interface PageComponetsStickyTitleCard extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -875,10 +875,8 @@ export interface PageComponetsTechData extends Struct.ComponentSchema {
   };
   attributes: {
     heading: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    mobileimage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    image: Schema.Attribute.Media<'images'>;
+    mobileimage: Schema.Attribute.Media<'images'>;
     techslides: Schema.Attribute.Component<'page-componets.solutions', true>;
   };
 }
