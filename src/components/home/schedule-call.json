@@ -6,12 +6,9 @@
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "text"
     },
-    "cta": {
-      "type": "string"
-    },
-    "highlight": {
+    "buttonText": {
       "type": "string"
     },
     "link": {

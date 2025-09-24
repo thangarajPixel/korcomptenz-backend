@@ -385,12 +385,9 @@ export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
   };
   attributes: {
     address: Schema.Attribute.Text;
-    companyFullLogo: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    companyLogo: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    companyDarkLogo: Schema.Attribute.Media<'images'>;
+    companyFullLogo: Schema.Attribute.Media<'images'>;
+    companyLogo: Schema.Attribute.Media<'images'>;
     companyName: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

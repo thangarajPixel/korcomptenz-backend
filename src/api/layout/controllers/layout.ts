@@ -16,6 +16,7 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
             populate: {
               companyLogo: true,
               companyFullLogo: true,
+              companyDarkLogo: true,
               socialPlatforms: {
                 populate: {
                   icon: true,
@@ -42,7 +43,11 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
               }
             }
           },
-          scheduleCall: true,
+          scheduleCall: {
+            populate: {
+              image: true,
+            },
+          },
 
           'ecosystemMenu': {
             populate: {

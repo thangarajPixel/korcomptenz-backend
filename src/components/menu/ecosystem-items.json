@@ -14,6 +14,14 @@
     "buttontext": {
       "type": "string"
     },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
     "child": {
       "type": "component",
       "component": "menu.ecosystem-child-type2",

@@ -25,7 +25,7 @@ export interface GlobalSocialPlatform extends Struct.ComponentSchema {
     icon: 'layer';
   };
   attributes: {
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    icon: Schema.Attribute.Media<'images'>;
     labal: Schema.Attribute.String;
     link: Schema.Attribute.String;
   };
@@ -113,11 +113,10 @@ export interface HomeScheduleCall extends Struct.ComponentSchema {
     displayName: 'schedule-call';
   };
   attributes: {
-    cta: Schema.Attribute.String;
-    highlight: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files'>;
     link: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.Text;
   };
 }
 
@@ -262,6 +261,7 @@ export interface MenuEcosystemItems extends Struct.ComponentSchema {
     buttontext: Schema.Attribute.String;
     child: Schema.Attribute.Component<'menu.ecosystem-child-type2', true>;
     description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files'>;
     title: Schema.Attribute.String;
   };
 }
