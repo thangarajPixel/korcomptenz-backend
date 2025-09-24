@@ -467,7 +467,7 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     ecosystemMenu: Schema.Attribute.Component<'menu.ecosystem-sidebar', true>;
     industriesMenu: Schema.Attribute.Component<'menu.industry-cloumn', true>;
-    insightMenu: Schema.Attribute.Component<'menu.insights-data', true>;
+    insightMenu: Schema.Attribute.Component<'menu.insights-data', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
