@@ -307,9 +307,9 @@ export interface MenuIndustryItems extends Struct.ComponentSchema {
     displayName: 'industry-section';
   };
   attributes: {
-    heigh: Schema.Attribute.Enumeration<['tall', 'short']>;
+    height: Schema.Attribute.Enumeration<['tall', 'short']>;
     image: Schema.Attribute.Media<'images'>;
-    imagePostion: Schema.Attribute.Enumeration<['side', 'down']>;
+    imagePosition: Schema.Attribute.Enumeration<['side', 'down']>;
     items: Schema.Attribute.Component<'menu.industry-menu-items', true>;
     title: Schema.Attribute.String;
   };

@@ -15,14 +15,14 @@
         "images"
       ]
     },
-    "heigh": {
+    "height": {
       "type": "enumeration",
       "enum": [
         "tall",
         "short"
       ]
     },
-    "imagePostion": {
+    "imagePosition": {
       "type": "enumeration",
       "enum": [
         "side",
