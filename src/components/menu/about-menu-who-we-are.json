@@ -11,7 +11,7 @@
     "content": {
       "type": "text"
     },
-    "imageT": {
+    "image": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [

@@ -184,7 +184,7 @@ export interface MenuAboutMenuWhoWeAre extends Struct.ComponentSchema {
   };
   attributes: {
     content: Schema.Attribute.Text;
-    imageT: Schema.Attribute.Media<'images'>;
+    image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }

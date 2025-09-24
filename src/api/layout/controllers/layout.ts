@@ -72,7 +72,11 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
 
           'aboutMenu': {
             populate: {
-              whoWeAre: true,
+              whoWeAre: {
+                populate: {
+                  image: true,
+                },
+              },
               navigationItems: true,
               sidebarSections: {
                 populate: {
