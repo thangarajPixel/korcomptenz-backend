@@ -524,6 +524,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.sticky-cards-list',
         'page-componets.build-datas',
         'page-componets.tech-data',
+        'home.schedule-call',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

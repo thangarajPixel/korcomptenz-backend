@@ -9,6 +9,9 @@
     "heading": {
       "type": "string"
     },
+    "descripition": {
+      "type": "text"
+    },
     "slides": {
       "type": "component",
       "component": "page-componets.dark-slider-card",

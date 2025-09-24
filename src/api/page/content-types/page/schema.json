@@ -30,7 +30,8 @@
         "page-componets.demonstrate-section",
         "page-componets.sticky-cards-list",
         "page-componets.build-datas",
-        "page-componets.tech-data"
+        "page-componets.tech-data",
+        "home.schedule-call"
       ]
     },
     "seo": {

@@ -168,6 +168,11 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   techslides: true
                 },
               },
+              "home.schedule-call": {
+                populate: {
+                  image: true,
+                },
+              },
             },
           },
           seo: true,

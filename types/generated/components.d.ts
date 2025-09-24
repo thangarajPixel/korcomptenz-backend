@@ -115,6 +115,8 @@ export interface HomeScheduleCall extends Struct.ComponentSchema {
   attributes: {
     cta: Schema.Attribute.String;
     highlight: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -480,6 +482,7 @@ export interface PageComponetsDarkSliderList extends Struct.ComponentSchema {
     icon: 'briefcase';
   };
   attributes: {
+    descripition: Schema.Attribute.Text;
     heading: Schema.Attribute.String;
     slides: Schema.Attribute.Component<'page-componets.dark-slider-card', true>;
   };
@@ -520,6 +523,7 @@ export interface PageComponetsDomainData extends Struct.ComponentSchema {
     displayName: 'domain-data';
   };
   attributes: {
+    description: Schema.Attribute.Text;
     slides: Schema.Attribute.Component<'page-componets.domain-slides', true>;
     title: Schema.Attribute.String;
   };

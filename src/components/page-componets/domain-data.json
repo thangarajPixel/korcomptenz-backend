@@ -8,6 +8,9 @@
     "title": {
       "type": "string"
     },
+    "description": {
+      "type": "text"
+    },
     "slides": {
       "type": "component",
       "component": "page-componets.domain-slides",
