@@ -17,6 +17,7 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
               companyLogo: true,
               companyFullLogo: true,
               companyDarkLogo: true,
+              policy: true,
               socialPlatforms: {
                 populate: {
                   icon: true,
