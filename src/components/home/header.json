@@ -28,6 +28,9 @@
         }
       },
       "required": true
+    },
+    "isButton": {
+      "type": "boolean"
     }
   },
   "config": {}
