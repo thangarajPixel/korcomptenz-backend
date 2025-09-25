@@ -14,6 +14,20 @@
     "hasChild": {
       "type": "boolean",
       "default": true
+    },
+    "childKey": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "hasChild"
+            },
+            true
+          ]
+        }
+      },
+      "required": true
     }
   },
   "config": {}
