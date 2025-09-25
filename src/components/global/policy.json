@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_global_policies",
+  "info": {
+    "displayName": "policy",
+    "icon": "attachment"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

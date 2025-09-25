@@ -18,6 +18,18 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
   };
 }
 
+export interface GlobalPolicy extends Struct.ComponentSchema {
+  collectionName: 'components_global_policies';
+  info: {
+    displayName: 'policy';
+    icon: 'attachment';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+  };
+}
+
 export interface GlobalSocialPlatform extends Struct.ComponentSchema {
   collectionName: 'components_global_social_platforms';
   info: {
@@ -889,9 +901,20 @@ export interface SeoSeo extends Struct.ComponentSchema {
     icon: 'alien';
   };
   attributes: {
-    descripition: Schema.Attribute.String;
-    meta_tag: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    canonicalURL: Schema.Attribute.String & Schema.Attribute.Unique;
+    metaDescription: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 155;
+      }>;
+    metaTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 60;
+      }>;
+    preventIndexing: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    structuredData: Schema.Attribute.JSON & Schema.Attribute.Private;
   };
 }
 
@@ -916,6 +939,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'global.global-field': GlobalGlobalField;
+      'global.policy': GlobalPolicy;
       'global.social-platform': GlobalSocialPlatform;
       'home.header': HomeHeader;
       'home.hero-section-one': HomeHeroSectionOne;

@@ -389,6 +389,7 @@ export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
     companyFullLogo: Schema.Attribute.Media<'images'>;
     companyLogo: Schema.Attribute.Media<'images'>;
     companyName: Schema.Attribute.String;
+    copyrights: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -398,6 +399,7 @@ export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
       'api::company-detail.company-detail'
     > &
       Schema.Attribute.Private;
+    policy: Schema.Attribute.Component<'global.policy', true>;
     publishedAt: Schema.Attribute.DateTime;
     socialPlatforms: Schema.Attribute.Component<'global.social-platform', true>;
     updatedAt: Schema.Attribute.DateTime;

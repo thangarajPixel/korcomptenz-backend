@@ -42,6 +42,14 @@
       "type": "component",
       "component": "global.social-platform",
       "repeatable": true
+    },
+    "copyrights": {
+      "type": "string"
+    },
+    "policy": {
+      "type": "component",
+      "component": "global.policy",
+      "repeatable": true
     }
   }
 }
