@@ -901,20 +901,16 @@ export interface SeoSeo extends Struct.ComponentSchema {
     icon: 'alien';
   };
   attributes: {
-    canonicalURL: Schema.Attribute.String & Schema.Attribute.Unique;
-    metaDescription: Schema.Attribute.Text &
+    description: Schema.Attribute.Text &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 155;
       }>;
-    metaTitle: Schema.Attribute.String &
+    title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 60;
       }>;
-    preventIndexing: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>;
-    structuredData: Schema.Attribute.JSON & Schema.Attribute.Private;
   };
 }
 
