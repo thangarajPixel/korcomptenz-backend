@@ -9,7 +9,12 @@
       "type": "string"
     },
     "colSpan": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "col-span-8",
+        "col-span-6",
+        "col-span-4"
+      ]
     },
     "sections": {
       "type": "component",

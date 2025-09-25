@@ -9,9 +9,9 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files'>;
+    image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
-    mobile_image: Schema.Attribute.Media<'images' | 'files'>;
+    mobile_image: Schema.Attribute.Media<'images'>;
     subtitle: Schema.Attribute.String;
     subTitleTwo: Schema.Attribute.String;
     title: Schema.Attribute.Text;
@@ -74,12 +74,8 @@ export interface HomeOpportunity extends Struct.ComponentSchema {
     icon: 'briefcase';
   };
   attributes: {
-    arrowImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    bannerImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    arrowImage: Schema.Attribute.Media<'images'>;
+    bannerImage: Schema.Attribute.Media<'images'>;
     breakFour: Schema.Attribute.String;
     breakOne: Schema.Attribute.String;
     breakThree: Schema.Attribute.String;
@@ -103,7 +99,7 @@ export interface HomeOpportunityProfile extends Struct.ComponentSchema {
     icon: 'picture';
   };
   attributes: {
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
   };
 }
 
@@ -139,7 +135,7 @@ export interface HomeServicesSectionList extends Struct.ComponentSchema {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     heading: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     label: Schema.Attribute.String;
     link: Schema.Attribute.String;
   };
@@ -152,7 +148,7 @@ export interface HomeWeAreKorcomptenz extends Struct.ComponentSchema {
     icon: 'code';
   };
   attributes: {
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     p1: Schema.Attribute.Text;
     p2: Schema.Attribute.Text;
@@ -295,7 +291,9 @@ export interface MenuIndustryCloumn extends Struct.ComponentSchema {
     displayName: 'industry-menu';
   };
   attributes: {
-    colSpan: Schema.Attribute.String;
+    colSpan: Schema.Attribute.Enumeration<
+      ['col-span-8', 'col-span-6', 'col-span-4']
+    >;
     sectionName: Schema.Attribute.String;
     sections: Schema.Attribute.Component<'menu.industry-items', true>;
   };
@@ -308,6 +306,7 @@ export interface MenuIndustryItems extends Struct.ComponentSchema {
   };
   attributes: {
     height: Schema.Attribute.Enumeration<['tall', 'short']>;
+    href: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     imagePosition: Schema.Attribute.Enumeration<['side', 'down']>;
     items: Schema.Attribute.Component<'menu.industry-menu-items', true>;
@@ -344,7 +343,7 @@ export interface MenuInsightsData extends Struct.ComponentSchema {
   };
   attributes: {
     categories: Schema.Attribute.Component<'menu.insights-categories', true>;
-    heroImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    heroImage: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
@@ -381,7 +380,7 @@ export interface MenuSidebarAboutus extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    icon: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
@@ -494,7 +493,7 @@ export interface PageComponetsDemonstrateCard extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -535,7 +534,7 @@ export interface PageComponetsDomainSlides extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
@@ -615,7 +614,7 @@ export interface PageComponetsInsightsSectionCard
   };
   attributes: {
     category: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
@@ -654,7 +653,7 @@ export interface PageComponetsInspireSectionCard
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     position: Schema.Attribute.Enumeration<['bottom', 'top', 'topAbove']>;
     title: Schema.Attribute.String;
@@ -712,7 +711,7 @@ export interface PageComponetsSalesforce extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
@@ -770,7 +769,7 @@ export interface PageComponetsSapSectionImage extends Struct.ComponentSchema {
     displayName: 'sap-section-image';
   };
   attributes: {
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image: Schema.Attribute.Media<'images'>;
   };
 }
 
