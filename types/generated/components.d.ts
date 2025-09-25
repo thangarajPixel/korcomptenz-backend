@@ -37,6 +37,7 @@ export interface HomeHeader extends Struct.ComponentSchema {
     displayName: 'header';
   };
   attributes: {
+    hasChild: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     href: Schema.Attribute.String;
     label: Schema.Attribute.String;
   };
