@@ -11,6 +11,11 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    },
     "list": {
       "type": "dynamiczone",
       "components": [

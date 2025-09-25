@@ -11,6 +11,16 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    },
     "list": {
       "type": "dynamiczone",
       "components": [
@@ -33,16 +43,6 @@
         "page-componets.tech-data",
         "home.schedule-call"
       ]
-    },
-    "seo": {
-      "type": "component",
-      "component": "seo.seo",
-      "repeatable": false
-    },
-    "slug": {
-      "type": "string",
-      "required": true,
-      "unique": true
     }
   }
 }
