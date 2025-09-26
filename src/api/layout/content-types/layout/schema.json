@@ -46,21 +46,6 @@
       "component": "menu.about-data",
       "repeatable": false
     },
-    "careers": {
-      "type": "component",
-      "component": "menu.careersands-successtories",
-      "repeatable": false
-    },
-    "successStories": {
-      "type": "component",
-      "component": "menu.careersands-successtories",
-      "repeatable": false
-    },
-    "copyright": {
-      "type": "component",
-      "component": "menu.copy-right-section",
-      "repeatable": false
-    },
     "company": {
       "type": "relation",
       "relation": "oneToOne",

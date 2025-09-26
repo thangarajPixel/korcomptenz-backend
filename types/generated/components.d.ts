@@ -211,31 +211,6 @@ export interface MenuAboutusNavigationitems extends Struct.ComponentSchema {
   };
 }
 
-export interface MenuCareersandsSuccesstories extends Struct.ComponentSchema {
-  collectionName: 'components_menu_careersands_successtories';
-  info: {
-    displayName: 'careers-and-success-stories';
-  };
-  attributes: {
-    href: Schema.Attribute.String;
-    isChild: Schema.Attribute.Boolean;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface MenuCopyRightSection extends Struct.ComponentSchema {
-  collectionName: 'components_menu_copy_right_sections';
-  info: {
-    displayName: 'copy-right-section';
-  };
-  attributes: {
-    copyright: Schema.Attribute.String;
-    policy1: Schema.Attribute.String;
-    policy2: Schema.Attribute.String;
-    policy3: Schema.Attribute.String;
-  };
-}
-
 export interface MenuEcosystemChildDescription extends Struct.ComponentSchema {
   collectionName: 'components_menu_ecosystem_child_descriptions';
   info: {
@@ -950,8 +925,6 @@ declare module '@strapi/strapi' {
       'menu.about-data': MenuAboutData;
       'menu.about-menu-who-we-are': MenuAboutMenuWhoWeAre;
       'menu.aboutus-navigationitems': MenuAboutusNavigationitems;
-      'menu.careersands-successtories': MenuCareersandsSuccesstories;
-      'menu.copy-right-section': MenuCopyRightSection;
       'menu.ecosystem-child-description': MenuEcosystemChildDescription;
       'menu.ecosystem-child-type2': MenuEcosystemChildType2;
       'menu.ecosystem-items': MenuEcosystemItems;

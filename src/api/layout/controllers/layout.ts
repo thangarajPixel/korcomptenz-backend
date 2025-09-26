@@ -86,10 +86,6 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
               },
             },
           },
-
-          careers: true,
-          successStories: true
-
         },
       };
       const entity = await strapi.service('api::layout.layout').find(ctx.query);

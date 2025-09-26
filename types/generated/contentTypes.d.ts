@@ -456,15 +456,10 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
   };
   attributes: {
     aboutMenu: Schema.Attribute.Component<'menu.about-data', false>;
-    careers: Schema.Attribute.Component<
-      'menu.careersands-successtories',
-      false
-    >;
     company: Schema.Attribute.Relation<
       'oneToOne',
       'api::company-detail.company-detail'
     >;
-    copyright: Schema.Attribute.Component<'menu.copy-right-section', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -481,10 +476,6 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     scheduleCall: Schema.Attribute.Component<'home.schedule-call', false>;
     serviceMenu: Schema.Attribute.Component<'menu.section', true>;
-    successStories: Schema.Attribute.Component<
-      'menu.careersands-successtories',
-      false
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
