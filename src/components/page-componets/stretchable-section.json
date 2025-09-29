@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_page_componets_stretchable_sections",
+  "info": {
+    "displayName": "stretchable-section",
+    "icon": "command"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.stretchable-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

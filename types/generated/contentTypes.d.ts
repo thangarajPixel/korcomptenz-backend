@@ -516,6 +516,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.build-datas',
         'page-componets.tech-data',
         'home.schedule-call',
+        'page-componets.stretchable-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

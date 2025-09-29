@@ -41,7 +41,8 @@
         "page-componets.sticky-cards-list",
         "page-componets.build-datas",
         "page-componets.tech-data",
-        "home.schedule-call"
+        "home.schedule-call",
+        "page-componets.stretchable-section"
       ]
     }
   }

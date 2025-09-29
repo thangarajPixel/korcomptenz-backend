@@ -51,7 +51,7 @@ export interface HomeHeader extends Struct.ComponentSchema {
   attributes: {
     childKey: Schema.Attribute.String & Schema.Attribute.Required;
     hasChild: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    href: Schema.Attribute.String;
+    href: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     isButton: Schema.Attribute.Boolean;
     label: Schema.Attribute.String;
   };
@@ -125,8 +125,8 @@ export interface HomeScheduleCall extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String;
+    href: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     image: Schema.Attribute.Media<'images'>;
-    link: Schema.Attribute.String;
     title: Schema.Attribute.Text;
   };
 }
@@ -218,7 +218,7 @@ export interface MenuEcosystemChildDescription extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.String;
-    href: Schema.Attribute.String;
+    href: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
   };
 }
 
@@ -232,7 +232,7 @@ export interface MenuEcosystemChildType2 extends Struct.ComponentSchema {
       'menu.ecosystem-child-description',
       true
     >;
-    link: Schema.Attribute.String;
+    href: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     title: Schema.Attribute.String;
     type: Schema.Attribute.String;
   };
@@ -269,7 +269,7 @@ export interface MenuHomeMenu extends Struct.ComponentSchema {
     displayName: 'service-child';
   };
   attributes: {
-    link: Schema.Attribute.String;
+    href: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     title: Schema.Attribute.String;
     type: Schema.Attribute.String;
   };
@@ -296,7 +296,7 @@ export interface MenuIndustryItems extends Struct.ComponentSchema {
   };
   attributes: {
     height: Schema.Attribute.Enumeration<['tall', 'short']>;
-    href: Schema.Attribute.String;
+    href: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     image: Schema.Attribute.Media<'images'>;
     imagePosition: Schema.Attribute.Enumeration<['side', 'down']>;
     items: Schema.Attribute.Component<'menu.industry-menu-items', true>;
@@ -310,7 +310,7 @@ export interface MenuIndustryMenuItems extends Struct.ComponentSchema {
     displayName: 'industry-section-items';
   };
   attributes: {
-    href: Schema.Attribute.String;
+    href: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     title: Schema.Attribute.String;
   };
 }
@@ -345,7 +345,7 @@ export interface MenuItems extends Struct.ComponentSchema {
   };
   attributes: {
     child: Schema.Attribute.Component<'menu.home-menu', true>;
-    link: Schema.Attribute.String;
+    href: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     side: Schema.Attribute.Enumeration<['left', 'right', 'top', 'bottom']>;
     title: Schema.Attribute.String;
   };
@@ -858,6 +858,32 @@ export interface PageComponetsStickyTitleList extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsStretchableCard extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_stretchable_cards';
+  info: {
+    displayName: 'stretchable-card';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsStretchableSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_stretchable_sections';
+  info: {
+    displayName: 'stretchable-section';
+    icon: 'command';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    list: Schema.Attribute.Component<'page-componets.stretchable-card', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsTechData extends Struct.ComponentSchema {
   collectionName: 'components_service_tech_data';
   info: {
@@ -974,6 +1000,8 @@ declare module '@strapi/strapi' {
       'page-componets.sticky-cards-list': PageComponetsStickyCardsList;
       'page-componets.sticky-title-card': PageComponetsStickyTitleCard;
       'page-componets.sticky-title-list': PageComponetsStickyTitleList;
+      'page-componets.stretchable-card': PageComponetsStretchableCard;
+      'page-componets.stretchable-section': PageComponetsStretchableSection;
       'page-componets.tech-data': PageComponetsTechData;
       'seo.seo': SeoSeo;
       'service.banner-section-data': ServiceBannerSectionData;
