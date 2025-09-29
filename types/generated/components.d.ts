@@ -852,6 +852,7 @@ export interface PageComponetsStickyTitleList extends Struct.ComponentSchema {
     icon: 'briefcase';
   };
   attributes: {
+    description: Schema.Attribute.Text;
     list: Schema.Attribute.Component<'page-componets.sticky-title-card', true>;
     title: Schema.Attribute.String;
   };
