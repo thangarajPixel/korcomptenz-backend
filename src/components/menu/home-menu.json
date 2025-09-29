@@ -11,8 +11,10 @@
     "type": {
       "type": "string"
     },
-    "link": {
-      "type": "string"
+    "href": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
     }
   },
   "config": {}

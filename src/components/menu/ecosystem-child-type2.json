@@ -13,11 +13,13 @@
       "component": "menu.ecosystem-child-description",
       "repeatable": true
     },
-    "link": {
-      "type": "string"
-    },
     "type": {
       "type": "string"
+    },
+    "href": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
     }
   },
   "config": {}

@@ -17,8 +17,10 @@
         "bottom"
       ]
     },
-    "link": {
-      "type": "string"
+    "href": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
     },
     "child": {
       "type": "component",

@@ -11,7 +11,11 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
       ctx.query = {
         ...ctx.query,
         populate: {
-          navItems: true,
+          navItems: {
+            populate: {
+              href: true,
+            }
+          },
           company: {
             populate: {
               companyLogo: true,
@@ -31,7 +35,12 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
               image: true,
               items: {
                 populate: {
-                  child: true,
+                  href: true,
+                  child: {
+                    populate: {
+                      href: true,
+                    },
+                  },
                 },
               },
             },
@@ -40,7 +49,15 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
           'industriesMenu': {
             populate: {
               sections: {
-                populate: { image: true, items: true }
+                populate: {
+                  image: true,
+                  href: true,
+                  items: {
+                    populate: {
+                      href: true,
+                    },
+                  },
+                },
               }
             }
           },
@@ -56,7 +73,12 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
                 populate: {
                   child: {
                     populate: {
-                      description: true
+                      description: {
+                        populate: {
+                          href: true,
+                        },
+                      },
+                      href: true,
                     }
                   },
                 },
