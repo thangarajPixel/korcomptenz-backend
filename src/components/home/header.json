@@ -8,9 +8,6 @@
     "label": {
       "type": "string"
     },
-    "href": {
-      "type": "string"
-    },
     "hasChild": {
       "type": "boolean",
       "default": true
@@ -31,6 +28,11 @@
     },
     "isButton": {
       "type": "boolean"
+    },
+    "href": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
     }
   },
   "config": {}

@@ -9,7 +9,9 @@
       "type": "string"
     },
     "href": {
-      "type": "string"
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
     }
   },
   "config": {}

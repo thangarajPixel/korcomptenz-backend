@@ -11,15 +11,17 @@
     "buttonText": {
       "type": "string"
     },
-    "link": {
-      "type": "string"
-    },
     "image": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
         "images"
       ]
+    },
+    "href": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
     }
   },
   "config": {}
