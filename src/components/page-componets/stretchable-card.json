@@ -18,6 +18,10 @@
         "images",
         "files"
       ]
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Learn more"
     }
   },
   "config": {}

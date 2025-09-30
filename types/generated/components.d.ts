@@ -864,6 +864,8 @@ export interface PageComponetsStretchableCard extends Struct.ComponentSchema {
     displayName: 'stretchable-card';
   };
   attributes: {
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Learn more'>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images' | 'files'>;
     title: Schema.Attribute.String;
