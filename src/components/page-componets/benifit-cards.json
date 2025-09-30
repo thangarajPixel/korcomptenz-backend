@@ -5,7 +5,7 @@
   },
   "options": {},
   "attributes": {
-    "idnumber": {
+    "title": {
       "type": "string"
     },
     "number": {
