@@ -173,6 +173,16 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   image: true,
                 },
               },
+              "page-componets.stretchable-section": {
+                populate: {
+                  image: true,
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
             },
           },
           seo: true,
