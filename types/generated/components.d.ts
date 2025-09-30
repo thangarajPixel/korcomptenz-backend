@@ -405,8 +405,8 @@ export interface PageComponetsBenifitCards extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    idnumber: Schema.Attribute.String;
     number: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
