@@ -431,6 +431,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
         'page-componets.insights-section',
         'home.opportunity',
         'page-componets.inspire-section',
+        'home.schedule-call',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

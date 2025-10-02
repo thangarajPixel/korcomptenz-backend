@@ -25,7 +25,8 @@
         "page-componets.sticky-cards-list",
         "page-componets.insights-section",
         "home.opportunity",
-        "page-componets.inspire-section"
+        "page-componets.inspire-section",
+        "home.schedule-call"
       ]
     }
   }
