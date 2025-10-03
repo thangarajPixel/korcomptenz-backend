@@ -11,7 +11,7 @@
     "item": {
       "type": "component",
       "component": "menu.ecosystem-items",
-      "repeatable": true
+      "repeatable": false
     }
   },
   "config": {}

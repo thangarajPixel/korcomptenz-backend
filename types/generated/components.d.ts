@@ -258,7 +258,7 @@ export interface MenuEcosystemSidebar extends Struct.ComponentSchema {
     displayName: 'ecosystem-menu';
   };
   attributes: {
-    item: Schema.Attribute.Component<'menu.ecosystem-items', true>;
+    item: Schema.Attribute.Component<'menu.ecosystem-items', false>;
     menu: Schema.Attribute.String;
   };
 }

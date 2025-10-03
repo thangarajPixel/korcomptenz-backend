@@ -71,6 +71,7 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
             populate: {
               item: {
                 populate: {
+                  image: true,
                   child: {
                     populate: {
                       description: {
