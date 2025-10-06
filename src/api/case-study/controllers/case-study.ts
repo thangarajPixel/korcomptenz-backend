@@ -27,7 +27,7 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
       return ctx.internalServerError('Failed to fetch case study data');
     }
   },
-  async findOneBySlug(ctx) {
+  async findOne(ctx) {
     try {
       const entity = await strapi.db.query('api::case-study.case-study').findOne({
         where: {

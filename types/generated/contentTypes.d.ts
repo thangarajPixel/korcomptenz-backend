@@ -500,6 +500,10 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
   attributes: {
     attachment: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Private;
+    case_industries: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-industry.case-industry'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -514,13 +518,29 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
       'api::case-study.case-study'
     > &
       Schema.Attribute.Private;
+    outcome: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-business-outcome.case-business-outcome'
+    >;
     publishedAt: Schema.Attribute.DateTime;
+    regions: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-region.case-region'
+    >;
+    services: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-service.case-service'
+    >;
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     study: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'Case Study: '>;
+    technologies: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-technology.case-technology'
+    >;
     testimonials: Schema.Attribute.Component<
       'case-study.testimonial-section',
       true
@@ -546,6 +566,7 @@ export interface ApiCaseTechnologyCaseTechnology
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images' | 'files'>;
     label: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
