@@ -1,5 +1,41 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface CaseStudyDescriptionSection extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_description_sections';
+  info: {
+    displayName: 'description-section';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface CaseStudyHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_hero_sections';
+  info: {
+    displayName: 'hero-section';
+    icon: 'apps';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface CaseStudyTestimonialSection extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_testimonial_sections';
+  info: {
+    displayName: 'testimonial-section';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface GlobalGlobalField extends Struct.ComponentSchema {
   collectionName: 'components_global_global_fields';
   info: {
@@ -939,6 +975,9 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'case-study.description-section': CaseStudyDescriptionSection;
+      'case-study.hero-section': CaseStudyHeroSection;
+      'case-study.testimonial-section': CaseStudyTestimonialSection;
       'global.global-field': GlobalGlobalField;
       'global.policy': GlobalPolicy;
       'global.social-platform': GlobalSocialPlatform;

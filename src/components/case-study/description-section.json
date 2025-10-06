@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_case_study_description_sections",
+  "info": {
+    "displayName": "description-section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

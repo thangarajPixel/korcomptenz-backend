@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "case_industries",
+  "info": {
+    "singularName": "case-industry",
+    "pluralName": "case-industries",
+    "displayName": "case-industry"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    }
+  }
+}

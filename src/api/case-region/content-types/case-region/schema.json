@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "case_regions",
+  "info": {
+    "singularName": "case-region",
+    "pluralName": "case-regions",
+    "displayName": "case-region"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_case_study_testimonial_sections",
+  "info": {
+    "displayName": "testimonial-section",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

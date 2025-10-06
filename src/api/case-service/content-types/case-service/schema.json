@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "case_services",
+  "info": {
+    "singularName": "case-service",
+    "pluralName": "case-services",
+    "displayName": "case-service"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    }
+  }
+}

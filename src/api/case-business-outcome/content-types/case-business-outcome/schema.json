@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "case_business_outcomes",
+  "info": {
+    "singularName": "case-business-outcome",
+    "pluralName": "case-business-outcomes",
+    "displayName": "case-business-outcome"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    }
+  }
+}
