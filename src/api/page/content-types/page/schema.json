@@ -42,7 +42,9 @@
         "page-componets.build-datas",
         "page-componets.tech-data",
         "home.schedule-call",
-        "page-componets.stretchable-section"
+        "page-componets.stretchable-section",
+        "case-study.case-study-sticky-cards-list",
+        "case-study.case-study-domain-data"
       ]
     }
   }

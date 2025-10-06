@@ -183,6 +183,24 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'case-study.case-study-sticky-cards-list': {
+                populate: {
+                  list: {
+                    populate: {
+                      heroSection: true,
+                    },
+                  },
+                },
+              },
+              'case-study.case-study-domain-data': {
+                populate: {
+                  list: {
+                    populate: {
+                      heroSection: true,
+                    },
+                  },
+                },
+              },
             },
           },
           seo: true,

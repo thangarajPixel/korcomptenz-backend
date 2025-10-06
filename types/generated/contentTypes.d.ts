@@ -566,7 +566,7 @@ export interface ApiCaseTechnologyCaseTechnology
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image: Schema.Attribute.Media<'images' | 'files'>;
+    image: Schema.Attribute.Media<'images'>;
     label: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -640,6 +640,8 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
         'home.opportunity',
         'page-componets.inspire-section',
         'home.schedule-call',
+        'case-study.case-study-sticky-cards-list',
+        'case-study.case-study-domain-data',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -726,6 +728,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.tech-data',
         'home.schedule-call',
         'page-componets.stretchable-section',
+        'case-study.case-study-sticky-cards-list',
+        'case-study.case-study-domain-data',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

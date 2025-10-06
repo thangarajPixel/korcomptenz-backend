@@ -1,5 +1,34 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface CaseStudyCaseStudyDomainData extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_case_study_domain_data';
+  info: {
+    displayName: 'case-study-domain-data';
+    icon: 'code';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+    list: Schema.Attribute.Relation<'oneToMany', 'api::case-study.case-study'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface CaseStudyCaseStudyStickyCardsList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_case_study_sticky_cards_lists';
+  info: {
+    displayName: 'case-study-sticky-cards-list';
+    icon: 'chartCircle';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+    list: Schema.Attribute.Relation<'oneToMany', 'api::case-study.case-study'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface CaseStudyDescriptionSection extends Struct.ComponentSchema {
   collectionName: 'components_case_study_description_sections';
   info: {
@@ -975,6 +1004,8 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'case-study.case-study-domain-data': CaseStudyCaseStudyDomainData;
+      'case-study.case-study-sticky-cards-list': CaseStudyCaseStudyStickyCardsList;
       'case-study.description-section': CaseStudyDescriptionSection;
       'case-study.hero-section': CaseStudyHeroSection;
       'case-study.testimonial-section': CaseStudyTestimonialSection;

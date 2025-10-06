@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_case_study_case_study_domain_data",
+  "info": {
+    "displayName": "case-study-domain-data",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "list": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::case-study.case-study"
+    }
+  },
+  "config": {}
+}

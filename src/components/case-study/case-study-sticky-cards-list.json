@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_case_study_case_study_sticky_cards_lists",
+  "info": {
+    "displayName": "case-study-sticky-cards-list",
+    "icon": "chartCircle"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "list": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::case-study.case-study"
+    }
+  },
+  "config": {}
+}

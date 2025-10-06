@@ -26,6 +26,24 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                 image: true,
               },
             },
+            'case-study.case-study-sticky-cards-list': {
+              populate: {
+                list: {
+                  populate: {
+                    heroSection: true,
+                  },
+                },
+              },
+            },
+            'case-study.case-study-domain-data': {
+              populate: {
+                list: {
+                  populate: {
+                    heroSection: true,
+                  },
+                },
+              },
+            },
             'home.services-section': {
               populate: {
                 list: {
