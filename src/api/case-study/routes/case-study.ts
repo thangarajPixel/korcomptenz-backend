@@ -5,7 +5,13 @@
 import { factories } from '@strapi/strapi';
 
 export default factories.createCoreRouter('api::case-study.case-study', {
-  config: {},
+  config: {
+    filter: {
+      auth: false,
+      policies: [],
+      middlewares: [],
+    },
+  },
   only: ['find', 'findOne', 'filter'],
   except: [],
   prefix: '',

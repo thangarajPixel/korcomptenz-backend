@@ -7,6 +7,31 @@ import { factories } from '@strapi/strapi'
 export default factories.createCoreController('api::case-study.case-study', ({ strapi }) => ({
   async find(ctx) {
     try {
+      // Get simple frontend filters, e.g. ?technologies=2,4&services=3
+      const { technologies, services, regions, industries }: { technologies?: string, services?: string, regions?: string, industries?: string } = ctx.query;
+
+      // Build filters dynamically
+      const filters: { technologies?: { id: { $in: number[] } }, services?: { id: { $in: number[] } }, regions?: { id: { $in: number[] } }, case_industries?: { id: { $in: number[] } } } = {};
+
+      if (technologies) {
+        const techIds = technologies.split(',').map(Number);
+        filters.technologies = { id: { $in: techIds } };
+      }
+
+      if (services) {
+        const serviceIds = services.split(',').map(Number);
+        filters.services = { id: { $in: serviceIds } };
+      }
+
+      if (regions) {
+        const regionIds = regions.split(',').map(Number);
+        filters.regions = { id: { $in: regionIds } };
+      }
+
+      if (industries) {
+        const industryIds = industries.split(',').map(Number);
+        filters.case_industries = { id: { $in: industryIds } };
+      }
       ctx.query = {
         ...ctx.query,
         populate: {
@@ -16,6 +41,11 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
               image: true,
             },
           },
+          outcome: true,
+          case_industries: true,
+          regions: true,
+          services: true,
+          technologies: true,
         },
       };
       const entity = await strapi.service('api::case-study.case-study').find(ctx.query);
