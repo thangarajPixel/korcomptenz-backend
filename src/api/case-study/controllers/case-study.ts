@@ -80,25 +80,32 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
       return ctx.internalServerError('Failed to fetch case study data');
     }
   },
-  async filter() {
-    const [businessOutcomes, industries, regions, services, technologies] =
-      await Promise.all([
-        strapi.db.query('api::case-business-outcome.case-business-outcome').findMany(),
-        strapi.db.query('api::case-industry.case-industry').findMany(),
-        strapi.db.query('api::case-region.case-region').findMany(),
-        strapi.db.query('api::case-service.case-service').findMany(),
-        strapi.db.query('api::case-technology.case-technology').findMany({
-          populate: {
-            image: true,
-          },
-        }),
-      ]);
-    return {
-      businessOutcomes,
-      industries,
-      regions,
-      services,
-      technologies,
-    };
+  async filter(ctx) {
+    try {
+      const [businessOutcomes, industries, regions, services, technologies] =
+        await Promise.all([
+          strapi.db.query('api::case-business-outcome.case-business-outcome').findMany(),
+          strapi.db.query('api::case-industry.case-industry').findMany(),
+          strapi.db.query('api::case-region.case-region').findMany(),
+          strapi.db.query('api::case-service.case-service').findMany(),
+          strapi.db.query('api::case-technology.case-technology').findMany({
+            populate: {
+              image: true,
+            },
+          }),
+        ]);
+      const entity = {
+        businessOutcomes,
+        industries,
+        regions,
+        services,
+        technologies,
+      };
+      const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+      return this.transformResponse(sanitizedEntity);
+    } catch (error) {
+      strapi.log.error('Case Study filter error:', error);
+      return ctx.internalServerError('Failed to fetch case study data');
+    }
   },
 }));
