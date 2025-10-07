@@ -11,7 +11,11 @@ export default {
       method: 'GET',
       path: '/case-study/filter',
       handler: 'case-study.filter',
-      auth: false,
+      config: {
+        auth: false,
+        policies: [],
+        middlewares: [],
+      },
     }
   ]
 }
