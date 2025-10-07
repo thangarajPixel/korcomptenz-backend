@@ -29,7 +29,8 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
       const entity = await strapi.db.query('api::page.page').findOne({
         where: {
           slug:
-            slug ? `/${customSlug}` : '/'
+            slug ? `/${customSlug}` : '/',
+          publishedAt: { $notNull: true },
         },
         populate: {
           list: {
@@ -221,6 +222,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
       const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
       return this.transformResponse(sanitizedEntity);
     } catch (error) {
+      console.log(error, ':error');
       return ctx.internalServerError('An error occurred while fetching the page');
     }
   },
