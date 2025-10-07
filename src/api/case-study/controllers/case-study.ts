@@ -82,7 +82,7 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
   },
   async findFilter(ctx) {
     try {
-      const [businessOutcomes, industries, regions, services, technologies] =
+      const [businessOutcomes, industries, region, service, technology] =
         await Promise.all([
           strapi.db.query('api::case-business-outcome.case-business-outcome').findMany(),
           strapi.db.query('api::case-industry.case-industry').findMany(),
@@ -94,12 +94,13 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
             },
           }),
         ]);
+
       const entity = {
         businessOutcomes,
         industries,
-        regions,
-        services,
-        technologies,
+        region,
+        service,
+        technology,
       };
       const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
       return this.transformResponse(sanitizedEntity);
