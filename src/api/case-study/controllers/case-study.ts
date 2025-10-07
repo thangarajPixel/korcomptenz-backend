@@ -80,7 +80,7 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
       return ctx.internalServerError('Failed to fetch case study data');
     }
   },
-  async filter(ctx) {
+  async findFilter(ctx) {
     try {
       const [businessOutcomes, industries, regions, services, technologies] =
         await Promise.all([
@@ -95,13 +95,11 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
           }),
         ]);
       const entity = {
-        filters: {
-          businessOutcomes,
-          industries,
-          regions,
-          services,
-          technologies,
-        }
+        businessOutcomes,
+        industries,
+        regions,
+        services,
+        technologies,
       };
       const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
       return this.transformResponse(sanitizedEntity);

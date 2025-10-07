@@ -6,13 +6,13 @@ import { factories } from '@strapi/strapi';
 
 export default factories.createCoreRouter('api::case-study.case-study', {
   config: {
-    filter: {
+    findFilter: {
       auth: false,
       policies: [],
       middlewares: [],
     },
   },
-  only: ['find', 'findOne', 'filter'],
+  only: ['find', 'findOne', 'findFilter'],
   except: [],
   prefix: '',
 });

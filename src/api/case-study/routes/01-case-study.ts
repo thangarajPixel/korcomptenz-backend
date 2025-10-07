@@ -5,16 +5,16 @@ export default {
       method: 'GET',
       path: '/case-studies/:slug',
       handler: 'case-study.findOne',
-      auth: false,
+      config: {
+        auth: false,
+      },
     },
     { // Path defined with a URL parameter
       method: 'GET',
-      path: '/case-study/filter',
-      handler: 'case-study.filter',
+      path: '/case-study-filter',
+      handler: 'case-study.findFilter',
       config: {
         auth: false,
-        policies: [],
-        middlewares: [],
       },
     }
   ]
