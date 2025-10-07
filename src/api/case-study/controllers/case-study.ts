@@ -95,11 +95,13 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
           }),
         ]);
       const entity = {
-        businessOutcomes,
-        industries,
-        regions,
-        services,
-        technologies,
+        data: {
+          businessOutcomes,
+          industries,
+          regions,
+          services,
+          technologies,
+        }
       };
       const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
       return this.transformResponse(sanitizedEntity);
