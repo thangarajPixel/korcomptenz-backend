@@ -11,16 +11,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "study": {
-      "type": "string",
-      "default": "Case Study: ",
-      "required": true,
-      "regex": "^Case Study:\\s*(.*)$"
-    },
     "slug": {
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "study": {
+      "type": "string",
+      "default": "Case Study: ",
+      "regex": "^Case Study:\\s*(.*)$"
     },
     "outcome": {
       "type": "relation",

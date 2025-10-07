@@ -534,9 +534,7 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
-    study: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Case Study: '>;
+    study: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Case Study: '>;
     technologies: Schema.Attribute.Relation<
       'oneToMany',
       'api::case-technology.case-technology'

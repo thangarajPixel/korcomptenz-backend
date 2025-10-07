@@ -50,4 +50,25 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
       return ctx.internalServerError('Failed to fetch case study data');
     }
   },
+  async filter() {
+    const [businessOutcomes, industries, regions, services, technologies] =
+      await Promise.all([
+        strapi.db.query('api::case-business-outcome.case-business-outcome').findMany(),
+        strapi.db.query('api::case-industry.case-industry').findMany(),
+        strapi.db.query('api::case-region.case-region').findMany(),
+        strapi.db.query('api::case-service.case-service').findMany(),
+        strapi.db.query('api::case-technology.case-technology').findMany({
+          populate: {
+            image: true,
+          },
+        }),
+      ]);
+    return {
+      businessOutcomes,
+      industries,
+      regions,
+      services,
+      technologies,
+    };
+  },
 }));
