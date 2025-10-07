@@ -95,7 +95,7 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
           }),
         ]);
       const entity = {
-        data: {
+        filters: {
           businessOutcomes,
           industries,
           regions,
