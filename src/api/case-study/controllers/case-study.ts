@@ -84,14 +84,43 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
     try {
       const [businessOutcomes, industries, region, service, technology] =
         await Promise.all([
-          strapi.db.query('api::case-business-outcome.case-business-outcome').findMany(),
-          strapi.db.query('api::case-industry.case-industry').findMany(),
-          strapi.db.query('api::case-region.case-region').findMany(),
-          strapi.db.query('api::case-service.case-service').findMany(),
+          strapi.db.query('api::case-business-outcome.case-business-outcome').findMany({
+            filters: {
+              publishedAt: {
+                $ne: null,
+              },
+            }
+          }),
+          strapi.db.query('api::case-industry.case-industry').findMany({
+            filters: {
+              publishedAt: {
+                $ne: null,
+              },
+            }
+          }),
+          strapi.db.query('api::case-region.case-region').findMany({
+            filters: {
+              publishedAt: {
+                $ne: null,
+              },
+            }
+          }),
+          strapi.db.query('api::case-service.case-service').findMany({
+            filters: {
+              publishedAt: {
+                $ne: null,
+              },
+            }
+          }),
           strapi.db.query('api::case-technology.case-technology').findMany({
             populate: {
               image: true,
             },
+            filters: {
+              publishedAt: {
+                $ne: null,
+              },
+            }
           }),
         ]);
 
