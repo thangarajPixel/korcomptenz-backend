@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_case_study_banner_images",
+  "info": {
+    "displayName": "banner-image"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  },
+  "config": {}
+}

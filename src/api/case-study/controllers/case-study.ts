@@ -62,6 +62,7 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
       const entity = await strapi.db.query('api::case-study.case-study').findOne({
         where: {
           slug: ctx.params.slug,
+          publishedAt: { $notNull: true },
         },
         populate: {
           attachment: false,

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_global_title_descripitons",
+  "info": {
+    "displayName": "title-descripiton",
+    "icon": "command"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

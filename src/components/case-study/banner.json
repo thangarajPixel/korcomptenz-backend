@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_case_study_banners",
+  "info": {
+    "displayName": "banner",
+    "icon": "train"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "searchPlaceholder": {
+      "type": "string"
+    },
+    "images": {
+      "type": "component",
+      "component": "case-study.banner-image",
+      "repeatable": true,
+      "min": 3,
+      "max": 3
+    }
+  },
+  "config": {}
+}

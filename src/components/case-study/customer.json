@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_case_study_customers",
+  "info": {
+    "displayName": "customer",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "customerValues": {
+      "type": "component",
+      "component": "case-study.customer-value",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

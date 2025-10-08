@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_case_study_customer_values",
+  "info": {
+    "displayName": "customer-value"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

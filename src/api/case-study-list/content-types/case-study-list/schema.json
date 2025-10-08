@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "case_study_lists",
+  "info": {
+    "singularName": "case-study-list",
+    "pluralName": "case-study-lists",
+    "displayName": "case-study-list"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "banner": {
+      "type": "component",
+      "component": "case-study.banner",
+      "repeatable": false
+    },
+    "filterLabel": {
+      "type": "component",
+      "component": "case-study.filter-label",
+      "repeatable": false
+    },
+    "sponser": {
+      "type": "component",
+      "component": "case-study.sponser-card",
+      "repeatable": false
+    },
+    "partnerSection": {
+      "type": "component",
+      "component": "case-study.partner-section",
+      "repeatable": false
+    },
+    "customerSection": {
+      "type": "component",
+      "component": "case-study.customer",
+      "repeatable": false
+    },
+    "testimonal": {
+      "type": "component",
+      "component": "global.title-descripiton",
+      "repeatable": true
+    }
+  }
+}

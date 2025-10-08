@@ -1,5 +1,36 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface CaseStudyBanner extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_banners';
+  info: {
+    displayName: 'banner';
+    icon: 'train';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    images: Schema.Attribute.Component<'case-study.banner-image', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+          min: 3;
+        },
+        number
+      >;
+    searchPlaceholder: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface CaseStudyBannerImage extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_banner_images';
+  info: {
+    displayName: 'banner-image';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
 export interface CaseStudyCaseStudyDomainData extends Struct.ComponentSchema {
   collectionName: 'components_case_study_case_study_domain_data';
   info: {
@@ -29,6 +60,33 @@ export interface CaseStudyCaseStudyStickyCardsList
   };
 }
 
+export interface CaseStudyCustomer extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_customers';
+  info: {
+    displayName: 'customer';
+    icon: 'calendar';
+  };
+  attributes: {
+    customerValues: Schema.Attribute.Component<
+      'case-study.customer-value',
+      true
+    >;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface CaseStudyCustomerValue extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_customer_values';
+  info: {
+    displayName: 'customer-value';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface CaseStudyDescriptionSection extends Struct.ComponentSchema {
   collectionName: 'components_case_study_description_sections';
   info: {
@@ -37,6 +95,21 @@ export interface CaseStudyDescriptionSection extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.RichText;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface CaseStudyFilterLabel extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_filter_labels';
+  info: {
+    displayName: 'filter-label';
+  };
+  attributes: {
+    industry: Schema.Attribute.String;
+    outcome: Schema.Attribute.String;
+    region: Schema.Attribute.String;
+    resetFilter: Schema.Attribute.String;
+    service: Schema.Attribute.String;
+    technology: Schema.Attribute.String;
   };
 }
 
@@ -50,6 +123,44 @@ export interface CaseStudyHeroSection extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface CaseStudyPartner extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_partners';
+  info: {
+    displayName: 'partner';
+    icon: 'crown';
+  };
+  attributes: {
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    name: Schema.Attribute.String;
+  };
+}
+
+export interface CaseStudyPartnerSection extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_partner_sections';
+  info: {
+    displayName: 'partner-section';
+  };
+  attributes: {
+    partner: Schema.Attribute.Component<'case-study.partner', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface CaseStudySponserCard extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_sponser_cards';
+  info: {
+    displayName: 'sponser-card';
+    icon: 'crop';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.Text;
   };
 }
 
@@ -105,6 +216,18 @@ export interface GlobalSocialPlatform extends Struct.ComponentSchema {
     icon: Schema.Attribute.Media<'images'>;
     labal: Schema.Attribute.String;
     link: Schema.Attribute.String;
+  };
+}
+
+export interface GlobalTitleDescripiton extends Struct.ComponentSchema {
+  collectionName: 'components_global_title_descripitons';
+  info: {
+    displayName: 'title-descripiton';
+    icon: 'command';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -1004,14 +1127,23 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'case-study.banner': CaseStudyBanner;
+      'case-study.banner-image': CaseStudyBannerImage;
       'case-study.case-study-domain-data': CaseStudyCaseStudyDomainData;
       'case-study.case-study-sticky-cards-list': CaseStudyCaseStudyStickyCardsList;
+      'case-study.customer': CaseStudyCustomer;
+      'case-study.customer-value': CaseStudyCustomerValue;
       'case-study.description-section': CaseStudyDescriptionSection;
+      'case-study.filter-label': CaseStudyFilterLabel;
       'case-study.hero-section': CaseStudyHeroSection;
+      'case-study.partner': CaseStudyPartner;
+      'case-study.partner-section': CaseStudyPartnerSection;
+      'case-study.sponser-card': CaseStudySponserCard;
       'case-study.testimonial-section': CaseStudyTestimonialSection;
       'global.global-field': GlobalGlobalField;
       'global.policy': GlobalPolicy;
       'global.social-platform': GlobalSocialPlatform;
+      'global.title-descripiton': GlobalTitleDescripiton;
       'home.header': HomeHeader;
       'home.hero-section-one': HomeHeroSectionOne;
       'home.nav-item': HomeNavItem;

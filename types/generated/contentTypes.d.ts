@@ -487,6 +487,42 @@ export interface ApiCaseServiceCaseService extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCaseStudyListCaseStudyList extends Struct.SingleTypeSchema {
+  collectionName: 'case_study_lists';
+  info: {
+    displayName: 'case-study-list';
+    pluralName: 'case-study-lists';
+    singularName: 'case-study-list';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Component<'case-study.banner', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    customerSection: Schema.Attribute.Component<'case-study.customer', false>;
+    filterLabel: Schema.Attribute.Component<'case-study.filter-label', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-study-list.case-study-list'
+    > &
+      Schema.Attribute.Private;
+    partnerSection: Schema.Attribute.Component<
+      'case-study.partner-section',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    sponser: Schema.Attribute.Component<'case-study.sponser-card', false>;
+    testimonal: Schema.Attribute.Component<'global.title-descripiton', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
   collectionName: 'case_studies';
   info: {
@@ -1257,6 +1293,7 @@ declare module '@strapi/strapi' {
       'api::case-industry.case-industry': ApiCaseIndustryCaseIndustry;
       'api::case-region.case-region': ApiCaseRegionCaseRegion;
       'api::case-service.case-service': ApiCaseServiceCaseService;
+      'api::case-study-list.case-study-list': ApiCaseStudyListCaseStudyList;
       'api::case-study.case-study': ApiCaseStudyCaseStudy;
       'api::case-technology.case-technology': ApiCaseTechnologyCaseTechnology;
       'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;

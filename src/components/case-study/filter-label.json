@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_case_study_filter_labels",
+  "info": {
+    "displayName": "filter-label"
+  },
+  "options": {},
+  "attributes": {
+    "industry": {
+      "type": "string"
+    },
+    "service": {
+      "type": "string"
+    },
+    "technology": {
+      "type": "string"
+    },
+    "outcome": {
+      "type": "string"
+    },
+    "region": {
+      "type": "string"
+    },
+    "resetFilter": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

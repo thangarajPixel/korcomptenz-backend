@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_case_study_partner_sections",
+  "info": {
+    "displayName": "partner-section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "partner": {
+      "type": "component",
+      "component": "case-study.partner",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
