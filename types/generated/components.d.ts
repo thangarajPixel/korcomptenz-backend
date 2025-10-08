@@ -93,7 +93,13 @@ export interface CaseStudyDescriptionSection extends Struct.ComponentSchema {
     displayName: 'description-section';
   };
   attributes: {
-    description: Schema.Attribute.RichText;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     title: Schema.Attribute.String;
   };
 }
