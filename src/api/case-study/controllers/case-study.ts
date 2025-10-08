@@ -66,7 +66,11 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
         },
         populate: {
           attachment: false,
-          heroSection: true,
+          heroSection: {
+            populate: {
+              image: true
+            }
+          },
           descriptionSection: true,
           testimonials: true,
         },

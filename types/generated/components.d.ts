@@ -128,6 +128,7 @@ export interface CaseStudyHeroSection extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    study: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Case Study: '>;
     title: Schema.Attribute.String;
   };
 }

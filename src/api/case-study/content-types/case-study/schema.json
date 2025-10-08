@@ -16,11 +16,6 @@
       "required": true,
       "unique": true
     },
-    "study": {
-      "type": "string",
-      "default": "Case Study: ",
-      "regex": "^Case Study:\\s*(.*)$"
-    },
     "outcome": {
       "type": "relation",
       "relation": "oneToMany",

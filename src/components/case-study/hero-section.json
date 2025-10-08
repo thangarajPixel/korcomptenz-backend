@@ -18,6 +18,11 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "study": {
+      "type": "string",
+      "default": "Case Study: ",
+      "regex": "^Case Study:\\s*(.*)$"
     }
   },
   "config": {}
