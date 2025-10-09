@@ -487,6 +487,40 @@ export interface ApiCaseServiceCaseService extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCaseStudyLeadCaseStudyLead
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'case_study_leads';
+  info: {
+    displayName: 'case-study-lead';
+    pluralName: 'case-study-leads';
+    singularName: 'case-study-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    caseStudyId: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String & Schema.Attribute.Required;
+    fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-study-lead.case-study-lead'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text & Schema.Attribute.Required;
+    organization: Schema.Attribute.String & Schema.Attribute.Required;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCaseStudyListCaseStudyList extends Struct.SingleTypeSchema {
   collectionName: 'case_study_lists';
   info: {
@@ -1294,6 +1328,7 @@ declare module '@strapi/strapi' {
       'api::case-industry.case-industry': ApiCaseIndustryCaseIndustry;
       'api::case-region.case-region': ApiCaseRegionCaseRegion;
       'api::case-service.case-service': ApiCaseServiceCaseService;
+      'api::case-study-lead.case-study-lead': ApiCaseStudyLeadCaseStudyLead;
       'api::case-study-list.case-study-list': ApiCaseStudyListCaseStudyList;
       'api::case-study.case-study': ApiCaseStudyCaseStudy;
       'api::case-technology.case-technology': ApiCaseTechnologyCaseTechnology;

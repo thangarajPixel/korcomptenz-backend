@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "case_study_leads",
+  "info": {
+    "singularName": "case-study-lead",
+    "pluralName": "case-study-leads",
+    "displayName": "case-study-lead"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "organization": {
+      "type": "string",
+      "required": true
+    },
+    "message": {
+      "type": "text",
+      "required": true
+    },
+    "caseStudyId": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

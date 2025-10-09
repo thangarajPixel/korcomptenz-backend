@@ -3,6 +3,6 @@
     "componets",
     "korcomptenz"
   ],
-  "files.autoSave": "off",
+  "files.autoSave": "onWindowChange",
   "postman.settings.dotenv-detection-notification-visibility": false
 }
