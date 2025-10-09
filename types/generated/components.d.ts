@@ -246,7 +246,7 @@ export interface HomeHeader extends Struct.ComponentSchema {
   attributes: {
     childKey: Schema.Attribute.String & Schema.Attribute.Required;
     hasChild: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    href: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
+    href: Schema.Attribute.String;
     isButton: Schema.Attribute.Boolean;
     label: Schema.Attribute.String;
   };

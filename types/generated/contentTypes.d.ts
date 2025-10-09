@@ -536,6 +536,8 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
   attributes: {
     attachment: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Private;
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Dive Deeper'>;
     case_industries: Schema.Attribute.Relation<
       'oneToMany',
       'api::case-industry.case-industry'

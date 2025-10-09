@@ -64,6 +64,10 @@
         "images",
         "files"
       ]
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Dive Deeper"
     }
   }
 }
