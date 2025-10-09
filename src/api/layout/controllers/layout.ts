@@ -11,11 +11,7 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
       ctx.query = {
         ...ctx.query,
         populate: {
-          navItems: {
-            populate: {
-              href: true,
-            }
-          },
+          navItems: true,
           company: {
             populate: {
               companyLogo: true,
