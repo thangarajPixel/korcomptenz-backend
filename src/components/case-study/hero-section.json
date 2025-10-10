@@ -12,6 +12,10 @@
     "description": {
       "type": "text"
     },
+    "buttonText": {
+      "type": "string",
+      "default": "Dive Deeper"
+    },
     "image": {
       "type": "media",
       "multiple": false,
