@@ -15,5 +15,22 @@ module.exports = ({ env }) => {
         },
       },
     },
+    // email: {
+    //   config: {
+    //     provider: 'nodemailer',
+    //     providerOptions: {
+    //       host: env('MAIL_HOST'),
+    //       port: Number(env('MAIL_PORT')) || 587,
+    //       auth: {
+    //         user: env('MAIL_USERNAME'),
+    //         pass: env('MAIL_PASSWORD'),
+    //       },
+    //     },
+    //     settings: {
+    //       defaultFrom: env('MAIL_DEFAULT_FROM'),
+    //       defaultReplyTo: env('MAIL_DEFAULT_REPLY_TO'),
+    //     },
+    //   },
+    // },
   })
 };
