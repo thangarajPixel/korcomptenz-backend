@@ -126,6 +126,8 @@ export interface CaseStudyHeroSection extends Struct.ComponentSchema {
     icon: 'apps';
   };
   attributes: {
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Dive Deeper'>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     study: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Case Study: '>;
