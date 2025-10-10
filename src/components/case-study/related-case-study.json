@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_case_study_related_case_studies",
+  "info": {
+    "displayName": "related-case-study",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Explore more success stories"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "View all case studies"
+    }
+  },
+  "config": {}
+}

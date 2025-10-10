@@ -156,6 +156,20 @@ export interface CaseStudyPartnerSection extends Struct.ComponentSchema {
   };
 }
 
+export interface CaseStudyRelatedCaseStudy extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_related_case_studies';
+  info: {
+    displayName: 'related-case-study';
+    icon: 'clock';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'View all case studies'>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Explore more success stories'>;
+  };
+}
+
 export interface CaseStudySponserCard extends Struct.ComponentSchema {
   collectionName: 'components_case_study_sponser_cards';
   info: {
@@ -1145,6 +1159,7 @@ declare module '@strapi/strapi' {
       'case-study.hero-section': CaseStudyHeroSection;
       'case-study.partner': CaseStudyPartner;
       'case-study.partner-section': CaseStudyPartnerSection;
+      'case-study.related-case-study': CaseStudyRelatedCaseStudy;
       'case-study.sponser-card': CaseStudySponserCard;
       'case-study.testimonial-section': CaseStudyTestimonialSection;
       'global.global-field': GlobalGlobalField;

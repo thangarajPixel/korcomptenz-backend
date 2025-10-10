@@ -68,6 +68,11 @@
     "buttonText": {
       "type": "string",
       "default": "Dive Deeper"
+    },
+    "relatedCase": {
+      "type": "component",
+      "component": "case-study.related-case-study",
+      "repeatable": false
     }
   }
 }

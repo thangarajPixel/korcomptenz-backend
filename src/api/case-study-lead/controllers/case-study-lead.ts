@@ -17,7 +17,7 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
       });
       if (caseStudy) {
         const response = await super.create(ctx);
-        return { data: { ...response.data, message: 'Case study lead created successfully', attachment: caseStudy.attachment } };
+        return { data: { success: true, ...response.data, message: 'Case study lead created successfully', attachment: caseStudy.attachment } };
       }
       return ctx.notFound('Case study not found');
     }
