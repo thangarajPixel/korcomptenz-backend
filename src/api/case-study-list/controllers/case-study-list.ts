@@ -27,6 +27,7 @@ export default factories.createCoreController('api::case-study-list.case-study-l
         sponser: {
           populate: {
             image: true,
+            logo: true,
           },
         },
         partnerSection: {

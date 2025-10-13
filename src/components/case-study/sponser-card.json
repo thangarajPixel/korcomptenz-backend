@@ -24,6 +24,13 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}
