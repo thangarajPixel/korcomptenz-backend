@@ -114,6 +114,8 @@ export interface CaseStudyFilterLabel extends Struct.ComponentSchema {
     filterKey: Schema.Attribute.Enumeration<
       ['businessOutcomes', 'industries', 'region', 'service', 'technology']
     >;
+    isDesignedDropdown: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     isMultiple: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     label: Schema.Attribute.String;
   };
@@ -169,6 +171,7 @@ export interface CaseStudyPopularFilter extends Struct.ComponentSchema {
       'case-study.popular-filter-list',
       true
     >;
+    resetButtonText: Schema.Attribute.String;
   };
 }
 

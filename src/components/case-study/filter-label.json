@@ -24,6 +24,10 @@
     "isMultiple": {
       "type": "boolean",
       "default": false
+    },
+    "isDesignedDropdown": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

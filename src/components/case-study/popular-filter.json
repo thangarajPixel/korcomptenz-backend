@@ -12,6 +12,10 @@
       "type": "component",
       "component": "case-study.popular-filter-list",
       "repeatable": true
+    },
+    "resetButtonText": {
+      "type": "string",
+      "default": "Reset"
     }
   },
   "config": {}
