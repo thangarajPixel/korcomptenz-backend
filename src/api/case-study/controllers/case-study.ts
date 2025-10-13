@@ -80,9 +80,7 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
             }
           ],
         },
-
       };
-      console.log(ctx.query, ':ctx.query')
       const entity = await strapi.service('api::case-study.case-study').find({
         ...ctx.query,
       });
