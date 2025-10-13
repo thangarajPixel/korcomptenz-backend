@@ -171,7 +171,8 @@ export interface CaseStudyPopularFilter extends Struct.ComponentSchema {
       'case-study.popular-filter-list',
       true
     >;
-    resetButtonText: Schema.Attribute.String;
+    resetButtonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Reset'>;
   };
 }
 

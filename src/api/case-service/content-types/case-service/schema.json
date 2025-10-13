@@ -13,6 +13,11 @@
   "attributes": {
     "label": {
       "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

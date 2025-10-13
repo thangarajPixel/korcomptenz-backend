@@ -7,31 +7,39 @@ import { factories } from '@strapi/strapi'
 export default factories.createCoreController('api::case-study.case-study', ({ strapi }) => ({
   async find(ctx) {
     try {
-      // Get simple frontend filters, e.g. ?technologies=2,4&services=3
-      const { technologies, services, regions, industries }: { technologies?: string, services?: string, regions?: string, industries?: string } = ctx.query;
+      const filters: {
+        technologies?: { id: { $in: number[] }, slug?: { $eq: string } },
+        services?: { id: { $in: number[] }, slug?: { $eq: string } },
+        regions?: { id: { $in: number[] } },
+        case_industries?: { id: { $in: number[] } }
 
-      // Build filters dynamically
-      const filters: { technologies?: { id: { $in: number[] } }, services?: { id: { $in: number[] } }, regions?: { id: { $in: number[] } }, case_industries?: { id: { $in: number[] } } } = {};
+      } = {};
+      if (ctx.query.filter) {   // Get simple frontend filters, e.g. ?technologies=2,4&services=3
+        const { technologies, services, regions, industries }: { technologies?: string[], services?: string[], regions?: string[], industries?: string[] } = ctx.query?.filter;
 
-      if (technologies) {
-        const techIds = technologies.split(',').map(Number);
-        filters.technologies = { id: { $in: techIds } };
+        // Build filters dynamically
+
+        if (technologies) {
+          const techIds = technologies.map(Number);
+          filters.technologies = { id: { $in: techIds } };
+        }
+
+        if (services) {
+          const serviceIds = services.map(Number);
+          filters.services = { id: { $in: serviceIds } };
+        }
+
+        if (regions) {
+          const regionIds = regions.map(Number);
+          filters.regions = { id: { $in: regionIds } };
+        }
+
+        if (industries) {
+          const industryIds = industries.map(Number);
+          filters.case_industries = { id: { $in: industryIds } };
+        }
       }
 
-      if (services) {
-        const serviceIds = services.split(',').map(Number);
-        filters.services = { id: { $in: serviceIds } };
-      }
-
-      if (regions) {
-        const regionIds = regions.split(',').map(Number);
-        filters.regions = { id: { $in: regionIds } };
-      }
-
-      if (industries) {
-        const industryIds = industries.split(',').map(Number);
-        filters.case_industries = { id: { $in: industryIds } };
-      }
       ctx.query = {
         ...ctx.query,
         populate: {
@@ -47,8 +55,37 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
           services: true,
           technologies: true,
         },
+        filters: {
+          ...filters,
+          // services: { ...filters?.services, slug: { $eq: ctx.query.slug } },
+          // technologies: { ...filters?.technologies, slug: { $eq: ctx.query.slug } },
+          $and: [
+            {
+              $or: [
+                {
+                  services: {
+                    slug: {
+                      $eq: ctx.query.slug,
+                    },
+                  },
+                },
+                {
+                  technologies: {
+                    slug: {
+                      $eq: ctx.query.slug,
+                    },
+                  },
+                },
+              ],
+            }
+          ],
+        },
+
       };
-      const entity = await strapi.service('api::case-study.case-study').find(ctx.query);
+      console.log(ctx.query, ':ctx.query')
+      const entity = await strapi.service('api::case-study.case-study').find({
+        ...ctx.query,
+      });
       const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
 
       return this.transformResponse(sanitizedEntity);

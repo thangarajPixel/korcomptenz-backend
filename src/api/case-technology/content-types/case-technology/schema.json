@@ -20,6 +20,11 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }
