@@ -20,6 +20,10 @@
         "service",
         "technology"
       ]
+    },
+    "isMultiple": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

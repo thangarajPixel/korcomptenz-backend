@@ -114,6 +114,7 @@ export interface CaseStudyFilterLabel extends Struct.ComponentSchema {
     filterKey: Schema.Attribute.Enumeration<
       ['businessOutcomes', 'industries', 'region', 'service', 'technology']
     >;
+    isMultiple: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     label: Schema.Attribute.String;
   };
 }
