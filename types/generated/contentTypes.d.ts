@@ -537,7 +537,7 @@ export interface ApiCaseStudyListCaseStudyList extends Struct.SingleTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     customerSection: Schema.Attribute.Component<'case-study.customer', false>;
-    filterLabel: Schema.Attribute.Component<'case-study.filter-label', false>;
+    filterLabel: Schema.Attribute.Component<'case-study.filter-label', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -546,6 +546,10 @@ export interface ApiCaseStudyListCaseStudyList extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     partnerSection: Schema.Attribute.Component<
       'case-study.partner-section',
+      false
+    >;
+    popularFilter: Schema.Attribute.Component<
+      'case-study.popular-filter',
       false
     >;
     publishedAt: Schema.Attribute.DateTime;

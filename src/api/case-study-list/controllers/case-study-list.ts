@@ -19,6 +19,11 @@ export default factories.createCoreController('api::case-study-list.case-study-l
           },
         },
         filterLabel: true,
+        popularFilter: {
+          populate: {
+            popularFilterList: true,
+          },
+        },
         sponser: {
           populate: {
             image: true,

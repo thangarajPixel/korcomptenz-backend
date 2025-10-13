@@ -5,23 +5,21 @@
   },
   "options": {},
   "attributes": {
-    "industry": {
+    "label": {
       "type": "string"
     },
-    "service": {
+    "childTitle": {
       "type": "string"
     },
-    "technology": {
-      "type": "string"
-    },
-    "outcome": {
-      "type": "string"
-    },
-    "region": {
-      "type": "string"
-    },
-    "resetFilter": {
-      "type": "string"
+    "filterKey": {
+      "type": "enumeration",
+      "enum": [
+        "businessOutcomes",
+        "industries",
+        "region",
+        "service",
+        "technology"
+      ]
     }
   },
   "config": {}

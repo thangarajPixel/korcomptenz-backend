@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_case_study_popular_filter_lists",
+  "info": {
+    "displayName": "popular-filter-list",
+    "icon": "crop"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "sort": {
+      "type": "enumeration",
+      "enum": [
+        "created_at:asc",
+        "created_at:desc",
+        "title:asc",
+        "title:desc"
+      ]
+    }
+  },
+  "config": {}
+}

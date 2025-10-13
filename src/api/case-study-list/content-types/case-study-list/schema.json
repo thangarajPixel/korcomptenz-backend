@@ -19,7 +19,7 @@
     "filterLabel": {
       "type": "component",
       "component": "case-study.filter-label",
-      "repeatable": false
+      "repeatable": true
     },
     "sponser": {
       "type": "component",
@@ -40,6 +40,11 @@
       "type": "component",
       "component": "global.title-descripiton",
       "repeatable": true
+    },
+    "popularFilter": {
+      "type": "component",
+      "component": "case-study.popular-filter",
+      "repeatable": false
     }
   }
 }

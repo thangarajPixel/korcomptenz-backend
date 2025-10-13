@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_case_study_popular_filters",
+  "info": {
+    "displayName": "popular-filter"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "popularFilterList": {
+      "type": "component",
+      "component": "case-study.popular-filter-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

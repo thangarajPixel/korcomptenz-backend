@@ -110,12 +110,11 @@ export interface CaseStudyFilterLabel extends Struct.ComponentSchema {
     displayName: 'filter-label';
   };
   attributes: {
-    industry: Schema.Attribute.String;
-    outcome: Schema.Attribute.String;
-    region: Schema.Attribute.String;
-    resetFilter: Schema.Attribute.String;
-    service: Schema.Attribute.String;
-    technology: Schema.Attribute.String;
+    childTitle: Schema.Attribute.String;
+    filterKey: Schema.Attribute.Enumeration<
+      ['businessOutcomes', 'industries', 'region', 'service', 'technology']
+    >;
+    label: Schema.Attribute.String;
   };
 }
 
@@ -155,6 +154,34 @@ export interface CaseStudyPartnerSection extends Struct.ComponentSchema {
   attributes: {
     partner: Schema.Attribute.Component<'case-study.partner', true>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface CaseStudyPopularFilter extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_popular_filters';
+  info: {
+    displayName: 'popular-filter';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    popularFilterList: Schema.Attribute.Component<
+      'case-study.popular-filter-list',
+      true
+    >;
+  };
+}
+
+export interface CaseStudyPopularFilterList extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_popular_filter_lists';
+  info: {
+    displayName: 'popular-filter-list';
+    icon: 'crop';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    sort: Schema.Attribute.Enumeration<
+      ['created_at:asc', 'created_at:desc', 'title:asc', 'title:desc']
+    >;
   };
 }
 
@@ -1161,6 +1188,8 @@ declare module '@strapi/strapi' {
       'case-study.hero-section': CaseStudyHeroSection;
       'case-study.partner': CaseStudyPartner;
       'case-study.partner-section': CaseStudyPartnerSection;
+      'case-study.popular-filter': CaseStudyPopularFilter;
+      'case-study.popular-filter-list': CaseStudyPopularFilterList;
       'case-study.related-case-study': CaseStudyRelatedCaseStudy;
       'case-study.sponser-card': CaseStudySponserCard;
       'case-study.testimonial-section': CaseStudyTestimonialSection;
