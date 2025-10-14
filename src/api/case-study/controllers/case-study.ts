@@ -153,56 +153,34 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
   },
   async findFilter(ctx) {
     try {
-      const [businessOutcomes, industries, region, service, technology] =
-        await Promise.all([
-          strapi.db.query('api::case-business-outcome.case-business-outcome').findMany({
-            filters: {
-              publishedAt: {
-                $ne: null,
-              },
-            }
-          }),
-          strapi.db.query('api::case-industry.case-industry').findMany({
-            filters: {
-              publishedAt: {
-                $ne: null,
-              },
-            }
-          }),
-          strapi.db.query('api::case-region.case-region').findMany({
-            filters: {
-              publishedAt: {
-                $ne: null,
-              },
-            }
-          }),
-          strapi.db.query('api::case-service.case-service').findMany({
-            filters: {
-              publishedAt: {
-                $ne: null,
-              },
-            }
-          }),
-          strapi.db.query('api::case-technology.case-technology').findMany({
-            populate: {
-              image: true,
-            },
-            filters: {
-              publishedAt: {
-                $ne: null,
-              },
-            }
-          }),
-        ]);
-
-      const entity = {
-        businessOutcomes,
-        industries,
-        region,
-        service,
-        technology,
-      };
+      const entity = await strapi.service('api::case-study.case-study').getAllFilter(ctx);
       const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+      return this.transformResponse(sanitizedEntity);
+    } catch (error) {
+      strapi.log.error('Case Study filter error:', error);
+      return ctx.internalServerError('Failed to fetch case study data');
+    }
+  },
+  async search(ctx) {
+    try {
+      ctx.query = {
+        ...ctx.query,
+        limit: 5,
+        where: {
+          label: {
+            $contains: ctx?.query?.search,
+          }
+        },
+      }
+      const entity = await strapi.service('api::case-study.case-study').getAllFilter(ctx);
+      const compileData = [
+        ...entity.businessOutcomes.map((item) => ({ ...item, from: 'businessOutcomes' })),
+        ...entity.industries.map((item) => ({ ...item, from: 'industries' })),
+        ...entity.region.map((item) => ({ ...item, from: 'region' })),
+        ...entity.service.map((item) => ({ ...item, from: 'service' })),
+        ...entity.technology.map((item) => ({ ...item, from: 'technology' }))
+      ]
+      const sanitizedEntity = await this.sanitizeOutput(compileData, ctx);
       return this.transformResponse(sanitizedEntity);
     } catch (error) {
       strapi.log.error('Case Study filter error:', error);

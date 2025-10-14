@@ -16,6 +16,14 @@ export default {
       config: {
         auth: false,
       },
+    },
+    { // Path defined with a URL parameter
+      method: 'GET',
+      path: '/case-study-search',
+      handler: 'case-study.search',
+      config: {
+        auth: false,
+      },
     }
   ]
 }
