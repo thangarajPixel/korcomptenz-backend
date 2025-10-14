@@ -12,7 +12,6 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
         services?: { id: { $in: number[] }, slug?: { $eq: string } },
         regions?: { id: { $in: number[] } },
         case_industries?: { id: { $in: number[] } }
-
       } = {};
       if (ctx.query.filter) {   // Get simple frontend filters, e.g. ?technologies=2,4&services=3
         const { technologies, services, regions, industries }: { technologies?: string[], services?: string[], regions?: string[], industries?: string[] } = ctx.query?.filter;
@@ -55,10 +54,30 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
           services: true,
           technologies: true,
         },
+        where: {
+          $and: [
+            {
+              $or: [
+                {
+                  heroSection: {
+                    title: {
+                      $contains: ctx?.query?.search,
+                    }
+                  }
+                },
+                {
+                  heroSection: {
+                    description: {
+                      $contains: ctx?.query?.search,
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
         filters: {
           ...filters,
-          // services: { ...filters?.services, slug: { $eq: ctx.query.slug } },
-          // technologies: { ...filters?.technologies, slug: { $eq: ctx.query.slug } },
           $and: [
             {
               $or: [
