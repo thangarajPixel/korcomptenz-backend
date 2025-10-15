@@ -185,7 +185,7 @@ export interface CaseStudyPopularFilterList extends Struct.ComponentSchema {
   attributes: {
     label: Schema.Attribute.String;
     sort: Schema.Attribute.Enumeration<
-      ['created_at:asc', 'created_at:desc', 'title:asc', 'title:desc']
+      ['createdAt:asc', 'createdAt:desc', 'title:asc', 'title:desc']
     >;
   };
 }
