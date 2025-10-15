@@ -12,8 +12,8 @@
     "sort": {
       "type": "enumeration",
       "enum": [
-        "created_at:asc",
-        "created_at:desc",
+        "createdAt:asc",
+        "createdAt:desc",
         "title:asc",
         "title:desc"
       ]
