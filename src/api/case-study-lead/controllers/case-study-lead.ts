@@ -20,20 +20,19 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
         });
         if (caseStudy) {
           const response = await super.create(ctx);
-          const res = await strapi.plugin('email-designer');
-          console.log('res:', res);
+          // const res = await strapi.plugin('email-designer');
           const info = await transporter.sendMail({
-            from: '"Maddison Foo Koch" ',
+            from: '"Korcomptenz" <maddison53@ethereal.email>',
             to: data.email,
-            subject: "Hello ✔",
+            subject: "Case Study",
             text: "Hello world?", // plain‑text body
-            html: "<b>Hello world?</b>", // HTML body
+            html: "<b>Case Study Details</b>", // HTML body
             attachments: [
               {
-                filename: caseStudy.attachment.name,
-                href: caseStudy.attachment.url
+                filename: caseStudy?.attachment?.name,
+                href: caseStudy?.attachment?.url
               },
-            ],
+            ].filter(value => !!caseStudy?.attachment?.url),
           });
 
           console.log("Message sent:", info.messageId);
