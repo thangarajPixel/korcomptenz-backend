@@ -12,9 +12,10 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
         services?: { id: { $in: number[] }, slug?: { $eq: string } },
         regions?: { id: { $in: number[] } },
         case_industries?: { id: { $in: number[] } }
+        outcome?: { id: { $in: number[] } }
       } = {};
       if (ctx.query.filter) {   // Get simple frontend filters, e.g. ?technologies=2,4&services=3
-        const { technologies, services, regions, industries }: { technologies?: string[], services?: string[], regions?: string[], industries?: string[] } = ctx.query?.filter;
+        const { technologies, services, regions, industries, businessOutcomes }: { technologies?: string[], services?: string[], regions?: string[], industries?: string[], businessOutcomes?: string[] } = ctx.query?.filter;
 
         // Build filters dynamically
 
@@ -36,6 +37,10 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
         if (industries) {
           const industryIds = industries.map(Number);
           filters.case_industries = { id: { $in: industryIds } };
+        }
+        if (businessOutcomes) {
+          const industryIds = businessOutcomes.map(Number);
+          filters.outcome = { id: { $in: industryIds } };
         }
       }
 
