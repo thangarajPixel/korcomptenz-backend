@@ -668,6 +668,8 @@ export interface PageComponetsBuildData extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
+    descriptionButtonLink: Schema.Attribute.String;
+    descriptionButtonText: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     imageCaption: Schema.Attribute.String;
     link: Schema.Attribute.String;
@@ -875,7 +877,7 @@ export interface PageComponetsInspireSection extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
-          max: 5;
+          max: 6;
           min: 2;
         },
         number

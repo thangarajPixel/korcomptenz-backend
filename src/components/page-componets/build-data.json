@@ -15,6 +15,12 @@
         "preset": "defaultHtml"
       }
     },
+    "descriptionButtonText": {
+      "type": "string"
+    },
+    "descriptionButtonLink": {
+      "type": "string"
+    },
     "image": {
       "type": "media",
       "multiple": false,
