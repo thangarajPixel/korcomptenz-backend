@@ -661,7 +661,13 @@ export interface PageComponetsBuildData extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
     imageCaption: Schema.Attribute.String;
     link: Schema.Attribute.String;
@@ -742,6 +748,7 @@ export interface PageComponetsDemonstrateSection
   };
   attributes: {
     buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
     link: Schema.Attribute.String;
     list: Schema.Attribute.Component<'page-componets.demonstrate-card', true>;
     title: Schema.Attribute.String;
@@ -1082,7 +1089,13 @@ export interface PageComponetsStickyTitleCard extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;

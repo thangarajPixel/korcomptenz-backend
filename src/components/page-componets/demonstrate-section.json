@@ -19,6 +19,9 @@
       "type": "component",
       "component": "page-componets.demonstrate-card",
       "repeatable": true
+    },
+    "description": {
+      "type": "text"
     }
   },
   "config": {}
