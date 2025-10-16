@@ -8,13 +8,11 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true,
-      "maxLength": 60
+      "required": true
     },
     "description": {
       "type": "text",
-      "required": true,
-      "maxLength": 155
+      "required": true
     }
   },
   "config": {}
