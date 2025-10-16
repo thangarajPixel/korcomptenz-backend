@@ -789,7 +789,13 @@ export interface PageComponetsFaq extends Struct.ComponentSchema {
     icon: 'quote';
   };
   attributes: {
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     title: Schema.Attribute.String;
   };
 }
@@ -857,6 +863,7 @@ export interface PageComponetsInsightsSectionCard
   };
   attributes: {
     category: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
@@ -1065,6 +1072,7 @@ export interface PageComponetsStickyCard extends Struct.ComponentSchema {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
     specificId: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -1078,6 +1086,7 @@ export interface PageComponetsStickyCardsList extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String;
+    link: Schema.Attribute.String;
     list: Schema.Attribute.Component<'page-componets.sticky-card', true>;
     title: Schema.Attribute.String;
   };

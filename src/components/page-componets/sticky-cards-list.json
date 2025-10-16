@@ -16,6 +16,9 @@
       "type": "component",
       "component": "page-componets.sticky-card",
       "repeatable": true
+    },
+    "link": {
+      "type": "string"
     }
   },
   "config": {}

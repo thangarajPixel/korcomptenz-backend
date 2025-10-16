@@ -9,6 +9,9 @@
     "title": {
       "type": "string"
     },
+    "description": {
+      "type": "text"
+    },
     "category": {
       "type": "string"
     },

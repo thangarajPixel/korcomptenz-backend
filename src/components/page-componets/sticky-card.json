@@ -24,6 +24,9 @@
     },
     "specificId": {
       "type": "string"
+    },
+    "link": {
+      "type": "string"
     }
   },
   "config": {}
