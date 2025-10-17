@@ -204,6 +204,24 @@ export interface CaseStudyRelatedCaseStudy extends Struct.ComponentSchema {
   };
 }
 
+export interface CaseStudyRightSection extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_right_sections';
+  info: {
+    displayName: 'right-section';
+    icon: 'bold';
+  };
+  attributes: {
+    descripition: Schema.Attribute.Text;
+    descripitionKey: Schema.Attribute.Enumeration<
+      ['service', 'technology', 'region', 'industry']
+    >;
+    icon: Schema.Attribute.Media<'images'>;
+    isCustomDescripition: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface CaseStudySponserCard extends Struct.ComponentSchema {
   collectionName: 'components_case_study_sponser_cards';
   info: {
@@ -1213,6 +1231,7 @@ declare module '@strapi/strapi' {
       'case-study.popular-filter': CaseStudyPopularFilter;
       'case-study.popular-filter-list': CaseStudyPopularFilterList;
       'case-study.related-case-study': CaseStudyRelatedCaseStudy;
+      'case-study.right-section': CaseStudyRightSection;
       'case-study.sponser-card': CaseStudySponserCard;
       'case-study.testimonial-section': CaseStudyTestimonialSection;
       'global.global-field': GlobalGlobalField;

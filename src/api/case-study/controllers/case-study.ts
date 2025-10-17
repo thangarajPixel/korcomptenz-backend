@@ -119,12 +119,12 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
   async findOne(ctx) {
     try {
       const entity = await strapi.db.query('api::case-study.case-study').findOne({
+        // ...ctx.query,
         where: {
           slug: ctx.params.slug,
           publishedAt: { $notNull: true },
         },
         populate: {
-          attachment: false,
           heroSection: {
             populate: {
               image: true
@@ -132,12 +132,20 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
           },
           descriptionSection: true,
           testimonials: true,
+          rightSection: {
+            populate: {
+              icon: true
+            }
+          },
+          case_industries: true,
+          regions: true,
+          technologies: true,
+          services: true
         },
       });
       if (!entity) {
         return ctx.notFound('Page not found');
       }
-
       // Extract related field IDs
       const techIds = entity.technologies?.map(t => t.id) || [];
       const serviceIds = entity.services?.map(s => s.id) || [];
@@ -162,14 +170,12 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
         orderBy: { publishedAt: 'desc' },
       });
       // Sanitize responses
-      const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+      // const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
       const sanitizedRelated = await this.sanitizeOutput(related, ctx);
       return this.transformResponse({
-        caseStudy: sanitizedEntity,
+        caseStudy: entity,
         relatedCaseStudies: sanitizedRelated,
       });
-      // const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
-      // return this.transformResponse(sanitizedEntity);
     } catch (error) {
       strapi.log.error('Case Study find error:', error);
       return ctx.internalServerError('Failed to fetch case study data');

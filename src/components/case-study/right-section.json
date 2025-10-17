@@ -1,0 +1,57 @@
+{
+  "collectionName": "components_case_study_right_sections",
+  "info": {
+    "displayName": "right-section",
+    "icon": "bold"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "descripitionKey": {
+      "type": "enumeration",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isCustomDescripition"
+            },
+            false
+          ]
+        }
+      },
+      "enum": [
+        "service",
+        "technology",
+        "region",
+        "industry"
+      ]
+    },
+    "descripition": {
+      "type": "text",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isCustomDescripition"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "isCustomDescripition": {
+      "type": "boolean",
+      "default": false
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}
