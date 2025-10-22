@@ -21,6 +21,9 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "link": {
+      "type": "string"
     }
   },
   "config": {}
