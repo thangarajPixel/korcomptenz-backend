@@ -27,7 +27,7 @@ export interface CaseStudyBannerImage extends Struct.ComponentSchema {
     displayName: 'banner-image';
   };
   attributes: {
-    image: Schema.Attribute.Media<'images' | 'files'>;
+    image: Schema.Attribute.Media<'images'>;
   };
 }
 
@@ -1207,7 +1207,8 @@ export interface PageComponetsWhyWeAreList extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Blocks;
-    image: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Text;
   };
 }
 

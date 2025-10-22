@@ -6,11 +6,18 @@
   },
   "options": {},
   "attributes": {
+    "title": {
+      "type": "text"
+    },
     "description": {
       "type": "blocks"
     },
     "image": {
-      "type": "string"
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}
