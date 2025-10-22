@@ -1193,6 +1193,7 @@ export interface PageComponetsWhyWeAre extends Struct.ComponentSchema {
     icon: 'briefcase';
   };
   attributes: {
+    description: Schema.Attribute.Text;
     list: Schema.Attribute.Component<'page-componets.why-we-are-list', true>;
     title: Schema.Attribute.Text;
   };
@@ -1205,7 +1206,7 @@ export interface PageComponetsWhyWeAreList extends Struct.ComponentSchema {
     icon: 'briefcase';
   };
   attributes: {
-    descripition: Schema.Attribute.Blocks;
+    description: Schema.Attribute.Blocks;
     image: Schema.Attribute.String;
   };
 }

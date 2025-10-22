@@ -171,6 +171,15 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                 },
               },
               "home.schedule-call": true,
+              "page-componets.why-we-are": {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
               "page-componets.stretchable-section": {
                 populate: {
                   image: true,
