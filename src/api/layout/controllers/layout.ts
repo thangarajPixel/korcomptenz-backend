@@ -57,12 +57,6 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
               }
             }
           },
-          scheduleCall: {
-            populate: {
-              image: true,
-            },
-          },
-
           'ecosystemMenu': {
             populate: {
               item: {

@@ -9,19 +9,11 @@
       "type": "text"
     },
     "buttonText": {
-      "type": "string"
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "type": "string",
+      "default": "Schedule a Call"
     },
     "href": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::page.page"
+      "type": "string"
     }
   },
   "config": {}

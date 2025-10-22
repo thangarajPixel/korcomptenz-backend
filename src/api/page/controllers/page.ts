@@ -47,6 +47,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 }
               },
+
               'page-componets.sap-section-data': {
                 populate: {
                   imageSection: {
@@ -169,11 +170,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   techslides: true
                 },
               },
-              "home.schedule-call": {
-                populate: {
-                  image: true,
-                },
-              },
+              "home.schedule-call": true,
               "page-componets.stretchable-section": {
                 populate: {
                   image: true,

@@ -386,9 +386,9 @@ export interface HomeScheduleCall extends Struct.ComponentSchema {
     displayName: 'schedule-call';
   };
   attributes: {
-    buttonText: Schema.Attribute.String;
-    href: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
-    image: Schema.Attribute.Media<'images'>;
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Schedule a Call'>;
+    href: Schema.Attribute.String;
     title: Schema.Attribute.Text;
   };
 }
@@ -1194,7 +1194,7 @@ export interface PageComponetsWhyWeAre extends Struct.ComponentSchema {
   };
   attributes: {
     list: Schema.Attribute.Component<'page-componets.why-we-are-list', true>;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.Text;
   };
 }
 

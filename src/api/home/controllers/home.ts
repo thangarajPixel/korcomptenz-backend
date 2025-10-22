@@ -21,6 +21,7 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                 },
               },
             },
+            'home.schedule-call': true,
             'home.we-are-korcomptenz': {
               populate: {
                 image: true,
