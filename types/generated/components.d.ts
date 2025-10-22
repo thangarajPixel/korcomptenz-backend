@@ -830,6 +830,20 @@ export interface PageComponetsFaqTitle extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsGramBanner extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_gram_banners';
+  info: {
+    displayName: 'gram-banner';
+    icon: 'chartPie';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    isDark: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface PageComponetsImage extends Struct.ComponentSchema {
   collectionName: 'components_service_images';
   info: {
@@ -1206,7 +1220,13 @@ export interface PageComponetsWhyWeAreList extends Struct.ComponentSchema {
     icon: 'briefcase';
   };
   attributes: {
-    description: Schema.Attribute.Blocks;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.Text;
   };
@@ -1304,6 +1324,7 @@ declare module '@strapi/strapi' {
       'page-componets.domain-slides': PageComponetsDomainSlides;
       'page-componets.faq': PageComponetsFaq;
       'page-componets.faq-title': PageComponetsFaqTitle;
+      'page-componets.gram-banner': PageComponetsGramBanner;
       'page-componets.image': PageComponetsImage;
       'page-componets.image-section': PageComponetsImageSection;
       'page-componets.insights-section': PageComponetsInsightsSection;

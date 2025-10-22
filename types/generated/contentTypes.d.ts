@@ -805,13 +805,13 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.insights-section',
         'page-componets.demonstrate-section',
         'page-componets.sticky-cards-list',
-        'page-componets.build-datas',
         'page-componets.tech-data',
         'home.schedule-call',
         'page-componets.stretchable-section',
         'case-study.case-study-sticky-cards-list',
         'case-study.case-study-domain-data',
         'page-componets.why-we-are',
+        'page-componets.gram-banner',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

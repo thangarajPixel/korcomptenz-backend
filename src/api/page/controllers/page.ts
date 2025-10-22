@@ -180,6 +180,11 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              "page-componets.gram-banner": {
+                populate: {
+                  image: true,
+                },
+              },
               "page-componets.stretchable-section": {
                 populate: {
                   image: true,
