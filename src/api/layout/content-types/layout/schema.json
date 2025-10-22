@@ -26,11 +26,6 @@
       "component": "menu.industry-cloumn",
       "repeatable": true
     },
-    "scheduleCall": {
-      "type": "component",
-      "component": "home.schedule-call",
-      "repeatable": false
-    },
     "ecosystemMenu": {
       "type": "component",
       "component": "menu.ecosystem-sidebar",

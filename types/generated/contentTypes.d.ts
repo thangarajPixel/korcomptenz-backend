@@ -767,7 +767,6 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     navItems: Schema.Attribute.Component<'home.header', true>;
     publishedAt: Schema.Attribute.DateTime;
-    scheduleCall: Schema.Attribute.Component<'home.schedule-call', false>;
     serviceMenu: Schema.Attribute.Component<'menu.section', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -812,6 +811,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.stretchable-section',
         'case-study.case-study-sticky-cards-list',
         'case-study.case-study-domain-data',
+        'page-componets.why-we-are',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

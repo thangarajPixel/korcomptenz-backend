@@ -44,7 +44,8 @@
         "home.schedule-call",
         "page-componets.stretchable-section",
         "case-study.case-study-sticky-cards-list",
-        "case-study.case-study-domain-data"
+        "case-study.case-study-domain-data",
+        "page-componets.why-we-are"
       ]
     }
   }

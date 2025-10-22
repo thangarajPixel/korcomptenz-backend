@@ -14,7 +14,7 @@
     },
     "buttonText": {
       "type": "string",
-      "default": "Dive Deeper"
+      "default": "Learn More"
     },
     "image": {
       "type": "media",

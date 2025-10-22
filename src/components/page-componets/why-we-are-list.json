@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_page_componets_why_we_are_lists",
+  "info": {
+    "displayName": "why-we-are-list",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "descripition": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

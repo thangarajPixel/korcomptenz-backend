@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_componets_why_we_ares",
+  "info": {
+    "displayName": "why-we-are",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.why-we-are-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

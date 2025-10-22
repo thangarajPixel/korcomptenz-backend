@@ -129,7 +129,7 @@ export interface CaseStudyHeroSection extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Dive Deeper'>;
+      Schema.Attribute.DefaultTo<'Learn More'>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     study: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Case Study: '>;
@@ -1186,6 +1186,30 @@ export interface PageComponetsTechData extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsWhyWeAre extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_why_we_ares';
+  info: {
+    displayName: 'why-we-are';
+    icon: 'briefcase';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'page-componets.why-we-are-list', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsWhyWeAreList extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_why_we_are_lists';
+  info: {
+    displayName: 'why-we-are-list';
+    icon: 'briefcase';
+  };
+  attributes: {
+    descripition: Schema.Attribute.Blocks;
+    image: Schema.Attribute.String;
+  };
+}
+
 export interface SeoSeo extends Struct.ComponentSchema {
   collectionName: 'components_seo_seos';
   info: {
@@ -1302,6 +1326,8 @@ declare module '@strapi/strapi' {
       'page-componets.stretchable-card': PageComponetsStretchableCard;
       'page-componets.stretchable-section': PageComponetsStretchableSection;
       'page-componets.tech-data': PageComponetsTechData;
+      'page-componets.why-we-are': PageComponetsWhyWeAre;
+      'page-componets.why-we-are-list': PageComponetsWhyWeAreList;
       'seo.seo': SeoSeo;
       'service.banner-section-data': ServiceBannerSectionData;
     }
