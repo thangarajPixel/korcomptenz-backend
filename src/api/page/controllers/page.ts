@@ -103,6 +103,8 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   list: {
                     populate: {
                       image: true,
+                      mainImage: true,
+                      secondaryDescription: true,
                     },
                   },
                 },

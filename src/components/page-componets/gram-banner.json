@@ -12,18 +12,26 @@
     "description": {
       "type": "text"
     },
-    "isDark": {
-      "type": "boolean",
-      "default": false
-    },
     "image": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
+      ]
+    },
+    "mobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": [
+        "default",
+        "dark",
+        "light"
       ]
     }
   },

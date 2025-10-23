@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sub_page_componets_build_data_right_sections",
+  "info": {
+    "displayName": "build-data-right-section",
+    "icon": "chartPie"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "enumeration",
+      "enum": [
+        "image",
+        "description",
+        "form"
+      ]
+    }
+  },
+  "config": {}
+}

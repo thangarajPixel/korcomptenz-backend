@@ -838,8 +838,9 @@ export interface PageComponetsGramBanner extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    isDark: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    image: Schema.Attribute.Media<'images'>;
+    mobileImage: Schema.Attribute.Media<'images'>;
+    theme: Schema.Attribute.Enumeration<['default', 'dark', 'light']>;
     title: Schema.Attribute.Text;
   };
 }
@@ -1142,6 +1143,14 @@ export interface PageComponetsStickyTitleCard extends Struct.ComponentSchema {
       >;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
+    mainImage: Schema.Attribute.Media<'images'>;
+    secondaryDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     title: Schema.Attribute.String;
   };
 }
@@ -1261,6 +1270,18 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
   };
 }
 
+export interface SubPageComponetsBuildDataRightSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_build_data_right_sections';
+  info: {
+    displayName: 'build-data-right-section';
+    icon: 'chartPie';
+  };
+  attributes: {
+    content: Schema.Attribute.Enumeration<['image', 'description', 'form']>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -1353,6 +1374,7 @@ declare module '@strapi/strapi' {
       'page-componets.why-we-are-list': PageComponetsWhyWeAreList;
       'seo.seo': SeoSeo;
       'service.banner-section-data': ServiceBannerSectionData;
+      'sub-page-componets.build-data-right-section': SubPageComponetsBuildDataRightSection;
     }
   }
 }
