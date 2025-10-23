@@ -447,6 +447,7 @@ export interface HomeScheduleCall extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Schedule a Call'>;
+    description: Schema.Attribute.Text;
     href: Schema.Attribute.String;
     title: Schema.Attribute.Text;
   };

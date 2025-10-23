@@ -12,6 +12,9 @@
       "type": "string",
       "default": "Schedule a Call"
     },
+    "description": {
+      "type": "text"
+    },
     "href": {
       "type": "string"
     }
