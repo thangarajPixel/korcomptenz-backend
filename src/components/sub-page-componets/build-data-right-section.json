@@ -13,6 +13,38 @@
         "description",
         "form"
       ]
+    },
+    "responsiveImage": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "content"
+            },
+            "image"
+          ]
+        }
+      },
+      "component": "sub-page-componets.responsive-image",
+      "repeatable": false
+    },
+    "description": {
+      "type": "customField",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "content"
+            },
+            "description"
+          ]
+        }
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
     }
   },
   "config": {}

@@ -688,10 +688,8 @@ export interface PageComponetsBuildData extends Struct.ComponentSchema {
       >;
     descriptionButtonLink: Schema.Attribute.String;
     descriptionButtonText: Schema.Attribute.String;
-    image: Schema.Attribute.Media<'images'>;
     imageCaption: Schema.Attribute.String;
     link: Schema.Attribute.String;
-    mobileImage: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
@@ -1279,6 +1277,31 @@ export interface SubPageComponetsBuildDataRightSection
   };
   attributes: {
     content: Schema.Attribute.Enumeration<['image', 'description', 'form']>;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    responsiveImage: Schema.Attribute.Component<
+      'sub-page-componets.responsive-image',
+      false
+    >;
+  };
+}
+
+export interface SubPageComponetsResponsiveImage
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_responsive_images';
+  info: {
+    displayName: 'responsive-image';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    mobileImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
   };
 }
 
@@ -1375,6 +1398,7 @@ declare module '@strapi/strapi' {
       'seo.seo': SeoSeo;
       'service.banner-section-data': ServiceBannerSectionData;
       'sub-page-componets.build-data-right-section': SubPageComponetsBuildDataRightSection;
+      'sub-page-componets.responsive-image': SubPageComponetsResponsiveImage;
     }
   }
 }

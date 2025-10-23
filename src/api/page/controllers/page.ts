@@ -94,8 +94,18 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               },
               'page-componets.build-data': {
                 populate: {
-                  image: true,
-                  mobileImage: true,
+                  // image: true,
+                  // mobileImage: true,
+                  rightSection: {
+                    populate: {
+                      responsiveImage: {
+                        populate: {
+                          image: true,
+                          mobileImage: true,
+                        }
+                      },
+                    }
+                  }
                 },
               },
               'page-componets.sticky-cards-list': {
@@ -185,6 +195,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               "page-componets.gram-banner": {
                 populate: {
                   image: true,
+                  mobileImage: true,
                 },
               },
               "page-componets.stretchable-section": {
