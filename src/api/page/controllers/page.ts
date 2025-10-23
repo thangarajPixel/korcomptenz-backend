@@ -112,9 +112,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                 populate: {
                   list: {
                     populate: {
-                      image: true,
-                      mainImage: true,
-                      secondaryDescription: true,
+                      image: true
                     },
                   },
                 },
@@ -152,7 +150,8 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                 populate: {
                   list: {
                     populate: {
-                      image: true
+                      image: true,
+                      mainImage: true
                     }
                   },
                 },
