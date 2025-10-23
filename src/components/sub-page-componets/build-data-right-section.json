@@ -45,6 +45,21 @@
       "options": {
         "preset": "defaultHtml"
       }
+    },
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "content"
+            },
+            "form"
+          ]
+        }
+      }
     }
   },
   "config": {}

@@ -606,10 +606,10 @@ export interface ApiCaseStudyPageCaseStudyPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    caseForm: Schema.Attribute.Component<'case-study.case-study-form', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -762,6 +762,44 @@ export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiFormForm extends Struct.CollectionTypeSchema {
+  collectionName: 'forms';
+  info: {
+    displayName: 'form';
+    pluralName: 'forms';
+    singularName: 'form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    forms: Schema.Attribute.DynamicZone<
+      ['form-fields.case-form', 'form-fields.book-demo-form']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 1;
+          min: 1;
+        },
+        number
+      >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::form.form'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
@@ -876,6 +914,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'case-study.case-study-domain-data',
         'page-componets.why-we-are',
         'page-componets.gram-banner',
+        'form-fields.form',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1412,6 +1451,7 @@ declare module '@strapi/strapi' {
       'api::case-study.case-study': ApiCaseStudyCaseStudy;
       'api::case-technology.case-technology': ApiCaseTechnologyCaseTechnology;
       'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;
+      'api::form.form': ApiFormForm;
       'api::home.home': ApiHomeHome;
       'api::layout.layout': ApiLayoutLayout;
       'api::page.page': ApiPagePage;

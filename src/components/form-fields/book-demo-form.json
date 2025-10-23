@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_form_fields_book_demo_forms",
+  "info": {
+    "displayName": "book-demo-form",
+    "icon": "television"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "default": "Book a Demo"
+    },
+    "nameLabel": {
+      "type": "string",
+      "default": "Name"
+    },
+    "organizationLabel": {
+      "type": "string",
+      "default": "Organization"
+    },
+    "emailLabel": {
+      "type": "string",
+      "default": "Email"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Book a Demo"
+    }
+  },
+  "config": {}
+}

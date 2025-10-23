@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_form_fields_case_forms",
+  "info": {
+    "displayName": "case-form",
+    "icon": "cloud"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "default": "Case Form"
+    },
+    "nameLabel": {
+      "type": "string",
+      "default": "Name"
+    },
+    "organizationLabel": {
+      "type": "string",
+      "default": "Organization"
+    },
+    "emailLabel": {
+      "type": "string",
+      "default": "Email"
+    },
+    "phoneLabel": {
+      "type": "string",
+      "default": "Phone"
+    },
+    "messageLabel": {
+      "type": "string",
+      "default": "Message"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Submit"
+    }
+  },
+  "config": {}
+}

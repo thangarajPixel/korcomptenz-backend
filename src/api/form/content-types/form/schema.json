@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "forms",
+  "info": {
+    "singularName": "form",
+    "pluralName": "forms",
+    "displayName": "form"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "forms": {
+      "type": "dynamiczone",
+      "components": [
+        "form-fields.case-form",
+        "form-fields.book-demo-form"
+      ],
+      "required": true,
+      "min": 1,
+      "max": 1
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

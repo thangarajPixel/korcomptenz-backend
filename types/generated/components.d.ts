@@ -262,6 +262,53 @@ export interface CaseStudyTestimonialSection extends Struct.ComponentSchema {
   };
 }
 
+export interface FormFieldsBookDemoForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_book_demo_forms';
+  info: {
+    displayName: 'book-demo-form';
+    icon: 'television';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Book a Demo'>;
+    emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
+    nameLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Name'>;
+    organizationLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Organization'>;
+    title: Schema.Attribute.Text & Schema.Attribute.DefaultTo<'Book a Demo'>;
+  };
+}
+
+export interface FormFieldsCaseForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_case_forms';
+  info: {
+    displayName: 'case-form';
+    icon: 'cloud';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Submit'>;
+    emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
+    messageLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Message'>;
+    nameLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Name'>;
+    organizationLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Organization'>;
+    phoneLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Phone'>;
+    title: Schema.Attribute.Text & Schema.Attribute.DefaultTo<'Case Form'>;
+  };
+}
+
+export interface FormFieldsForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_forms';
+  info: {
+    displayName: 'form';
+    icon: 'collapse';
+  };
+  attributes: {
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+  };
+}
+
 export interface GlobalGlobalField extends Struct.ComponentSchema {
   collectionName: 'components_global_global_fields';
   info: {
@@ -1303,6 +1350,7 @@ export interface SubPageComponetsBuildDataRightSection
           preset: 'defaultHtml';
         }
       >;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     responsiveImage: Schema.Attribute.Component<
       'sub-page-componets.responsive-image',
       false
@@ -1345,6 +1393,9 @@ declare module '@strapi/strapi' {
       'case-study.right-section': CaseStudyRightSection;
       'case-study.sponser-card': CaseStudySponserCard;
       'case-study.testimonial-section': CaseStudyTestimonialSection;
+      'form-fields.book-demo-form': FormFieldsBookDemoForm;
+      'form-fields.case-form': FormFieldsCaseForm;
+      'form-fields.form': FormFieldsForm;
       'global.global-field': GlobalGlobalField;
       'global.policy': GlobalPolicy;
       'global.social-platform': GlobalSocialPlatform;

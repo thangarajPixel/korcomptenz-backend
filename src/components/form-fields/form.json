@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_form_fields_forms",
+  "info": {
+    "displayName": "form",
+    "icon": "collapse"
+  },
+  "options": {},
+  "attributes": {
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form"
+    }
+  },
+  "config": {}
+}
