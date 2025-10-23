@@ -688,8 +688,10 @@ export interface PageComponetsBuildData extends Struct.ComponentSchema {
       >;
     descriptionButtonLink: Schema.Attribute.String;
     descriptionButtonText: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
     imageCaption: Schema.Attribute.String;
     link: Schema.Attribute.String;
+    mobileImage: Schema.Attribute.Media<'images'>;
     rightSection: Schema.Attribute.Component<
       'sub-page-componets.build-data-right-section',
       false

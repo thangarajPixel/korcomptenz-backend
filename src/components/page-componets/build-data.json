@@ -21,6 +21,24 @@
     "descriptionButtonLink": {
       "type": "string"
     },
+    "isSwap": {
+      "type": "boolean",
+      "default": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "mobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "link": {
       "type": "string"
     },
