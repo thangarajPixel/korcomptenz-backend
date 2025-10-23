@@ -246,6 +246,15 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   }
                 }
               },
+              'case-study.partner-section': {
+                populate: {
+                  partner: {
+                    populate: {
+                      logo: true,
+                    },
+                  },
+                },
+              },
             },
           },
           seo: true,

@@ -919,6 +919,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.why-we-are',
         'page-componets.gram-banner',
         'form-fields.form',
+        'case-study.partner-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
