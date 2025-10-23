@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "case_study_pages",
+  "info": {
+    "singularName": "case-study-page",
+    "pluralName": "case-study-pages",
+    "displayName": "case-study-page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "relatedCase": {
+      "type": "component",
+      "component": "case-study.related-case-study",
+      "repeatable": false
+    },
+    "study": {
+      "type": "string",
+      "default": "Case Study:"
+    },
+    "caseForm": {
+      "type": "component",
+      "component": "case-study.case-study-form",
+      "repeatable": false
+    }
+  }
+}

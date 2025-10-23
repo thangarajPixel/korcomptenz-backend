@@ -45,6 +45,18 @@ export interface CaseStudyCaseStudyDomainData extends Struct.ComponentSchema {
   };
 }
 
+export interface CaseStudyCaseStudyForm extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_case_study_forms';
+  info: {
+    displayName: 'case-study-form';
+    icon: 'connector';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface CaseStudyCaseStudyStickyCardsList
   extends Struct.ComponentSchema {
   collectionName: 'components_case_study_case_study_sticky_cards_lists';
@@ -1318,6 +1330,7 @@ declare module '@strapi/strapi' {
       'case-study.banner': CaseStudyBanner;
       'case-study.banner-image': CaseStudyBannerImage;
       'case-study.case-study-domain-data': CaseStudyCaseStudyDomainData;
+      'case-study.case-study-form': CaseStudyCaseStudyForm;
       'case-study.case-study-sticky-cards-list': CaseStudyCaseStudyStickyCardsList;
       'case-study.customer': CaseStudyCustomer;
       'case-study.customer-value': CaseStudyCustomerValue;

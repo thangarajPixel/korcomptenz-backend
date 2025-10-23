@@ -373,6 +373,34 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBookDemoLeadBookDemoLead
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'book_demo_leads';
+  info: {
+    displayName: 'book-demo-lead';
+    pluralName: 'book-demo-leads';
+    singularName: 'book-demo-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::book-demo-lead.book-demo-lead'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCaseBusinessOutcomeCaseBusinessOutcome
   extends Struct.CollectionTypeSchema {
   collectionName: 'case_business_outcomes';
@@ -558,6 +586,39 @@ export interface ApiCaseStudyListCaseStudyList extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     sponser: Schema.Attribute.Component<'case-study.sponser-card', false>;
     testimonal: Schema.Attribute.Component<'global.title-descripiton', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCaseStudyPageCaseStudyPage extends Struct.SingleTypeSchema {
+  collectionName: 'case_study_pages';
+  info: {
+    displayName: 'case-study-page';
+    pluralName: 'case-study-pages';
+    singularName: 'case-study-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    caseForm: Schema.Attribute.Component<'case-study.case-study-form', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-study-page.case-study-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    relatedCase: Schema.Attribute.Component<
+      'case-study.related-case-study',
+      false
+    >;
+    study: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Case Study:'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1337,12 +1398,14 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::book-demo-lead.book-demo-lead': ApiBookDemoLeadBookDemoLead;
       'api::case-business-outcome.case-business-outcome': ApiCaseBusinessOutcomeCaseBusinessOutcome;
       'api::case-industry.case-industry': ApiCaseIndustryCaseIndustry;
       'api::case-region.case-region': ApiCaseRegionCaseRegion;
       'api::case-service.case-service': ApiCaseServiceCaseService;
       'api::case-study-lead.case-study-lead': ApiCaseStudyLeadCaseStudyLead;
       'api::case-study-list.case-study-list': ApiCaseStudyListCaseStudyList;
+      'api::case-study-page.case-study-page': ApiCaseStudyPageCaseStudyPage;
       'api::case-study.case-study': ApiCaseStudyCaseStudy;
       'api::case-technology.case-technology': ApiCaseTechnologyCaseTechnology;
       'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;

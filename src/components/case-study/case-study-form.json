@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_case_study_case_study_forms",
+  "info": {
+    "displayName": "case-study-form",
+    "icon": "connector"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

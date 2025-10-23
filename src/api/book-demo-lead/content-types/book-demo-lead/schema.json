@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "book_demo_leads",
+  "info": {
+    "singularName": "book-demo-lead",
+    "pluralName": "book-demo-leads",
+    "displayName": "book-demo-lead"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}
