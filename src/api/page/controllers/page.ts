@@ -47,7 +47,6 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 }
               },
-
               'page-componets.sap-section-data': {
                 populate: {
                   imageSection: {
@@ -104,6 +103,11 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                           mobileImage: true,
                         }
                       },
+                      form: {
+                        populate: {
+                          forms: true
+                        }
+                      }
                     }
                   }
                 },
@@ -233,12 +237,20 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'form-fields.form': {
+                populate: {
+                  form: {
+                    populate: {
+                      forms: true
+                    }
+                  }
+                }
+              },
             },
           },
           seo: true,
         }
       });
-
       if (!entity) {
         return ctx.notFound('Page not found');
       }

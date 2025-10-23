@@ -901,6 +901,8 @@ export interface PageComponetsGramBanner extends Struct.ComponentSchema {
     icon: 'chartPie';
   };
   attributes: {
+    buttonLink: Schema.Attribute.Text;
+    buttonText: Schema.Attribute.Text;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     mobileImage: Schema.Attribute.Media<'images'>;

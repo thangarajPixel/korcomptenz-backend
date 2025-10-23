@@ -776,6 +776,10 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    form: Schema.Attribute.Enumeration<
+      ['case-form', 'book-demo-form', 'contact-form']
+    > &
+      Schema.Attribute.Required;
     forms: Schema.Attribute.DynamicZone<
       ['form-fields.case-form', 'form-fields.book-demo-form']
     > &

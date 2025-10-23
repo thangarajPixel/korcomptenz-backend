@@ -25,6 +25,15 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "form": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "case-form",
+        "book-demo-form",
+        "contact-form"
+      ]
     }
   }
 }

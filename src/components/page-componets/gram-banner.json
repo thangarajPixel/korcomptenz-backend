@@ -26,6 +26,12 @@
         "images"
       ]
     },
+    "buttonText": {
+      "type": "text"
+    },
+    "buttonLink": {
+      "type": "text"
+    },
     "theme": {
       "type": "enumeration",
       "enum": [
