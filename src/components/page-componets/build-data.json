@@ -29,6 +29,11 @@
     },
     "imageCaption": {
       "type": "string"
+    },
+    "rightSection": {
+      "type": "component",
+      "component": "sub-page-componets.build-data-right-section",
+      "repeatable": false
     }
   },
   "config": {}

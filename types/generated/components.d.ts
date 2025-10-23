@@ -690,6 +690,10 @@ export interface PageComponetsBuildData extends Struct.ComponentSchema {
     descriptionButtonText: Schema.Attribute.String;
     imageCaption: Schema.Attribute.String;
     link: Schema.Attribute.String;
+    rightSection: Schema.Attribute.Component<
+      'sub-page-componets.build-data-right-section',
+      false
+    >;
     title: Schema.Attribute.String;
   };
 }
