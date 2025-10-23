@@ -903,10 +903,16 @@ export interface PageComponetsGramBanner extends Struct.ComponentSchema {
   attributes: {
     buttonLink: Schema.Attribute.Text;
     buttonText: Schema.Attribute.Text;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
     mobileImage: Schema.Attribute.Media<'images'>;
-    theme: Schema.Attribute.Enumeration<['default', 'dark', 'light']>;
+    theme: Schema.Attribute.Enumeration<['default', 'dark', 'light', 'blank']>;
     title: Schema.Attribute.Text;
   };
 }
