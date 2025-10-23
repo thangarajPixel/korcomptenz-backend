@@ -690,6 +690,7 @@ export interface PageComponetsBuildData extends Struct.ComponentSchema {
     descriptionButtonText: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     imageCaption: Schema.Attribute.String;
+    isSwap: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     mobileImage: Schema.Attribute.Media<'images'>;
     rightSection: Schema.Attribute.Component<
