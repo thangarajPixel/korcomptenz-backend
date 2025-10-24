@@ -1332,6 +1332,7 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
     displayName: 'Banner-section-data';
   };
   attributes: {
+    bannerCaption: Schema.Attribute.Text;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;

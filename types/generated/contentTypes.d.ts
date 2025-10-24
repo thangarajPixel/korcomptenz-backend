@@ -388,15 +388,15 @@ export interface ApiBookDemoLeadBookDemoLead
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    email: Schema.Attribute.String;
+    email: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::book-demo-lead.book-demo-lead'
     > &
       Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    organization: Schema.Attribute.String;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    organization: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

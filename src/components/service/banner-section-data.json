@@ -44,6 +44,9 @@
     },
     "link": {
       "type": "string"
+    },
+    "bannerCaption": {
+      "type": "text"
     }
   },
   "config": {}
