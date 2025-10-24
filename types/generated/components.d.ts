@@ -38,8 +38,10 @@ export interface CaseStudyCaseStudyDomainData extends Struct.ComponentSchema {
     icon: 'code';
   };
   attributes: {
-    buttonText: Schema.Attribute.String;
-    link: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Read All'>;
+    link: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'/client-success'>;
     list: Schema.Attribute.Relation<'oneToMany', 'api::case-study.case-study'>;
     title: Schema.Attribute.String;
   };
@@ -816,7 +818,8 @@ export interface PageComponetsDemonstrateCard extends Struct.ComponentSchema {
     displayName: 'demonstrate-card';
   };
   attributes: {
-    buttonText: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Explore More'>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
@@ -951,7 +954,8 @@ export interface PageComponetsInsightsSection extends Struct.ComponentSchema {
     icon: 'book';
   };
   attributes: {
-    buttontext: Schema.Attribute.String;
+    buttontext: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Read All'>;
     list: Schema.Attribute.Component<
       'page-componets.insights-section-card',
       true
@@ -1333,7 +1337,8 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
   };
   attributes: {
     bannerCaption: Schema.Attribute.Text;
-    buttonText: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Contact us'>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     imageMobile: Schema.Attribute.Media<'images'>;

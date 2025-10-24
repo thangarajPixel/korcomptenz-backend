@@ -10,7 +10,8 @@
       "type": "string"
     },
     "buttontext": {
-      "type": "string"
+      "type": "string",
+      "default": "Read All"
     },
     "list": {
       "type": "component",

@@ -10,10 +10,12 @@
       "type": "string"
     },
     "buttonText": {
-      "type": "string"
+      "type": "string",
+      "default": "Read All"
     },
     "link": {
-      "type": "string"
+      "type": "string",
+      "default": "/client-success"
     },
     "list": {
       "type": "relation",

@@ -12,7 +12,8 @@
       "type": "text"
     },
     "buttonText": {
-      "type": "string"
+      "type": "string",
+      "default": "Explore More"
     },
     "link": {
       "type": "string"

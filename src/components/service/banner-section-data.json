@@ -40,7 +40,8 @@
       "type": "text"
     },
     "buttonText": {
-      "type": "string"
+      "type": "string",
+      "default": "Contact us"
     },
     "link": {
       "type": "string"
