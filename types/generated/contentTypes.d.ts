@@ -668,10 +668,6 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::case-region.case-region'
     >;
-    relatedCase: Schema.Attribute.Component<
-      'case-study.related-case-study',
-      false
-    >;
     rightSection: Schema.Attribute.Component<'case-study.right-section', true>;
     services: Schema.Attribute.Relation<
       'oneToMany',

@@ -65,11 +65,6 @@
         "files"
       ]
     },
-    "relatedCase": {
-      "type": "component",
-      "component": "case-study.related-case-study",
-      "repeatable": false
-    },
     "rightSection": {
       "type": "component",
       "component": "case-study.right-section",
