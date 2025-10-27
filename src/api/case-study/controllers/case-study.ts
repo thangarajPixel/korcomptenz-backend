@@ -105,12 +105,52 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
           ],
         },
       };
+      const sponserQuery = {
+        filters: {
+          $and: [
+            {
+              $or: [
+                {
+                  case_service: {
+                    slug: {
+                      $eq: ctx.query.slug,
+                    },
+                  },
+                },
+                {
+                  case_technology: {
+                    slug: {
+                      $eq: ctx.query.slug,
+                    },
+                  },
+                },
+              ],
+            }
+          ],
+        },
+      }
       const entity = await strapi.service('api::case-study.case-study').find({
         ...ctx.query,
       });
+      const sponser = await strapi.service('api::case-study-sponser.case-study-sponser').find({
+        ...sponserQuery,
+        populate: {
+          sponser: {
+            populate: {
+              image: true,
+              logo: true,
+            }
+          }
+        },
+      });
+      // console.log(sponser, 'sponser');
       const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
-
-      return this.transformResponse(sanitizedEntity);
+      const { data } = this.transformResponse(sanitizedEntity) as { data: any };
+      console.log(sponser?.results?.[0], 'sss');
+      return {
+        ...data,
+        sponsor: sponser?.results?.[0] || null,
+      };
     } catch (error) {
       strapi.log.error('Case Study find error:', error);
       return ctx.internalServerError('Failed to fetch case study data');

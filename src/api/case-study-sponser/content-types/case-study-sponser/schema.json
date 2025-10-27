@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "case_study_sponsers",
+  "info": {
+    "singularName": "case-study-sponser",
+    "pluralName": "case-study-sponsers",
+    "displayName": "case-study-sponser"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "isTechnology": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "sponser": {
+      "type": "component",
+      "component": "case-study.sponser-card",
+      "repeatable": false
+    },
+    "case_service": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::case-service.case-service",
+      "private": true,
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isTechnology"
+            },
+            false
+          ]
+        }
+      }
+    },
+    "case_technology": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::case-technology.case-technology",
+      "private": true,
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isTechnology"
+            },
+            true
+          ]
+        }
+      }
+    }
+  }
+}
