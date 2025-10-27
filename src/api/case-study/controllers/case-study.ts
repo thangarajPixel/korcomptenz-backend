@@ -143,10 +143,8 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
           }
         },
       });
-      // console.log(sponser, 'sponser');
       const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
       const { data } = this.transformResponse(sanitizedEntity) as { data: any };
-      console.log(sponser?.results?.[0], 'sss');
       return {
         ...data,
         sponsor: sponser?.results?.[0] || null,
