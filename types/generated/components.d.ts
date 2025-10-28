@@ -146,7 +146,7 @@ export interface CaseStudyHeroSection extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'Learn More'>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
-    study: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Case Study: '>;
+    study: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -988,6 +988,7 @@ export interface PageComponetsInspireSection extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String;
+    link: Schema.Attribute.String;
     list: Schema.Attribute.Component<
       'page-componets.inspire-section-card',
       true

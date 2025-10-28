@@ -24,9 +24,7 @@
       ]
     },
     "study": {
-      "type": "string",
-      "default": "Case Study: ",
-      "regex": "^Case Study:\\s*(.*)$"
+      "type": "string"
     }
   },
   "config": {}
