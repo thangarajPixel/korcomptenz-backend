@@ -31,6 +31,10 @@
     },
     "href": {
       "type": "string"
+    },
+    "isHideMobile": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

@@ -376,6 +376,7 @@ export interface HomeHeader extends Struct.ComponentSchema {
     hasChild: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     href: Schema.Attribute.String;
     isButton: Schema.Attribute.Boolean;
+    isHideMobile: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     label: Schema.Attribute.String;
   };
 }
