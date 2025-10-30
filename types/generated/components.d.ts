@@ -988,7 +988,7 @@ export interface PageComponetsInspireSection extends Struct.ComponentSchema {
     icon: 'dashboard';
   };
   attributes: {
-    buttonText: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
     link: Schema.Attribute.String;
     list: Schema.Attribute.Component<
       'page-componets.inspire-section-card',
@@ -1014,7 +1014,8 @@ export interface PageComponetsInspireSectionCard
     icon: 'chartBubble';
   };
   attributes: {
-    buttonText: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Know More'>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
@@ -1222,7 +1223,8 @@ export interface PageComponetsStickyTitleCard extends Struct.ComponentSchema {
       >;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
-    mainImage: Schema.Attribute.Media<'images'>;
+    position: Schema.Attribute.Enumeration<['corner', 'main', 'side']> &
+      Schema.Attribute.DefaultTo<'corner'>;
     secondaryDescription: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',

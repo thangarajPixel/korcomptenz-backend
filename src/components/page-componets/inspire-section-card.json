@@ -28,7 +28,8 @@
       "type": "text"
     },
     "buttonText": {
-      "type": "string"
+      "type": "string",
+      "default": "Know More"
     },
     "link": {
       "type": "string"

@@ -30,18 +30,19 @@
         "preset": "defaultHtml"
       }
     },
-    "mainImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "buttonText": {
       "type": "string"
     },
     "link": {
       "type": "string"
+    },
+    "position": {
+      "type": "enumeration",
+      "default": "corner",
+      "enum": [
+        "corner",
+        "main",
+        "side"
     }
   },
   "config": {}
