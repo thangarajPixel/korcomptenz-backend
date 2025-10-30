@@ -21,11 +21,6 @@
       "component": "case-study.filter-label",
       "repeatable": true
     },
-    "sponser": {
-      "type": "component",
-      "component": "case-study.sponser-card",
-      "repeatable": false
-    },
     "partnerSection": {
       "type": "component",
       "component": "case-study.partner-section",

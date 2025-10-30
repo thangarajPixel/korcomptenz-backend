@@ -587,7 +587,6 @@ export interface ApiCaseStudyListCaseStudyList extends Struct.SingleTypeSchema {
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
-    sponser: Schema.Attribute.Component<'case-study.sponser-card', false>;
     testimonal: Schema.Attribute.Component<'global.title-descripiton', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

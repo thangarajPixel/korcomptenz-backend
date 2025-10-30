@@ -24,12 +24,12 @@ export default factories.createCoreController('api::case-study-list.case-study-l
             popularFilterList: true,
           },
         },
-        sponser: {
-          populate: {
-            image: true,
-            logo: true,
-          },
-        },
+        // sponser: {
+        //   populate: {
+        //     image: true,
+        //     logo: true,
+        //   },
+        // },
         partnerSection: {
           populate: {
             partner: {
