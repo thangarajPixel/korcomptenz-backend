@@ -1257,8 +1257,15 @@ export interface PageComponetsStretchableCard extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Learn more'>;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images' | 'files'>;
+    link: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
     title: Schema.Attribute.String;
   };
 }
