@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_about_us_people_showcase_lists",
+  "info": {
+    "displayName": "people-showcase-list",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "component": "about-us.people-showcase-card",
+      "repeatable": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

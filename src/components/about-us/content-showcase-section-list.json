@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_about_us_content_showcase_section_lists",
+  "info": {
+    "displayName": "content-showcase-section-list",
+    "icon": "database"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "component": "about-us.content-showcase-section-card",
+      "repeatable": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

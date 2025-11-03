@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_about_us_our_story_lists",
+  "info": {
+    "displayName": "our-story-list",
+    "icon": "walk"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "component": "about-us.our-story",
+      "repeatable": true
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

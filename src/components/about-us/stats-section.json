@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_about_us_stats_sections",
+  "info": {
+    "displayName": "stats-section",
+    "icon": "slideshow"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "component": "about-us.stats-section-card",
+      "repeatable": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

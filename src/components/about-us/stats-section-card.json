@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_about_us_stats_section_cards",
+  "info": {
+    "displayName": "stats-section-card",
+    "icon": "slideshow"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "isIncrement": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "config": {}
+}

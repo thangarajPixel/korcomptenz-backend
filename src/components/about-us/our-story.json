@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_about_us_our_stories",
+  "info": {
+    "displayName": "our-story",
+    "icon": "walk"
+  },
+  "options": {},
+  "attributes": {
+    "year": {
+      "type": "integer",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

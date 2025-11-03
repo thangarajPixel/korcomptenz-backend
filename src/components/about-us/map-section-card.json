@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_about_us_map_section_cards",
+  "info": {
+    "displayName": "map-section-card",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "x": {
+      "type": "integer",
+      "required": true,
+      "min": -10,
+      "max": 110
+    },
+    "y": {
+      "type": "integer",
+      "required": true,
+      "min": -10,
+      "max": 110
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

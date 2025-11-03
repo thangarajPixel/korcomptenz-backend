@@ -255,6 +255,52 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'about-us.content-showcase-section-list': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
+              'about-us.map-section-list': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
+              'about-us.our-story': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
+              'about-us.people-showcase-list': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                      socialPlatform: {
+                        populate: {
+                          icon: true,
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+              'about-us.stats-section': {
+                populate: {
+                  list: true
+                },
+              }
             },
           },
           seo: true,

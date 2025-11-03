@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_about_us_people_showcase_cards",
+  "info": {
+    "displayName": "people-showcase-card",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "miniDescription": {
+      "type": "text"
+    },
+    "position": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "socialPlatform": {
+      "type": "component",
+      "component": "global.social-platform",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
