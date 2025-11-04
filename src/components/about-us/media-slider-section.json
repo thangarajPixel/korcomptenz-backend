@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_about_us_media_slider_sections",
+  "info": {
+    "displayName": "media-slider-section",
+    "icon": "stack"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "component": "about-us.media-slider",
+      "repeatable": true
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

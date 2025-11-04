@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_about_us_media_sliders",
+  "info": {
+    "displayName": "media-slider",
+    "icon": "stack"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "isVideo": {
+      "type": "boolean",
+      "default": false
+    },
+    "videoLink": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isVideo"
+            },
+            true
+          ]
+        }
+      }
+    }
+  },
+  "config": {}
+}

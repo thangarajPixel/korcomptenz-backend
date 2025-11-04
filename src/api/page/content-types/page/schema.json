@@ -52,7 +52,8 @@
         "about-us.map-section-list",
         "about-us.our-story",
         "about-us.people-showcase-list",
-        "about-us.stats-section"
+        "about-us.stats-section",
+        "about-us.media-slider-section"
       ]
     }
   }
