@@ -373,6 +373,50 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
+  collectionName: 'about_uses';
+  info: {
+    displayName: 'about-us';
+    pluralName: 'about-uses';
+    singularName: 'about-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    list: Schema.Attribute.DynamicZone<
+      [
+        'page-componets.banner-section-list',
+        'page-componets.build-data',
+        'form-fields.form',
+        'home.services-section',
+        'home.opportunity',
+        'home.schedule-call',
+        'about-us.content-showcase-section-list',
+        'about-us.map-section-list',
+        'about-us.our-story',
+        'about-us.people-showcase-list',
+        'about-us.stats-section',
+        'about-us.media-slider-section',
+      ]
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-us.about-us'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBookDemoLeadBookDemoLead
   extends Struct.CollectionTypeSchema {
   collectionName: 'book_demo_leads';
@@ -398,6 +442,44 @@ export interface ApiBookDemoLeadBookDemoLead
     name: Schema.Attribute.String & Schema.Attribute.Required;
     organization: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCareerCareer extends Struct.SingleTypeSchema {
+  collectionName: 'careers';
+  info: {
+    displayName: 'career';
+    pluralName: 'careers';
+    singularName: 'career';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    list: Schema.Attribute.DynamicZone<
+      [
+        'page-componets.banner-section-list',
+        'page-componets.build-data',
+        'form-fields.form',
+        'home.services-section',
+        'home.opportunity',
+        'home.schedule-call',
+      ]
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::career.career'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -799,6 +881,44 @@ export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
+  collectionName: 'contact_uses';
+  info: {
+    displayName: 'contact-us';
+    pluralName: 'contact-uses';
+    singularName: 'contact-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    list: Schema.Attribute.DynamicZone<
+      [
+        'page-componets.banner-section-list',
+        'page-componets.build-data',
+        'form-fields.form',
+        'home.services-section',
+        'home.opportunity',
+        'home.schedule-call',
+      ]
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-us.contact-us'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFormForm extends Struct.CollectionTypeSchema {
   collectionName: 'forms';
   info: {
@@ -962,6 +1082,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'about-us.our-story',
         'about-us.people-showcase-list',
         'about-us.stats-section',
+        'about-us.media-slider-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1487,7 +1608,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::book-demo-lead.book-demo-lead': ApiBookDemoLeadBookDemoLead;
+      'api::career.career': ApiCareerCareer;
       'api::case-business-outcome.case-business-outcome': ApiCaseBusinessOutcomeCaseBusinessOutcome;
       'api::case-industry.case-industry': ApiCaseIndustryCaseIndustry;
       'api::case-region.case-region': ApiCaseRegionCaseRegion;
@@ -1499,6 +1622,7 @@ declare module '@strapi/strapi' {
       'api::case-study.case-study': ApiCaseStudyCaseStudy;
       'api::case-technology.case-technology': ApiCaseTechnologyCaseTechnology;
       'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;
+      'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::form.form': ApiFormForm;
       'api::home.home': ApiHomeHome;
       'api::layout.layout': ApiLayoutLayout;

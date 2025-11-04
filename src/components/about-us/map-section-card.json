@@ -9,13 +9,13 @@
     "x": {
       "type": "integer",
       "required": true,
-      "min": -10,
+      "min": 0,
       "max": 110
     },
     "y": {
       "type": "integer",
       "required": true,
-      "min": -10,
+      "min": 0,
       "max": 110
     },
     "title": {

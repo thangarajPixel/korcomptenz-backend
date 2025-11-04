@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_uses",
+  "info": {
+    "singularName": "contact-us",
+    "pluralName": "contact-uses",
+    "displayName": "contact-us"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    },
+    "list": {
+      "type": "dynamiczone",
+      "components": [
+        "page-componets.banner-section-list",
+        "page-componets.build-data",
+        "form-fields.form",
+        "home.services-section",
+        "home.opportunity",
+        "home.schedule-call"
+      ]
+    }
+  }
+}

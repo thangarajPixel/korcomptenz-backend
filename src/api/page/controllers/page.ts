@@ -300,7 +300,16 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                 populate: {
                   list: true
                 },
-              }
+              },
+              'about-us.media-slider-section': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
             },
           },
           seo: true,

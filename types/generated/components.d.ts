@@ -1,5 +1,206 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AboutUsContentShowcaseSectionCard
+  extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_content_showcase_section_cards';
+  info: {
+    displayName: 'content-showcase-section-card';
+    icon: 'database';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsContentShowcaseSectionList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_content_showcase_section_lists';
+  info: {
+    displayName: 'content-showcase-section-list';
+    icon: 'database';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    list: Schema.Attribute.Component<
+      'about-us.content-showcase-section-card',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsMapSectionCard extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_map_section_cards';
+  info: {
+    displayName: 'map-section-card';
+    icon: 'earth';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
+    x: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 110;
+          min: 0;
+        },
+        number
+      >;
+    y: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 110;
+          min: 0;
+        },
+        number
+      >;
+  };
+}
+
+export interface AboutUsMapSectionList extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_map_section_lists';
+  info: {
+    displayName: 'map-section-list';
+    icon: 'earth';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    list: Schema.Attribute.Component<'about-us.map-section-card', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsMediaSlider extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_media_sliders';
+  info: {
+    displayName: 'media-slider';
+    icon: 'stack';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    isVideo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    videoLink: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsMediaSliderSection extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_media_slider_sections';
+  info: {
+    displayName: 'media-slider-section';
+    icon: 'stack';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'about-us.media-slider', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsOurStory extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_our_stories';
+  info: {
+    displayName: 'our-story';
+    icon: 'walk';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+    year: Schema.Attribute.Integer & Schema.Attribute.Required;
+  };
+}
+
+export interface AboutUsOurStoryList extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_our_story_lists';
+  info: {
+    displayName: 'our-story-list';
+    icon: 'walk';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'about-us.our-story', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsPeopleShowcaseCard extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_people_showcase_cards';
+  info: {
+    displayName: 'people-showcase-card';
+    icon: 'alien';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    miniDescription: Schema.Attribute.Text;
+    position: Schema.Attribute.Text;
+    socialPlatform: Schema.Attribute.Component<'global.social-platform', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsPeopleShowcaseList extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_people_showcase_lists';
+  info: {
+    displayName: 'people-showcase-list';
+    icon: 'alien';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    list: Schema.Attribute.Component<'about-us.people-showcase-card', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsStatsSection extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_stats_sections';
+  info: {
+    displayName: 'stats-section';
+    icon: 'slideshow';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    list: Schema.Attribute.Component<'about-us.stats-section-card', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsStatsSectionCard extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_stats_section_cards';
+  info: {
+    displayName: 'stats-section-card';
+    icon: 'slideshow';
+  };
+  attributes: {
+    count: Schema.Attribute.Integer;
+    description: Schema.Attribute.Text;
+    isIncrement: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface CaseStudyBanner extends Struct.ComponentSchema {
   collectionName: 'components_case_study_banners';
   info: {
@@ -1401,6 +1602,18 @@ export interface SubPageComponetsResponsiveImage
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'about-us.content-showcase-section-card': AboutUsContentShowcaseSectionCard;
+      'about-us.content-showcase-section-list': AboutUsContentShowcaseSectionList;
+      'about-us.map-section-card': AboutUsMapSectionCard;
+      'about-us.map-section-list': AboutUsMapSectionList;
+      'about-us.media-slider': AboutUsMediaSlider;
+      'about-us.media-slider-section': AboutUsMediaSliderSection;
+      'about-us.our-story': AboutUsOurStory;
+      'about-us.our-story-list': AboutUsOurStoryList;
+      'about-us.people-showcase-card': AboutUsPeopleShowcaseCard;
+      'about-us.people-showcase-list': AboutUsPeopleShowcaseList;
+      'about-us.stats-section': AboutUsStatsSection;
+      'about-us.stats-section-card': AboutUsStatsSectionCard;
       'case-study.banner': CaseStudyBanner;
       'case-study.banner-image': CaseStudyBannerImage;
       'case-study.case-study-domain-data': CaseStudyCaseStudyDomainData;
