@@ -465,6 +465,107 @@ export interface CaseStudyTestimonialSection extends Struct.ComponentSchema {
   };
 }
 
+export interface ContactUsContactUsFormSection extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_contact_us_form_sections';
+  info: {
+    displayName: 'contact-us-form-section';
+    icon: 'puzzle';
+  };
+  attributes: {
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    images: Schema.Attribute.Component<'case-study.banner-image', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ContactUsContactUsInsight extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_contact_us_insights';
+  info: {
+    displayName: 'contact-us-insight';
+    icon: 'phone';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ContactUsContactUsInsightList extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_contact_us_insight_lists';
+  info: {
+    displayName: 'contact-us-insight-list';
+    icon: 'sun';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'contact-us.contact-us-insight', true>;
+  };
+}
+
+export interface ContactUsNewsLetter extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_news_letters';
+  info: {
+    displayName: 'news-letter';
+    icon: 'phone';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ContactUsOfficeLocation extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_office_locations';
+  info: {
+    displayName: 'office-location';
+    icon: 'phone';
+  };
+  attributes: {
+    address: Schema.Attribute.Text;
+    country: Schema.Attribute.String;
+    email: Schema.Attribute.String;
+    fax: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    phone: Schema.Attribute.String;
+  };
+}
+
+export interface ContactUsOfficeLocationList extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_office_location_lists';
+  info: {
+    displayName: 'office-location-list';
+    icon: 'rotate';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'contact-us.office-location', true>;
+  };
+}
+
+export interface ContactUsOurOffice extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_our_offices';
+  info: {
+    displayName: 'our-office';
+    icon: 'phone';
+  };
+  attributes: {
+    address: Schema.Attribute.Text;
+    country: Schema.Attribute.String;
+    email: Schema.Attribute.String;
+    enquiryText: Schema.Attribute.String;
+    fax: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface FormFieldsBookDemoForm extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_book_demo_forms';
   info: {
@@ -498,6 +599,31 @@ export interface FormFieldsCaseForm extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'Organization'>;
     phoneLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Phone'>;
     title: Schema.Attribute.Text & Schema.Attribute.DefaultTo<'Case Form'>;
+  };
+}
+
+export interface FormFieldsContactUsForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_contact_us_forms';
+  info: {
+    displayName: 'contact-us-form';
+    icon: 'collapse';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Send'>;
+    companyLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Company'>;
+    description: Schema.Attribute.RichText & Schema.Attribute.DefaultTo<''>;
+    emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
+    firstNameLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'First Name'>;
+    lastNameLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Last Name'>;
+    messageLabel: Schema.Attribute.Text & Schema.Attribute.DefaultTo<'Message'>;
+    phoneLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Phone'>;
+    serviceLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Select Service'>;
+    technologyLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Select Technology'>;
   };
 }
 
@@ -1632,8 +1758,16 @@ declare module '@strapi/strapi' {
       'case-study.right-section': CaseStudyRightSection;
       'case-study.sponser-card': CaseStudySponserCard;
       'case-study.testimonial-section': CaseStudyTestimonialSection;
+      'contact-us.contact-us-form-section': ContactUsContactUsFormSection;
+      'contact-us.contact-us-insight': ContactUsContactUsInsight;
+      'contact-us.contact-us-insight-list': ContactUsContactUsInsightList;
+      'contact-us.news-letter': ContactUsNewsLetter;
+      'contact-us.office-location': ContactUsOfficeLocation;
+      'contact-us.office-location-list': ContactUsOfficeLocationList;
+      'contact-us.our-office': ContactUsOurOffice;
       'form-fields.book-demo-form': FormFieldsBookDemoForm;
       'form-fields.case-form': FormFieldsCaseForm;
+      'form-fields.contact-us-form': FormFieldsContactUsForm;
       'form-fields.form': FormFieldsForm;
       'global.global-field': GlobalGlobalField;
       'global.policy': GlobalPolicy;

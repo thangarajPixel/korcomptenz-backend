@@ -24,7 +24,12 @@
         "form-fields.form",
         "home.services-section",
         "home.opportunity",
-        "home.schedule-call"
+        "home.schedule-call",
+        "contact-us.our-office",
+        "contact-us.office-location-list",
+        "contact-us.news-letter",
+        "contact-us.contact-us-insight-list",
+        "contact-us.contact-us-form-section"
       ]
     }
   }

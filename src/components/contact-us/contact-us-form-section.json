@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_contact_us_contact_us_form_sections",
+  "info": {
+    "displayName": "contact-us-form-section",
+    "icon": "puzzle"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form"
+    },
+    "images": {
+      "type": "component",
+      "component": "case-study.banner-image",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

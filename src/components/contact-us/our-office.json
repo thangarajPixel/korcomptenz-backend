@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_contact_us_our_offices",
+  "info": {
+    "displayName": "our-office",
+    "icon": "phone"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "link": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "enquiryText": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "fax": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

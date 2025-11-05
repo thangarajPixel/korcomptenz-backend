@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_contact_us_office_locations",
+  "info": {
+    "displayName": "office-location",
+    "icon": "phone"
+  },
+  "options": {},
+  "attributes": {
+    "country": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "fax": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

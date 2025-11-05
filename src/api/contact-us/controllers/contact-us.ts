@@ -65,6 +65,43 @@ export default factories.createCoreController('api::contact-us.contact-us', ({ s
                 }
               },
             },
+            'contact-us.our-office': {
+              populate: {
+                image: true
+              }
+            },
+            'contact-us.office-location-list': {
+              populate: {
+                list: {
+                  populate: {
+                    image: true
+                  }
+                }
+              }
+            },
+            'contact-us.news-letter': {
+              populate: {
+                image: true
+              }
+            },
+            'contact-us.contact-us-insight-list': {
+              populate: {
+                list: {
+                  populate: {
+                    image: true
+                  }
+                }
+              }
+            },
+            'contact-us.contact-us-form-section': {
+              populate: {
+                images: {
+                  populate: {
+                    image: true
+                  }
+                }
+              }
+            }
           }
         }
       },

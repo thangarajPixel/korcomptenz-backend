@@ -903,6 +903,11 @@ export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
         'home.services-section',
         'home.opportunity',
         'home.schedule-call',
+        'contact-us.our-office',
+        'contact-us.office-location-list',
+        'contact-us.news-letter',
+        'contact-us.contact-us-insight-list',
+        'contact-us.contact-us-form-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -938,7 +943,11 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Required;
     forms: Schema.Attribute.DynamicZone<
-      ['form-fields.case-form', 'form-fields.book-demo-form']
+      [
+        'form-fields.case-form',
+        'form-fields.book-demo-form',
+        'form-fields.contact-us-form',
+      ]
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<

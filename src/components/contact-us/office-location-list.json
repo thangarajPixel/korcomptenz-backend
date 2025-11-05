@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_contact_us_office_location_lists",
+  "info": {
+    "displayName": "office-location-list",
+    "icon": "rotate"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "component": "contact-us.office-location",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

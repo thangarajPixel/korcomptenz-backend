@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_contact_us_contact_us_insight_lists",
+  "info": {
+    "displayName": "contact-us-insight-list",
+    "icon": "sun"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "component": "contact-us.contact-us-insight",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

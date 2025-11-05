@@ -15,7 +15,8 @@
       "type": "dynamiczone",
       "components": [
         "form-fields.case-form",
-        "form-fields.book-demo-form"
+        "form-fields.book-demo-form",
+        "form-fields.contact-us-form"
       ],
       "required": true,
       "min": 1,
