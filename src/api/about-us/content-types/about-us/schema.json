@@ -21,6 +21,7 @@
       "components": [
         "page-componets.banner-section-list",
         "page-componets.build-data",
+        "page-componets.benefit-data",
         "form-fields.form",
         "home.services-section",
         "home.opportunity",

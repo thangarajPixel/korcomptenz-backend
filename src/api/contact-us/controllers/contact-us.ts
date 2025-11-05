@@ -101,7 +101,8 @@ export default factories.createCoreController('api::contact-us.contact-us', ({ s
                   }
                 }
               }
-            }
+            },
+            'contact-us.fixed-section': true
           }
         }
       },

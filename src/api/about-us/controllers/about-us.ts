@@ -65,6 +65,12 @@ export default factories.createCoreController('api::about-us.about-us', ({ strap
                 }
               },
             },
+            'page-componets.benefit-data': {
+              populate: {
+                image: true,
+                cards: { populate: true },
+              },
+            },
             'about-us.content-showcase-section-list': {
               populate: {
                 list: {

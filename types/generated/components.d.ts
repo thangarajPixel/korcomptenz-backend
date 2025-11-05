@@ -504,6 +504,21 @@ export interface ContactUsContactUsInsightList extends Struct.ComponentSchema {
   };
 }
 
+export interface ContactUsFixedSection extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_fixed_sections';
+  info: {
+    displayName: 'fixed-section';
+    icon: 'connector';
+  };
+  attributes: {
+    buttonOneLink: Schema.Attribute.String;
+    buttonOneText: Schema.Attribute.String;
+    buttonTwoLink: Schema.Attribute.String;
+    buttonTwoText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+  };
+}
+
 export interface ContactUsNewsLetter extends Struct.ComponentSchema {
   collectionName: 'components_contact_us_news_letters';
   info: {
@@ -1761,6 +1776,7 @@ declare module '@strapi/strapi' {
       'contact-us.contact-us-form-section': ContactUsContactUsFormSection;
       'contact-us.contact-us-insight': ContactUsContactUsInsight;
       'contact-us.contact-us-insight-list': ContactUsContactUsInsightList;
+      'contact-us.fixed-section': ContactUsFixedSection;
       'contact-us.news-letter': ContactUsNewsLetter;
       'contact-us.office-location': ContactUsOfficeLocation;
       'contact-us.office-location-list': ContactUsOfficeLocationList;

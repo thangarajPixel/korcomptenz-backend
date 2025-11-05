@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_contact_us_fixed_sections",
+  "info": {
+    "displayName": "fixed-section",
+    "icon": "connector"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    },
+    "buttonOneText": {
+      "type": "string"
+    },
+    "buttonTwoText": {
+      "type": "string"
+    },
+    "buttonOneLink": {
+      "type": "string"
+    },
+    "buttonTwoLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

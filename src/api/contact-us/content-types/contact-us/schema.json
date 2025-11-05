@@ -29,7 +29,8 @@
         "contact-us.office-location-list",
         "contact-us.news-letter",
         "contact-us.contact-us-insight-list",
-        "contact-us.contact-us-form-section"
+        "contact-us.contact-us-form-section",
+        "contact-us.fixed-section"
       ]
     }
   }

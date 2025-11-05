@@ -391,6 +391,7 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
       [
         'page-componets.banner-section-list',
         'page-componets.build-data',
+        'page-componets.benefit-data',
         'form-fields.form',
         'home.services-section',
         'home.opportunity',
@@ -908,6 +909,7 @@ export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
         'contact-us.news-letter',
         'contact-us.contact-us-insight-list',
         'contact-us.contact-us-form-section',
+        'contact-us.fixed-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
