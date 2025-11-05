@@ -201,6 +201,18 @@ export interface AboutUsStatsSectionCard extends Struct.ComponentSchema {
   };
 }
 
+export interface CareerOpenJobs extends Struct.ComponentSchema {
+  collectionName: 'components_career_open_jobs';
+  info: {
+    displayName: 'open-jobs';
+    icon: 'briefcase';
+  };
+  attributes: {
+    iframeLink: Schema.Attribute.String;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface CaseStudyBanner extends Struct.ComponentSchema {
   collectionName: 'components_case_study_banners';
   info: {
@@ -595,6 +607,33 @@ export interface FormFieldsBookDemoForm extends Struct.ComponentSchema {
     organizationLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Organization'>;
     title: Schema.Attribute.Text & Schema.Attribute.DefaultTo<'Book a Demo'>;
+  };
+}
+
+export interface FormFieldsCareer extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_careers';
+  info: {
+    displayName: 'career';
+    icon: 'collapse';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Send'>;
+    companyLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Company'>;
+    departmentLabel: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'Department'>;
+    emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
+    firstNameLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'First Name'>;
+    lastNameLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Last Name'>;
+    mobileLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Phone'>;
+    phoneLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Phone'>;
+    resumeLabel: Schema.Attribute.Text & Schema.Attribute.DefaultTo<'Resume'>;
+    serviceLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Select Service'>;
+    technologyLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Select Technology'>;
   };
 }
 
@@ -1755,6 +1794,7 @@ declare module '@strapi/strapi' {
       'about-us.people-showcase-list': AboutUsPeopleShowcaseList;
       'about-us.stats-section': AboutUsStatsSection;
       'about-us.stats-section-card': AboutUsStatsSectionCard;
+      'career.open-jobs': CareerOpenJobs;
       'case-study.banner': CaseStudyBanner;
       'case-study.banner-image': CaseStudyBannerImage;
       'case-study.case-study-domain-data': CaseStudyCaseStudyDomainData;
@@ -1782,6 +1822,7 @@ declare module '@strapi/strapi' {
       'contact-us.office-location-list': ContactUsOfficeLocationList;
       'contact-us.our-office': ContactUsOurOffice;
       'form-fields.book-demo-form': FormFieldsBookDemoForm;
+      'form-fields.career': FormFieldsCareer;
       'form-fields.case-form': FormFieldsCaseForm;
       'form-fields.contact-us-form': FormFieldsContactUsForm;
       'form-fields.form': FormFieldsForm;

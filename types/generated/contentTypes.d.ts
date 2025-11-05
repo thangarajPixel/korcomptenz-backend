@@ -398,7 +398,7 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
         'home.schedule-call',
         'about-us.content-showcase-section-list',
         'about-us.map-section-list',
-        'about-us.our-story',
+        'about-us.our-story-list',
         'about-us.people-showcase-list',
         'about-us.stats-section',
         'about-us.media-slider-section',

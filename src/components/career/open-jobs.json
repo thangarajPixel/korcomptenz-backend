@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_career_open_jobs",
+  "info": {
+    "displayName": "open-jobs",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "iframeLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

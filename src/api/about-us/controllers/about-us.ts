@@ -89,7 +89,7 @@ export default factories.createCoreController('api::about-us.about-us', ({ strap
                 },
               },
             },
-            'about-us.our-story': {
+            'about-us.our-story-list': {
               populate: {
                 list: {
                   populate: {
