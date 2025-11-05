@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "candidate_details",
+  "info": {
+    "singularName": "candidate-detail",
+    "pluralName": "candidate-details",
+    "displayName": "candidate-detail"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "resume": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}

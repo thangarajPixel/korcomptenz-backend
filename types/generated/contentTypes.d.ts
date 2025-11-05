@@ -449,6 +449,38 @@ export interface ApiBookDemoLeadBookDemoLead
   };
 }
 
+export interface ApiCandidateDetailCandidateDetail
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'candidate_details';
+  info: {
+    displayName: 'candidate-detail';
+    pluralName: 'candidate-details';
+    singularName: 'candidate-detail';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::candidate-detail.candidate-detail'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    resume: Schema.Attribute.Media<'files'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCareerCareer extends Struct.SingleTypeSchema {
   collectionName: 'careers';
   info: {
@@ -1621,6 +1653,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::book-demo-lead.book-demo-lead': ApiBookDemoLeadBookDemoLead;
+      'api::candidate-detail.candidate-detail': ApiCandidateDetailCandidateDetail;
       'api::career.career': ApiCareerCareer;
       'api::case-business-outcome.case-business-outcome': ApiCaseBusinessOutcomeCaseBusinessOutcome;
       'api::case-industry.case-industry': ApiCaseIndustryCaseIndustry;
