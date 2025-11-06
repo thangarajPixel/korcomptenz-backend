@@ -24,7 +24,9 @@
         "form-fields.form",
         "home.services-section",
         "home.opportunity",
-        "home.schedule-call"
+        "home.schedule-call",
+        "career.open-jobs",
+        "career.mansonry-gallery-section"
       ]
     }
   }

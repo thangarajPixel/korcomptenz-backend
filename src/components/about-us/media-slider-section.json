@@ -11,7 +11,7 @@
     },
     "list": {
       "type": "component",
-      "component": "about-us.media-slider-col",
+      "component": "about-us.media-slider",
       "repeatable": true
     }
   },

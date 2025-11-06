@@ -89,27 +89,10 @@ export interface AboutUsMediaSlider extends Struct.ComponentSchema {
     icon: 'stack';
   };
   attributes: {
+    description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     isVideo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     videoLink: Schema.Attribute.String;
-  };
-}
-
-export interface AboutUsMediaSliderCol extends Struct.ComponentSchema {
-  collectionName: 'components_about_us_media_slider_cols';
-  info: {
-    displayName: 'media-slider-col';
-    icon: 'landscape';
-  };
-  attributes: {
-    item: Schema.Attribute.Component<'about-us.media-slider', true> &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 3;
-          min: 2;
-        },
-        number
-      >;
   };
 }
 
@@ -120,7 +103,7 @@ export interface AboutUsMediaSliderSection extends Struct.ComponentSchema {
     icon: 'stack';
   };
   attributes: {
-    list: Schema.Attribute.Component<'about-us.media-slider-col', true>;
+    list: Schema.Attribute.Component<'about-us.media-slider', true>;
     title: Schema.Attribute.String;
   };
 }
@@ -216,6 +199,33 @@ export interface AboutUsStatsSectionCard extends Struct.ComponentSchema {
     isIncrement: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     title: Schema.Attribute.String;
   };
+}
+
+export interface CareerMansonryGallery extends Struct.ComponentSchema {
+  collectionName: 'components_career_mansonry_galleries';
+  info: {
+    displayName: 'mansonry-gallery';
+    icon: 'slideshow';
+  };
+  attributes: {};
+}
+
+export interface CareerMansonryGalleryCol extends Struct.ComponentSchema {
+  collectionName: 'components_career_mansonry_gallery_cols';
+  info: {
+    displayName: 'mansonry-gallery-col';
+    icon: 'slideshow';
+  };
+  attributes: {};
+}
+
+export interface CareerMansonryGallerySection extends Struct.ComponentSchema {
+  collectionName: 'components_career_mansonry_gallery_sections';
+  info: {
+    displayName: 'mansonry-gallery-section';
+    icon: 'slideshow';
+  };
+  attributes: {};
 }
 
 export interface CareerOpenJobs extends Struct.ComponentSchema {
@@ -1804,7 +1814,6 @@ declare module '@strapi/strapi' {
       'about-us.map-section-card': AboutUsMapSectionCard;
       'about-us.map-section-list': AboutUsMapSectionList;
       'about-us.media-slider': AboutUsMediaSlider;
-      'about-us.media-slider-col': AboutUsMediaSliderCol;
       'about-us.media-slider-section': AboutUsMediaSliderSection;
       'about-us.our-story': AboutUsOurStory;
       'about-us.our-story-list': AboutUsOurStoryList;
@@ -1812,6 +1821,9 @@ declare module '@strapi/strapi' {
       'about-us.people-showcase-list': AboutUsPeopleShowcaseList;
       'about-us.stats-section': AboutUsStatsSection;
       'about-us.stats-section-card': AboutUsStatsSectionCard;
+      'career.mansonry-gallery': CareerMansonryGallery;
+      'career.mansonry-gallery-col': CareerMansonryGalleryCol;
+      'career.mansonry-gallery-section': CareerMansonryGallerySection;
       'career.open-jobs': CareerOpenJobs;
       'case-study.banner': CaseStudyBanner;
       'case-study.banner-image': CaseStudyBannerImage;

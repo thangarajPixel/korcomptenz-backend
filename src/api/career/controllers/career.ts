@@ -65,6 +65,20 @@ export default factories.createCoreController('api::career.career', ({ strapi })
                 }
               },
             },
+            'career.open-jobs': true,
+            'career.mansonry-gallery-section': {
+              populate: {
+                list: {
+                  populate: {
+                    item: {
+                      populate: {
+                        image: true,
+                      },
+                    },
+                  },
+                },
+              },
+            },
           }
         }
       },
