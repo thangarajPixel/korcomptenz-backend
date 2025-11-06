@@ -16,7 +16,8 @@
       "components": [
         "form-fields.case-form",
         "form-fields.book-demo-form",
-        "form-fields.contact-us-form"
+        "form-fields.contact-us-form",
+        "form-fields.career"
       ],
       "required": true,
       "min": 1,
@@ -33,7 +34,8 @@
       "enum": [
         "case-form",
         "book-demo-form",
-        "contact-form"
+        "contact-form",
+        "career"
       ]
     }
   }

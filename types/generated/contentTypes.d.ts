@@ -464,6 +464,10 @@ export interface ApiCandidateDetailCandidateDetail
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    department: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::department.department'
+    >;
     email: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -958,6 +962,34 @@ export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiDepartmentDepartment extends Struct.CollectionTypeSchema {
+  collectionName: 'departments';
+  info: {
+    displayName: 'department';
+    pluralName: 'departments';
+    singularName: 'department';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    label: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::department.department'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFormForm extends Struct.CollectionTypeSchema {
   collectionName: 'forms';
   info: {
@@ -973,7 +1005,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     form: Schema.Attribute.Enumeration<
-      ['case-form', 'book-demo-form', 'contact-form']
+      ['case-form', 'book-demo-form', 'contact-form', 'career']
     > &
       Schema.Attribute.Required;
     forms: Schema.Attribute.DynamicZone<
@@ -981,6 +1013,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.case-form',
         'form-fields.book-demo-form',
         'form-fields.contact-us-form',
+        'form-fields.career',
       ]
     > &
       Schema.Attribute.Required &
@@ -1667,6 +1700,7 @@ declare module '@strapi/strapi' {
       'api::case-technology.case-technology': ApiCaseTechnologyCaseTechnology;
       'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;
       'api::contact-us.contact-us': ApiContactUsContactUs;
+      'api::department.department': ApiDepartmentDepartment;
       'api::form.form': ApiFormForm;
       'api::home.home': ApiHomeHome;
       'api::layout.layout': ApiLayoutLayout;
