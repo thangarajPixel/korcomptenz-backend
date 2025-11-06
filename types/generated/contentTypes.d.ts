@@ -402,6 +402,7 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
         'about-us.people-showcase-list',
         'about-us.stats-section',
         'about-us.media-slider-section',
+        'about-us.achievement-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

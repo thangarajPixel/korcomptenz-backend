@@ -31,7 +31,8 @@
         "about-us.our-story-list",
         "about-us.people-showcase-list",
         "about-us.stats-section",
-        "about-us.media-slider-section"
+        "about-us.media-slider-section",
+        "about-us.achievement-section"
       ]
     }
   }

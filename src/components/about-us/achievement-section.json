@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_about_us_achievement_sections",
+  "info": {
+    "displayName": "achievement-section",
+    "icon": "gift"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "component": "about-us.achievement-list",
+      "repeatable": true,
+      "required": true,
+      "min": 3,
+      "max": 3
+    }
+  },
+  "config": {}
+}

@@ -126,6 +126,19 @@ export default factories.createCoreController('api::about-us.about-us', ({ strap
                 },
               },
             },
+            'about-us.achievement-section': {
+              populate: {
+                list: {
+                  populate: {
+                    columns: {
+                      populate: {
+                        image: true,
+                      },
+                    },
+                  },
+                },
+              },
+            },
           }
         }
       },

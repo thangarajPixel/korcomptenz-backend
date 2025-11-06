@@ -1,5 +1,55 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AboutUsAchievementColumn extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_achievement_columns';
+  info: {
+    displayName: 'achievement-column';
+    icon: 'chartCircle';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface AboutUsAchievementList extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_achievement_lists';
+  info: {
+    displayName: 'achievement-list';
+    icon: 'chartCircle';
+  };
+  attributes: {
+    column: Schema.Attribute.Component<'about-us.achievement-column', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 2;
+          min: 1;
+        },
+        number
+      >;
+  };
+}
+
+export interface AboutUsAchievementSection extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_achievement_sections';
+  info: {
+    displayName: 'achievement-section';
+    icon: 'gift';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'about-us.achievement-list', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+          min: 3;
+        },
+        number
+      >;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface AboutUsContentShowcaseSectionCard
   extends Struct.ComponentSchema {
   collectionName: 'components_about_us_content_showcase_section_cards';
@@ -1826,6 +1876,9 @@ export interface SubPageComponetsResponsiveImage
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'about-us.achievement-column': AboutUsAchievementColumn;
+      'about-us.achievement-list': AboutUsAchievementList;
+      'about-us.achievement-section': AboutUsAchievementSection;
       'about-us.content-showcase-section-card': AboutUsContentShowcaseSectionCard;
       'about-us.content-showcase-section-list': AboutUsContentShowcaseSectionList;
       'about-us.map-section-card': AboutUsMapSectionCard;

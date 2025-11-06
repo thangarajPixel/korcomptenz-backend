@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_about_us_achievement_lists",
+  "info": {
+    "displayName": "achievement-list",
+    "icon": "chartCircle"
+  },
+  "options": {},
+  "attributes": {
+    "column": {
+      "type": "component",
+      "component": "about-us.achievement-column",
+      "repeatable": true,
+      "required": true,
+      "min": 1,
+      "max": 2
+    }
+  },
+  "config": {}
+}

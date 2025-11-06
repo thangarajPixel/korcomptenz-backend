@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_about_us_achievement_columns",
+  "info": {
+    "displayName": "achievement-column",
+    "icon": "chartCircle"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}
