@@ -207,7 +207,11 @@ export interface CareerMansonryGallery extends Struct.ComponentSchema {
     displayName: 'mansonry-gallery';
     icon: 'slideshow';
   };
-  attributes: {};
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    isVideo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    videoLink: Schema.Attribute.String;
+  };
 }
 
 export interface CareerMansonryGalleryCol extends Struct.ComponentSchema {
@@ -235,7 +239,9 @@ export interface CareerMansonryGallerySection extends Struct.ComponentSchema {
     icon: 'slideshow';
   };
   attributes: {
+    highLightText: Schema.Attribute.String;
     list: Schema.Attribute.Component<'career.mansonry-gallery-col', true>;
+    title: Schema.Attribute.String;
   };
 }
 

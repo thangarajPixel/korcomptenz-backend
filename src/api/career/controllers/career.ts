@@ -70,7 +70,7 @@ export default factories.createCoreController('api::career.career', ({ strapi })
               populate: {
                 list: {
                   populate: {
-                    item: {
+                    column: {
                       populate: {
                         image: true,
                       },
