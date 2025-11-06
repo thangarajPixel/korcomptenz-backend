@@ -7,10 +7,31 @@ import { factories } from '@strapi/strapi'
 export default factories.createCoreController('api::candidate-detail.candidate-detail', ({ strapi }) => ({
   async create(ctx) {
     try {
+      const { files } = ctx.request.files || {};
+
+      if (!files) {
+        return ctx.badRequest('No file uploaded');
+      }
+
+      // Handle single or multiple files
+      const fileArray = Array.isArray(files) ? files : [files];
+
+      // Validate that all uploaded files are PDFs
+      const invalidFiles = fileArray.filter((file: any) => {
+        const mimeType = file.mimetype || file.type; // some environments use mimetype
+        return mimeType !== 'application/pdf';
+      });
+
+      if (invalidFiles.length > 0) {
+        return ctx.badRequest('Only PDF files are allowed');
+      }
       const upload = await strapi.plugins.upload.services.upload.upload({
         data: {
+          fileInfo: {
+            folder: 47
+          }
         }, // additional file metadata if needed
-        files: ctx.request.files?.files,
+        files: ctx.request.files?.files
       });
       const { documentId, ...file } = upload?.[0];
       ctx.request.body.data = { ...ctx.request.body.data, resume: file };
