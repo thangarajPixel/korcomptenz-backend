@@ -45,7 +45,7 @@ export interface AboutUsMapSectionCard extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     title: Schema.Attribute.String;
-    x: Schema.Attribute.Integer &
+    x: Schema.Attribute.Decimal &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
@@ -54,7 +54,7 @@ export interface AboutUsMapSectionCard extends Struct.ComponentSchema {
         },
         number
       >;
-    y: Schema.Attribute.Integer &
+    y: Schema.Attribute.Decimal &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {

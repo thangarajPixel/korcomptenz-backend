@@ -7,13 +7,13 @@
   "options": {},
   "attributes": {
     "x": {
-      "type": "integer",
+      "type": "decimal",
       "required": true,
       "min": 0,
       "max": 110
     },
     "y": {
-      "type": "integer",
+      "type": "decimal",
       "required": true,
       "min": 0,
       "max": 110
