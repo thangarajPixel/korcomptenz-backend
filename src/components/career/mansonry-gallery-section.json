@@ -5,6 +5,18 @@
     "icon": "slideshow"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "component": "career.mansonry-gallery-col",
+      "repeatable": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "highLightText": {
+      "type": "string"
+    }
+  },
   "config": {}
 }

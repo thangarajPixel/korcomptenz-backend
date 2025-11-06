@@ -5,6 +5,31 @@
     "icon": "slideshow"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "isVideo": {
+      "type": "boolean",
+      "default": false
+    },
+    "videoLink": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isVideo"
+            },
+            true
+          ]
+        }
+      }
+    }
+  },
   "config": {}
 }

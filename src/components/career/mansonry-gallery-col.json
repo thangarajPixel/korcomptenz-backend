@@ -5,6 +5,14 @@
     "icon": "slideshow"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "column": {
+      "type": "component",
+      "component": "career.mansonry-gallery",
+      "repeatable": true,
+      "min": 2,
+      "max": 3
+    }
+  },
   "config": {}
 }

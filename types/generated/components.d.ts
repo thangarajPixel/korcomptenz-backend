@@ -216,7 +216,16 @@ export interface CareerMansonryGalleryCol extends Struct.ComponentSchema {
     displayName: 'mansonry-gallery-col';
     icon: 'slideshow';
   };
-  attributes: {};
+  attributes: {
+    column: Schema.Attribute.Component<'career.mansonry-gallery', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+          min: 2;
+        },
+        number
+      >;
+  };
 }
 
 export interface CareerMansonryGallerySection extends Struct.ComponentSchema {
@@ -225,7 +234,9 @@ export interface CareerMansonryGallerySection extends Struct.ComponentSchema {
     displayName: 'mansonry-gallery-section';
     icon: 'slideshow';
   };
-  attributes: {};
+  attributes: {
+    list: Schema.Attribute.Component<'career.mansonry-gallery-col', true>;
+  };
 }
 
 export interface CareerOpenJobs extends Struct.ComponentSchema {
