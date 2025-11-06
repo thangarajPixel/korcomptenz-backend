@@ -6,13 +6,13 @@
   },
   "options": {},
   "attributes": {
-    "list": {
-      "type": "component",
-      "component": "about-us.media-slider",
-      "repeatable": true
-    },
     "title": {
       "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "component": "about-us.media-slider-col",
+      "repeatable": true
     }
   },
   "config": {}

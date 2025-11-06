@@ -121,7 +121,11 @@ export default factories.createCoreController('api::about-us.about-us', ({ strap
               populate: {
                 list: {
                   populate: {
-                    image: true,
+                    item: {
+                      populate: {
+                        image: true,
+                      },
+                    },
                   },
                 },
               },

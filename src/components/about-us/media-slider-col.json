@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_about_us_media_slider_cols",
+  "info": {
+    "displayName": "media-slider-col",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "item": {
+      "type": "component",
+      "component": "about-us.media-slider",
+      "repeatable": true,
+      "min": 2,
+      "max": 3
+    }
+  },
+  "config": {}
+}

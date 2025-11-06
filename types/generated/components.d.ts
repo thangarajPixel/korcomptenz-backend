@@ -89,10 +89,27 @@ export interface AboutUsMediaSlider extends Struct.ComponentSchema {
     icon: 'stack';
   };
   attributes: {
-    description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     isVideo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     videoLink: Schema.Attribute.String;
+  };
+}
+
+export interface AboutUsMediaSliderCol extends Struct.ComponentSchema {
+  collectionName: 'components_about_us_media_slider_cols';
+  info: {
+    displayName: 'media-slider-col';
+    icon: 'landscape';
+  };
+  attributes: {
+    item: Schema.Attribute.Component<'about-us.media-slider', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+          min: 2;
+        },
+        number
+      >;
   };
 }
 
@@ -103,7 +120,7 @@ export interface AboutUsMediaSliderSection extends Struct.ComponentSchema {
     icon: 'stack';
   };
   attributes: {
-    list: Schema.Attribute.Component<'about-us.media-slider', true>;
+    list: Schema.Attribute.Component<'about-us.media-slider-col', true>;
     title: Schema.Attribute.String;
   };
 }
@@ -1787,6 +1804,7 @@ declare module '@strapi/strapi' {
       'about-us.map-section-card': AboutUsMapSectionCard;
       'about-us.map-section-list': AboutUsMapSectionList;
       'about-us.media-slider': AboutUsMediaSlider;
+      'about-us.media-slider-col': AboutUsMediaSliderCol;
       'about-us.media-slider-section': AboutUsMediaSliderSection;
       'about-us.our-story': AboutUsOurStory;
       'about-us.our-story-list': AboutUsOurStoryList;
