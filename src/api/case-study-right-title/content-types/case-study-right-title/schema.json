@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "case_study_right_titles",
+  "info": {
+    "singularName": "case-study-right-title",
+    "pluralName": "case-study-right-titles",
+    "displayName": "case-study-right-title"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

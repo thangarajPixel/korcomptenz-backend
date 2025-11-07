@@ -6,8 +6,37 @@
   },
   "options": {},
   "attributes": {
+    "isPreTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "preTitle": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::case-study-right-title.case-study-right-title",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isPreTitle"
+            },
+            true
+          ]
+        }
+      }
+    },
     "title": {
-      "type": "string"
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isPreTitle"
+            },
+            false
+          ]
+        }
+      }
     },
     "descripitionKey": {
       "type": "enumeration",
@@ -47,6 +76,16 @@
     },
     "icon": {
       "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isPreTitle"
+            },
+            false
+          ]
+        }
+      },
       "multiple": false,
       "allowedTypes": [
         "images"

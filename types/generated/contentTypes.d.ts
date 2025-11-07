@@ -749,6 +749,36 @@ export interface ApiCaseStudyPageCaseStudyPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiCaseStudyRightTitleCaseStudyRightTitle
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'case_study_right_titles';
+  info: {
+    displayName: 'case-study-right-title';
+    pluralName: 'case-study-right-titles';
+    singularName: 'case-study-right-title';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-study-right-title.case-study-right-title'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCaseStudySponserCaseStudySponser
   extends Struct.CollectionTypeSchema {
   collectionName: 'case_study_sponsers';
@@ -1698,6 +1728,7 @@ declare module '@strapi/strapi' {
       'api::case-study-lead.case-study-lead': ApiCaseStudyLeadCaseStudyLead;
       'api::case-study-list.case-study-list': ApiCaseStudyListCaseStudyList;
       'api::case-study-page.case-study-page': ApiCaseStudyPageCaseStudyPage;
+      'api::case-study-right-title.case-study-right-title': ApiCaseStudyRightTitleCaseStudyRightTitle;
       'api::case-study-sponser.case-study-sponser': ApiCaseStudySponserCaseStudySponser;
       'api::case-study.case-study': ApiCaseStudyCaseStudy;
       'api::case-technology.case-technology': ApiCaseTechnologyCaseTechnology;

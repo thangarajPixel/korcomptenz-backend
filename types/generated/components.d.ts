@@ -218,6 +218,15 @@ export interface AboutUsPeopleShowcaseList extends Struct.ComponentSchema {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     list: Schema.Attribute.Component<'about-us.people-showcase-card', true>;
+    perRow: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 3;
+          min: 2;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<3>;
     title: Schema.Attribute.String;
   };
 }
@@ -539,6 +548,11 @@ export interface CaseStudyRightSection extends Struct.ComponentSchema {
     icon: Schema.Attribute.Media<'images'>;
     isCustomDescripition: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
+    isPreTitle: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    preTitle: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::case-study-right-title.case-study-right-title'
+    >;
     title: Schema.Attribute.String;
   };
 }
