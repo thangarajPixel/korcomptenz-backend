@@ -172,12 +172,12 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
           testimonials: true,
           rightSection: {
             populate: {
-              icon: true
-            },
-            preTitle: {
-              populate: {
-                icon: true
-              }
+              icon: true,
+              preTitle: {
+                populate: {
+                  icon: true
+                }
+              },
             },
           },
           case_industries: true,
