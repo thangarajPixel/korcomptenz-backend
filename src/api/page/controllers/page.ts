@@ -3,6 +3,7 @@
  */
 
 import { factories } from '@strapi/strapi'
+import qs from 'qs';
 
 export default factories.createCoreController('api::page.page', ({ strapi }) => ({
   async find(ctx) {
@@ -316,7 +317,30 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
         }
       });
       if (!entity) {
-        return ctx.notFound('Page not found');
+        const notFoundPages = await strapi.db.query('api::not-found.not-found').findMany({
+          where: {
+            publishedAt: { $notNull: true },
+          },
+          populate: {
+            list: {
+              on: {
+                'not-found.not-found': {
+                  populate: {
+                    image: true,
+                  },
+                },
+              }
+            },
+            seo: true,
+          }
+        });
+
+        const notFoundPage = notFoundPages?.[0];
+        if (!notFoundPage) {
+          return ctx.notFound('Page not found');
+        }
+        const sanitizedEntity = await this.sanitizeOutput(notFoundPage, ctx);
+        return this.transformResponse(sanitizedEntity);
       }
       const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
       return this.transformResponse(sanitizedEntity);

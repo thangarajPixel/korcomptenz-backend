@@ -1147,6 +1147,35 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiNotFoundNotFound extends Struct.SingleTypeSchema {
+  collectionName: 'not_founds';
+  info: {
+    displayName: 'not-found';
+    pluralName: 'not-founds';
+    singularName: 'not-found';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    list: Schema.Attribute.DynamicZone<['not-found.not-found']>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::not-found.not-found'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
@@ -1739,6 +1768,7 @@ declare module '@strapi/strapi' {
       'api::form.form': ApiFormForm;
       'api::home.home': ApiHomeHome;
       'api::layout.layout': ApiLayoutLayout;
+      'api::not-found.not-found': ApiNotFoundNotFound;
       'api::page.page': ApiPagePage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

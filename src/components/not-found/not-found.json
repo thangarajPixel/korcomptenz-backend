@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_not_found_not_founds",
+  "info": {
+    "displayName": "not-found",
+    "icon": "typhoon"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "buttonText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

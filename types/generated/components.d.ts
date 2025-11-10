@@ -1205,6 +1205,20 @@ export interface MenuSidebarAboutus extends Struct.ComponentSchema {
   };
 }
 
+export interface NotFoundNotFound extends Struct.ComponentSchema {
+  collectionName: 'components_not_found_not_founds';
+  info: {
+    displayName: 'not-found';
+    icon: 'typhoon';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsBannerSectionList extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_banner_section_lists';
   info: {
@@ -1986,6 +2000,7 @@ declare module '@strapi/strapi' {
       'menu.items': MenuItems;
       'menu.section': MenuSection;
       'menu.sidebar-aboutus': MenuSidebarAboutus;
+      'not-found.not-found': NotFoundNotFound;
       'page-componets.banner-section-list': PageComponetsBannerSectionList;
       'page-componets.benefit-data': PageComponetsBenefitData;
       'page-componets.benifit-cards': PageComponetsBenifitCards;
