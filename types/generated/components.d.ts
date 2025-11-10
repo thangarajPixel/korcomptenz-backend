@@ -270,6 +270,7 @@ export interface CareerCareerBuildData extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     descriptionTitle: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    mainImage: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
     titleDescription: Schema.Attribute.Text;
     videoLink: Schema.Attribute.String;

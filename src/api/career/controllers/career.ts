@@ -82,17 +82,18 @@ export default factories.createCoreController('api::career.career', ({ strapi })
             'career.career-build-data': {
               populate: {
                 image: true,
+                mainImage: true,
               },
-              'contact-us.news-letter': {
-                populate: {
-                  form: {
-                    populate: {
-                      forms: true
-                    }
+            },
+            'contact-us.news-letter': {
+              populate: {
+                form: {
+                  populate: {
+                    forms: true
                   }
                 }
-              },
-            }
+              }
+            },
           }
         }
       },
