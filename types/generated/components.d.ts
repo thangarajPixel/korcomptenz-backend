@@ -260,6 +260,22 @@ export interface AboutUsStatsSectionCard extends Struct.ComponentSchema {
   };
 }
 
+export interface CareerCareerBuildData extends Struct.ComponentSchema {
+  collectionName: 'components_career_career_build_data';
+  info: {
+    displayName: 'career-build-data';
+    icon: 'connector';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    descriptionTitle: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+    titleDescription: Schema.Attribute.Text;
+    videoLink: Schema.Attribute.String;
+  };
+}
+
 export interface CareerMansonryGallery extends Struct.ComponentSchema {
   collectionName: 'components_career_mansonry_galleries';
   info: {
@@ -1905,6 +1921,7 @@ declare module '@strapi/strapi' {
       'about-us.people-showcase-list': AboutUsPeopleShowcaseList;
       'about-us.stats-section': AboutUsStatsSection;
       'about-us.stats-section-card': AboutUsStatsSectionCard;
+      'career.career-build-data': CareerCareerBuildData;
       'career.mansonry-gallery': CareerMansonryGallery;
       'career.mansonry-gallery-col': CareerMansonryGalleryCol;
       'career.mansonry-gallery-section': CareerMansonryGallerySection;

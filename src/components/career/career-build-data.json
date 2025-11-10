@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_career_career_build_data",
+  "info": {
+    "displayName": "career-build-data",
+    "icon": "connector"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "titleDescription": {
+      "type": "text"
+    },
+    "descriptionTitle": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "videoLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

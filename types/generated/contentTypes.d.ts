@@ -510,6 +510,7 @@ export interface ApiCareerCareer extends Struct.SingleTypeSchema {
         'home.schedule-call',
         'career.open-jobs',
         'career.mansonry-gallery-section',
+        'career.career-build-data',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
