@@ -5,7 +5,7 @@
 import { factories } from '@strapi/strapi'
 import qs from 'qs'
 
-export default factories.createCoreController('api::career.career', ({ strapi }) => ({
+export default factories.createCoreController('api::career.career', () => ({
   async find(ctx) {
     const populateQuery = qs.stringify({
       populate: {
