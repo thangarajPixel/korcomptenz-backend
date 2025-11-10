@@ -20,10 +20,49 @@
       ]
     },
     "buttonText": {
-      "type": "string"
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            false
+          ]
+        }
+      }
     },
     "link": {
-      "type": "string"
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            false
+          ]
+        }
+      }
+    },
+    "isForm": {
+      "type": "boolean",
+      "default": false
+    },
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      }
     }
   },
   "config": {}

@@ -511,6 +511,7 @@ export interface ApiCareerCareer extends Struct.SingleTypeSchema {
         'career.open-jobs',
         'career.mansonry-gallery-section',
         'career.career-build-data',
+        'contact-us.news-letter',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

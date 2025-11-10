@@ -83,6 +83,15 @@ export default factories.createCoreController('api::career.career', ({ strapi })
               populate: {
                 image: true,
               },
+              'contact-us.news-letter': {
+                populate: {
+                  form: {
+                    populate: {
+                      forms: true
+                    }
+                  }
+                }
+              },
             }
           }
         }

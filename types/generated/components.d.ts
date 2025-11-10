@@ -664,7 +664,9 @@ export interface ContactUsNewsLetter extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     image: Schema.Attribute.Media<'images'>;
+    isForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
