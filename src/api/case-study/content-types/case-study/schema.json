@@ -14,7 +14,8 @@
     "slug": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": true,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     },
     "outcome": {
       "type": "relation",
