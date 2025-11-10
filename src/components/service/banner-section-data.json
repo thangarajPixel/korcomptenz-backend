@@ -48,6 +48,12 @@
     },
     "bannerCaption": {
       "type": "text"
+    },
+    "secondButton": {
+      "type": "string"
+    },
+    "secondLink": {
+      "type": "string"
     }
   },
   "config": {}
