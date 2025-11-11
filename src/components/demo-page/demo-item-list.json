@@ -10,9 +10,10 @@
       "type": "string"
     },
     "item": {
-      "type": "component",
-      "component": "demo-page.demo-item",
-      "repeatable": true
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::book-demo.book-demo",
+      "required": true
     }
   },
   "config": {}

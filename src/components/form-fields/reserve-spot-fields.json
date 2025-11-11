@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_form_fields_reserve_spot_fields",
+  "info": {
+    "displayName": "reserve-spot-fields"
+  },
+  "options": {},
+  "attributes": {
+    "businessLabel": {
+      "type": "string"
+    },
+    "companyLabel": {
+      "type": "string"
+    },
+    "phoneLabel": {
+      "type": "string",
+      "default": "Phone Number"
+    },
+    "nameLabel": {
+      "type": "string",
+      "default": "Full Name"
+    },
+    "buttonText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -720,6 +720,30 @@ export interface ContactUsOurOffice extends Struct.ComponentSchema {
   };
 }
 
+export interface DemoPageBuildDemo extends Struct.ComponentSchema {
+  collectionName: 'components_demo_page_build_demos';
+  info: {
+    displayName: 'build-demo';
+    icon: 'apps';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    isSwap: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    item: Schema.Attribute.Relation<'oneToOne', 'api::book-demo.book-demo'> &
+      Schema.Attribute.Required;
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface DemoPageDemoBannerList extends Struct.ComponentSchema {
   collectionName: 'components_demo_page_demo_banner_lists';
   info: {
@@ -754,7 +778,8 @@ export interface DemoPageDemoItemList extends Struct.ComponentSchema {
     icon: 'apps';
   };
   attributes: {
-    item: Schema.Attribute.Component<'demo-page.demo-item', true>;
+    item: Schema.Attribute.Relation<'oneToOne', 'api::book-demo.book-demo'> &
+      Schema.Attribute.Required;
     title: Schema.Attribute.String;
   };
 }
@@ -866,6 +891,22 @@ export interface FormFieldsForm extends Struct.ComponentSchema {
   };
   attributes: {
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+  };
+}
+
+export interface FormFieldsReserveSpotFields extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_reserve_spot_fields';
+  info: {
+    displayName: 'reserve-spot-fields';
+  };
+  attributes: {
+    businessLabel: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    companyLabel: Schema.Attribute.String;
+    nameLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Full Name'>;
+    phoneLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Phone Number'>;
   };
 }
 
@@ -2021,6 +2062,7 @@ declare module '@strapi/strapi' {
       'contact-us.office-location': ContactUsOfficeLocation;
       'contact-us.office-location-list': ContactUsOfficeLocationList;
       'contact-us.our-office': ContactUsOurOffice;
+      'demo-page.build-demo': DemoPageBuildDemo;
       'demo-page.demo-banner-list': DemoPageDemoBannerList;
       'demo-page.demo-item': DemoPageDemoItem;
       'demo-page.demo-item-list': DemoPageDemoItemList;
@@ -2030,6 +2072,7 @@ declare module '@strapi/strapi' {
       'form-fields.case-form': FormFieldsCaseForm;
       'form-fields.contact-us-form': FormFieldsContactUsForm;
       'form-fields.form': FormFieldsForm;
+      'form-fields.reserve-spot-fields': FormFieldsReserveSpotFields;
       'global.global-field': GlobalGlobalField;
       'global.policy': GlobalPolicy;
       'global.social-platform': GlobalSocialPlatform;

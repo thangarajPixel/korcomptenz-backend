@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reserve_leads",
+  "info": {
+    "singularName": "reserve-lead",
+    "pluralName": "reserve-leads",
+    "displayName": "reserve-lead"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    }
+  }
+}

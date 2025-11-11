@@ -1,10 +1,10 @@
 /**
- * book-demo-lead controller
+ * reserve-lead controller
  */
 
 import { factories } from '@strapi/strapi'
 
-export default factories.createCoreController('api::book-demo-lead.book-demo-lead', () => ({
+export default factories.createCoreController('api::reserve-lead.reserve-lead', () => ({
   async create(ctx) {
     try {
       // const data = ctx.request.body.data;
@@ -24,7 +24,7 @@ export default factories.createCoreController('api::book-demo-lead.book-demo-lea
       // });
 
       // console.log("Message sent:", info.messageId);
-      return { data: { success: true, ...response.data, message: 'Demo created successfully' } };
+      return { data: { success: true, ...response.data, message: 'Reserved successfully' } };
     } catch (error) {
       console.log(error);
       return ctx.badRequest(error);

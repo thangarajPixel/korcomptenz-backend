@@ -17,7 +17,8 @@
         "form-fields.case-form",
         "form-fields.book-demo-form",
         "form-fields.contact-us-form",
-        "form-fields.career"
+        "form-fields.career",
+        "form-fields.reserve-spot-fields"
       ],
       "required": true,
       "min": 1,

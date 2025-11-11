@@ -450,6 +450,39 @@ export interface ApiBookDemoLeadBookDemoLead
   };
 }
 
+export interface ApiBookDemoBookDemo extends Struct.CollectionTypeSchema {
+  collectionName: 'book_demos';
+  info: {
+    displayName: 'book-demo';
+    pluralName: 'book-demos';
+    singularName: 'book-demo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Book a Demo'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.Date;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::book-demo.book-demo'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCandidateDetailCandidateDetail
   extends Struct.CollectionTypeSchema {
   collectionName: 'candidate_details';
@@ -1080,6 +1113,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.book-demo-form',
         'form-fields.contact-us-form',
         'form-fields.career',
+        'form-fields.reserve-spot-fields',
       ]
     > &
       Schema.Attribute.Required &
@@ -1264,6 +1298,37 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiReserveLeadReserveLead extends Struct.CollectionTypeSchema {
+  collectionName: 'reserve_leads';
+  info: {
+    displayName: 'reserve-lead';
+    pluralName: 'reserve-leads';
+    singularName: 'reserve-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::reserve-lead.reserve-lead'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1781,6 +1846,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
       'api::book-demo-lead.book-demo-lead': ApiBookDemoLeadBookDemoLead;
+      'api::book-demo.book-demo': ApiBookDemoBookDemo;
       'api::candidate-detail.candidate-detail': ApiCandidateDetailCandidateDetail;
       'api::career.career': ApiCareerCareer;
       'api::case-business-outcome.case-business-outcome': ApiCaseBusinessOutcomeCaseBusinessOutcome;
@@ -1803,6 +1869,7 @@ declare module '@strapi/strapi' {
       'api::layout.layout': ApiLayoutLayout;
       'api::not-found.not-found': ApiNotFoundNotFound;
       'api::page.page': ApiPagePage;
+      'api::reserve-lead.reserve-lead': ApiReserveLeadReserveLead;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
