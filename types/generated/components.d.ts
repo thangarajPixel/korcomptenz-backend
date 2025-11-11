@@ -720,6 +720,34 @@ export interface ContactUsOurOffice extends Struct.ComponentSchema {
   };
 }
 
+export interface DemoPageDemoItem extends Struct.ComponentSchema {
+  collectionName: 'components_demo_page_demo_items';
+  info: {
+    displayName: 'demo-item';
+    icon: 'bulletList';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Book a Demo'>;
+    date: Schema.Attribute.Date;
+    description: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface DemoPageDemoList extends Struct.ComponentSchema {
+  collectionName: 'components_demo_page_demo_lists';
+  info: {
+    displayName: 'demo-list';
+    icon: 'bulletList';
+  };
+  attributes: {
+    item: Schema.Attribute.Component<'demo-page.demo-item', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface FormFieldsBookDemoForm extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_book_demo_forms';
   info: {
@@ -1971,6 +1999,8 @@ declare module '@strapi/strapi' {
       'contact-us.office-location': ContactUsOfficeLocation;
       'contact-us.office-location-list': ContactUsOfficeLocationList;
       'contact-us.our-office': ContactUsOurOffice;
+      'demo-page.demo-item': DemoPageDemoItem;
+      'demo-page.demo-list': DemoPageDemoList;
       'form-fields.book-demo-form': FormFieldsBookDemoForm;
       'form-fields.career': FormFieldsCareer;
       'form-fields.case-form': FormFieldsCaseForm;

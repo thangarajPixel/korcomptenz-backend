@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_demo_page_demo_lists",
+  "info": {
+    "displayName": "demo-list",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "item": {
+      "type": "component",
+      "component": "demo-page.demo-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

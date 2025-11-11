@@ -997,6 +997,35 @@ export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiDemoListDemoList extends Struct.SingleTypeSchema {
+  collectionName: 'demo_lists';
+  info: {
+    displayName: 'demo-list';
+    pluralName: 'demo-lists';
+    singularName: 'demo-list';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    list: Schema.Attribute.Component<'demo-page.demo-list', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::demo-list.demo-list'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiDepartmentDepartment extends Struct.CollectionTypeSchema {
   collectionName: 'departments';
   info: {
@@ -1765,6 +1794,7 @@ declare module '@strapi/strapi' {
       'api::case-technology.case-technology': ApiCaseTechnologyCaseTechnology;
       'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;
       'api::contact-us.contact-us': ApiContactUsContactUs;
+      'api::demo-list.demo-list': ApiDemoListDemoList;
       'api::department.department': ApiDepartmentDepartment;
       'api::form.form': ApiFormForm;
       'api::home.home': ApiHomeHome;
