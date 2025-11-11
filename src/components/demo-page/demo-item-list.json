@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_demo_page_demo_item_lists",
+  "info": {
+    "displayName": "demo-item-list",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "item": {
+      "type": "component",
+      "component": "demo-page.demo-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

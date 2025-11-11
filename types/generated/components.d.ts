@@ -720,6 +720,17 @@ export interface ContactUsOurOffice extends Struct.ComponentSchema {
   };
 }
 
+export interface DemoPageDemoBannerList extends Struct.ComponentSchema {
+  collectionName: 'components_demo_page_demo_banner_lists';
+  info: {
+    displayName: 'demo-banner-list';
+    icon: 'cast';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'service.banner-section-data', true>;
+  };
+}
+
 export interface DemoPageDemoItem extends Struct.ComponentSchema {
   collectionName: 'components_demo_page_demo_items';
   info: {
@@ -736,6 +747,18 @@ export interface DemoPageDemoItem extends Struct.ComponentSchema {
   };
 }
 
+export interface DemoPageDemoItemList extends Struct.ComponentSchema {
+  collectionName: 'components_demo_page_demo_item_lists';
+  info: {
+    displayName: 'demo-item-list';
+    icon: 'apps';
+  };
+  attributes: {
+    item: Schema.Attribute.Component<'demo-page.demo-item', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface DemoPageDemoList extends Struct.ComponentSchema {
   collectionName: 'components_demo_page_demo_lists';
   info: {
@@ -743,8 +766,7 @@ export interface DemoPageDemoList extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
-    item: Schema.Attribute.Component<'demo-page.demo-item', true>;
-    title: Schema.Attribute.String;
+    list: Schema.Attribute.Component<'demo-page.demo-item-list', true>;
   };
 }
 
@@ -1999,7 +2021,9 @@ declare module '@strapi/strapi' {
       'contact-us.office-location': ContactUsOfficeLocation;
       'contact-us.office-location-list': ContactUsOfficeLocationList;
       'contact-us.our-office': ContactUsOurOffice;
+      'demo-page.demo-banner-list': DemoPageDemoBannerList;
       'demo-page.demo-item': DemoPageDemoItem;
+      'demo-page.demo-item-list': DemoPageDemoItemList;
       'demo-page.demo-list': DemoPageDemoList;
       'form-fields.book-demo-form': FormFieldsBookDemoForm;
       'form-fields.career': FormFieldsCareer;

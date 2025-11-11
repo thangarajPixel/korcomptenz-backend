@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_demo_page_demo_banner_lists",
+  "info": {
+    "displayName": "demo-banner-list",
+    "icon": "cast"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "component": "service.banner-section-data",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -6,12 +6,9 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "item": {
+    "list": {
       "type": "component",
-      "component": "demo-page.demo-item",
+      "component": "demo-page.demo-item-list",
       "repeatable": true
     }
   },

@@ -10,9 +10,27 @@ export default factories.createCoreController('api::demo-list.demo-list', ({ str
     const populateQuery = qs.stringify({
       populate: {
         list: {
-          populate: {
-            item: true
-          },
+          on: {
+            'demo-page.demo-list': {
+              list: {
+                populate: {
+                  item: true
+                },
+              },
+            },
+            'demo-page.demo-banner-list': {
+              populate: {
+                list: {
+                  populate: {
+                    imageMobile: true,
+                    image: true,
+                    logo: true,
+                    logoMobile: true,
+                  }
+                },
+              }
+            },
+          }
         },
         seo: true,
       },

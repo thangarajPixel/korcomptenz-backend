@@ -17,9 +17,11 @@
       "repeatable": false
     },
     "list": {
-      "type": "component",
-      "component": "demo-page.demo-list",
-      "repeatable": true
+      "type": "dynamiczone",
+      "components": [
+        "demo-page.demo-list",
+        "demo-page.demo-banner-list"
+      ]
     }
   }
 }

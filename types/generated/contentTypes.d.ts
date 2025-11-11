@@ -1011,7 +1011,9 @@ export interface ApiDemoListDemoList extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    list: Schema.Attribute.Component<'demo-page.demo-list', true>;
+    list: Schema.Attribute.DynamicZone<
+      ['demo-page.demo-list', 'demo-page.demo-banner-list']
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
