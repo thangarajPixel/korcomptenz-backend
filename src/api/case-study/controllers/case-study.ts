@@ -183,6 +183,7 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
           case_industries: true,
           regions: true,
           technologies: true,
+          seo: true,
           services: true
         },
       });

@@ -897,6 +897,7 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
       'api::case-region.case-region'
     >;
     rightSection: Schema.Attribute.Component<'case-study.right-section', true>;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     services: Schema.Attribute.Relation<
       'oneToMany',
       'api::case-service.case-service'

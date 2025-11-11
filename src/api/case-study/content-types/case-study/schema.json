@@ -70,6 +70,11 @@
       "type": "component",
       "component": "case-study.right-section",
       "repeatable": true
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
     }
   }
 }
