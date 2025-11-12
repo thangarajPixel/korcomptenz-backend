@@ -54,7 +54,8 @@
         "about-us.people-showcase-list",
         "about-us.stats-section",
         "about-us.media-slider-section",
-        "demo-page.build-demo"
+        "demo-page.build-demo",
+        "demo-page.demo-banner-list"
       ]
     }
   }

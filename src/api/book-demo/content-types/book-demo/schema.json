@@ -15,7 +15,8 @@
       "type": "string"
     },
     "date": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "description": {
       "type": "text"

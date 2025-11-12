@@ -321,6 +321,18 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   item: true,
                 }
               },
+              'demo-page.demo-banner-list': {
+                populate: {
+                  list: {
+                    populate: {
+                      imageMobile: true,
+                      image: true,
+                      logo: true,
+                      logoMobile: true,
+                    }
+                  },
+                }
+              }
             },
           },
           seo: true,
