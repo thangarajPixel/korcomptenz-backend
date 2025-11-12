@@ -11,9 +11,8 @@
     },
     "item": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::book-demo.book-demo",
-      "required": true
+      "relation": "oneToMany",
+      "target": "api::book-demo.book-demo"
     }
   },
   "config": {}
