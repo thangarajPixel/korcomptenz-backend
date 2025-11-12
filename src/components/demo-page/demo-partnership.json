@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_demo_page_demo_partnerships",
+  "info": {
+    "displayName": "demo-partnership",
+    "icon": "collapse"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "component": "case-study.partner",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

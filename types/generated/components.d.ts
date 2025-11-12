@@ -755,6 +755,18 @@ export interface DemoPageDemoBannerList extends Struct.ComponentSchema {
   };
 }
 
+export interface DemoPageDemoDemonstration extends Struct.ComponentSchema {
+  collectionName: 'components_demo_page_demo_demonstrations';
+  info: {
+    displayName: 'demo-demonstration';
+    icon: 'apps';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'global.custom-list', true>;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface DemoPageDemoItem extends Struct.ComponentSchema {
   collectionName: 'components_demo_page_demo_items';
   info: {
@@ -791,6 +803,18 @@ export interface DemoPageDemoList extends Struct.ComponentSchema {
   };
   attributes: {
     list: Schema.Attribute.Component<'demo-page.demo-item-list', true>;
+  };
+}
+
+export interface DemoPageDemoPartnership extends Struct.ComponentSchema {
+  collectionName: 'components_demo_page_demo_partnerships';
+  info: {
+    displayName: 'demo-partnership';
+    icon: 'collapse';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'case-study.partner', true>;
+    title: Schema.Attribute.Text;
   };
 }
 
@@ -906,6 +930,17 @@ export interface FormFieldsReserveSpotFields extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'Full Name'>;
     phoneLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Phone Number'>;
+  };
+}
+
+export interface GlobalCustomList extends Struct.ComponentSchema {
+  collectionName: 'components_global_custom_lists';
+  info: {
+    displayName: 'custom-list';
+    icon: 'bulletList';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
   };
 }
 
@@ -2063,15 +2098,18 @@ declare module '@strapi/strapi' {
       'contact-us.our-office': ContactUsOurOffice;
       'demo-page.build-demo': DemoPageBuildDemo;
       'demo-page.demo-banner-list': DemoPageDemoBannerList;
+      'demo-page.demo-demonstration': DemoPageDemoDemonstration;
       'demo-page.demo-item': DemoPageDemoItem;
       'demo-page.demo-item-list': DemoPageDemoItemList;
       'demo-page.demo-list': DemoPageDemoList;
+      'demo-page.demo-partnership': DemoPageDemoPartnership;
       'form-fields.book-demo-form': FormFieldsBookDemoForm;
       'form-fields.career': FormFieldsCareer;
       'form-fields.case-form': FormFieldsCaseForm;
       'form-fields.contact-us-form': FormFieldsContactUsForm;
       'form-fields.form': FormFieldsForm;
       'form-fields.reserve-spot-fields': FormFieldsReserveSpotFields;
+      'global.custom-list': GlobalCustomList;
       'global.global-field': GlobalGlobalField;
       'global.policy': GlobalPolicy;
       'global.social-platform': GlobalSocialPlatform;

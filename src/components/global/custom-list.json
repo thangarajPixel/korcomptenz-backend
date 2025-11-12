@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_global_custom_lists",
+  "info": {
+    "displayName": "custom-list",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

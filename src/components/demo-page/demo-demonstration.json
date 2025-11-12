@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_demo_page_demo_demonstrations",
+  "info": {
+    "displayName": "demo-demonstration",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "component": "global.custom-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
