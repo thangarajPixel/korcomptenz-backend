@@ -12,11 +12,13 @@ export default factories.createCoreController('api::demo-list.demo-list', ({ str
         list: {
           on: {
             'demo-page.demo-list': {
-              list: {
-                populate: {
-                  item: true
+              populate: {
+                list: {
+                  populate: {
+                    item: true
+                  },
                 },
-              },
+              }
             },
             'demo-page.demo-banner-list': {
               populate: {

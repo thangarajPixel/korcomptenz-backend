@@ -778,8 +778,7 @@ export interface DemoPageDemoItemList extends Struct.ComponentSchema {
     icon: 'apps';
   };
   attributes: {
-    item: Schema.Attribute.Relation<'oneToOne', 'api::book-demo.book-demo'> &
-      Schema.Attribute.Required;
+    item: Schema.Attribute.Relation<'oneToMany', 'api::book-demo.book-demo'>;
     title: Schema.Attribute.String;
   };
 }
