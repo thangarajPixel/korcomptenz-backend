@@ -20,8 +20,13 @@
       "required": true
     },
     "email": {
-      "type": "string",
+      "type": "email",
       "required": true
+    },
+    "demoFrom": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::book-demo.book-demo"
     }
   }
 }

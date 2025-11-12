@@ -12,16 +12,26 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "company": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "email": {
-      "type": "string"
+      "type": "email",
+      "required": true
     },
     "phone": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "demoFrom": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::book-demo.book-demo",
+      "required": true
     }
   }
 }

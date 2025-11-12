@@ -186,7 +186,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   techslides: true
                 },
               },
-              "home.schedule-call": true,
+              'home.schedule-call': true,
               "page-componets.why-we-are": {
                 populate: {
                   list: {
@@ -310,6 +310,16 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                     },
                   },
                 },
+              },
+              'demo-page.build-demo': {
+                populate: {
+                  form: {
+                    populate: {
+                      forms: true
+                    }
+                  },
+                  item: true,
+                }
               },
             },
           },

@@ -434,7 +434,8 @@ export interface ApiBookDemoLeadBookDemoLead
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    email: Schema.Attribute.String & Schema.Attribute.Required;
+    demoFrom: Schema.Attribute.Relation<'oneToOne', 'api::book-demo.book-demo'>;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1289,6 +1290,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'about-us.people-showcase-list',
         'about-us.stats-section',
         'about-us.media-slider-section',
+        'demo-page.build-demo',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1316,19 +1318,24 @@ export interface ApiReserveLeadReserveLead extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    company: Schema.Attribute.String;
+    company: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    email: Schema.Attribute.String;
+    demoFrom: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::book-demo.book-demo'
+    > &
+      Schema.Attribute.Required;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::reserve-lead.reserve-lead'
     > &
       Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    phone: Schema.Attribute.String;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
