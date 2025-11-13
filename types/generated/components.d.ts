@@ -816,6 +816,7 @@ export interface DemoPageDemoOpportunity extends Struct.ComponentSchema {
     arrowImage: Schema.Attribute.Media<'images'>;
     bannerImage: Schema.Attribute.Media<'images'>;
     list: Schema.Attribute.Component<'global.custom-list', true>;
+    title: Schema.Attribute.String;
   };
 }
 

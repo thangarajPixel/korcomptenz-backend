@@ -6,6 +6,9 @@
   },
   "options": {},
   "attributes": {
+    "title": {
+      "type": "text"
+    },
     "list": {
       "type": "component",
       "component": "global.custom-list",
