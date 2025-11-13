@@ -648,10 +648,13 @@ export interface ContactUsFixedSection extends Struct.ComponentSchema {
     icon: 'connector';
   };
   attributes: {
-    buttonOneLink: Schema.Attribute.String;
-    buttonOneText: Schema.Attribute.String;
-    buttonTwoLink: Schema.Attribute.String;
-    buttonTwoText: Schema.Attribute.String;
+    buttons: Schema.Attribute.Component<'global.button', true> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 2;
+        },
+        number
+      >;
     description: Schema.Attribute.Text;
   };
 }
@@ -954,6 +957,20 @@ export interface FormFieldsReserveSpotFields extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'Full Name'>;
     phoneLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Phone Number'>;
+  };
+}
+
+export interface GlobalButton extends Struct.ComponentSchema {
+  collectionName: 'components_global_buttons';
+  info: {
+    displayName: 'button';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    link: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'#'>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -1304,7 +1321,7 @@ export interface MenuInsightsCategories extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    link: Schema.Attribute.String;
+    link: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
     title: Schema.Attribute.String;
   };
 }
@@ -2136,6 +2153,7 @@ declare module '@strapi/strapi' {
       'form-fields.contact-us-form': FormFieldsContactUsForm;
       'form-fields.form': FormFieldsForm;
       'form-fields.reserve-spot-fields': FormFieldsReserveSpotFields;
+      'global.button': GlobalButton;
       'global.custom-list': GlobalCustomList;
       'global.global-field': GlobalGlobalField;
       'global.policy': GlobalPolicy;

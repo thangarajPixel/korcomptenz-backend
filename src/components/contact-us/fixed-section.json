@@ -9,17 +9,11 @@
     "description": {
       "type": "text"
     },
-    "buttonOneText": {
-      "type": "string"
-    },
-    "buttonTwoText": {
-      "type": "string"
-    },
-    "buttonOneLink": {
-      "type": "string"
-    },
-    "buttonTwoLink": {
-      "type": "string"
+    "buttons": {
+      "type": "component",
+      "component": "global.button",
+      "repeatable": true,
+      "max": 2
     }
   },
   "config": {}
