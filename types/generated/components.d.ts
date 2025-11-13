@@ -736,10 +736,16 @@ export interface DemoPageBuildDemo extends Struct.ComponentSchema {
         }
       >;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formFor: Schema.Attribute.Enumeration<['demo', 'reserve']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'demo'>;
     isSwap: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    item: Schema.Attribute.Relation<'oneToOne', 'api::book-demo.book-demo'> &
-      Schema.Attribute.Required;
+    item: Schema.Attribute.Relation<'oneToOne', 'api::book-demo.book-demo'>;
     link: Schema.Attribute.String;
+    reserve_lead: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::reserve-lead.reserve-lead'
+    >;
     title: Schema.Attribute.String;
   };
 }
@@ -816,7 +822,7 @@ export interface DemoPageDemoOpportunity extends Struct.ComponentSchema {
     arrowImage: Schema.Attribute.Media<'images'>;
     bannerImage: Schema.Attribute.Media<'images'>;
     list: Schema.Attribute.Component<'global.custom-list', true>;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.Text;
   };
 }
 
