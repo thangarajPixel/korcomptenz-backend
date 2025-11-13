@@ -918,12 +918,12 @@ export interface FormFieldsContactUsForm extends Struct.ComponentSchema {
     buttonText: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Send'>;
     companyLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Company'>;
-    description: Schema.Attribute.RichText & Schema.Attribute.DefaultTo<''>;
     emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
     firstNameLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'First Name'>;
     lastNameLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Last Name'>;
+    list: Schema.Attribute.Component<'global.custom-list', true>;
     messageLabel: Schema.Attribute.Text & Schema.Attribute.DefaultTo<'Message'>;
     phoneLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Phone'>;
     serviceLabel: Schema.Attribute.String &
@@ -1644,6 +1644,7 @@ export interface PageComponetsInsightsSection extends Struct.ComponentSchema {
     icon: 'book';
   };
   attributes: {
+    buttonLink: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
     buttontext: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Read All'>;
     list: Schema.Attribute.Component<

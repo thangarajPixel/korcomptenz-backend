@@ -42,9 +42,10 @@
       "type": "string",
       "default": "Send"
     },
-    "description": {
-      "type": "richtext",
-      "default": ""
+    "list": {
+      "type": "component",
+      "component": "global.custom-list",
+      "repeatable": true
     }
   },
   "config": {}

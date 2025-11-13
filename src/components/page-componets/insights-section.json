@@ -13,6 +13,10 @@
       "type": "string",
       "default": "Read All"
     },
+    "buttonLink": {
+      "type": "string",
+      "default": "/"
+    },
     "list": {
       "type": "component",
       "component": "page-componets.insights-section-card",

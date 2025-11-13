@@ -97,7 +97,20 @@ export default factories.createCoreController('api::contact-us.contact-us', ({ s
               populate: {
                 images: {
                   populate: {
-                    image: true
+                    image: true,
+                  }
+                },
+                form: {
+                  populate: {
+                    forms: {
+                      populate: {
+                        list: {
+                          populate: {
+                            image: true,
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }

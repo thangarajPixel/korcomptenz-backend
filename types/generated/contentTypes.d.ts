@@ -989,6 +989,47 @@ export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiContactUsLeadContactUsLead
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'contact_us_leads';
+  info: {
+    displayName: 'contact-us-lead';
+    pluralName: 'contact-us-leads';
+    singularName: 'contact-us-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    firstName: Schema.Attribute.String & Schema.Attribute.Required;
+    lastName: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::contact-us-lead.contact-us-lead'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text & Schema.Attribute.Required;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    service: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::case-service.case-service'
+    >;
+    technology: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::case-technology.case-technology'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
   collectionName: 'contact_uses';
   info: {
@@ -1875,6 +1916,7 @@ declare module '@strapi/strapi' {
       'api::case-study.case-study': ApiCaseStudyCaseStudy;
       'api::case-technology.case-technology': ApiCaseTechnologyCaseTechnology;
       'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;
+      'api::contact-us-lead.contact-us-lead': ApiContactUsLeadContactUsLead;
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::demo-list.demo-list': ApiDemoListDemoList;
       'api::department.department': ApiDepartmentDepartment;
