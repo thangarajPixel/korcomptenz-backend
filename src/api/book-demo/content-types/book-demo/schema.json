@@ -27,6 +27,9 @@
     },
     "buttonLink": {
       "type": "string"
+    },
+    "isReserve": {
+      "type": "boolean"
     }
   }
 }

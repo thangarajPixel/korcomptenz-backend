@@ -29,46 +29,12 @@
     "item": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::book-demo.book-demo",
-      "conditions": {
-        "visible": {
-          "==": [
-            {
-              "var": "formFor"
-            },
-            "demo"
-          ]
-        }
-      }
+      "target": "api::book-demo.book-demo"
     },
     "form": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::form.form"
-    },
-    "formFor": {
-      "type": "enumeration",
-      "required": true,
-      "default": "demo",
-      "enum": [
-        "demo",
-        "reserve"
-      ]
-    },
-    "reserve_lead": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::reserve-lead.reserve-lead",
-      "conditions": {
-        "visible": {
-          "==": [
-            {
-              "var": "formFor"
-            },
-            "reserve"
-          ]
-        }
-      }
     }
   },
   "config": {}
