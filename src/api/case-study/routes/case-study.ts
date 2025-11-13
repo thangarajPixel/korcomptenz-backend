@@ -12,7 +12,7 @@ export default factories.createCoreRouter('api::case-study.case-study', {
       middlewares: [],
     },
   },
-  only: ['find', 'findOne', 'findFilter', 'search'],
+  only: ['find', 'findOne', 'findFilter', 'essential', 'search'],
   except: [],
   prefix: '',
 });

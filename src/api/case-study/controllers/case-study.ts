@@ -261,4 +261,14 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
       return ctx.internalServerError('Failed to fetch case study data');
     }
   },
+  async essential(ctx) {
+    try {
+      const entity = await strapi.service('api::case-study.case-study').getEssential(ctx);
+      const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+      return this.transformResponse(sanitizedEntity);
+    } catch (error) {
+      strapi.log.error('Case Study filter error:', error);
+      return ctx.internalServerError('Failed to fetch case study data');
+    }
+  },
 }));
