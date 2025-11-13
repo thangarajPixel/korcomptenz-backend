@@ -1001,6 +1001,7 @@ export interface ApiContactUsLeadContactUsLead
     draftAndPublish: true;
   };
   attributes: {
+    company: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
