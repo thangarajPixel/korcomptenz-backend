@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_demo_page_demo_opportunities",
+  "info": {
+    "displayName": "demo-opportunity",
+    "icon": "cup"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "component": "global.custom-list",
+      "repeatable": true
+    },
+    "bannerImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "arrowImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

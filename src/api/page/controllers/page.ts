@@ -346,6 +346,22 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                 populate: {
                   list: true,
                 }
+              },
+              'demo-page.experts-section': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true
+                    }
+                  }
+                }
+              },
+              'demo-page.demo-opportunity': {
+                populate: {
+                  bannerImage: true,
+                  arrowImage: true,
+                  list: true
+                },
               }
             },
           },

@@ -1294,6 +1294,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'demo-page.demo-banner-list',
         'demo-page.demo-partnership',
         'demo-page.demo-demonstration',
+        'demo-page.experts-section',
+        'demo-page.demo-opportunity',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

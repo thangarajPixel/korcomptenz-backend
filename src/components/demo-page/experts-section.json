@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_demo_page_experts_sections",
+  "info": {
+    "displayName": "experts-section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.why-we-are-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

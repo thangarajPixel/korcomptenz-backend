@@ -806,6 +806,19 @@ export interface DemoPageDemoList extends Struct.ComponentSchema {
   };
 }
 
+export interface DemoPageDemoOpportunity extends Struct.ComponentSchema {
+  collectionName: 'components_demo_page_demo_opportunities';
+  info: {
+    displayName: 'demo-opportunity';
+    icon: 'cup';
+  };
+  attributes: {
+    arrowImage: Schema.Attribute.Media<'images'>;
+    bannerImage: Schema.Attribute.Media<'images'>;
+    list: Schema.Attribute.Component<'global.custom-list', true>;
+  };
+}
+
 export interface DemoPageDemoPartnership extends Struct.ComponentSchema {
   collectionName: 'components_demo_page_demo_partnerships';
   info: {
@@ -814,6 +827,17 @@ export interface DemoPageDemoPartnership extends Struct.ComponentSchema {
   };
   attributes: {
     list: Schema.Attribute.Component<'case-study.partner', true>;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface DemoPageExpertsSection extends Struct.ComponentSchema {
+  collectionName: 'components_demo_page_experts_sections';
+  info: {
+    displayName: 'experts-section';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'page-componets.why-we-are-list', true>;
     title: Schema.Attribute.Text;
   };
 }
@@ -2102,7 +2126,9 @@ declare module '@strapi/strapi' {
       'demo-page.demo-item': DemoPageDemoItem;
       'demo-page.demo-item-list': DemoPageDemoItemList;
       'demo-page.demo-list': DemoPageDemoList;
+      'demo-page.demo-opportunity': DemoPageDemoOpportunity;
       'demo-page.demo-partnership': DemoPageDemoPartnership;
+      'demo-page.experts-section': DemoPageExpertsSection;
       'form-fields.book-demo-form': FormFieldsBookDemoForm;
       'form-fields.career': FormFieldsCareer;
       'form-fields.case-form': FormFieldsCaseForm;
