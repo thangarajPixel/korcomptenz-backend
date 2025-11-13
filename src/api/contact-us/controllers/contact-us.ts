@@ -103,10 +103,10 @@ export default factories.createCoreController('api::contact-us.contact-us', ({ s
                 form: {
                   populate: {
                     forms: {
-                      populate: {
-                        list: {
+                      on: {
+                        'form-fields.contact-us-form': {
                           populate: {
-                            image: true,
+                            list: true
                           }
                         }
                       }
