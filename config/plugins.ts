@@ -13,6 +13,9 @@ module.exports = ({ env }) => {
           defaultPath: env('AZURE_DEFAULT_PATH'),
           azureStorageApiVersion: '2023-11-03',
         },
+        'image-manipulation': {
+          enabled: true
+        }
       },
     },
     // email: {
