@@ -3,7 +3,6 @@
  */
 
 import { factories } from '@strapi/strapi'
-import { transporter } from '../../../_utils/helper';
 
 export default factories.createCoreController('api::case-study-lead.case-study-lead', ({ strapi }) => ({
   async create(ctx) {
