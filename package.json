@@ -21,7 +21,6 @@
     "@strapi/provider-email-nodemailer": "^5.31.0",
     "@strapi/strapi": "5.23.0",
     "mysql2": "3.9.8",
-    "nodemailer": "^7.0.9",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
