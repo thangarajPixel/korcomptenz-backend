@@ -21,7 +21,7 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
         if (caseStudy) {
           const response = await super.create(ctx);
           // const res = await strapi.plugin('email-designer');
-          const info = await transporter.sendMail({
+          const info = await strapi.plugin('email').service('email').send({
             from: '"Korcomptenz" <maddison53@ethereal.email>',
             to: data.email,
             subject: "Case Study",

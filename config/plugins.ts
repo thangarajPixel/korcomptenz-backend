@@ -18,22 +18,23 @@ module.exports = ({ env }) => {
         }
       },
     },
-    // email: {
-    //   config: {
-    //     provider: 'nodemailer',
-    //     providerOptions: {
-    //       host: env('MAIL_HOST'),
-    //       port: Number(env('MAIL_PORT')) || 587,
-    //       auth: {
-    //         user: env('MAIL_USERNAME'),
-    //         pass: env('MAIL_PASSWORD'),
-    //       },
-    //     },
-    //     settings: {
-    //       defaultFrom: env('MAIL_DEFAULT_FROM'),
-    //       defaultReplyTo: env('MAIL_DEFAULT_REPLY_TO'),
-    //     },
-    //   },
-    // },
+    email: {
+      config: {
+        provider: 'nodemailer',
+        providerOptions: {
+          host: env('MAIL_HOST', 'smtp.example.com'),
+          port: env('MAIL_PORT', 587),
+          auth: {
+            user: env('MAIL_USERNAME'),
+            pass: env('MAIL_PASSWORD'),
+          },
+          // ... any custom nodemailer options
+        },
+        settings: {
+          defaultFrom: env('MAIL_FROM', ''),
+          defaultReplyTo: env('MAIL_FROM', ''),
+        },
+      },
+    },
   })
 };
