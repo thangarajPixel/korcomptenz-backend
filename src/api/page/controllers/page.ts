@@ -50,6 +50,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               },
               'page-componets.sap-section-data': {
                 populate: {
+                  image3: true,
                   imageSection: {
                     populate: {
                       image1: {

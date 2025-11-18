@@ -20,6 +20,27 @@
       "type": "component",
       "component": "page-componets.sap-image-section",
       "repeatable": false
+    },
+    "isSecoundImage": {
+      "type": "boolean",
+      "default": false
+    },
+    "image3": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isSecoundImage"
+            },
+            true
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}

@@ -1810,10 +1810,13 @@ export interface PageComponetsSapSectionData extends Struct.ComponentSchema {
     card: Schema.Attribute.Component<'page-componets.card', false>;
     description: Schema.Attribute.Text;
     heading: Schema.Attribute.String;
+    image3: Schema.Attribute.Media<'images'>;
     imageSection: Schema.Attribute.Component<
       'page-componets.sap-image-section',
       false
     >;
+    isSecoundImage: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
   };
 }
 
