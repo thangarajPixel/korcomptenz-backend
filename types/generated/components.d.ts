@@ -967,6 +967,7 @@ export interface GlobalButton extends Struct.ComponentSchema {
     icon: 'chartBubble';
   };
   attributes: {
+    isTargetNew: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     link: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'#'>;
@@ -1706,7 +1707,13 @@ export interface PageComponetsInspireSectionCard
   attributes: {
     buttonText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Know More'>;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     position: Schema.Attribute.Enumeration<['bottom', 'top', 'topAbove']>;

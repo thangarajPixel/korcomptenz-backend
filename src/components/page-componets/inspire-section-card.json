@@ -25,7 +25,11 @@
       "type": "string"
     },
     "description": {
-      "type": "text"
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
     },
     "buttonText": {
       "type": "string",
