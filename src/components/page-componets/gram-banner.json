@@ -44,6 +44,25 @@
         "light",
         "blank"
       ]
+    },
+    "isCustomList": {
+      "type": "boolean",
+      "default": false
+    },
+    "list": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isCustomList"
+            },
+            true
+          ]
+        }
+      },
+      "component": "sub-page-componets.gram-banner-list",
+      "repeatable": true
     }
   },
   "config": {}

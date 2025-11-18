@@ -1606,6 +1606,11 @@ export interface PageComponetsGramBanner extends Struct.ComponentSchema {
         }
       >;
     image: Schema.Attribute.Media<'images'>;
+    isCustomList: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    list: Schema.Attribute.Component<
+      'sub-page-componets.gram-banner-list',
+      true
+    >;
     mobileImage: Schema.Attribute.Media<'images'>;
     theme: Schema.Attribute.Enumeration<['default', 'dark', 'light', 'blank']>;
     title: Schema.Attribute.Text;
@@ -2086,6 +2091,18 @@ export interface SubPageComponetsBuildDataRightSection
   };
 }
 
+export interface SubPageComponetsGramBannerList extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_gram_banner_lists';
+  info: {
+    displayName: 'gram-banner-list';
+    icon: 'cloud';
+  };
+  attributes: {
+    item: Schema.Attribute.Component<'global.custom-list', true>;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface SubPageComponetsResponsiveImage
   extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_responsive_images';
@@ -2240,6 +2257,7 @@ declare module '@strapi/strapi' {
       'seo.seo': SeoSeo;
       'service.banner-section-data': ServiceBannerSectionData;
       'sub-page-componets.build-data-right-section': SubPageComponetsBuildDataRightSection;
+      'sub-page-componets.gram-banner-list': SubPageComponetsGramBannerList;
       'sub-page-componets.responsive-image': SubPageComponetsResponsiveImage;
     }
   }

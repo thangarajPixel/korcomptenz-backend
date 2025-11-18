@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sub_page_componets_gram_banner_lists",
+  "info": {
+    "displayName": "gram-banner-list",
+    "icon": "cloud"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "item": {
+      "type": "component",
+      "component": "global.custom-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
