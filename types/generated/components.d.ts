@@ -2075,7 +2075,9 @@ export interface SubPageComponetsBuildDataRightSection
     icon: 'chartPie';
   };
   attributes: {
-    content: Schema.Attribute.Enumeration<['image', 'description', 'form']>;
+    content: Schema.Attribute.Enumeration<
+      ['image', 'description', 'form', 'video']
+    >;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -2088,6 +2090,8 @@ export interface SubPageComponetsBuildDataRightSection
       'sub-page-componets.responsive-image',
       false
     >;
+    videoButtonText: Schema.Attribute.String;
+    videoLink: Schema.Attribute.String;
   };
 }
 
