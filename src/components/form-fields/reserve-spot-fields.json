@@ -5,11 +5,13 @@
   },
   "options": {},
   "attributes": {
-    "businessLabel": {
-      "type": "string"
+    "emailLabel": {
+      "type": "string",
+      "default": "Email"
     },
     "companyLabel": {
-      "type": "string"
+      "type": "string",
+      "default": "Company"
     },
     "phoneLabel": {
       "type": "string",
@@ -20,7 +22,8 @@
       "default": "Full Name"
     },
     "buttonText": {
-      "type": "string"
+      "type": "string",
+      "default": "Submit"
     }
   },
   "config": {}

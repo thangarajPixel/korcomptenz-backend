@@ -950,9 +950,10 @@ export interface FormFieldsReserveSpotFields extends Struct.ComponentSchema {
     displayName: 'reserve-spot-fields';
   };
   attributes: {
-    businessLabel: Schema.Attribute.String;
-    buttonText: Schema.Attribute.String;
-    companyLabel: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Submit'>;
+    companyLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Company'>;
+    emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
     nameLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Full Name'>;
     phoneLabel: Schema.Attribute.String &
