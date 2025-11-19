@@ -1127,8 +1127,9 @@ export interface HomeScheduleCall extends Struct.ComponentSchema {
     buttonText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Schedule a Call'>;
     description: Schema.Attribute.Text;
-    href: Schema.Attribute.String;
+    link: Schema.Attribute.String;
     title: Schema.Attribute.Text;
+    topDescription: Schema.Attribute.Text;
   };
 }
 
@@ -2011,6 +2012,7 @@ export interface PageComponetsWhyWeAre extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
+    isPerRowFive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'page-componets.why-we-are-list', true>;
     title: Schema.Attribute.Text;
   };

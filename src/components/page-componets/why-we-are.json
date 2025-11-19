@@ -16,6 +16,11 @@
       "type": "component",
       "component": "page-componets.why-we-are-list",
       "repeatable": true
+    },
+    "isPerRowFive": {
+      "type": "boolean",
+      "required": false,
+      "default": false
     }
   },
   "config": {}

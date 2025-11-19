@@ -15,8 +15,11 @@
     "description": {
       "type": "text"
     },
-    "href": {
+    "link": {
       "type": "string"
+    },
+    "topDescription": {
+      "type": "text"
     }
   },
   "config": {}
