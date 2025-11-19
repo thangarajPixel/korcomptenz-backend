@@ -1094,7 +1094,7 @@ export interface HomeOpportunity extends Struct.ComponentSchema {
     breakOne: Schema.Attribute.String;
     breakThree: Schema.Attribute.String;
     breakTwo: Schema.Attribute.String;
-    buttonText: Schema.Attribute.String;
+    button: Schema.Attribute.Component<'global.button', false>;
     description: Schema.Attribute.Text;
     profiles: Schema.Attribute.Component<'home.opportunity-profile', true> &
       Schema.Attribute.SetMinMax<

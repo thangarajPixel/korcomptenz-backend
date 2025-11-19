@@ -62,7 +62,8 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                   populate: {
                     image: true
                   }
-                }
+                },
+                button: true,
               },
             },
             'page-componets.inspire-section': {

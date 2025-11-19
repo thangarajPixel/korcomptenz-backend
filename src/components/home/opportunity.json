@@ -9,9 +9,6 @@
     "description": {
       "type": "text"
     },
-    "buttonText": {
-      "type": "string"
-    },
     "breakOne": {
       "type": "string"
     },
@@ -43,6 +40,11 @@
       "component": "home.opportunity-profile",
       "repeatable": true,
       "max": 3
+    },
+    "button": {
+      "type": "component",
+      "component": "global.button",
+      "repeatable": false
     }
   },
   "config": {}
