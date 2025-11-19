@@ -29,7 +29,8 @@ export default factories.createCoreController('api::contact-us.contact-us', ({ s
                   populate: {
                     image: true
                   }
-                }
+                },
+                button: true
               },
             },
             'page-componets.banner-section-list': {

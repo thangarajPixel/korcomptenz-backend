@@ -29,7 +29,8 @@ export default factories.createCoreController('api::about-us.about-us', ({ strap
                   populate: {
                     image: true
                   }
-                }
+                },
+                button: true
               },
             },
             'page-componets.banner-section-list': {

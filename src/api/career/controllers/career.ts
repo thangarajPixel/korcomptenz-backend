@@ -29,7 +29,8 @@ export default factories.createCoreController('api::career.career', () => ({
                   populate: {
                     image: true
                   }
-                }
+                },
+                button: true
               },
             },
             'page-componets.banner-section-list': {
