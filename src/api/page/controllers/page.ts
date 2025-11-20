@@ -109,8 +109,9 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                         populate: {
                           forms: true
                         }
-                      }
-                    }
+                      },
+                      customDescription: true,
+                    },
                   }
                 },
               },

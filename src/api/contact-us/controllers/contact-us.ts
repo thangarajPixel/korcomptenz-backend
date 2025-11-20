@@ -61,7 +61,8 @@ export default factories.createCoreController('api::contact-us.contact-us', ({ s
                       populate: {
                         forms: true
                       }
-                    }
+                    },
+                    customDescription: true,
                   }
                 }
               },

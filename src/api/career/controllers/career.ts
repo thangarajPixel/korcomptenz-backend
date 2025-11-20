@@ -61,7 +61,8 @@ export default factories.createCoreController('api::career.career', () => ({
                       populate: {
                         forms: true
                       }
-                    }
+                    },
+                    customDescription: true,
                   }
                 }
               },

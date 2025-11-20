@@ -2079,8 +2079,10 @@ export interface SubPageComponetsBuildDataRightSection
   };
   attributes: {
     content: Schema.Attribute.Enumeration<
-      ['image', 'description', 'form', 'video']
+      ['image', 'description', 'form', 'video', 'customDescription']
     >;
+    customDescription: Schema.Attribute.Component<'global.custom-list', true>;
+    customTitle: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',

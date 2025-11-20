@@ -61,7 +61,8 @@ export default factories.createCoreController('api::about-us.about-us', ({ strap
                       populate: {
                         forms: true
                       }
-                    }
+                    },
+                    customDescription: true,
                   }
                 }
               },

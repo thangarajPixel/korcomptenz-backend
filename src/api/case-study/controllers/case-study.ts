@@ -178,6 +178,7 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
                   icon: true
                 }
               },
+              customDescription: true,
             },
           },
           case_industries: true,

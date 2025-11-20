@@ -8,12 +8,7 @@
   "attributes": {
     "content": {
       "type": "enumeration",
-      "enum": [
-        "image",
-        "description",
-        "form",
-        "video"
-      ]
+      "enum": ["image", "description", "form", "video", "customDescription"]
     },
     "responsiveImage": {
       "type": "component",
@@ -96,6 +91,34 @@
               "var": "content"
             },
             "video"
+          ]
+        }
+      }
+    },
+    "customTitle": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "content"
+            },
+            "customDescription"
+          ]
+        }
+      }
+    },
+    "customDescription": {
+      "type": "component",
+      "component": "global.custom-list",
+      "repeatable": true,
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "content"
+            },
+            "customDescription"
           ]
         }
       }
