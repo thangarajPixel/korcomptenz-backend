@@ -11,10 +11,18 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    },
+    "title": {
+      "type": "string"
+    },
     "slug": {
-      "type": "string",
+      "type": "uid",
+      "targetField": "title",
       "required": true,
-      "unique": true,
       "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     },
     "outcome": {
@@ -70,11 +78,6 @@
       "type": "component",
       "component": "case-study.right-section",
       "repeatable": true
-    },
-    "seo": {
-      "type": "component",
-      "component": "seo.seo",
-      "repeatable": false
     }
   }
 }

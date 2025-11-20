@@ -904,9 +904,7 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::case-service.case-service'
     >;
-    slug: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     technologies: Schema.Attribute.Relation<
       'oneToMany',
       'api::case-technology.case-technology'
@@ -915,6 +913,7 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
       'case-study.testimonial-section',
       true
     >;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
