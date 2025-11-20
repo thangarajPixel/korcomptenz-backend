@@ -33,6 +33,11 @@ export default {
       // 'zh-Hans',
       // 'zh',
     ],
+    translations: {
+      en: {
+        "Auth.form.welcome.title": "Welcome to My Awesome CMS",
+      },
+    },
   },
   bootstrap(app: StrapiApp) {
     const apis = app.getPlugin('content-manager').apis as ContentManagerApis;
