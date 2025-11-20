@@ -1485,7 +1485,13 @@ export interface PageComponetsDarkSliderCard extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
