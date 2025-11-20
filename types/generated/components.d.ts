@@ -2058,7 +2058,13 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
     bannerCaption: Schema.Attribute.Text;
     buttonText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Contact us'>;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
     imageMobile: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
