@@ -11,10 +11,15 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "slug": {
+    "pageTitle": {
       "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "pageTitle",
       "required": true,
-      "unique": true
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     },
     "seo": {
       "type": "component",

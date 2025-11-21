@@ -64,10 +64,8 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
             {
               $or: [
                 {
-                  heroSection: {
-                    title: {
-                      $contains: ctx?.query?.search,
-                    }
+                  title: {
+                    $contains: ctx?.query?.search,
                   }
                 },
                 {

@@ -17,7 +17,8 @@
       "repeatable": false
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "slug": {
       "type": "uid",
@@ -69,10 +70,7 @@
       "type": "media",
       "private": true,
       "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
+      "allowedTypes": ["images", "files"]
     },
     "rightSection": {
       "type": "component",
