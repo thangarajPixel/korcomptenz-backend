@@ -14,12 +14,13 @@
     "buttontext": {
       "type": "string"
     },
+    "link": {
+      "type": "string"
+    },
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "child": {
       "type": "component",

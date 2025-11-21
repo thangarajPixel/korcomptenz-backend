@@ -1266,6 +1266,7 @@ export interface MenuEcosystemItems extends Struct.ComponentSchema {
     child: Schema.Attribute.Component<'menu.ecosystem-child-type2', true>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
