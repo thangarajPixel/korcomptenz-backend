@@ -763,7 +763,7 @@ export interface DemoPageDemoDemonstration extends Struct.ComponentSchema {
     icon: 'apps';
   };
   attributes: {
-    list: Schema.Attribute.Component<'global.custom-list', true>;
+    list: Schema.Attribute.Component<'global.editor-descripiton', true>;
     title: Schema.Attribute.Text;
   };
 }
@@ -983,6 +983,23 @@ export interface GlobalCustomList extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
+  };
+}
+
+export interface GlobalEditorDescripiton extends Struct.ComponentSchema {
+  collectionName: 'components_global_editor_descripitons';
+  info: {
+    displayName: 'editor-descripiton';
+    icon: 'connector';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
   };
 }
 
@@ -1420,7 +1437,13 @@ export interface PageComponetsBenifitCards extends Struct.ComponentSchema {
     displayName: 'benifit-cards';
   };
   attributes: {
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     number: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -1506,6 +1529,7 @@ export interface PageComponetsDarkSliderList extends Struct.ComponentSchema {
   attributes: {
     descripition: Schema.Attribute.Text;
     heading: Schema.Attribute.String;
+    isSwap: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     slides: Schema.Attribute.Component<'page-componets.dark-slider-card', true>;
   };
 }
@@ -1744,7 +1768,6 @@ export interface PageComponetsLightSliderCard extends Struct.ComponentSchema {
       'page-componets.light-slider-group-list',
       true
     >;
-    title: Schema.Attribute.String;
   };
 }
 
@@ -2017,6 +2040,7 @@ export interface PageComponetsWhyWeAre extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
+    isBgGray: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isPerRowFive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'page-componets.why-we-are-list', true>;
     title: Schema.Attribute.Text;
@@ -2102,6 +2126,7 @@ export interface SubPageComponetsBuildDataRightSection
         }
       >;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    isBgGray: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     responsiveImage: Schema.Attribute.Component<
       'sub-page-componets.responsive-image',
       false
@@ -2203,6 +2228,7 @@ declare module '@strapi/strapi' {
       'form-fields.reserve-spot-fields': FormFieldsReserveSpotFields;
       'global.button': GlobalButton;
       'global.custom-list': GlobalCustomList;
+      'global.editor-descripiton': GlobalEditorDescripiton;
       'global.global-field': GlobalGlobalField;
       'global.policy': GlobalPolicy;
       'global.social-platform': GlobalSocialPlatform;

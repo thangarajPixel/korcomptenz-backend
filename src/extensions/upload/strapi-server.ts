@@ -30,7 +30,7 @@ export default async function (plugin: any) {
     //   return await originalService.generateFileName(file);
     // },
     isFaultyImage: async function (file: any) {
-      if (["image/svg+xml"].includes(file.mime)) return true;
+      // if (["image/svg+xml"].includes(file.mime)) return true;
       return await originalService.isFaultyImage(file);
     },
   };

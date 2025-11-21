@@ -8,7 +8,13 @@
   "attributes": {
     "content": {
       "type": "enumeration",
-      "enum": ["image", "description", "form", "video", "customDescription"]
+      "enum": [
+        "image",
+        "description",
+        "form",
+        "video",
+        "customDescription"
+      ]
     },
     "responsiveImage": {
       "type": "component",
@@ -110,8 +116,6 @@
     },
     "customDescription": {
       "type": "component",
-      "component": "global.custom-list",
-      "repeatable": true,
       "conditions": {
         "visible": {
           "==": [
@@ -121,7 +125,13 @@
             "customDescription"
           ]
         }
-      }
+      },
+      "component": "global.custom-list",
+      "repeatable": true
+    },
+    "isBgGray": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

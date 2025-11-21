@@ -1,16 +1,11 @@
 {
-  "collectionName": "components_service_benifit_cards",
+  "collectionName": "components_global_editor_descripitons",
   "info": {
-    "displayName": "benifit-cards"
+    "displayName": "editor-descripiton",
+    "icon": "connector"
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "number": {
-      "type": "string"
-    },
     "description": {
       "type": "customField",
       "customField": "plugin::ckeditor5.CKEditor",

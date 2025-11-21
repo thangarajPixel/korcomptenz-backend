@@ -6,9 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
     "solutions": {
       "type": "component",
       "component": "page-componets.light-slider-group-list",

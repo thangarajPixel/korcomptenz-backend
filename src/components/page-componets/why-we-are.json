@@ -21,6 +21,11 @@
       "type": "boolean",
       "required": false,
       "default": false
+    },
+    "isBgGray": {
+      "type": "boolean",
+      "required": false,
+      "default": false
     }
   },
   "config": {}

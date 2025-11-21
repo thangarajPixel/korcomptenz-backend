@@ -11,7 +11,7 @@
     },
     "list": {
       "type": "component",
-      "component": "global.custom-list",
+      "component": "global.editor-descripiton",
       "repeatable": true
     }
   },

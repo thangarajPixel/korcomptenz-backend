@@ -12,6 +12,10 @@
     "descripition": {
       "type": "text"
     },
+    "isSwap": {
+      "type": "boolean",
+      "default": false
+    },
     "slides": {
       "type": "component",
       "component": "page-componets.dark-slider-card",
