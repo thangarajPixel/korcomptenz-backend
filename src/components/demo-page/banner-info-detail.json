@@ -7,25 +7,23 @@
   "options": {},
   "attributes": {
     "info": {
-      "type": "string"
-    },
-    "icon": {
-      "type": "media",
+      "type": "string",
       "conditions": {
         "visible": {
           "==": [
             {
               "var": "isDate"
             },
-            true
+            false
           ]
         }
-      },
+      }
+    },
+    "icon": {
+      "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "isDate": {
       "type": "boolean",
