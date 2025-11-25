@@ -335,6 +335,19 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                       logoMobile: true,
                     }
                   },
+                  demoDetails: {
+                    populate: {
+                      bannerInfo: {
+                        populate: {
+                          details: {
+                            populate: {
+                              icon: true,
+                            }
+                          }
+                        },
+                      },
+                    }
+                  },
                 }
               },
               'demo-page.demo-partnership': {

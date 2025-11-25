@@ -10,6 +10,11 @@
       "type": "component",
       "component": "service.banner-section-data",
       "repeatable": true
+    },
+    "demoDetails": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::book-demo.book-demo"
     }
   },
   "config": {}

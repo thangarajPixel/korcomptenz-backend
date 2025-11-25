@@ -777,6 +777,10 @@ export interface DemoPageDemoBannerList extends Struct.ComponentSchema {
     icon: 'cast';
   };
   attributes: {
+    demoDetails: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::book-demo.book-demo'
+    >;
     list: Schema.Attribute.Component<'service.banner-section-data', true>;
   };
 }
@@ -1822,7 +1826,13 @@ export interface PageComponetsLightSliderGroupList
   };
   attributes: {
     buttonText: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
