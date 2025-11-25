@@ -11,6 +11,16 @@
     },
     "icon": {
       "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isDate"
+            },
+            true
+          ]
+        }
+      },
       "multiple": false,
       "required": true,
       "allowedTypes": [
