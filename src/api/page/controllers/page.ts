@@ -65,6 +65,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                     }
                   },
                   card: { populate: true },
+                  item: true
                 },
               },
               'page-componets.solutions-data': {

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "book-demo",
     "pluralName": "book-demos",
-    "displayName": "book-demo"
+    "displayName": "demos"
   },
   "options": {
     "draftAndPublish": true
@@ -30,6 +30,11 @@
     },
     "isReserve": {
       "type": "boolean"
+    },
+    "bannerInfo": {
+      "type": "component",
+      "component": "demo-page.demo-banner-info",
+      "repeatable": false
     }
   }
 }

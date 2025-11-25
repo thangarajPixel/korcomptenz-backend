@@ -454,7 +454,7 @@ export interface ApiBookDemoLeadBookDemoLead
 export interface ApiBookDemoBookDemo extends Struct.CollectionTypeSchema {
   collectionName: 'book_demos';
   info: {
-    displayName: 'book-demo';
+    displayName: 'demos';
     pluralName: 'book-demos';
     singularName: 'book-demo';
   };
@@ -462,6 +462,7 @@ export interface ApiBookDemoBookDemo extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    bannerInfo: Schema.Attribute.Component<'demo-page.demo-banner-info', false>;
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Book a Demo'>;
@@ -1220,6 +1221,63 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
+  collectionName: 'insights';
+  info: {
+    displayName: 'insight';
+    pluralName: 'insights';
+    singularName: 'insight';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    attachment: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Private;
+    case_industries: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-industry.case-industry'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    descriptionSection: Schema.Attribute.Component<
+      'case-study.description-section',
+      true
+    >;
+    heroSection: Schema.Attribute.Component<'case-study.hero-section', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::insight.insight'
+    > &
+      Schema.Attribute.Private;
+    outcome: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-business-outcome.case-business-outcome'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    regions: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-region.case-region'
+    >;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    services: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-service.case-service'
+    >;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    technologies: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-technology.case-technology'
+    >;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
   collectionName: 'layouts';
   info: {
@@ -1921,6 +1979,7 @@ declare module '@strapi/strapi' {
       'api::department.department': ApiDepartmentDepartment;
       'api::form.form': ApiFormForm;
       'api::home.home': ApiHomeHome;
+      'api::insight.insight': ApiInsightInsight;
       'api::layout.layout': ApiLayoutLayout;
       'api::not-found.not-found': ApiNotFoundNotFound;
       'api::page.page': ApiPagePage;

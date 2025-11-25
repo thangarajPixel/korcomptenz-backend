@@ -9,6 +9,13 @@
     "title": {
       "type": "text"
     },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
     "list": {
       "type": "component",
       "component": "global.editor-descripiton",

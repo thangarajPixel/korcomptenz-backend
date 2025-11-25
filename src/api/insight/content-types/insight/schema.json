@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "insights",
+  "info": {
+    "singularName": "insight",
+    "pluralName": "insights",
+    "displayName": "insight"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "outcome": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::case-business-outcome.case-business-outcome"
+    },
+    "case_industries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::case-industry.case-industry"
+    },
+    "regions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::case-region.case-region"
+    },
+    "technologies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::case-technology.case-technology"
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::case-service.case-service"
+    },
+    "heroSection": {
+      "type": "component",
+      "component": "case-study.hero-section",
+      "repeatable": false
+    },
+    "descriptionSection": {
+      "type": "component",
+      "component": "case-study.description-section",
+      "repeatable": true
+    },
+    "attachment": {
+      "type": "media",
+      "private": true,
+      "multiple": false,
+      "allowedTypes": ["images", "files"]
+    }
+  }
+}

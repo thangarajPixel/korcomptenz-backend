@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_demo_page_banner_info_details",
+  "info": {
+    "displayName": "banner-info-detail",
+    "icon": "handHeart"
+  },
+  "options": {},
+  "attributes": {
+    "info": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "isDate": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}

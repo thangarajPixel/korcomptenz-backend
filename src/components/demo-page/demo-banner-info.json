@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_demo_page_demo_banner_infos",
+  "info": {
+    "displayName": "demo-banner-info",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "details": {
+      "type": "component",
+      "component": "demo-page.banner-info-detail",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

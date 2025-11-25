@@ -722,6 +722,19 @@ export interface ContactUsOurOffice extends Struct.ComponentSchema {
   };
 }
 
+export interface DemoPageBannerInfoDetail extends Struct.ComponentSchema {
+  collectionName: 'components_demo_page_banner_info_details';
+  info: {
+    displayName: 'banner-info-detail';
+    icon: 'handHeart';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    info: Schema.Attribute.String;
+    isDate: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
 export interface DemoPageBuildDemo extends Struct.ComponentSchema {
   collectionName: 'components_demo_page_build_demos';
   info: {
@@ -745,6 +758,18 @@ export interface DemoPageBuildDemo extends Struct.ComponentSchema {
   };
 }
 
+export interface DemoPageDemoBannerInfo extends Struct.ComponentSchema {
+  collectionName: 'components_demo_page_demo_banner_infos';
+  info: {
+    displayName: 'demo-banner-info';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    details: Schema.Attribute.Component<'demo-page.banner-info-detail', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface DemoPageDemoBannerList extends Struct.ComponentSchema {
   collectionName: 'components_demo_page_demo_banner_lists';
   info: {
@@ -763,6 +788,13 @@ export interface DemoPageDemoDemonstration extends Struct.ComponentSchema {
     icon: 'apps';
   };
   attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     list: Schema.Attribute.Component<'global.editor-descripiton', true>;
     title: Schema.Attribute.Text;
   };
@@ -831,6 +863,15 @@ export interface DemoPageDemoPartnership extends Struct.ComponentSchema {
     list: Schema.Attribute.Component<'case-study.partner', true>;
     title: Schema.Attribute.Text;
   };
+}
+
+export interface DemoPageDemoTimeDescripition extends Struct.ComponentSchema {
+  collectionName: 'components_demo_page_demo_time_descripitions';
+  info: {
+    displayName: 'demo-time-descripition';
+    icon: 'apps';
+  };
+  attributes: {};
 }
 
 export interface DemoPageExpertsSection extends Struct.ComponentSchema {
@@ -1858,8 +1899,10 @@ export interface PageComponetsSapSectionData extends Struct.ComponentSchema {
       'page-componets.sap-image-section',
       false
     >;
+    isItemOnly: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isSecoundImage: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
+    item: Schema.Attribute.Component<'page-componets.card', true>;
   };
 }
 
@@ -2212,7 +2255,9 @@ declare module '@strapi/strapi' {
       'contact-us.office-location': ContactUsOfficeLocation;
       'contact-us.office-location-list': ContactUsOfficeLocationList;
       'contact-us.our-office': ContactUsOurOffice;
+      'demo-page.banner-info-detail': DemoPageBannerInfoDetail;
       'demo-page.build-demo': DemoPageBuildDemo;
+      'demo-page.demo-banner-info': DemoPageDemoBannerInfo;
       'demo-page.demo-banner-list': DemoPageDemoBannerList;
       'demo-page.demo-demonstration': DemoPageDemoDemonstration;
       'demo-page.demo-item': DemoPageDemoItem;
@@ -2220,6 +2265,7 @@ declare module '@strapi/strapi' {
       'demo-page.demo-list': DemoPageDemoList;
       'demo-page.demo-opportunity': DemoPageDemoOpportunity;
       'demo-page.demo-partnership': DemoPageDemoPartnership;
+      'demo-page.demo-time-descripition': DemoPageDemoTimeDescripition;
       'demo-page.experts-section': DemoPageExpertsSection;
       'form-fields.book-demo-form': FormFieldsBookDemoForm;
       'form-fields.career': FormFieldsCareer;

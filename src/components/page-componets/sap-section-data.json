@@ -13,11 +13,31 @@
     },
     "card": {
       "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isItemOnly"
+            },
+            false
+          ]
+        }
+      },
       "component": "page-componets.card",
       "repeatable": false
     },
     "imageSection": {
       "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isItemOnly"
+            },
+            false
+          ]
+        }
+      },
       "component": "page-componets.sap-image-section",
       "repeatable": false
     },
@@ -41,6 +61,25 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "isItemOnly": {
+      "type": "boolean",
+      "default": false
+    },
+    "item": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isItemOnly"
+            },
+            true
+          ]
+        }
+      },
+      "component": "page-componets.card",
+      "repeatable": true
     }
   },
   "config": {}
