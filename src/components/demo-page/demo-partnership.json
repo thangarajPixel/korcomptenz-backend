@@ -9,6 +9,9 @@
     "title": {
       "type": "text"
     },
+    "description": {
+      "type": "text"
+    },
     "list": {
       "type": "component",
       "component": "case-study.partner",

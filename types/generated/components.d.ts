@@ -864,6 +864,7 @@ export interface DemoPageDemoPartnership extends Struct.ComponentSchema {
     icon: 'collapse';
   };
   attributes: {
+    description: Schema.Attribute.Text;
     list: Schema.Attribute.Component<'case-study.partner', true>;
     title: Schema.Attribute.Text;
   };
