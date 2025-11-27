@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_insight_section_blog_sections",
+  "info": {
+    "displayName": "blog-section",
+    "icon": "command"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "faq": {
+      "type": "component",
+      "component": "page-componets.faq-title",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

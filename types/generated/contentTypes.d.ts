@@ -1274,6 +1274,7 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
   attributes: {
     attachment: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Private;
+    blog: Schema.Attribute.Component<'insight-section.blog-section', false>;
     content: Schema.Attribute.Enumeration<
       ['file', 'blog', 'podcast', 'post-webinar', 'pre-webinar']
     > &
@@ -1282,10 +1283,6 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    descriptionSection: Schema.Attribute.Component<
-      'case-study.description-section',
-      true
-    >;
     heroSection: Schema.Attribute.Component<'case-study.hero-section', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

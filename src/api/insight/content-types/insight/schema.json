@@ -30,13 +30,7 @@
       "type": "enumeration",
       "required": true,
       "default": "file",
-      "enum": [
-        "file",
-        "blog",
-        "podcast",
-        "post-webinar",
-        "pre-webinar"
-      ]
+      "enum": ["file", "blog", "podcast", "post-webinar", "pre-webinar"]
     },
     "technologies": {
       "type": "relation",
@@ -53,19 +47,26 @@
       "component": "case-study.hero-section",
       "repeatable": false
     },
-    "descriptionSection": {
-      "type": "component",
-      "component": "case-study.description-section",
-      "repeatable": true
-    },
     "attachment": {
       "type": "media",
       "private": true,
       "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
+      "allowedTypes": ["images", "files"]
+    },
+    "blog": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "content"
+            },
+            "blog"
+          ]
+        }
+      },
+      "component": "insight-section.blog-section",
+      "repeatable": false
     }
   }
 }

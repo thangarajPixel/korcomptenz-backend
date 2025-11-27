@@ -1235,6 +1235,24 @@ export interface HomeWeAreKorcomptenz extends Struct.ComponentSchema {
   };
 }
 
+export interface InsightSectionBlogSection extends Struct.ComponentSchema {
+  collectionName: 'components_insight_section_blog_sections';
+  info: {
+    displayName: 'blog-section';
+    icon: 'command';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    faq: Schema.Attribute.Component<'page-componets.faq-title', false>;
+  };
+}
+
 export interface MenuAboutData extends Struct.ComponentSchema {
   collectionName: 'components_menu_about_data';
   info: {
@@ -1472,6 +1490,7 @@ export interface PageComponetsBenefitData extends Struct.ComponentSchema {
   };
   attributes: {
     cards: Schema.Attribute.Component<'page-componets.benifit-cards', true>;
+    description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.Text;
   };
@@ -2299,6 +2318,7 @@ declare module '@strapi/strapi' {
       'home.services-section': HomeServicesSection;
       'home.services-section-list': HomeServicesSectionList;
       'home.we-are-korcomptenz': HomeWeAreKorcomptenz;
+      'insight-section.blog-section': InsightSectionBlogSection;
       'menu.about-data': MenuAboutData;
       'menu.about-menu-who-we-are': MenuAboutMenuWhoWeAre;
       'menu.aboutus-navigationitems': MenuAboutusNavigationitems;

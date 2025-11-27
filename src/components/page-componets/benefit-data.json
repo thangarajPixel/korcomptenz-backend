@@ -19,6 +19,9 @@
       "type": "component",
       "component": "page-componets.benifit-cards",
       "repeatable": true
+    },
+    "description": {
+      "type": "text"
     }
   },
   "config": {}
