@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "insight_list_pages",
+  "info": {
+    "singularName": "insight-list-page",
+    "pluralName": "insight-list-pages",
+    "displayName": "insight-list-page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "banner": {
+      "type": "component",
+      "component": "case-study.banner",
+      "repeatable": false
+    },
+    "filterLabel": {
+      "type": "component",
+      "component": "case-study.filter-label",
+      "repeatable": true
+    },
+    "partnerSection": {
+      "type": "component",
+      "component": "case-study.partner-section",
+      "repeatable": false
+    },
+    "customerSection": {
+      "type": "component",
+      "component": "case-study.customer",
+      "repeatable": false
+    },
+    "testimonal": {
+      "type": "component",
+      "component": "global.title-descripiton",
+      "repeatable": true
+    },
+    "popularFilter": {
+      "type": "component",
+      "component": "case-study.popular-filter",
+      "repeatable": false
+    }
+  }
+}

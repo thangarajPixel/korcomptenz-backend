@@ -1221,6 +1221,46 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiInsightListPageInsightListPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'insight_list_pages';
+  info: {
+    displayName: 'insight-list-page';
+    pluralName: 'insight-list-pages';
+    singularName: 'insight-list-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Component<'case-study.banner', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    customerSection: Schema.Attribute.Component<'case-study.customer', false>;
+    filterLabel: Schema.Attribute.Component<'case-study.filter-label', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::insight-list-page.insight-list-page'
+    > &
+      Schema.Attribute.Private;
+    partnerSection: Schema.Attribute.Component<
+      'case-study.partner-section',
+      false
+    >;
+    popularFilter: Schema.Attribute.Component<
+      'case-study.popular-filter',
+      false
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    testimonal: Schema.Attribute.Component<'global.title-descripiton', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
   collectionName: 'insights';
   info: {
@@ -1234,10 +1274,11 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
   attributes: {
     attachment: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Private;
-    case_industries: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::case-industry.case-industry'
-    >;
+    content: Schema.Attribute.Enumeration<
+      ['file', 'blog', 'podcast', 'post-webinar', 'pre-webinar']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'file'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1252,15 +1293,7 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
       'api::insight.insight'
     > &
       Schema.Attribute.Private;
-    outcome: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::case-business-outcome.case-business-outcome'
-    >;
     publishedAt: Schema.Attribute.DateTime;
-    regions: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::case-region.case-region'
-    >;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     services: Schema.Attribute.Relation<
       'oneToMany',
@@ -1979,6 +2012,7 @@ declare module '@strapi/strapi' {
       'api::department.department': ApiDepartmentDepartment;
       'api::form.form': ApiFormForm;
       'api::home.home': ApiHomeHome;
+      'api::insight-list-page.insight-list-page': ApiInsightListPageInsightListPage;
       'api::insight.insight': ApiInsightInsight;
       'api::layout.layout': ApiLayoutLayout;
       'api::not-found.not-found': ApiNotFoundNotFound;

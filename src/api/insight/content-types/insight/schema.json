@@ -26,20 +26,17 @@
       "required": true,
       "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     },
-    "outcome": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::case-business-outcome.case-business-outcome"
-    },
-    "case_industries": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::case-industry.case-industry"
-    },
-    "regions": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::case-region.case-region"
+    "content": {
+      "type": "enumeration",
+      "required": true,
+      "default": "file",
+      "enum": [
+        "file",
+        "blog",
+        "podcast",
+        "post-webinar",
+        "pre-webinar"
+      ]
     },
     "technologies": {
       "type": "relation",
@@ -65,7 +62,10 @@
       "type": "media",
       "private": true,
       "multiple": false,
-      "allowedTypes": ["images", "files"]
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     }
   }
 }
