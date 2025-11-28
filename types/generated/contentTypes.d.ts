@@ -1221,6 +1221,35 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiInsightCategoryInsightCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'insight_categories';
+  info: {
+    displayName: 'insight-category';
+    pluralName: 'insight-categories';
+    singularName: 'insight-category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    label: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::insight-category.insight-category'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiInsightListPageInsightListPage
   extends Struct.SingleTypeSchema {
   collectionName: 'insight_list_pages';
@@ -1234,10 +1263,10 @@ export interface ApiInsightListPageInsightListPage
   };
   attributes: {
     banner: Schema.Attribute.Component<'case-study.banner', false>;
+    categoryAllLabel: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    customerSection: Schema.Attribute.Component<'case-study.customer', false>;
     filterLabel: Schema.Attribute.Component<'case-study.filter-label', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -1245,16 +1274,11 @@ export interface ApiInsightListPageInsightListPage
       'api::insight-list-page.insight-list-page'
     > &
       Schema.Attribute.Private;
-    partnerSection: Schema.Attribute.Component<
-      'case-study.partner-section',
-      false
-    >;
     popularFilter: Schema.Attribute.Component<
       'case-study.popular-filter',
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
-    testimonal: Schema.Attribute.Component<'global.title-descripiton', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2009,6 +2033,7 @@ declare module '@strapi/strapi' {
       'api::department.department': ApiDepartmentDepartment;
       'api::form.form': ApiFormForm;
       'api::home.home': ApiHomeHome;
+      'api::insight-category.insight-category': ApiInsightCategoryInsightCategory;
       'api::insight-list-page.insight-list-page': ApiInsightListPageInsightListPage;
       'api::insight.insight': ApiInsightInsight;
       'api::layout.layout': ApiLayoutLayout;

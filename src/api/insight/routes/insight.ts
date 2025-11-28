@@ -4,4 +4,15 @@
 
 import { factories } from '@strapi/strapi';
 
-export default factories.createCoreRouter('api::insight.insight');
+export default factories.createCoreRouter('api::insight.insight', {
+  config: {
+    bulkCreate: {
+      auth: false,
+      policies: [],
+      middlewares: [],
+    },
+  },
+  only: ['find', 'findOne', 'bulk-create'],
+  except: [],
+  prefix: '',
+});
