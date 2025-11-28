@@ -11,8 +11,13 @@ export default factories.createCoreRouter('api::insight.insight', {
       policies: [],
       middlewares: [],
     },
+    insightFilter: {
+      auth: false,
+      policies: [],
+      middlewares: [],
+    },
   },
-  only: ['find', 'findOne', 'bulk-create'],
+  only: ['find', 'findOne', 'bulk-create', 'insight-filter'],
   except: [],
   prefix: '',
 });
