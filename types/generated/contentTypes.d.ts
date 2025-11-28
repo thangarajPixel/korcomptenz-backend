@@ -1299,6 +1299,10 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
     attachment: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Private;
     blog: Schema.Attribute.Component<'insight-section.blog-section', false>;
+    category: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::insight-category.insight-category'
+    >;
     content: Schema.Attribute.Enumeration<
       ['file', 'blog', 'podcast', 'post-webinar', 'pre-webinar']
     > &
