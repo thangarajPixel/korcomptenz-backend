@@ -13,9 +13,9 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         services?: { id: { $in: number[] }, slug?: { $eq: string } },
         category?: { label?: { $eq: string } }
       } = {};
-      if (ctx.query.filter) {   // Get simple frontend filters, e.g. ?technologies=2,4&services=3
+      if (ctx.query.filter) {
         const { technologies, services }: { technologies?: string[], services?: string[] } = ctx.query?.filter;
-        // Build filters dynamically
+
         if (technologies) {
           const techIds = technologies.map(Number);
           filters.technologies = { id: { $in: techIds } };
@@ -72,11 +72,9 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
 
       const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
       const { data } = this.transformResponse(sanitizedEntity) as { data: any };
-      return {
-        ...data
-      };
+      return data;
     } catch (error) {
-      strapi.log.error('Case Study find error:', error);
+      strapi.log.error('Insight find error:', error);
       return ctx.internalServerError('Failed to fetch insight data');
     }
   },
@@ -166,87 +164,86 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         publishedAt: item.date,
       }
       switch (item.categories[0]) {
-        // Brochure
-        case 194:
-          return {
-            ...commonData,
-            content: "file",
-            category: {
-              connect: [{ id: 5, documentId: 'k1t8mt57hzh9heo4kf8oo428' }],
-            },
-          };
-        // Whitepaper
-        case 1:
-          return {
-            ...commonData,
-            content: "file",
-            category: {
-              connect: [{ id: 7, documentId: 'tqgxuobo3ykknuv4niwpwyuq' }],
-            },
-          };
-        // Infographic
-        case 91:
-          return {
-            ...commonData,
-            content: "file",
-            category: {
-              connect: [{ id: 6, documentId: 'qlbud817l53jbf4b50i4pt39' }],
-            },
-          };
-        // eBook
-        case 90:
-          return {
-            ...commonData,
-            content: "file",
-            category: {
-              connect: [{ id: 16, documentId: 'kqs5f7lkgt432fl14n8ydb7h' }],
-            },
-          };
+        // // Brochure
+        // case 194:
+        //   return {
+        //     ...commonData,
+        //     content: "file",
+        //     category: {
+        //       connect: [{ id: 5, documentId: 'k1t8mt57hzh9heo4kf8oo428' }],
+        //     },
+        //   };
+        // // Whitepaper
+        // case 1:
+        //   return {
+        //     ...commonData,
+        //     content: "file",
+        //     category: {
+        //       connect: [{ id: 7, documentId: 'tqgxuobo3ykknuv4niwpwyuq' }],
+        //     },
+        //   };
+        // // Infographic
+        // case 91:
+        //   return {
+        //     ...commonData,
+        //     content: "file",
+        //     category: {
+        //       connect: [{ id: 6, documentId: 'qlbud817l53jbf4b50i4pt39' }],
+        //     },
+        //   };
+        // // eBook
+        // case 90:
+        //   return {
+        //     ...commonData,
+        //     content: "file",
+        //     category: {
+        //       connect: [{ id: 16, documentId: 'kqs5f7lkgt432fl14n8ydb7h' }],
+        //     },
+        //   };
 
-        // // Webinar
-        // case 13:
-        //   return {
-        //     ...commonData,
-        //     content: "file",
-        //     category: {
-        //       connect: [{ id: 19,documentId: 's6jjkj9ixjg56mzrfg2yyt1c' }],
-        //     },
-        //   };
-        // // Podcast
-        // case 78:
-        //   return {
-        //     ...commonData,
-        //     content: "file",
-        //     category: {
-        //       connect: [{ id: 18,documentId: 'hyumjqk5bakfegvsgl2iprx4' }],
-        //     },
-        //   };
-        // // Webstories
-        // case 1031:
-        //   return {
-        //     ...commonData,
-        //     content: "file",
-        //     category: {
-        //       connect: [{ id: 15,documentId: 'bo4gzyj4zugpxms5lyf2sndg' }],
-        //     },
-        //   };
-        // Blog
-        case 12:
+        // Webinar
+        case 13:
           return {
             ...commonData,
-            content: "blog",
-            blog: {
-              content: item.content.rendered,
-            },
+            content: "file",
             category: {
-              connect: [{ id: 12, documentId: 'qi23wcmwgcs165djrz2b511d' }],
+              connect: [{ id: 19, documentId: 's6jjkj9ixjg56mzrfg2yyt1c' }],
             },
           };
+        // Podcast
+        case 78:
+          return {
+            ...commonData,
+            content: "file",
+            category: {
+              connect: [{ id: 18, documentId: 'hyumjqk5bakfegvsgl2iprx4' }],
+            },
+          };
+        // Webstories
+        case 1031:
+          return {
+            ...commonData,
+            content: "file",
+            category: {
+              connect: [{ id: 15, documentId: 'bo4gzyj4zugpxms5lyf2sndg' }],
+            },
+          };
+        // // Blog
+        // case 12:
+        //   return {
+        //     ...commonData,
+        //     content: "blog",
+        //     blog: {
+        //       content: item.content.rendered,
+        //     },
+        //     category: {
+        //       connect: [{ id: 12, documentId: 'qi23wcmwgcs165djrz2b511d' }],
+        //     },
+        //   };
         default:
           return null;
       }
     }).filter((item) => item);
-    console.log(compileData, 'compileData');
     try {
       const createdRecords = await Promise.all(
         compileData.map(async (item) => {
