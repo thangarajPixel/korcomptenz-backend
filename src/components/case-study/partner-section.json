@@ -8,6 +8,10 @@
     "title": {
       "type": "string"
     },
+    "isPerRowFive": {
+      "type": "boolean",
+      "default": false
+    },
     "partner": {
       "type": "component",
       "component": "case-study.partner",
