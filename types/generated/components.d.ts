@@ -501,6 +501,7 @@ export interface CaseStudyPartnerSection extends Struct.ComponentSchema {
   };
   attributes: {
     isPerRowFive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isSingleLine: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     partner: Schema.Attribute.Component<'case-study.partner', true>;
     title: Schema.Attribute.String;
   };

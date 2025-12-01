@@ -12,6 +12,10 @@
       "type": "boolean",
       "default": false
     },
+    "isSingleLine": {
+      "type": "boolean",
+      "default": false
+    },
     "partner": {
       "type": "component",
       "component": "case-study.partner",
