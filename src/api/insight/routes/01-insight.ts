@@ -17,5 +17,13 @@ export default {
         auth: false,
       },
     },
+    { // Path defined with a URL parameter
+      method: 'GET',
+      path: '/insight/:slug',
+      handler: 'insight.findOne',
+      config: {
+        auth: false,
+      },
+    },
   ]
 }

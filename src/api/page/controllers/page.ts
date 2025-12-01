@@ -3,7 +3,6 @@
  */
 
 import { factories } from '@strapi/strapi'
-import qs from 'qs';
 
 export default factories.createCoreController('api::page.page', ({ strapi }) => ({
   async find(ctx) {

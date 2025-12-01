@@ -291,7 +291,6 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
   },
   async findFilter(ctx) {
     const entity = await strapi.service('api::insight.insight').findFilter(ctx);
-    const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
-    return this.transformResponse(sanitizedEntity);
+    return this.transformResponse(entity);
   },
 }));
