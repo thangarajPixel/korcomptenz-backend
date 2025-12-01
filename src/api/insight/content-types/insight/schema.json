@@ -23,20 +23,13 @@
     "slug": {
       "type": "uid",
       "targetField": "title",
-      "required": true,
-      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      "required": true
     },
     "content": {
       "type": "enumeration",
       "required": true,
       "default": "file",
-      "enum": [
-        "file",
-        "blog",
-        "podcast",
-        "post-webinar",
-        "pre-webinar"
-      ]
+      "enum": ["file", "blog", "podcast", "post-webinar", "pre-webinar"]
     },
     "technologies": {
       "type": "relation",
@@ -57,10 +50,7 @@
       "type": "media",
       "private": true,
       "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
+      "allowedTypes": ["images", "files"]
     },
     "blog": {
       "type": "component",

@@ -1932,6 +1932,7 @@ export interface PageComponetsSapSectionData extends Struct.ComponentSchema {
     isSecoundImage: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     item: Schema.Attribute.Component<'page-componets.card', true>;
+    itemDescription: Schema.Attribute.Text;
   };
 }
 

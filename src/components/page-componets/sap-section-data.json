@@ -80,6 +80,9 @@
       },
       "component": "page-componets.card",
       "repeatable": true
+    },
+    "itemDescription": {
+      "type": "text"
     }
   },
   "config": {}

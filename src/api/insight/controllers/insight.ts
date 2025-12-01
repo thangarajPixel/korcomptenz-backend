@@ -7,38 +7,102 @@ import bulkJson from "../../../../public/kore.json";
 
 export default factories.createCoreController('api::insight.insight', ({ strapi }) => ({
   async bulkCreate(ctx) {
-    const filterData = (bulkJson as any).filter((item) => item?.categories[0] === 12);
-
-
-    const compileData = filterData.map((item) => {
-      // const parser = new DOMParser();
-      // const doc = parser.parseFromString(item.content.rendered, "text/html");
-
-      // const h2Array = Array.from(doc.querySelectorAll("h2"))
-      //   .map(h2 => h2.textContent.trim());
-
-      // console.log(h2Array);
+    const compileData = (bulkJson as any).map((item) => {
       const commonData = {
         slug: item.slug,
         title: item.title.rendered,
         seo: {
           title: item.yoast_head_json.title,
-          description: item.yoast_head_json.description,
+          description: item.yoast_head_json.description || "",
         },
         heroSection: {
-          description: item.yoast_head_json.description,
+          description: item.yoast_head_json.description || "",
         },
         createdAt: item.date,
         publishedAt: item.date,
       }
-      return {
-        ...commonData,
-        content: "blog",
-        blog: {
-          content: item.content.rendered,
-        },
-      };
-    });
+      switch (item.categories[0]) {
+        // Brochure
+        case 194:
+          return {
+            ...commonData,
+            content: "file",
+            category: {
+              connect: [{ id: 5, isTemporary: true }],
+            },
+          };
+        // Whitepaper
+        case 1:
+          return {
+            ...commonData,
+            content: "file",
+            category: {
+              connect: [{ id: 7, isTemporary: true }],
+            },
+          };
+        // Infographic
+        case 91:
+          return {
+            ...commonData,
+            content: "file",
+            category: {
+              connect: [{ id: 6, isTemporary: true }],
+            },
+          };
+        // eBook
+        case 90:
+          return {
+            ...commonData,
+            content: "file",
+            category: {
+              connect: [{ id: 16, isTemporary: true }],
+            },
+          };
+
+        // // Webinar
+        // case 13:
+        //   return {
+        //     ...commonData,
+        //     content: "file",
+        //     category: {
+        //       connect: [{ id: 19, isTemporary: true }],
+        //     },
+        //   };
+        // // Podcast
+        // case 78:
+        //   return {
+        //     ...commonData,
+        //     content: "file",
+        //     category: {
+        //       connect: [{ id: 18, isTemporary: true }],
+        //     },
+        //   };
+        // // Webstories
+        // case 1031:
+        //   return {
+        //     ...commonData,
+        //     content: "file",
+        //     category: {
+        //       connect: [{ id: 15, isTemporary: true }],
+        //     },
+        //   };
+        // Blog
+        case 12:
+          return {
+            ...commonData,
+            content: "blog",
+            blog: {
+              content: item.content.rendered,
+            },
+            category: {
+              connect: [{ id: 12, isTemporary: true }],
+            },
+          };
+        default:
+          return null;
+      }
+    }).filter((item) => item);
+    console.log(compileData, 'compileData');
     try {
       const createdRecords = await Promise.all(
         compileData.map(async (item) => {

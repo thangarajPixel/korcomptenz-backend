@@ -315,6 +315,19 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'about-us.achievement-section': {
+                populate: {
+                  list: {
+                    populate: {
+                      column: {
+                        populate: {
+                          image: true,
+                        },
+                      },
+                    },
+                  },
+                },
+              },
               'demo-page.build-demo': {
                 populate: {
                   form: {
