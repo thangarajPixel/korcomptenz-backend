@@ -392,6 +392,15 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   arrowImage: true,
                   list: true
                 },
+              },
+              'page-componets.pricing-section': {
+                populate: {
+                  plans: {
+                    populate: {
+                      button: true
+                    }
+                  }
+                }
               }
             },
           },

@@ -1455,6 +1455,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'demo-page.experts-section',
         'demo-page.demo-opportunity',
         'about-us.achievement-section',
+        'page-componets.pricing-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

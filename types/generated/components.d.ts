@@ -1871,6 +1871,20 @@ export interface PageComponetsLightSliderList extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsPricingSection extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_pricing_sections';
+  info: {
+    description: 'Pricing section with title, subtitle and multiple pricing plans';
+    displayName: 'pricing-section';
+    icon: 'dollar-sign';
+  };
+  attributes: {
+    plans: Schema.Attribute.Component<'sub-page-componets.pricing-plan', true>;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface PageComponetsSalesforce extends Struct.ComponentSchema {
   collectionName: 'components_service_salesforces';
   info: {
@@ -2222,6 +2236,21 @@ export interface SubPageComponetsGramBannerList extends Struct.ComponentSchema {
   };
 }
 
+export interface SubPageComponetsPricingPlan extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_pricing_plans';
+  info: {
+    description: 'Individual pricing plan card';
+    displayName: 'pricing-plan';
+  };
+  attributes: {
+    billing: Schema.Attribute.String;
+    button: Schema.Attribute.Component<'global.button', false>;
+    description: Schema.Attribute.Text;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    price: Schema.Attribute.Decimal;
+  };
+}
+
 export interface SubPageComponetsResponsiveImage
   extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_responsive_images';
@@ -2361,6 +2390,7 @@ declare module '@strapi/strapi' {
       'page-componets.light-slider-card': PageComponetsLightSliderCard;
       'page-componets.light-slider-group-list': PageComponetsLightSliderGroupList;
       'page-componets.light-slider-list': PageComponetsLightSliderList;
+      'page-componets.pricing-section': PageComponetsPricingSection;
       'page-componets.salesforce': PageComponetsSalesforce;
       'page-componets.salesforce-services': PageComponetsSalesforceServices;
       'page-componets.sap-image-section': PageComponetsSapImageSection;
@@ -2382,6 +2412,7 @@ declare module '@strapi/strapi' {
       'service.banner-section-data': ServiceBannerSectionData;
       'sub-page-componets.build-data-right-section': SubPageComponetsBuildDataRightSection;
       'sub-page-componets.gram-banner-list': SubPageComponetsGramBannerList;
+      'sub-page-componets.pricing-plan': SubPageComponetsPricingPlan;
       'sub-page-componets.responsive-image': SubPageComponetsResponsiveImage;
     }
   }

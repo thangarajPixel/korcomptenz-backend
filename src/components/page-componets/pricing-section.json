@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_page_componets_pricing_sections",
+  "info": {
+    "displayName": "pricing-section",
+    "description": "Pricing section with title, subtitle and multiple pricing plans",
+    "icon": "dollar-sign"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "plans": {
+      "type": "component",
+      "component": "sub-page-componets.pricing-plan",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

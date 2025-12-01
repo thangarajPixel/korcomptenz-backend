@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_sub_page_componets_pricing_plans",
+  "info": {
+    "displayName": "pricing-plan",
+    "description": "Individual pricing plan card"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "billing": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "button": {
+      "type": "component",
+      "component": "global.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}
