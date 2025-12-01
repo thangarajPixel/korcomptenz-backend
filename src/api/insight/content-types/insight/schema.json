@@ -23,8 +23,7 @@
     "slug": {
       "type": "uid",
       "targetField": "title",
-      "required": true,
-      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      "required": true
     },
     "content": {
       "type": "enumeration",
