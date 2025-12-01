@@ -1789,7 +1789,7 @@ export interface PageComponetsInspireSection extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
-          max: 6;
+          max: 8;
           min: 2;
         },
         number

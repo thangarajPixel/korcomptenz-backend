@@ -15,7 +15,7 @@
       "repeatable": true,
       "required": true,
       "min": 2,
-      "max": 6
+      "max": 8
     },
     "buttonText": {
       "type": "string",
