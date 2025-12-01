@@ -115,9 +115,6 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
             $notNull: true
           },
         },
-        populate: {
-          heroSection: { populate: { image: true } },
-        },
         orderBy: { publishedAt: 'desc' }, // get the most recent one before current
       });
 
@@ -128,9 +125,6 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
             $gt: entity.publishedAt, // greater than current publishedAt
             $notNull: true
           },
-        },
-        populate: {
-          heroSection: { populate: { image: true } },
         },
         orderBy: { publishedAt: 'asc' }, // get the earliest one after current
       });
