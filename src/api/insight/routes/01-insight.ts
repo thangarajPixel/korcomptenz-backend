@@ -19,7 +19,7 @@ export default {
     },
     { // Path defined with a URL parameter
       method: 'GET',
-      path: '/insight/:slug',
+      path: '/insights/:slug',
       handler: 'insight.findOne',
       config: {
         auth: false,
