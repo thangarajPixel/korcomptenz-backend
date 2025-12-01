@@ -10,24 +10,24 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
     try {
       const filters: {
         technologies?: { id: { $in: number[] }, slug?: { $eq: string } },
-        services?: { id: { $in: number[] }, slug?: { $eq: string } }
+        services?: { id: { $in: number[] }, slug?: { $eq: string } },
+        category?: { label?: { $eq: string } }
       } = {};
       if (ctx.query.filter) {   // Get simple frontend filters, e.g. ?technologies=2,4&services=3
         const { technologies, services }: { technologies?: string[], services?: string[] } = ctx.query?.filter;
-
         // Build filters dynamically
-
         if (technologies) {
           const techIds = technologies.map(Number);
           filters.technologies = { id: { $in: techIds } };
         }
-
         if (services) {
           const serviceIds = services.map(Number);
           filters.services = { id: { $in: serviceIds } };
         }
       }
-
+      if (ctx.query.slug) {
+        filters.category = { label: { $eq: ctx.query.slug as string } };
+      }
       ctx.query = {
         ...ctx.query,
         populate: {
@@ -62,27 +62,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
           ]
         },
         filters: {
-          ...filters,
-          $and: [
-            {
-              $or: [
-                {
-                  services: {
-                    slug: {
-                      $eq: ctx.query.slug,
-                    },
-                  },
-                },
-                {
-                  technologies: {
-                    slug: {
-                      $eq: ctx.query.slug,
-                    },
-                  },
-                },
-              ],
-            }
-          ],
+          ...filters
         },
       };
 
@@ -186,82 +166,82 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         publishedAt: item.date,
       }
       switch (item.categories[0]) {
-        // // Brochure
-        // case 194:
-        //   return {
-        //     ...commonData,
-        //     content: "file",
-        //     category: {
-        //       connect: [{ id: 5, isTemporary: true }],
-        //     },
-        //   };
-        // // Whitepaper
-        // case 1:
-        //   return {
-        //     ...commonData,
-        //     content: "file",
-        //     category: {
-        //       connect: [{ id: 7, isTemporary: true }],
-        //     },
-        //   };
-        // // Infographic
-        // case 91:
-        //   return {
-        //     ...commonData,
-        //     content: "file",
-        //     category: {
-        //       connect: [{ id: 6, isTemporary: true }],
-        //     },
-        //   };
-        // // eBook
-        // case 90:
-        //   return {
-        //     ...commonData,
-        //     content: "file",
-        //     category: {
-        //       connect: [{ id: 16, isTemporary: true }],
-        //     },
-        //   };
+        // Brochure
+        case 194:
+          return {
+            ...commonData,
+            content: "file",
+            category: {
+              connect: [{ id: 5, documentId: 'k1t8mt57hzh9heo4kf8oo428' }],
+            },
+          };
+        // Whitepaper
+        case 1:
+          return {
+            ...commonData,
+            content: "file",
+            category: {
+              connect: [{ id: 7, documentId: 'tqgxuobo3ykknuv4niwpwyuq' }],
+            },
+          };
+        // Infographic
+        case 91:
+          return {
+            ...commonData,
+            content: "file",
+            category: {
+              connect: [{ id: 6, documentId: 'qlbud817l53jbf4b50i4pt39' }],
+            },
+          };
+        // eBook
+        case 90:
+          return {
+            ...commonData,
+            content: "file",
+            category: {
+              connect: [{ id: 16, documentId: 'kqs5f7lkgt432fl14n8ydb7h' }],
+            },
+          };
 
-        // Webinar
-        case 13:
-          return {
-            ...commonData,
-            content: "file",
-            category: {
-              connect: [{ id: 19, isTemporary: true }],
-            },
-          };
-        // Podcast
-        case 78:
-          return {
-            ...commonData,
-            content: "file",
-            category: {
-              connect: [{ id: 18, isTemporary: true }],
-            },
-          };
-        // Webstories
-        case 1031:
-          return {
-            ...commonData,
-            content: "file",
-            category: {
-              connect: [{ id: 15, isTemporary: true }],
-            },
-          };
-        // // Blog
-        // case 12:
+        // // Webinar
+        // case 13:
         //   return {
         //     ...commonData,
-        //     content: "blog",
-        //     blog: {
-        //       content: item.content.rendered,
-        //     },
+        //     content: "file",
         //     category: {
-        //       connect: [{ id: 12, isTemporary: true }],
+        //       connect: [{ id: 19,documentId: 's6jjkj9ixjg56mzrfg2yyt1c' }],
         //     },
         //   };
+        // // Podcast
+        // case 78:
+        //   return {
+        //     ...commonData,
+        //     content: "file",
+        //     category: {
+        //       connect: [{ id: 18,documentId: 'hyumjqk5bakfegvsgl2iprx4' }],
+        //     },
+        //   };
+        // // Webstories
+        // case 1031:
+        //   return {
+        //     ...commonData,
+        //     content: "file",
+        //     category: {
+        //       connect: [{ id: 15,documentId: 'bo4gzyj4zugpxms5lyf2sndg' }],
+        //     },
+        //   };
+        // Blog
+        case 12:
+          return {
+            ...commonData,
+            content: "blog",
+            blog: {
+              content: item.content.rendered,
+            },
+            category: {
+              connect: [{ id: 12, documentId: 'qi23wcmwgcs165djrz2b511d' }],
+            },
+          };
         default:
           return null;
       }
