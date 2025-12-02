@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "insight_pages",
+  "info": {
+    "singularName": "insight-page",
+    "pluralName": "insight-pages",
+    "displayName": "insight-page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "relatedCase": {
+      "type": "component",
+      "component": "case-study.related-case-study",
+      "repeatable": false
+    },
+    "tableTitle": {
+      "type": "string"
+    },
+    "podcastPlatform": {
+      "type": "component",
+      "component": "global.social-platform",
+      "repeatable": true
+    }
+  }
+}

@@ -1316,6 +1316,39 @@ export interface ApiInsightListPageInsightListPage
   };
 }
 
+export interface ApiInsightPageInsightPage extends Struct.SingleTypeSchema {
+  collectionName: 'insight_pages';
+  info: {
+    displayName: 'insight-page';
+    pluralName: 'insight-pages';
+    singularName: 'insight-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::insight-page.insight-page'
+    > &
+      Schema.Attribute.Private;
+    podcastPlatform: Schema.Attribute.Component<'global.social-platform', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    relatedCase: Schema.Attribute.Component<
+      'case-study.related-case-study',
+      false
+    >;
+    tableTitle: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
   collectionName: 'insights';
   info: {
@@ -2083,6 +2116,7 @@ declare module '@strapi/strapi' {
       'api::insight-author.insight-author': ApiInsightAuthorInsightAuthor;
       'api::insight-category.insight-category': ApiInsightCategoryInsightCategory;
       'api::insight-list-page.insight-list-page': ApiInsightListPageInsightListPage;
+      'api::insight-page.insight-page': ApiInsightPageInsightPage;
       'api::insight.insight': ApiInsightInsight;
       'api::layout.layout': ApiLayoutLayout;
       'api::not-found.not-found': ApiNotFoundNotFound;
