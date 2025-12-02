@@ -29,7 +29,14 @@
       "type": "enumeration",
       "required": true,
       "default": "file",
-      "enum": ["file", "blog", "podcast", "post-webinar", "pre-webinar"]
+      "enum": [
+        "file",
+        "blog",
+        "podcast",
+        "post-webinar",
+        "pre-webinar",
+        "web-stories"
+      ]
     },
     "technologies": {
       "type": "relation",
@@ -50,7 +57,10 @@
       "type": "media",
       "private": true,
       "multiple": false,
-      "allowedTypes": ["images", "files"]
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     },
     "blog": {
       "type": "component",
@@ -71,6 +81,68 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::insight-category.insight-category"
+    },
+    "webinar": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "or": [
+            {
+              "==": [
+                {
+                  "var": "content"
+                },
+                "post-webinar"
+              ]
+            },
+            {
+              "==": [
+                {
+                  "var": "content"
+                },
+                "post-webinar"
+              ]
+            }
+          ]
+        }
+      },
+      "component": "insight-section.webinar",
+      "repeatable": false
+    },
+    "podcast": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "content"
+            },
+            "podcast"
+          ]
+        }
+      },
+      "component": "insight-section.podcast",
+      "repeatable": false
+    },
+    "webStroies": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "content"
+            },
+            "web-stories"
+          ]
+        }
+      },
+      "component": "insight-section.web-stories",
+      "repeatable": false
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::insight-author.insight-author"
     }
   }
 }

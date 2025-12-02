@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "insight_authors",
+  "info": {
+    "singularName": "insight-author",
+    "pluralName": "insight-authors",
+    "displayName": "insight-author"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

@@ -1221,6 +1221,37 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiInsightAuthorInsightAuthor
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'insight_authors';
+  info: {
+    displayName: 'insight-author';
+    pluralName: 'insight-authors';
+    singularName: 'insight-author';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::insight-author.insight-author'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiInsightCategoryInsightCategory
   extends Struct.CollectionTypeSchema {
   collectionName: 'insight_categories';
@@ -1298,13 +1329,17 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
   attributes: {
     attachment: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Private;
+    author: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::insight-author.insight-author'
+    >;
     blog: Schema.Attribute.Component<'insight-section.blog-section', false>;
     category: Schema.Attribute.Relation<
       'oneToOne',
       'api::insight-category.insight-category'
     >;
     content: Schema.Attribute.Enumeration<
-      ['file', 'blog', 'podcast', 'post-webinar', 'pre-webinar']
+      ['file', 'blog', 'podcast', 'post-webinar', 'pre-webinar', 'web-stories']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'file'>;
@@ -1318,6 +1353,7 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
       'api::insight.insight'
     > &
       Schema.Attribute.Private;
+    podcast: Schema.Attribute.Component<'insight-section.podcast', false>;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     services: Schema.Attribute.Relation<
@@ -1333,6 +1369,11 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    webinar: Schema.Attribute.Component<'insight-section.webinar', false>;
+    webStroies: Schema.Attribute.Component<
+      'insight-section.web-stories',
+      false
+    >;
   };
 }
 
@@ -2039,6 +2080,7 @@ declare module '@strapi/strapi' {
       'api::department.department': ApiDepartmentDepartment;
       'api::form.form': ApiFormForm;
       'api::home.home': ApiHomeHome;
+      'api::insight-author.insight-author': ApiInsightAuthorInsightAuthor;
       'api::insight-category.insight-category': ApiInsightCategoryInsightCategory;
       'api::insight-list-page.insight-list-page': ApiInsightListPageInsightListPage;
       'api::insight.insight': ApiInsightInsight;

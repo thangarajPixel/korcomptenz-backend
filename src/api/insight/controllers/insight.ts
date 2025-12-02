@@ -106,37 +106,65 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
       if (!entity) {
         return ctx.notFound('Page not found');
       }
-      // Find related case studies
-      // Get previous insight (published before current one)
-      const previous = await strapi.db.query('api::insight.insight').findOne({
-        where: {
-          publishedAt: {
-            $lt: entity.publishedAt, // less than current publishedAt
-            $notNull: true
+      // If Blog
+      if (entity.content === 'blog') {
+        // Find related Insights
+        const relatedInsight = await strapi.db.query('api::insight.insight').findMany({
+          where: {
+            id: { $ne: entity.id }, // exclude current one
+            publishedAt: { $notNull: true },
+            $or: [
+              entity.technologies.length ? { technologies: { id: { $in: entity.technologies } } } : {},
+              entity.services.length ? { services: { id: { $in: entity.services } } } : {},
+              entity.category.id ? { category: { id: { $in: entity.category?.id } } } : {},
+            ].filter(o => Object.keys(o).length), // remove empty filters
           },
-        },
-        orderBy: { publishedAt: 'desc' }, // get the most recent one before current
-      });
+          populate: {
+            heroSection: { populate: { image: true } },
+          },
+          limit: 3,
+          orderBy: { publishedAt: 'desc' },
+        });
+        // Get previous insight (published before current one)
+        const previous = await strapi.db.query('api::insight.insight').findOne({
+          where: {
+            publishedAt: {
+              $lt: entity.publishedAt, // less than current publishedAt
+              $notNull: true
+            },
+            $or: [
+              entity.category.id ? { category: { id: { $in: entity.category?.id } } } : {},
+            ].filter(o => Object.keys(o).length),
+          },
+          orderBy: { publishedAt: 'desc' }, // get the most recent one before current
+        });
+        // Get next insight (published after current one)
+        const next = await strapi.db.query('api::insight.insight').findOne({
+          where: {
+            publishedAt: {
+              $gt: entity.publishedAt, // greater than current publishedAt
+              $notNull: true
+            },
+            $or: [
+              entity.category.id ? { category: { id: { $in: entity.category?.id } } } : {},
+            ].filter(o => Object.keys(o).length),
+          },
+          orderBy: { publishedAt: 'asc' }, // get the earliest one after current
+        });
+        // Sanitize responses
+        const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+        const sanitizedPrevious = await this.sanitizeOutput(previous, ctx);
+        const sanitizedNext = await this.sanitizeOutput(next, ctx);
+        const sanitizedRelatedInsight = await this.sanitizeOutput(relatedInsight, ctx);
+        return this.transformResponse({
+          insight: sanitizedEntity,
+          previousInsight: sanitizedPrevious,
+          nextInsight: sanitizedNext,
+          relatedInsight: sanitizedRelatedInsight,
+        });
+      }
 
-      // Get next insight (published after current one)
-      const next = await strapi.db.query('api::insight.insight').findOne({
-        where: {
-          publishedAt: {
-            $gt: entity.publishedAt, // greater than current publishedAt
-            $notNull: true
-          },
-        },
-        orderBy: { publishedAt: 'asc' }, // get the earliest one after current
-      });
-      // Sanitize responses
-      const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
-      const sanitizedPrevious = await this.sanitizeOutput(previous, ctx);
-      const sanitizedNext = await this.sanitizeOutput(next, ctx);
-      return this.transformResponse({
-        insight: sanitizedEntity,
-        previousInsight: sanitizedPrevious,
-        nextInsight: sanitizedNext,
-      });
+      return this.transformResponse(entity);
     } catch (error) {
       strapi.log.error('Insight find error:', error);
       return ctx.internalServerError('Failed to fetch insight data');
@@ -199,7 +227,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         case 13:
           return {
             ...commonData,
-            content: "file",
+            content: "podcast",
             category: {
               connect: [{ id: 19, documentId: 's6jjkj9ixjg56mzrfg2yyt1c' }],
             },
@@ -208,7 +236,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         case 78:
           return {
             ...commonData,
-            content: "file",
+            content: "post-webinar",
             category: {
               connect: [{ id: 18, documentId: 'hyumjqk5bakfegvsgl2iprx4' }],
             },
@@ -217,7 +245,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         case 1031:
           return {
             ...commonData,
-            content: "file",
+            content: "web-stories",
             category: {
               connect: [{ id: 15, documentId: 'bo4gzyj4zugpxms5lyf2sndg' }],
             },

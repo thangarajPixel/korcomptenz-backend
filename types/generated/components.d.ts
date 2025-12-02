@@ -1255,6 +1255,30 @@ export interface InsightSectionBlogSection extends Struct.ComponentSchema {
   };
 }
 
+export interface InsightSectionPodcast extends Struct.ComponentSchema {
+  collectionName: 'components_insight_section_podcasts';
+  info: {
+    displayName: 'podcast';
+  };
+  attributes: {};
+}
+
+export interface InsightSectionWebStories extends Struct.ComponentSchema {
+  collectionName: 'components_insight_section_web_stories';
+  info: {
+    displayName: 'web-stories';
+  };
+  attributes: {};
+}
+
+export interface InsightSectionWebinar extends Struct.ComponentSchema {
+  collectionName: 'components_insight_section_webinars';
+  info: {
+    displayName: 'webinar';
+  };
+  attributes: {};
+}
+
 export interface MenuAboutData extends Struct.ComponentSchema {
   collectionName: 'components_menu_about_data';
   info: {
@@ -2351,6 +2375,9 @@ declare module '@strapi/strapi' {
       'home.services-section-list': HomeServicesSectionList;
       'home.we-are-korcomptenz': HomeWeAreKorcomptenz;
       'insight-section.blog-section': InsightSectionBlogSection;
+      'insight-section.podcast': InsightSectionPodcast;
+      'insight-section.web-stories': InsightSectionWebStories;
+      'insight-section.webinar': InsightSectionWebinar;
       'menu.about-data': MenuAboutData;
       'menu.about-menu-who-we-are': MenuAboutMenuWhoWeAre;
       'menu.aboutus-navigationitems': MenuAboutusNavigationitems;
