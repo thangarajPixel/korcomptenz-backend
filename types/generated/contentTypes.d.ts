@@ -1327,6 +1327,11 @@ export interface ApiInsightPageInsightPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    blogAiPlatform: Schema.Attribute.Component<'global.social-platform', true>;
+    blogSocialPlatform: Schema.Attribute.Component<
+      'global.social-platform',
+      true
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1336,7 +1341,6 @@ export interface ApiInsightPageInsightPage extends Struct.SingleTypeSchema {
       'api::insight-page.insight-page'
     > &
       Schema.Attribute.Private;
-    podcastPlatform: Schema.Attribute.Component<'global.social-platform', true>;
     publishedAt: Schema.Attribute.DateTime;
     relatedCase: Schema.Attribute.Component<
       'case-study.related-case-study',

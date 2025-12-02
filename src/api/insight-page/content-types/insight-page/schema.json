@@ -19,7 +19,12 @@
     "tableTitle": {
       "type": "string"
     },
-    "podcastPlatform": {
+    "blogSocialPlatform": {
+      "type": "component",
+      "component": "global.social-platform",
+      "repeatable": true
+    },
+    "blogAiPlatform": {
       "type": "component",
       "component": "global.social-platform",
       "repeatable": true
