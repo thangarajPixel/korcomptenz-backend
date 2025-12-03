@@ -101,6 +101,19 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                 },
               },
             },
+            'insight-section.insight-list': {
+              populate: {
+                list: {
+                  populate: {
+                    heroSection: {
+                      populate: {
+                        image: true,
+                      },
+                    },
+                  },
+                },
+              },
+            },
           }
         }
       },

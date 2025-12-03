@@ -28,7 +28,8 @@
         "page-componets.inspire-section",
         "home.schedule-call",
         "case-study.case-study-sticky-cards-list",
-        "case-study.case-study-domain-data"
+        "case-study.case-study-domain-data",
+        "insight-section.insight-list"
       ]
     }
   }

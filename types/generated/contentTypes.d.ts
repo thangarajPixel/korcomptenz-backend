@@ -1208,6 +1208,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
         'home.schedule-call',
         'case-study.case-study-sticky-cards-list',
         'case-study.case-study-domain-data',
+        'insight-section.insight-list',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1534,6 +1535,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'demo-page.demo-opportunity',
         'about-us.achievement-section',
         'page-componets.pricing-section',
+        'insight-section.insight-list',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

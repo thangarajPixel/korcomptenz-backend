@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_insight_section_insight_lists",
+  "info": {
+    "displayName": "insight-list",
+    "icon": "doctor"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "buttontext": {
+      "type": "string",
+      "default": "Read All"
+    },
+    "buttonLink": {
+      "type": "string",
+      "default": "/insights"
+    },
+    "list": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::insight.insight"
+    }
+  },
+  "config": {}
+}

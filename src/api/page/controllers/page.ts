@@ -400,7 +400,20 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                     }
                   }
                 }
-              }
+              },
+              'insight-section.insight-list': {
+                populate: {
+                  list: {
+                    populate: {
+                      heroSection: {
+                        populate: {
+                          image: true,
+                        },
+                      },
+                    },
+                  },
+                },
+              },
             },
           },
           seo: true,

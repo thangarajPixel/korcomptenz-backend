@@ -1255,6 +1255,22 @@ export interface InsightSectionBlogSection extends Struct.ComponentSchema {
   };
 }
 
+export interface InsightSectionInsightList extends Struct.ComponentSchema {
+  collectionName: 'components_insight_section_insight_lists';
+  info: {
+    displayName: 'insight-list';
+    icon: 'doctor';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'/insights'>;
+    buttontext: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Read All'>;
+    list: Schema.Attribute.Relation<'oneToOne', 'api::insight.insight'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface InsightSectionPodcast extends Struct.ComponentSchema {
   collectionName: 'components_insight_section_podcasts';
   info: {
@@ -2375,6 +2391,7 @@ declare module '@strapi/strapi' {
       'home.services-section-list': HomeServicesSectionList;
       'home.we-are-korcomptenz': HomeWeAreKorcomptenz;
       'insight-section.blog-section': InsightSectionBlogSection;
+      'insight-section.insight-list': InsightSectionInsightList;
       'insight-section.podcast': InsightSectionPodcast;
       'insight-section.web-stories': InsightSectionWebStories;
       'insight-section.webinar': InsightSectionWebinar;
