@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_form_fields_free_consultation_forms",
+  "info": {
+    "displayName": "free-consultation-form",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "default": "Case Form"
+    },
+    "nameLabel": {
+      "type": "string",
+      "default": "Name"
+    },
+    "organizationLabel": {
+      "type": "string",
+      "default": "Organization"
+    },
+    "locationLabel": {
+      "type": "string",
+      "default": "Location"
+    },
+    "emailLabel": {
+      "type": "string",
+      "default": "Email"
+    },
+    "phoneLabel": {
+      "type": "string",
+      "default": "Phone"
+    },
+    "messageLabel": {
+      "type": "string",
+      "default": "Message"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Submit"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

@@ -990,6 +990,27 @@ export interface FormFieldsForm extends Struct.ComponentSchema {
   };
 }
 
+export interface FormFieldsFreeConsultationForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_free_consultation_forms';
+  info: {
+    displayName: 'free-consultation-form';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Submit'>;
+    emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
+    locationLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Location'>;
+    messageLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Message'>;
+    nameLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Name'>;
+    organizationLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Organization'>;
+    phoneLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Phone'>;
+    title: Schema.Attribute.Text & Schema.Attribute.DefaultTo<'Case Form'>;
+  };
+}
+
 export interface FormFieldsReserveSpotFields extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_reserve_spot_fields';
   info: {
@@ -1098,6 +1119,7 @@ export interface GlobalSocialPlatform extends Struct.ComponentSchema {
     icon: 'layer';
   };
   attributes: {
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     icon: Schema.Attribute.Media<'images'>;
     labal: Schema.Attribute.String;
     link: Schema.Attribute.String;
@@ -2389,6 +2411,7 @@ declare module '@strapi/strapi' {
       'form-fields.case-form': FormFieldsCaseForm;
       'form-fields.contact-us-form': FormFieldsContactUsForm;
       'form-fields.form': FormFieldsForm;
+      'form-fields.free-consultation-form': FormFieldsFreeConsultationForm;
       'form-fields.reserve-spot-fields': FormFieldsReserveSpotFields;
       'global.button': GlobalButton;
       'global.custom-list': GlobalCustomList;

@@ -18,7 +18,8 @@
         "form-fields.book-demo-form",
         "form-fields.contact-us-form",
         "form-fields.career",
-        "form-fields.reserve-spot-fields"
+        "form-fields.reserve-spot-fields",
+        "form-fields.free-consultation-form"
       ],
       "required": true,
       "min": 1,
@@ -36,7 +37,8 @@
         "case-form",
         "book-demo-form",
         "contact-form",
-        "career"
+        "career",
+        "free-consultation-form"
       ]
     }
   }

@@ -1149,7 +1149,13 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     form: Schema.Attribute.Enumeration<
-      ['case-form', 'book-demo-form', 'contact-form', 'career']
+      [
+        'case-form',
+        'book-demo-form',
+        'contact-form',
+        'career',
+        'free-consultation-form',
+      ]
     > &
       Schema.Attribute.Required;
     forms: Schema.Attribute.DynamicZone<
@@ -1159,6 +1165,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.contact-us-form',
         'form-fields.career',
         'form-fields.reserve-spot-fields',
+        'form-fields.free-consultation-form',
       ]
     > &
       Schema.Attribute.Required &

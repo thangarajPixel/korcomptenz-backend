@@ -25,6 +25,15 @@ export default factories.createCoreController('api::insight-page.insight-page', 
             icon: true,
           },
         },
+        form: {
+          populate: {
+            forms: {
+              populate: {
+                image: true,
+              },
+            }
+          }
+        }
       },
     }, {
       encode: false,
