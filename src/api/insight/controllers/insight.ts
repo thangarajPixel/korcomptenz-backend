@@ -32,6 +32,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         ...ctx.query,
         populate: {
           attachment: false,
+          featureImage: true,
           heroSection: {
             populate: {
               image: true,
@@ -130,7 +131,8 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
             ].filter(o => Object.keys(o).length), // remove empty filters
           },
           populate: {
-            heroSection: { populate: { image: true } },
+            heroSection: true,
+            featureImage: true,
           },
           limit: 3,
           orderBy: { publishedAt: 'desc' },

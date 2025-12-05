@@ -143,6 +143,13 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::insight-author.insight-author"
+    },
+    "featureImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
