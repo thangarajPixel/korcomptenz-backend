@@ -33,6 +33,11 @@
       "type": "component",
       "component": "global.social-platform",
       "repeatable": true
+    },
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form"
     }
   }
 }

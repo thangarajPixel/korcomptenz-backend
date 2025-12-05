@@ -15,14 +15,7 @@
     "icon": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "form": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::form.form"
+      "allowedTypes": ["images"]
     }
   },
   "config": {}

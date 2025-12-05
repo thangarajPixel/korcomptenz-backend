@@ -999,6 +999,7 @@ export interface FormFieldsFreeConsultationForm extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Submit'>;
     emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
+    image: Schema.Attribute.Media<'images'>;
     locationLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Location'>;
     messageLabel: Schema.Attribute.String &
@@ -1119,7 +1120,6 @@ export interface GlobalSocialPlatform extends Struct.ComponentSchema {
     icon: 'layer';
   };
   attributes: {
-    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     icon: Schema.Attribute.Media<'images'>;
     labal: Schema.Attribute.String;
     link: Schema.Attribute.String;

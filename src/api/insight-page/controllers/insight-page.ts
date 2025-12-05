@@ -28,9 +28,13 @@ export default factories.createCoreController('api::insight-page.insight-page', 
         form: {
           populate: {
             forms: {
-              populate: {
-                image: true,
-              },
+              on: {
+                'form-fields.free-consultation-form': {
+                  populate: {
+                    image: true,
+                  },
+                }
+              }
             }
           }
         }
