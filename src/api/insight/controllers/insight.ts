@@ -14,14 +14,14 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         category?: { slug?: { $eq: string } }
       } = {};
       if (ctx.query.filter) {
-        const { technology, service }: { technology?: string[], service?: string[] } = ctx.query?.filter;
+        const { technologies, services }: { technologies?: string[], services?: string[] } = ctx.query?.filter;
 
-        if (technology) {
-          const techIds = technology.map(Number);
+        if (technologies) {
+          const techIds = technologies.map(Number);
           filters.technologies = { id: { $in: techIds } };
         }
-        if (service) {
-          const serviceIds = service.map(Number);
+        if (services) {
+          const serviceIds = services.map(Number);
           filters.services = { id: { $in: serviceIds } };
         }
       }
