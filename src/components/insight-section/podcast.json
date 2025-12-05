@@ -16,7 +16,7 @@
     },
     "podcastPlatForm": {
       "type": "component",
-      "component": "global.social-platform",
+      "component": "global.link",
       "repeatable": true
     }
   },

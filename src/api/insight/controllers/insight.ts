@@ -101,13 +101,14 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
               faq: true
             }
           },
+          author: {
+            populate: {
+              image: true
+            }
+          },
           podcast: {
             populate: {
-              podcastPlatForm: {
-                populate: {
-                  icon: true
-                }
-              }
+              podcastPlatForm: true
             }
           }
         },

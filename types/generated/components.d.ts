@@ -1068,6 +1068,17 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
   };
 }
 
+export interface GlobalLink extends Struct.ComponentSchema {
+  collectionName: 'components_global_links';
+  info: {
+    displayName: 'link';
+    icon: 'arrowLeft';
+  };
+  attributes: {
+    link: Schema.Attribute.String;
+  };
+}
+
 export interface GlobalPolicy extends Struct.ComponentSchema {
   collectionName: 'components_global_policies';
   info: {
@@ -1279,7 +1290,7 @@ export interface InsightSectionPodcast extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Text;
     podcastLink: Schema.Attribute.String;
-    podcastPlatForm: Schema.Attribute.Component<'global.social-platform', true>;
+    podcastPlatForm: Schema.Attribute.Component<'global.link', true>;
     title: Schema.Attribute.Text;
   };
 }
@@ -2383,6 +2394,7 @@ declare module '@strapi/strapi' {
       'global.custom-list': GlobalCustomList;
       'global.editor-descripiton': GlobalEditorDescripiton;
       'global.global-field': GlobalGlobalField;
+      'global.link': GlobalLink;
       'global.policy': GlobalPolicy;
       'global.social-platform': GlobalSocialPlatform;
       'global.title-descripiton': GlobalTitleDescripiton;

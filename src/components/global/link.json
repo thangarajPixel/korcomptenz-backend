@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_global_links",
+  "info": {
+    "displayName": "link",
+    "icon": "arrowLeft"
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
