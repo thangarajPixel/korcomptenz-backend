@@ -28,6 +28,11 @@
       "type": "component",
       "component": "global.social-platform",
       "repeatable": true
+    },
+    "podcastPlatForm": {
+      "type": "component",
+      "component": "global.social-platform",
+      "repeatable": true
     }
   }
 }

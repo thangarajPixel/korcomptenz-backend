@@ -1276,7 +1276,12 @@ export interface InsightSectionPodcast extends Struct.ComponentSchema {
   info: {
     displayName: 'podcast';
   };
-  attributes: {};
+  attributes: {
+    description: Schema.Attribute.Text;
+    podcastLink: Schema.Attribute.String;
+    podcastPlatForm: Schema.Attribute.Component<'global.social-platform', true>;
+    title: Schema.Attribute.Text;
+  };
 }
 
 export interface InsightSectionWebStories extends Struct.ComponentSchema {

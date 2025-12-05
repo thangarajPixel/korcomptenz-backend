@@ -1342,6 +1342,7 @@ export interface ApiInsightPageInsightPage extends Struct.SingleTypeSchema {
       'api::insight-page.insight-page'
     > &
       Schema.Attribute.Private;
+    podcastPlatForm: Schema.Attribute.Component<'global.social-platform', true>;
     publishedAt: Schema.Attribute.DateTime;
     relatedCase: Schema.Attribute.Component<
       'case-study.related-case-study',

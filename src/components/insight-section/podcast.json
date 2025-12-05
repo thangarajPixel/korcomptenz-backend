@@ -4,6 +4,21 @@
     "displayName": "podcast"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "podcastLink": {
+      "type": "string"
+    },
+    "podcastPlatForm": {
+      "type": "component",
+      "component": "global.social-platform",
+      "repeatable": true
+    }
+  },
   "config": {}
 }

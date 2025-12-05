@@ -101,6 +101,15 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
               faq: true
             }
           },
+          podcast: {
+            populate: {
+              podcastPlatForm: {
+                populate: {
+                  icon: true
+                }
+              }
+            }
+          }
         },
       });
       if (!entity) {
