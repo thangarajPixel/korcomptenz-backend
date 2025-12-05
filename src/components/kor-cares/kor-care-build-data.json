@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_kor_cares_kor_care_build_data",
+  "info": {
+    "displayName": "kor-care-build-data",
+    "icon": "paperPlane"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "videoLink": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  },
+  "config": {}
+}

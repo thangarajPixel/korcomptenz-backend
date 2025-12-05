@@ -1582,6 +1582,11 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'about-us.achievement-section',
         'page-componets.pricing-section',
         'insight-section.insight-list',
+        'kor-cares.straight-slider',
+        'kor-cares.kor-care-build-data',
+        'kor-cares.impact-highlight',
+        'kor-cares.impact-description',
+        'kor-cares.award',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

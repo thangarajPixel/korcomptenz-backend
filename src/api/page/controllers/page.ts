@@ -414,6 +414,39 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'kor-cares.straight-slider': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
+              'kor-cares.kor-care-build-data': {
+                populate: {
+                  thumbnail: true,
+                },
+              },
+              'kor-cares.impact-highlight': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
+              'kor-cares.impact-description': {
+                populate: {
+                  image: true,
+                },
+              },
+              'kor-cares.award': {
+                populate: {
+                  image: true,
+                },
+              },
             },
           },
           seo: true,

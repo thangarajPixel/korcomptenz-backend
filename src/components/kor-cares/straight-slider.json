@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_kor_cares_straight_sliders",
+  "info": {
+    "displayName": "straight-slider",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "component": "contact-us.contact-us-insight",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

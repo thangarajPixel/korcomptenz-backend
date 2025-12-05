@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_kor_cares_impact_descriptions",
+  "info": {
+    "displayName": "impact-description",
+    "icon": "chartPie"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "roleDescription": {
+      "type": "text"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  },
+  "config": {}
+}

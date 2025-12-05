@@ -1333,6 +1333,71 @@ export interface InsightSectionWebinar extends Struct.ComponentSchema {
   attributes: {};
 }
 
+export interface KorCaresAward extends Struct.ComponentSchema {
+  collectionName: 'components_kor_cares_awards';
+  info: {
+    displayName: 'award';
+    icon: 'code';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface KorCaresImpactDescription extends Struct.ComponentSchema {
+  collectionName: 'components_kor_cares_impact_descriptions';
+  info: {
+    displayName: 'impact-description';
+    icon: 'chartPie';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    roleDescription: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface KorCaresImpactHighlight extends Struct.ComponentSchema {
+  collectionName: 'components_kor_cares_impact_highlights';
+  info: {
+    displayName: 'impact-highlight';
+    icon: 'earth';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'contact-us.contact-us-insight', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface KorCaresKorCareBuildData extends Struct.ComponentSchema {
+  collectionName: 'components_kor_cares_kor_care_build_data';
+  info: {
+    displayName: 'kor-care-build-data';
+    icon: 'paperPlane';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    thumbnail: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+    videoLink: Schema.Attribute.String;
+  };
+}
+
+export interface KorCaresStraightSlider extends Struct.ComponentSchema {
+  collectionName: 'components_kor_cares_straight_sliders';
+  info: {
+    displayName: 'straight-slider';
+    icon: 'dashboard';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'contact-us.contact-us-insight', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface MenuAboutData extends Struct.ComponentSchema {
   collectionName: 'components_menu_about_data';
   info: {
@@ -2435,6 +2500,11 @@ declare module '@strapi/strapi' {
       'insight-section.podcast': InsightSectionPodcast;
       'insight-section.web-stories': InsightSectionWebStories;
       'insight-section.webinar': InsightSectionWebinar;
+      'kor-cares.award': KorCaresAward;
+      'kor-cares.impact-description': KorCaresImpactDescription;
+      'kor-cares.impact-highlight': KorCaresImpactHighlight;
+      'kor-cares.kor-care-build-data': KorCaresKorCareBuildData;
+      'kor-cares.straight-slider': KorCaresStraightSlider;
       'menu.about-data': MenuAboutData;
       'menu.about-menu-who-we-are': MenuAboutMenuWhoWeAre;
       'menu.aboutus-navigationitems': MenuAboutusNavigationitems;
