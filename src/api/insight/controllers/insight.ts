@@ -232,33 +232,33 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         //     },
         //   };
 
-        // Webinar
-        case 13:
+        // // Webinar
+        // case 13:
+        //   return {
+        //     ...commonData,
+        //     content: "podcast",
+        //     category: {
+        //       connect: [{ id: 19, documentId: 's6jjkj9ixjg56mzrfg2yyt1c' }],
+        //     },
+        //   };
+        // // Podcast
+        case 78:
           return {
             ...commonData,
             content: "podcast",
             category: {
-              connect: [{ id: 19, documentId: 's6jjkj9ixjg56mzrfg2yyt1c' }],
+              connect: [{ id: 13, documentId: 'hyumjqk5bakfegvsgl2iprx4' }],
             },
           };
-        // Podcast
-        case 78:
-          return {
-            ...commonData,
-            content: "post-webinar",
-            category: {
-              connect: [{ id: 18, documentId: 'hyumjqk5bakfegvsgl2iprx4' }],
-            },
-          };
-        // Webstories
-        case 1031:
-          return {
-            ...commonData,
-            content: "web-stories",
-            category: {
-              connect: [{ id: 15, documentId: 'bo4gzyj4zugpxms5lyf2sndg' }],
-            },
-          };
+        // // Webstories
+        // case 1031:
+        //   return {
+        //     ...commonData,
+        //     content: "web-stories",
+        //     category: {
+        //       connect: [{ id: 15, documentId: 'bo4gzyj4zugpxms5lyf2sndg' }],
+        //     },
+        //   };
         // // Blog
         // case 12:
         //   return {

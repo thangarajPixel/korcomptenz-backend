@@ -1182,6 +1182,41 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFreeConsultationLeadFreeConsultationLead
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'free_consultation_leads';
+  info: {
+    displayName: 'free-consultation-lead';
+    pluralName: 'free-consultation-leads';
+    singularName: 'free-consultation-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String & Schema.Attribute.Required;
+    fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    insightId: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::free-consultation-lead.free-consultation-lead'
+    > &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String & Schema.Attribute.Required;
+    message: Schema.Attribute.Text & Schema.Attribute.Required;
+    organization: Schema.Attribute.String & Schema.Attribute.Required;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
@@ -2119,6 +2154,7 @@ declare module '@strapi/strapi' {
       'api::demo-list.demo-list': ApiDemoListDemoList;
       'api::department.department': ApiDepartmentDepartment;
       'api::form.form': ApiFormForm;
+      'api::free-consultation-lead.free-consultation-lead': ApiFreeConsultationLeadFreeConsultationLead;
       'api::home.home': ApiHomeHome;
       'api::insight-author.insight-author': ApiInsightAuthorInsightAuthor;
       'api::insight-category.insight-category': ApiInsightCategoryInsightCategory;
