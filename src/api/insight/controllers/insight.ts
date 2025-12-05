@@ -304,4 +304,27 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
     const entity = await strapi.service('api::insight.insight').findFilter(ctx);
     return this.transformResponse(entity);
   },
+  async search(ctx) {
+    try {
+      ctx.query = {
+        ...ctx.query,
+        limit: 5,
+        where: {
+          label: {
+            $contains: ctx?.query?.search,
+          }
+        },
+      }
+      const entity = await strapi.service('api::case-study.case-study').getAllFilter(ctx);
+      const compileData = [
+        ...entity.service.map((item) => ({ ...item, from: 'service' })),
+        ...entity.technology.map((item) => ({ ...item, from: 'technology' }))
+      ]
+      const sanitizedEntity = await this.sanitizeOutput(compileData, ctx);
+      return this.transformResponse(sanitizedEntity);
+    } catch (error) {
+      strapi.log.error('Insight search error:', error);
+      return ctx.internalServerError('Failed to fetch insight data');
+    }
+  },
 }));
