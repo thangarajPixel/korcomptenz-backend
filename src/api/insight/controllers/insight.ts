@@ -250,23 +250,23 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         //     },
         //   };
         // // Podcast
-        case 78:
-          return {
-            ...commonData,
-            content: "podcast",
-            category: {
-              connect: [{ id: 13, documentId: 'hyumjqk5bakfegvsgl2iprx4' }],
-            },
-          };
-        // // Webstories
-        // case 1031:
+        // case 78:
         //   return {
         //     ...commonData,
-        //     content: "web-stories",
+        //     content: "podcast",
         //     category: {
-        //       connect: [{ id: 15, documentId: 'bo4gzyj4zugpxms5lyf2sndg' }],
+        //       connect: [{ id: 13, documentId: 'hyumjqk5bakfegvsgl2iprx4' }],
         //     },
         //   };
+        // Webstories
+        case 1031:
+          return {
+            ...commonData,
+            content: "web-stories",
+            category: {
+              connect: [{ id: 15, documentId: 'bo4gzyj4zugpxms5lyf2sndg' }],
+            },
+          };
         // // Blog
         // case 12:
         //   return {
