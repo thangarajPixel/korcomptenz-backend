@@ -111,7 +111,12 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
             populate: {
               podcastPlatForm: true
             }
-          }
+          },
+          webStories: {
+            populate: {
+              image: true
+            }
+          },
         },
       });
       if (!entity) {

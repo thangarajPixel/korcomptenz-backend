@@ -1322,7 +1322,19 @@ export interface InsightSectionWebStories extends Struct.ComponentSchema {
   info: {
     displayName: 'web-stories';
   };
-  attributes: {};
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
 }
 
 export interface InsightSectionWebinar extends Struct.ComponentSchema {
