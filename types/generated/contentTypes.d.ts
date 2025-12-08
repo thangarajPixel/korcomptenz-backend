@@ -1438,6 +1438,10 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     podcast: Schema.Attribute.Component<'insight-section.podcast', false>;
+    preWebinar: Schema.Attribute.Component<
+      'insight-section.post-webinar',
+      false
+    >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     services: Schema.Attribute.Relation<

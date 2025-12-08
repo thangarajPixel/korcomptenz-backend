@@ -150,6 +150,21 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "preWebinar": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "content"
+            },
+            "pre-webinar"
+          ]
+        }
+      },
+      "component": "insight-section.post-webinar",
+      "repeatable": false
     }
   }
 }

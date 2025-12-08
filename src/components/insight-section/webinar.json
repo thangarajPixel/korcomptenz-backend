@@ -4,6 +4,27 @@
     "displayName": "webinar"
   },
   "options": {},
-  "attributes": {},
+  "attributes": {
+    "demonstrate": {
+      "type": "component",
+      "component": "page-componets.demonstrate-section",
+      "repeatable": false
+    },
+    "expert": {
+      "type": "component",
+      "component": "demo-page.experts-section",
+      "repeatable": false
+    },
+    "buildData": {
+      "type": "component",
+      "component": "kor-cares.kor-care-build-data",
+      "repeatable": false
+    },
+    "summary": {
+      "type": "component",
+      "component": "sub-page-componets.gram-banner-list",
+      "repeatable": true
+    }
+  },
   "config": {}
 }

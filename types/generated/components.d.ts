@@ -1317,6 +1317,25 @@ export interface InsightSectionPodcast extends Struct.ComponentSchema {
   };
 }
 
+export interface InsightSectionPostWebinar extends Struct.ComponentSchema {
+  collectionName: 'components_insight_section_post_webinars';
+  info: {
+    displayName: 'post-webinar';
+    icon: 'chartPie';
+  };
+  attributes: {
+    dateText: Schema.Attribute.String;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    preSummary: Schema.Attribute.Component<
+      'sub-page-componets.gram-banner-list',
+      false
+    >;
+    preSummaryImage: Schema.Attribute.Media<'images'>;
+    timeText: Schema.Attribute.String;
+    webinarTime: Schema.Attribute.DateTime;
+  };
+}
+
 export interface InsightSectionWebStories extends Struct.ComponentSchema {
   collectionName: 'components_insight_section_web_stories';
   info: {
@@ -1342,7 +1361,21 @@ export interface InsightSectionWebinar extends Struct.ComponentSchema {
   info: {
     displayName: 'webinar';
   };
-  attributes: {};
+  attributes: {
+    buildData: Schema.Attribute.Component<
+      'kor-cares.kor-care-build-data',
+      false
+    >;
+    demonstrate: Schema.Attribute.Component<
+      'page-componets.demonstrate-section',
+      false
+    >;
+    expert: Schema.Attribute.Component<'demo-page.experts-section', false>;
+    summary: Schema.Attribute.Component<
+      'sub-page-componets.gram-banner-list',
+      true
+    >;
+  };
 }
 
 export interface KorCaresAward extends Struct.ComponentSchema {
@@ -2510,6 +2543,7 @@ declare module '@strapi/strapi' {
       'insight-section.blog-section': InsightSectionBlogSection;
       'insight-section.insight-list': InsightSectionInsightList;
       'insight-section.podcast': InsightSectionPodcast;
+      'insight-section.post-webinar': InsightSectionPostWebinar;
       'insight-section.web-stories': InsightSectionWebStories;
       'insight-section.webinar': InsightSectionWebinar;
       'kor-cares.award': KorCaresAward;

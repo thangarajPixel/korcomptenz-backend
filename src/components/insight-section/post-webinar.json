@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_insight_section_post_webinars",
+  "info": {
+    "displayName": "post-webinar",
+    "icon": "chartPie"
+  },
+  "options": {},
+  "attributes": {
+    "webinarTime": {
+      "type": "datetime"
+    },
+    "timeText": {
+      "type": "string"
+    },
+    "dateText": {
+      "type": "string"
+    },
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form"
+    },
+    "preSummary": {
+      "type": "component",
+      "component": "sub-page-componets.gram-banner-list",
+      "repeatable": false
+    },
+    "preSummaryImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}
