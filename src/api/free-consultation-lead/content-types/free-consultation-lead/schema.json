@@ -16,7 +16,7 @@
       "required": true
     },
     "email": {
-      "type": "string",
+      "type": "email",
       "required": true
     },
     "phone": {
@@ -35,9 +35,10 @@
       "type": "text",
       "required": true
     },
-    "insightId": {
-      "type": "string",
-      "required": true
+    "insight": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::insight.insight"
     }
   }
 }
