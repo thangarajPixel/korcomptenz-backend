@@ -57,10 +57,7 @@
       "type": "media",
       "private": true,
       "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
+      "allowedTypes": ["images", "files"]
     },
     "blog": {
       "type": "component",
@@ -100,7 +97,7 @@
                 {
                   "var": "content"
                 },
-                "post-webinar"
+                "pre-webinar"
               ]
             }
           ]
@@ -147,9 +144,7 @@
     "featureImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "preWebinar": {
       "type": "component",
