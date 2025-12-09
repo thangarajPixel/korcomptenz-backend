@@ -316,6 +316,7 @@ export interface CareerMansonryGallerySection extends Struct.ComponentSchema {
   };
   attributes: {
     highLightText: Schema.Attribute.String;
+    isPerRowFour: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'career.mansonry-gallery-col', true>;
     title: Schema.Attribute.String;
   };

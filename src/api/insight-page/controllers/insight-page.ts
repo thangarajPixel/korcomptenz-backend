@@ -37,6 +37,11 @@ export default factories.createCoreController('api::insight-page.insight-page', 
               }
             }
           }
+        },
+        webinarForm: {
+          populate: {
+            forms: true
+          }
         }
       },
     }, {

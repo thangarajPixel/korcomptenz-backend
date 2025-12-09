@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reserve_spot_leads",
+  "info": {
+    "singularName": "reserve-spot-lead",
+    "pluralName": "reserve-spot-leads",
+    "displayName": "reserve-spot-lead"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "company": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "insight": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::insight.insight"
+    }
+  }
+}

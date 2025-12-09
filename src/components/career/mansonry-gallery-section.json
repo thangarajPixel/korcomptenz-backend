@@ -16,6 +16,10 @@
     },
     "highLightText": {
       "type": "string"
+    },
+    "isPerRowFour": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}
