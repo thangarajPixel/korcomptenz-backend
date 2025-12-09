@@ -1588,6 +1588,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'kor-cares.impact-highlight',
         'kor-cares.impact-description',
         'kor-cares.award',
+        'home.hero-section-one',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

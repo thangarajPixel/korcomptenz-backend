@@ -1083,6 +1083,7 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
+    logo: Schema.Attribute.Media<'images'>;
     mobile_image: Schema.Attribute.Media<'images'>;
     subtitle: Schema.Attribute.String;
     subTitleTwo: Schema.Attribute.String;

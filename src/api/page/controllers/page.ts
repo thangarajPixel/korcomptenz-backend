@@ -447,6 +447,17 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   image: true,
                 },
               },
+              'home.hero-section-one': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                      mobile_image: true,
+                      logo: true,
+                    },
+                  },
+                },
+              },
             },
           },
           seo: true,
