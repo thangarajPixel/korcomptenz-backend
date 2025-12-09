@@ -93,6 +93,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
               image: true
             }
           },
+          attachment: true,
           technologies: true,
           seo: true,
           services: true,
@@ -241,14 +242,14 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         //   };
 
         // // Webinar
-        case 13:
-          return {
-            ...commonData,
-            content: "post-webinar",
-            category: {
-              connect: [{ id: 19, documentId: 's6jjkj9ixjg56mzrfg2yyt1c' }],
-            },
-          };
+        // case 13:
+        //   return {
+        //     ...commonData,
+        //     content: "post-webinar",
+        //     category: {
+        //       connect: [{ id: 19, documentId: 's6jjkj9ixjg56mzrfg2yyt1c' }],
+        //     },
+        //   };
         // // Podcast
         // case 78:
         //   return {
