@@ -31,7 +31,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
       ctx.query = {
         ...ctx.query,
         populate: {
-          attachment: false,
+          attachment: true,
           featureImage: true,
           heroSection: {
             populate: {
