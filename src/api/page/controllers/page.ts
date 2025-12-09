@@ -458,6 +458,19 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'career.mansonry-gallery-section': {
+                populate: {
+                  list: {
+                    populate: {
+                      column: {
+                        populate: {
+                          image: true,
+                        },
+                      },
+                    },
+                  },
+                },
+              },
             },
           },
           seo: true,
