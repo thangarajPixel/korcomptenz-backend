@@ -1458,7 +1458,7 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     webinar: Schema.Attribute.Component<'insight-section.webinar', false>;
-    webStroies: Schema.Attribute.Component<'insight-section.web-stories', true>;
+    webStories: Schema.Attribute.Component<'insight-section.web-stories', true>;
   };
 }
 

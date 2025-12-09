@@ -121,7 +121,7 @@
       "component": "insight-section.podcast",
       "repeatable": false
     },
-    "webStroies": {
+    "webStories": {
       "type": "component",
       "conditions": {
         "visible": {
