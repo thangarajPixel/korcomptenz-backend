@@ -1439,6 +1439,7 @@ export interface KorCaresStraightSlider extends Struct.ComponentSchema {
     icon: 'dashboard';
   };
   attributes: {
+    isPerRowFive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'contact-us.contact-us-insight', true>;
     title: Schema.Attribute.String;
   };

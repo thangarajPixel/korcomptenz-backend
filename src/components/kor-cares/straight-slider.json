@@ -9,6 +9,10 @@
     "title": {
       "type": "string"
     },
+    "isPerRowFive": {
+      "type": "boolean",
+      "default": false
+    },
     "list": {
       "type": "component",
       "component": "contact-us.contact-us-insight",
