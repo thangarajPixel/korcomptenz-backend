@@ -1541,6 +1541,7 @@ export interface MenuHomeMenu extends Struct.ComponentSchema {
     displayName: 'service-child';
   };
   attributes: {
+    attachment: Schema.Attribute.Media<'images' | 'files'>;
     href: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     title: Schema.Attribute.String;
     type: Schema.Attribute.String;
