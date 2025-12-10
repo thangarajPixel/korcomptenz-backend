@@ -15,22 +15,10 @@
     "dateText": {
       "type": "string"
     },
-    "form": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::form.form"
-    },
     "preSummary": {
       "type": "component",
-      "component": "sub-page-componets.gram-banner-list",
+      "component": "page-componets.why-we-are-list",
       "repeatable": false
-    },
-    "preSummaryImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
     }
   },
   "config": {}

@@ -22,8 +22,8 @@
     },
     "summary": {
       "type": "component",
-      "component": "sub-page-componets.gram-banner-list",
-      "repeatable": true
+      "component": "page-componets.faq",
+      "repeatable": false
     }
   },
   "config": {}

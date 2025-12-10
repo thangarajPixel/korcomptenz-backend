@@ -120,21 +120,6 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
           },
           webinar: {
             populate: {
-              form: {
-                populate: {
-                  forms: true
-                }
-              },
-              preSummary: {
-                populate: {
-                  item: true
-                }
-              },
-              preSummaryImage: true,
-            }
-          },
-          preWebinar: {
-            populate: {
               expert: {
                 populate: {
                   list: {
@@ -158,9 +143,14 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
                   thumbnail: true,
                 },
               },
-              summary: {
+              summary: true,
+            }
+          },
+          preWebinar: {
+            populate: {
+              preSummary: {
                 populate: {
-                  item: true
+                  image: true
                 }
               },
             }

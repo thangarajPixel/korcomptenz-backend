@@ -1327,12 +1327,10 @@ export interface InsightSectionPostWebinar extends Struct.ComponentSchema {
   };
   attributes: {
     dateText: Schema.Attribute.String;
-    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     preSummary: Schema.Attribute.Component<
-      'sub-page-componets.gram-banner-list',
+      'page-componets.why-we-are-list',
       false
     >;
-    preSummaryImage: Schema.Attribute.Media<'images'>;
     timeText: Schema.Attribute.String;
     webinarTime: Schema.Attribute.DateTime;
   };
@@ -1373,10 +1371,7 @@ export interface InsightSectionWebinar extends Struct.ComponentSchema {
       false
     >;
     expert: Schema.Attribute.Component<'demo-page.experts-section', false>;
-    summary: Schema.Attribute.Component<
-      'sub-page-componets.gram-banner-list',
-      true
-    >;
+    summary: Schema.Attribute.Component<'page-componets.faq', false>;
   };
 }
 
