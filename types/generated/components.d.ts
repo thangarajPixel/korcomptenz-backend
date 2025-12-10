@@ -1465,6 +1465,7 @@ export interface MenuAboutMenuWhoWeAre extends Struct.ComponentSchema {
   attributes: {
     content: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
     title: Schema.Attribute.String;
   };
 }
@@ -1476,6 +1477,7 @@ export interface MenuAboutusNavigationitems extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
+    link: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
     title: Schema.Attribute.String;
   };
 }
@@ -1642,6 +1644,7 @@ export interface MenuSidebarAboutus extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Text;
     icon: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
     title: Schema.Attribute.String;
   };
 }

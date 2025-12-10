@@ -17,6 +17,10 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "link": {
+      "type": "string",
+      "default": "/"
     }
   },
   "config": {}

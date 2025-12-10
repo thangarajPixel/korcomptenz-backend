@@ -17,6 +17,10 @@
     },
     "description": {
       "type": "text"
+    },
+    "link": {
+      "type": "string",
+      "default": "/"
     }
   },
   "config": {}
