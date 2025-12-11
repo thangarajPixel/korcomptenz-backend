@@ -35,6 +35,7 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
                   child: {
                     populate: {
                       href: true,
+                      attachment: true
                     },
                   },
                 },
