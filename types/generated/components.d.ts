@@ -490,6 +490,13 @@ export interface CaseStudyPartner extends Struct.ComponentSchema {
     icon: 'crown';
   };
   attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     name: Schema.Attribute.String;
   };
@@ -1224,7 +1231,13 @@ export interface HomeScheduleCall extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Schedule a Call'>;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     link: Schema.Attribute.String;
     title: Schema.Attribute.Text;
     topDescription: Schema.Attribute.Text;
