@@ -1650,6 +1650,15 @@ export interface MenuSidebarAboutus extends Struct.ComponentSchema {
   };
 }
 
+export interface NewsAndEventNewsEventList extends Struct.ComponentSchema {
+  collectionName: 'components_news_and_event_news_event_lists';
+  info: {
+    displayName: 'news-event-list';
+    icon: 'cast';
+  };
+  attributes: {};
+}
+
 export interface NotFoundNotFound extends Struct.ComponentSchema {
   collectionName: 'components_not_found_not_founds';
   info: {
@@ -2569,6 +2578,7 @@ declare module '@strapi/strapi' {
       'menu.items': MenuItems;
       'menu.section': MenuSection;
       'menu.sidebar-aboutus': MenuSidebarAboutus;
+      'news-and-event.news-event-list': NewsAndEventNewsEventList;
       'not-found.not-found': NotFoundNotFound;
       'page-componets.banner-section-list': PageComponetsBannerSectionList;
       'page-componets.benefit-data': PageComponetsBenefitData;

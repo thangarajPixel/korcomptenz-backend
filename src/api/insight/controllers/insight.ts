@@ -11,7 +11,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
       const filters: {
         technologies?: { id: { $in: number[] }, slug?: { $eq: string } },
         services?: { id: { $in: number[] }, slug?: { $eq: string } },
-        category?: { slug?: { $eq: string } }
+        // category?: { slug?: { $in: string[] } }
       } = {};
       if (ctx.query.filter) {
         const { technologies, services }: { technologies?: string[], services?: string[] } = ctx.query?.filter;
@@ -24,9 +24,6 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
           const serviceIds = services.map(Number);
           filters.services = { id: { $in: serviceIds } };
         }
-      }
-      if (ctx.query.slug) {
-        filters.category = { slug: { $eq: ctx.query.slug as string } };
       }
       ctx.query = {
         ...ctx.query,
@@ -41,6 +38,9 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
           services: true,
           technologies: true,
           category: true,
+        },
+        filters: {
+          ...filters,
         },
         where: {
           $and: [
@@ -59,11 +59,9 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
                   }
                 }
               ]
-            }
+            },
+            { category: { slug: { $eq: ctx.query.slug } } }
           ]
-        },
-        filters: {
-          ...filters
         },
       };
 

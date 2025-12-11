@@ -1174,7 +1174,6 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    bannerInfo: Schema.Attribute.Component<'demo-page.demo-banner-info', false>;
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Book a Demo'>;
@@ -1182,6 +1181,7 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'> &
       Schema.Attribute.Private;
@@ -1570,7 +1570,6 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    bannerInfo: Schema.Attribute.Component<'demo-page.demo-banner-info', false>;
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Book a Demo'>;
@@ -1578,6 +1577,7 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

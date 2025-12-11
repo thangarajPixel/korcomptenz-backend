@@ -24,10 +24,12 @@
     "buttonLink": {
       "type": "string"
     },
-    "bannerInfo": {
-      "type": "component",
-      "component": "demo-page.demo-banner-info",
-      "repeatable": false
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
