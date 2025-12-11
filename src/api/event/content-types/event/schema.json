@@ -10,5 +10,24 @@
     "draftAndPublish": true
   },
   "pluginOptions": {},
-  "attributes": {}
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Book a Demo"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "bannerInfo": {
+      "type": "component",
+      "component": "demo-page.demo-banner-info",
+      "repeatable": false
+    }
+  }
 }
