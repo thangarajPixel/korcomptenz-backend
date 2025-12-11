@@ -497,7 +497,7 @@ export interface CaseStudyPartner extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
-    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    logo: Schema.Attribute.Media<'images'>;
     name: Schema.Attribute.String;
   };
 }
@@ -2419,6 +2419,7 @@ export interface SubPageComponetsBuildDataRightSection
       ['image', 'description', 'form', 'video', 'customDescription']
     >;
     customDescription: Schema.Attribute.Component<'global.custom-list', true>;
+    customDescriptionImage: Schema.Attribute.Media<'images'>;
     customTitle: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<

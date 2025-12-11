@@ -132,6 +132,23 @@
     "isBgGray": {
       "type": "boolean",
       "default": false
+    },
+    "customDescriptionImage": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "content"
+            },
+            "customDescription"
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}

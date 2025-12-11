@@ -111,6 +111,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                         }
                       },
                       customDescription: true,
+                      customDescriptionImage: true,
                     },
                   }
                 },
