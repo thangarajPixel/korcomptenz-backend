@@ -1830,6 +1830,39 @@ export interface ApiReserveSpotLeadReserveSpotLead
   };
 }
 
+export interface ApiWebinarReserveSpotWebinarReserveSpot
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'webinar_reserve_spots';
+  info: {
+    displayName: 'webinar-reserve-spot';
+    pluralName: 'webinar-reserve-spots';
+    singularName: 'webinar-reserve-spot';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    insight: Schema.Attribute.Relation<'oneToOne', 'api::insight.insight'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::webinar-reserve-spot.webinar-reserve-spot'
+    > &
+      Schema.Attribute.Private;
+    organization: Schema.Attribute.String & Schema.Attribute.Required;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -2378,6 +2411,7 @@ declare module '@strapi/strapi' {
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::reserve-lead.reserve-lead': ApiReserveLeadReserveLead;
       'api::reserve-spot-lead.reserve-spot-lead': ApiReserveSpotLeadReserveSpotLead;
+      'api::webinar-reserve-spot.webinar-reserve-spot': ApiWebinarReserveSpotWebinarReserveSpot;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

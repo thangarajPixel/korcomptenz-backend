@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "webinar_reserve_spots",
+  "info": {
+    "singularName": "webinar-reserve-spot",
+    "pluralName": "webinar-reserve-spots",
+    "displayName": "webinar-reserve-spot"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "organization": {
+      "type": "string",
+      "required": true
+    },
+    "insight": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::insight.insight"
+    }
+  }
+}
