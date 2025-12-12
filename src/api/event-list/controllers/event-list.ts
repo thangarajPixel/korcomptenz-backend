@@ -39,6 +39,11 @@ export default factories.createCoreController('api::event-list.event-list', ({ s
       populate: {
         image: true,
       },
+      filters: {
+        publishedAt: {
+          $ne: null,
+        },
+      }
     });
     // Calling the default core action
     const { data, meta } = await super.find(ctx);
