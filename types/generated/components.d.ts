@@ -1020,6 +1020,26 @@ export interface FormFieldsFreeConsultationForm extends Struct.ComponentSchema {
   };
 }
 
+export interface FormFieldsInsightReserveSpot extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_insight_reserve_spots';
+  info: {
+    displayName: 'insight-reserve-spot';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String & Schema.Attribute.Required;
+    companyLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Company'>;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
+    nameLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Full Name'>;
+    phoneLabel: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Phone Number'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface FormFieldsReserveSpotFields extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_reserve_spot_fields';
   info: {
@@ -2547,6 +2567,7 @@ declare module '@strapi/strapi' {
       'form-fields.contact-us-form': FormFieldsContactUsForm;
       'form-fields.form': FormFieldsForm;
       'form-fields.free-consultation-form': FormFieldsFreeConsultationForm;
+      'form-fields.insight-reserve-spot': FormFieldsInsightReserveSpot;
       'form-fields.reserve-spot-fields': FormFieldsReserveSpotFields;
       'global.button': GlobalButton;
       'global.custom-list': GlobalCustomList;

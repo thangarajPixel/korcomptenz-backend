@@ -1226,6 +1226,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.career',
         'form-fields.reserve-spot-fields',
         'form-fields.free-consultation-form',
+        'form-fields.insight-reserve-spot',
       ]
     > &
       Schema.Attribute.Required &

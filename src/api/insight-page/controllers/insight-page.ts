@@ -33,7 +33,8 @@ export default factories.createCoreController('api::insight-page.insight-page', 
                   populate: {
                     image: true,
                   },
-                }
+                },
+                'form-fields.insight-reserve-spot': true
               }
             }
           }

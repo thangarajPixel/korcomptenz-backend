@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_form_fields_insight_reserve_spots",
+  "info": {
+    "displayName": "insight-reserve-spot",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "buttonText": {
+      "type": "string",
+      "required": true
+    },
+    "emailLabel": {
+      "type": "string",
+      "default": "Email"
+    },
+    "companyLabel": {
+      "type": "string",
+      "default": "Company"
+    },
+    "phoneLabel": {
+      "type": "string",
+      "default": "Phone Number"
+    },
+    "nameLabel": {
+      "type": "string",
+      "default": "Full Name"
+    }
+  },
+  "config": {}
+}
