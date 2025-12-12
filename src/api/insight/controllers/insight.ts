@@ -88,7 +88,8 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         populate: {
           heroSection: {
             populate: {
-              image: true
+              image: true,
+              mobileImage: true,
             }
           },
           attachment: true,

@@ -480,6 +480,7 @@ export interface CaseStudyHeroSection extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'Learn More'>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    mobileImage: Schema.Attribute.Media<'images'>;
   };
 }
 
