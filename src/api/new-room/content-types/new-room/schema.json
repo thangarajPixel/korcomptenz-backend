@@ -38,6 +38,13 @@
         "news-and-event.simple-image-gallery",
         "news-and-event.news-service"
       ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true,
+      "unique": true,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     }
   }
 }

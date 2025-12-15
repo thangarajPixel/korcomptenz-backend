@@ -5,6 +5,11 @@
   },
   "options": {},
   "attributes": {
+    "heading": {
+      "type": "component",
+      "component": "news-and-event.news-title-description-only",
+      "repeatable": false
+    },
     "thirdSection": {
       "type": "component",
       "component": "news-and-event.news-list-description",

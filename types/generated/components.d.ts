@@ -1706,6 +1706,20 @@ export interface NewsAndEventCompoundsNewsroom extends Struct.ComponentSchema {
   };
 }
 
+export interface NewsAndEventNewsBanner extends Struct.ComponentSchema {
+  collectionName: 'components_news_and_event_news_banners';
+  info: {
+    displayName: 'news-banner';
+    icon: 'archive';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    isVideo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.Text;
+    videoLink: Schema.Attribute.String;
+  };
+}
+
 export interface NewsAndEventNewsDescriptionOnly
   extends Struct.ComponentSchema {
   collectionName: 'components_news_and_event_news_description_onlies';
@@ -1756,6 +1770,10 @@ export interface NewsAndEventNewsService extends Struct.ComponentSchema {
   };
   attributes: {
     button: Schema.Attribute.Component<'global.button', false>;
+    heading: Schema.Attribute.Component<
+      'news-and-event.news-title-description-only',
+      false
+    >;
     thirdSection: Schema.Attribute.Component<
       'news-and-event.news-list-description',
       false
@@ -2721,6 +2739,7 @@ declare module '@strapi/strapi' {
       'menu.section': MenuSection;
       'menu.sidebar-aboutus': MenuSidebarAboutus;
       'news-and-event.compounds-newsroom': NewsAndEventCompoundsNewsroom;
+      'news-and-event.news-banner': NewsAndEventNewsBanner;
       'news-and-event.news-description-only': NewsAndEventNewsDescriptionOnly;
       'news-and-event.news-event-list': NewsAndEventNewsEventList;
       'news-and-event.news-list-description': NewsAndEventNewsListDescription;

@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_news_and_event_news_banners",
+  "info": {
+    "displayName": "news-banner",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"],
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isVideo"
+            },
+            false
+          ]
+        }
+      }
+    },
+    "isVideo": {
+      "type": "boolean",
+      "default": false
+    },
+    "videoLink": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isVideo"
+            },
+            true
+          ]
+        }
+      }
+    }
+  },
+  "config": {}
+}

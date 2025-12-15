@@ -1586,6 +1586,7 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
         'news-and-event.news-title-description-only',
         'news-and-event.compounds-newsroom',
         'news-and-event.simple-image-gallery',
+        'news-and-event.news-service',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1595,6 +1596,9 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
