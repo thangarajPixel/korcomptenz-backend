@@ -18,12 +18,8 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
         populate: {
           list: {
             on: {
-              'news-and-event.news-description-only': {
-                populate: true,
-              },
-              'news-and-event.news-title-description-only': {
-                populate: true,
-              },
+              'news-and-event.news-description-only': true,
+              'news-and-event.news-title-description-only': true,
               'news-and-event.compounds-newsroom': {
                 populate: {
                   heading: true,
@@ -64,6 +60,7 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
                   image: true,
                 }
               },
+              'news-and-event.color-custom-description': true,
             }
           }
         },

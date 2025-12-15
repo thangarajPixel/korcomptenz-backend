@@ -11,8 +11,6 @@
     },
     "image": {
       "type": "media",
-      "multiple": false,
-      "allowedTypes": ["images"],
       "conditions": {
         "visible": {
           "==": [
@@ -22,7 +20,11 @@
             false
           ]
         }
-      }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "isVideo": {
       "type": "boolean",
@@ -40,6 +42,11 @@
           ]
         }
       }
+    },
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form"
     }
   },
   "config": {}

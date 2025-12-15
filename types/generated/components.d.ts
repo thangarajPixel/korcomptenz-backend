@@ -1684,6 +1684,24 @@ export interface MenuSidebarAboutus extends Struct.ComponentSchema {
   };
 }
 
+export interface NewsAndEventColorCustomDescription
+  extends Struct.ComponentSchema {
+  collectionName: 'components_news_and_event_color_custom_descriptions';
+  info: {
+    displayName: 'colour-custom-description';
+  };
+  attributes: {
+    colour: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface NewsAndEventCompoundsNewsroom extends Struct.ComponentSchema {
   collectionName: 'components_news_and_event_compounds_newsrooms';
   info: {
@@ -1713,6 +1731,7 @@ export interface NewsAndEventNewsBanner extends Struct.ComponentSchema {
     icon: 'archive';
   };
   attributes: {
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     image: Schema.Attribute.Media<'images'>;
     isVideo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     title: Schema.Attribute.Text;
@@ -2738,6 +2757,7 @@ declare module '@strapi/strapi' {
       'menu.items': MenuItems;
       'menu.section': MenuSection;
       'menu.sidebar-aboutus': MenuSidebarAboutus;
+      'news-and-event.color-custom-description': NewsAndEventColorCustomDescription;
       'news-and-event.compounds-newsroom': NewsAndEventCompoundsNewsroom;
       'news-and-event.news-banner': NewsAndEventNewsBanner;
       'news-and-event.news-description-only': NewsAndEventNewsDescriptionOnly;
