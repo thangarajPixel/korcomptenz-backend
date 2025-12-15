@@ -18,13 +18,13 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
         populate: {
           list: {
             on: {
-              'new-room.news-description-only': {
+              'news-and-event.news-description-only': {
                 populate: true,
               },
-              'new-room.news-title-description-only': {
+              'news-and-event.news-title-description-only': {
                 populate: true,
               },
-              'new-room.compounds-newsroom': {
+              'news-and-event.compounds-newsroom': {
                 populate: {
                   heading: true,
                   stretchableComponent: {
@@ -39,7 +39,7 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
                   },
                 }
               },
-              'new-room.simple-image-gallery': {
+              'news-and-event.simple-image-gallery': {
                 populate: {
                   list: {
                     populate: {
@@ -48,7 +48,7 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
                   },
                 }
               },
-              'new-room.news-service': {
+              'news-and-event.news-service': {
                 populate: {
                   heading: true,
                   button: true,
@@ -59,7 +59,7 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
                   },
                 }
               },
-              'new-room.news-banner': {
+              'news-and-event.news-banner': {
                 populate: {
                   image: true,
                 }
