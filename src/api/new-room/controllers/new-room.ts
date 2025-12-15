@@ -18,8 +18,12 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
         populate: {
           list: {
             on: {
-              'new-room.news-description-only': true,
-              'new-room.news-title-description-only': true,
+              'new-room.news-description-only': {
+                populate: true,
+              },
+              'new-room.news-title-description-only': {
+                populate: true,
+              },
               'new-room.compounds-newsroom': {
                 populate: {
                   heading: true,

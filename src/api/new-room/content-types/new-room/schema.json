@@ -27,7 +27,9 @@
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "list": {
       "type": "dynamiczone",
@@ -36,14 +38,14 @@
         "news-and-event.news-title-description-only",
         "news-and-event.compounds-newsroom",
         "news-and-event.simple-image-gallery",
-        "news-and-event.news-service"
+        "news-and-event.news-service",
+        "news-and-event.news-banner"
       ]
     },
     "slug": {
       "type": "uid",
       "targetField": "title",
       "required": true,
-      "unique": true,
       "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     }
   }
