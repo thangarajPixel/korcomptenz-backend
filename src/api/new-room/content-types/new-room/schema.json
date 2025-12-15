@@ -27,8 +27,16 @@
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": [
-        "images"
+      "allowedTypes": ["images"]
+    },
+    "list": {
+      "type": "dynamiczone",
+      "components": [
+        "news-and-event.news-description-only",
+        "news-and-event.news-title-description-only",
+        "news-and-event.compounds-newsroom",
+        "news-and-event.simple-image-gallery",
+        "news-and-event.news-service"
       ]
     }
   }

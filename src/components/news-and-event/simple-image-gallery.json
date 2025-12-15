@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_news_and_event_simple_image_galleries",
+  "info": {
+    "displayName": "simple-image-gallery",
+    "icon": "layer"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "component": "home.opportunity-profile",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

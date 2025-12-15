@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_news_and_event_compounds_newsrooms",
+  "info": {
+    "displayName": "compounds-newsroom",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "component",
+      "component": "news-and-event.news-title-description-only",
+      "repeatable": false
+    },
+    "stretchableComponent": {
+      "type": "component",
+      "component": "page-componets.stretchable-section",
+      "repeatable": false
+    },
+    "thirdSection": {
+      "type": "component",
+      "component": "news-and-event.news-list-description",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

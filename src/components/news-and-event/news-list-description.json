@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_news_and_event_news_list_descriptions",
+  "info": {
+    "displayName": "news-list-description",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "component": "news-and-event.news-title-description-only",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

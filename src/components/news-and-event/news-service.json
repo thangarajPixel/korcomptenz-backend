@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_news_and_event_news_services",
+  "info": {
+    "displayName": "news-service"
+  },
+  "options": {},
+  "attributes": {
+    "thirdSection": {
+      "type": "component",
+      "component": "news-and-event.news-list-description",
+      "repeatable": false
+    },
+    "button": {
+      "type": "component",
+      "component": "global.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

@@ -1684,6 +1684,46 @@ export interface MenuSidebarAboutus extends Struct.ComponentSchema {
   };
 }
 
+export interface NewsAndEventCompoundsNewsroom extends Struct.ComponentSchema {
+  collectionName: 'components_news_and_event_compounds_newsrooms';
+  info: {
+    displayName: 'compounds-newsroom';
+    icon: 'apps';
+  };
+  attributes: {
+    heading: Schema.Attribute.Component<
+      'news-and-event.news-title-description-only',
+      false
+    >;
+    stretchableComponent: Schema.Attribute.Component<
+      'page-componets.stretchable-section',
+      false
+    >;
+    thirdSection: Schema.Attribute.Component<
+      'news-and-event.news-list-description',
+      false
+    >;
+  };
+}
+
+export interface NewsAndEventNewsDescriptionOnly
+  extends Struct.ComponentSchema {
+  collectionName: 'components_news_and_event_news_description_onlies';
+  info: {
+    displayName: 'news-description-only';
+    icon: 'handHeart';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface NewsAndEventNewsEventList extends Struct.ComponentSchema {
   collectionName: 'components_news_and_event_news_event_lists';
   info: {
@@ -1691,6 +1731,72 @@ export interface NewsAndEventNewsEventList extends Struct.ComponentSchema {
     icon: 'cast';
   };
   attributes: {};
+}
+
+export interface NewsAndEventNewsListDescription
+  extends Struct.ComponentSchema {
+  collectionName: 'components_news_and_event_news_list_descriptions';
+  info: {
+    displayName: 'news-list-description';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<
+      'news-and-event.news-title-description-only',
+      true
+    >;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface NewsAndEventNewsService extends Struct.ComponentSchema {
+  collectionName: 'components_news_and_event_news_services';
+  info: {
+    displayName: 'news-service';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'global.button', false>;
+    thirdSection: Schema.Attribute.Component<
+      'news-and-event.news-list-description',
+      false
+    >;
+  };
+}
+
+export interface NewsAndEventNewsTitleDescriptionOnly
+  extends Struct.ComponentSchema {
+  collectionName: 'components_news_and_event_news_title_description_onlies';
+  info: {
+    displayName: 'news-title-description-only';
+    icon: 'code';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
+export interface NewsAndEventSimpleImageGallery extends Struct.ComponentSchema {
+  collectionName: 'components_news_and_event_simple_image_galleries';
+  info: {
+    displayName: 'simple-image-gallery';
+    icon: 'layer';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'home.opportunity-profile', true>;
+  };
 }
 
 export interface NotFoundNotFound extends Struct.ComponentSchema {
@@ -2614,7 +2720,13 @@ declare module '@strapi/strapi' {
       'menu.items': MenuItems;
       'menu.section': MenuSection;
       'menu.sidebar-aboutus': MenuSidebarAboutus;
+      'news-and-event.compounds-newsroom': NewsAndEventCompoundsNewsroom;
+      'news-and-event.news-description-only': NewsAndEventNewsDescriptionOnly;
       'news-and-event.news-event-list': NewsAndEventNewsEventList;
+      'news-and-event.news-list-description': NewsAndEventNewsListDescription;
+      'news-and-event.news-service': NewsAndEventNewsService;
+      'news-and-event.news-title-description-only': NewsAndEventNewsTitleDescriptionOnly;
+      'news-and-event.simple-image-gallery': NewsAndEventSimpleImageGallery;
       'not-found.not-found': NotFoundNotFound;
       'page-componets.banner-section-list': PageComponetsBannerSectionList;
       'page-componets.benefit-data': PageComponetsBenefitData;

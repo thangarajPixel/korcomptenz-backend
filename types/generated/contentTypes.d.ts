@@ -1580,6 +1580,14 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    list: Schema.Attribute.DynamicZone<
+      [
+        'news-and-event.news-description-only',
+        'news-and-event.news-title-description-only',
+        'news-and-event.compounds-newsroom',
+        'news-and-event.simple-image-gallery',
+      ]
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
