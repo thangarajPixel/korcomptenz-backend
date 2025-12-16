@@ -60,7 +60,8 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
                 }
               ]
             },
-            { category: { slug: { $eq: ctx.query.slug } } }
+            { category: { slug: { $eq: ctx.query.slug } } },
+            { publishedAt: { $notNull: true } },
           ]
         },
       };
@@ -162,16 +163,22 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
       }
       // If Blog
       if (entity.content === 'blog') {
+        const techIds = entity.technologies?.map(t => t.id) || [];
+        const serviceIds = entity.services?.map(s => s.id) || [];
         // Find related Insights
         const relatedInsight = await strapi.db.query('api::insight.insight').findMany({
           where: {
-            id: { $ne: entity.id }, // exclude current one
-            publishedAt: { $notNull: true },
-            $or: [
-              entity.technologies.length ? { technologies: { id: { $in: entity.technologies } } } : {},
-              entity.services.length ? { services: { id: { $in: entity.services } } } : {},
-              entity.category.id ? { category: { id: { $in: entity.category?.id } } } : {},
-            ].filter(o => Object.keys(o).length), // remove empty filters
+            slug: { $ne: ctx.params.slug }, // exclude current one
+            $and: [
+              { category: { id: { $in: entity.category.id } } },
+              { publishedAt: { $notNull: true } },
+              {
+                $or: [
+                  techIds.length ? { technologies: { id: { $in: techIds } } } : {},
+                  serviceIds.length ? { services: { id: { $in: serviceIds } } } : {},
+                ].filter(o => Object.keys(o).length), // remove empty filters
+              }
+            ],
           },
           populate: {
             heroSection: true,
