@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_news_and_event_testimonal_lists",
+  "info": {
+    "displayName": "testimonal-list",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "list": {
+      "type": "component",
+      "component": "case-study.testimonial-section",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -20,7 +20,8 @@
         "form-fields.career",
         "form-fields.reserve-spot-fields",
         "form-fields.free-consultation-form",
-        "form-fields.insight-reserve-spot"
+        "form-fields.insight-reserve-spot",
+        "form-fields.news-room-form"
       ],
       "required": true,
       "min": 1,

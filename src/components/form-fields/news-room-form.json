@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_form_fields_news_room_forms",
+  "info": {
+    "displayName": "news-room-form"
+  },
+  "options": {},
+  "attributes": {
+    "nameLabel": {
+      "type": "string"
+    },
+    "emailLabel": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

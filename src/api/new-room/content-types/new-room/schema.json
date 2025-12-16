@@ -33,9 +33,7 @@
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "list": {
       "type": "dynamiczone",
@@ -47,7 +45,7 @@
         "news-and-event.news-service",
         "news-and-event.news-banner",
         "news-and-event.color-custom-description",
-        "case-study.testimonial-section",
+        "news-and-event.testimonal-list",
         "news-and-event.build-data"
       ]
     }

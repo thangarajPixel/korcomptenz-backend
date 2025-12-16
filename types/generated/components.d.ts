@@ -606,7 +606,13 @@ export interface CaseStudyTestimonialSection extends Struct.ComponentSchema {
     icon: 'chartBubble';
   };
   attributes: {
-    description: Schema.Attribute.RichText;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     title: Schema.Attribute.String;
   };
 }
@@ -1038,6 +1044,17 @@ export interface FormFieldsInsightReserveSpot extends Struct.ComponentSchema {
     phoneLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Phone Number'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface FormFieldsNewsRoomForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_news_room_forms';
+  info: {
+    displayName: 'news-room-form';
+  };
+  attributes: {
+    emailLabel: Schema.Attribute.String;
+    nameLabel: Schema.Attribute.String;
   };
 }
 
@@ -1853,6 +1870,17 @@ export interface NewsAndEventSimpleImageGallery extends Struct.ComponentSchema {
   };
   attributes: {
     list: Schema.Attribute.Component<'home.opportunity-profile', true>;
+  };
+}
+
+export interface NewsAndEventTestimonalList extends Struct.ComponentSchema {
+  collectionName: 'components_news_and_event_testimonal_lists';
+  info: {
+    displayName: 'testimonal-list';
+    icon: 'file';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'case-study.testimonial-section', true>;
   };
 }
 
@@ -2732,6 +2760,7 @@ declare module '@strapi/strapi' {
       'form-fields.form': FormFieldsForm;
       'form-fields.free-consultation-form': FormFieldsFreeConsultationForm;
       'form-fields.insight-reserve-spot': FormFieldsInsightReserveSpot;
+      'form-fields.news-room-form': FormFieldsNewsRoomForm;
       'form-fields.reserve-spot-fields': FormFieldsReserveSpotFields;
       'global.button': GlobalButton;
       'global.custom-list': GlobalCustomList;
@@ -2787,6 +2816,7 @@ declare module '@strapi/strapi' {
       'news-and-event.news-service': NewsAndEventNewsService;
       'news-and-event.news-title-description-only': NewsAndEventNewsTitleDescriptionOnly;
       'news-and-event.simple-image-gallery': NewsAndEventSimpleImageGallery;
+      'news-and-event.testimonal-list': NewsAndEventTestimonalList;
       'not-found.not-found': NotFoundNotFound;
       'page-componets.banner-section-list': PageComponetsBannerSectionList;
       'page-componets.benefit-data': PageComponetsBenefitData;

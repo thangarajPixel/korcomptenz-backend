@@ -1227,6 +1227,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.reserve-spot-fields',
         'form-fields.free-consultation-form',
         'form-fields.insight-reserve-spot',
+        'form-fields.news-room-form',
       ]
     > &
       Schema.Attribute.Required &
@@ -1589,7 +1590,7 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
         'news-and-event.news-service',
         'news-and-event.news-banner',
         'news-and-event.color-custom-description',
-        'case-study.testimonial-section',
+        'news-and-event.testimonal-list',
         'news-and-event.build-data',
       ]
     >;
