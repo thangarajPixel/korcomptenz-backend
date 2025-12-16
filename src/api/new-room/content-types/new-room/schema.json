@@ -27,9 +27,6 @@
       "type": "string",
       "default": "Book a Demo"
     },
-    "buttonLink": {
-      "type": "string"
-    },
     "image": {
       "type": "media",
       "multiple": false,
