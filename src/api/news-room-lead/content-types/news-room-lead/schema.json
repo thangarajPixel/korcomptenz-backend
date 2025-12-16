@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_room_leads",
+  "info": {
+    "singularName": "news-room-lead",
+    "pluralName": "news-room-leads",
+    "displayName": "news-room-lead"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "newRoom": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::new-room.new-room"
+    }
+  }
+}

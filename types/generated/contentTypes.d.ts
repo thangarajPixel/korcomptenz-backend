@@ -1638,6 +1638,37 @@ export interface ApiNewsListNewsList extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiNewsRoomLeadNewsRoomLead
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'news_room_leads';
+  info: {
+    displayName: 'news-room-lead';
+    pluralName: 'news-room-leads';
+    singularName: 'news-room-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::news-room-lead.news-room-lead'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    newRoom: Schema.Attribute.Relation<'oneToOne', 'api::new-room.new-room'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNotFoundNotFound extends Struct.SingleTypeSchema {
   collectionName: 'not_founds';
   info: {
@@ -2422,6 +2453,7 @@ declare module '@strapi/strapi' {
       'api::layout.layout': ApiLayoutLayout;
       'api::new-room.new-room': ApiNewRoomNewRoom;
       'api::news-list.news-list': ApiNewsListNewsList;
+      'api::news-room-lead.news-room-lead': ApiNewsRoomLeadNewsRoomLead;
       'api::not-found.not-found': ApiNotFoundNotFound;
       'api::page.page': ApiPagePage;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;

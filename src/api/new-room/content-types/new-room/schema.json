@@ -35,6 +35,11 @@
       "multiple": false,
       "allowedTypes": ["images"]
     },
+    "attachment": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
     "list": {
       "type": "dynamiczone",
       "components": [

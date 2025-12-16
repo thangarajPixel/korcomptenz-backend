@@ -2,7 +2,6 @@
  * new-room controller
  */
 
-import qs from 'qs';
 import { factories } from '@strapi/strapi'
 
 export default factories.createCoreController('api::new-room.new-room', ({ strapi }) => ({
@@ -16,6 +15,7 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
           publishedAt: { $notNull: true },
         },
         populate: {
+          attachment: false,
           list: {
             on: {
               'news-and-event.news-description-only': true,
