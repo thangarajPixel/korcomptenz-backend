@@ -1574,7 +1574,6 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
   };
   attributes: {
     attachment: Schema.Attribute.Media<'images'>;
-    buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Book a Demo'>;
     createdAt: Schema.Attribute.DateTime;
@@ -1610,12 +1609,13 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiNewsLetterNewsLetter extends Struct.CollectionTypeSchema {
-  collectionName: 'news_letters';
+export interface ApiNewsLetterListNewsLetterList
+  extends Struct.SingleTypeSchema {
+  collectionName: 'news_letter_lists';
   info: {
-    displayName: 'news-letter';
-    pluralName: 'news-letters';
-    singularName: 'news-letter';
+    displayName: 'news-letter-list';
+    pluralName: 'news-letter-lists';
+    singularName: 'news-letter-list';
   };
   options: {
     draftAndPublish: true;
@@ -1627,10 +1627,43 @@ export interface ApiNewsLetterNewsLetter extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
+      'api::news-letter-list.news-letter-list'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNewsLetterNewsLetter extends Struct.CollectionTypeSchema {
+  collectionName: 'news_letters';
+  info: {
+    displayName: 'news-letter';
+    pluralName: 'news-letters';
+    singularName: 'news-letter';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Book a Demo'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
       'api::news-letter.news-letter'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2480,6 +2513,7 @@ declare module '@strapi/strapi' {
       'api::insight.insight': ApiInsightInsight;
       'api::layout.layout': ApiLayoutLayout;
       'api::new-room.new-room': ApiNewRoomNewRoom;
+      'api::news-letter-list.news-letter-list': ApiNewsLetterListNewsLetterList;
       'api::news-letter.news-letter': ApiNewsLetterNewsLetter;
       'api::news-list.news-list': ApiNewsListNewsList;
       'api::news-room-lead.news-room-lead': ApiNewsRoomLeadNewsRoomLead;

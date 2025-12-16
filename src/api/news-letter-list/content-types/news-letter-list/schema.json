@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "news_letter_lists",
+  "info": {
+    "singularName": "news-letter-list",
+    "pluralName": "news-letter-lists",
+    "displayName": "news-letter-list"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
+    },
+    "list": {
+      "type": "dynamiczone",
+      "components": ["demo-page.demo-banner-list"]
+    }
+  }
+}
