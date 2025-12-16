@@ -47,6 +47,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::form.form"
+    },
+    "description": {
+      "type": "text"
     }
   },
   "config": {}
