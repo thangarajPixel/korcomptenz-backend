@@ -1684,6 +1684,25 @@ export interface MenuSidebarAboutus extends Struct.ComponentSchema {
   };
 }
 
+export interface NewsAndEventBuildData extends Struct.ComponentSchema {
+  collectionName: 'components_news_and_event_build_data';
+  info: {
+    displayName: 'build-data';
+    icon: 'collapse';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    listDescription: Schema.Attribute.Component<'global.custom-list', true>;
+  };
+}
+
 export interface NewsAndEventColorCustomDescription
   extends Struct.ComponentSchema {
   collectionName: 'components_news_and_event_color_custom_descriptions';
@@ -2758,6 +2777,7 @@ declare module '@strapi/strapi' {
       'menu.items': MenuItems;
       'menu.section': MenuSection;
       'menu.sidebar-aboutus': MenuSidebarAboutus;
+      'news-and-event.build-data': NewsAndEventBuildData;
       'news-and-event.color-custom-description': NewsAndEventColorCustomDescription;
       'news-and-event.compounds-newsroom': NewsAndEventCompoundsNewsroom;
       'news-and-event.news-banner': NewsAndEventNewsBanner;

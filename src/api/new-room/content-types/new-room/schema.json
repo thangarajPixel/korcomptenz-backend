@@ -47,7 +47,8 @@
         "news-and-event.news-service",
         "news-and-event.news-banner",
         "news-and-event.color-custom-description",
-        "case-study.testimonial-section"
+        "case-study.testimonial-section",
+        "news-and-event.build-data"
       ]
     }
   }

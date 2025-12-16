@@ -62,6 +62,16 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
               },
               'news-and-event.color-custom-description': true,
               'case-study.testimonial-section': true,
+              'news-and-event.build-data': {
+                populate: {
+                  image: true,
+                  listDescription: {
+                    populate: {
+                      list: true,
+                    }
+                  },
+                },
+              },
             }
           }
         },

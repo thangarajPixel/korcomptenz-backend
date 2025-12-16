@@ -1590,6 +1590,7 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
         'news-and-event.news-banner',
         'news-and-event.color-custom-description',
         'case-study.testimonial-section',
+        'news-and-event.build-data',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

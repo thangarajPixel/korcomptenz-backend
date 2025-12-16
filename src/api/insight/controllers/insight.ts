@@ -103,11 +103,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
               faq: true
             }
           },
-          author: {
-            populate: {
-              image: true
-            }
-          },
+          author: true,
           podcast: {
             populate: {
               podcastPlatForm: true
@@ -214,12 +210,11 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
           orderBy: { publishedAt: 'asc' }, // get the earliest one after current
         });
         // Sanitize responses
-        const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
         const sanitizedPrevious = await this.sanitizeOutput(previous, ctx);
         const sanitizedNext = await this.sanitizeOutput(next, ctx);
         const sanitizedRelatedInsight = await this.sanitizeOutput(relatedInsight, ctx);
         return this.transformResponse({
-          insight: sanitizedEntity,
+          insight: entity,
           previousInsight: sanitizedPrevious,
           nextInsight: sanitizedNext,
           relatedInsight: sanitizedRelatedInsight,
