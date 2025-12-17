@@ -1185,6 +1185,22 @@ export interface GlobalTitleDescripiton extends Struct.ComponentSchema {
   };
 }
 
+export interface HomeFourLayerGrid extends Struct.ComponentSchema {
+  collectionName: 'components_home_four_layer_grids';
+  info: {
+    displayName: 'four-layer-grid';
+    icon: 'cog';
+  };
+  attributes: {
+    des: Schema.Attribute.Text;
+    list: Schema.Attribute.Component<
+      'sub-page-componets.gram-banner-list',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface HomeHeader extends Struct.ComponentSchema {
   collectionName: 'components_home_headers';
   info: {
@@ -2771,6 +2787,7 @@ declare module '@strapi/strapi' {
       'global.policy': GlobalPolicy;
       'global.social-platform': GlobalSocialPlatform;
       'global.title-descripiton': GlobalTitleDescripiton;
+      'home.four-layer-grid': HomeFourLayerGrid;
       'home.header': HomeHeader;
       'home.hero-section-one': HomeHeroSectionOne;
       'home.nav-item': HomeNavItem;

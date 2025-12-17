@@ -43,6 +43,11 @@
       "relation": "oneToMany",
       "target": "api::case-technology.case-technology"
     },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::insight-tag.insight-tag"
+    },
     "services": {
       "type": "relation",
       "relation": "oneToMany",

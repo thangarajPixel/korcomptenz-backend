@@ -165,6 +165,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
       if (entity.content === 'blog') {
         const techIds = entity.technologies?.map(t => t.id) || [];
         const serviceIds = entity.services?.map(s => s.id) || [];
+        const tagIds = entity.tags?.map(t => t.id) || [];
         // Find related Insights
         const relatedInsight = await strapi.db.query('api::insight.insight').findMany({
           where: {
@@ -176,6 +177,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
                 $or: [
                   techIds.length ? { technologies: { id: { $in: techIds } } } : {},
                   serviceIds.length ? { services: { id: { $in: serviceIds } } } : {},
+                  tagIds.length ? { tags: { id: { $in: tagIds } } } : {},
                 ].filter(o => Object.keys(o).length), // remove empty filters
               }
             ],
@@ -183,6 +185,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
           populate: {
             heroSection: true,
             featureImage: true,
+            category: true,
           },
           limit: 3,
           orderBy: { publishedAt: 'desc' },
@@ -216,12 +219,11 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         // Sanitize responses
         const sanitizedPrevious = await this.sanitizeOutput(previous, ctx);
         const sanitizedNext = await this.sanitizeOutput(next, ctx);
-        const sanitizedRelatedInsight = await this.sanitizeOutput(relatedInsight, ctx);
         return this.transformResponse({
           insight: entity,
           previousInsight: sanitizedPrevious,
           nextInsight: sanitizedNext,
-          relatedInsight: sanitizedRelatedInsight,
+          relatedInsight,
         });
       }
 

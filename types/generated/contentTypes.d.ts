@@ -1313,6 +1313,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
         'case-study.case-study-sticky-cards-list',
         'case-study.case-study-domain-data',
         'insight-section.insight-list',
+        'page-componets.slide-content',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1462,6 +1463,34 @@ export interface ApiInsightPageInsightPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiInsightTagInsightTag extends Struct.CollectionTypeSchema {
+  collectionName: 'insight_tags';
+  info: {
+    displayName: 'insight-tag';
+    pluralName: 'insight-tags';
+    singularName: 'insight-tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    label: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::insight-tag.insight-tag'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
   collectionName: 'insights';
   info: {
@@ -1512,6 +1541,10 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
       'api::case-service.case-service'
     >;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    tags: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::insight-tag.insight-tag'
+    >;
     technologies: Schema.Attribute.Relation<
       'oneToMany',
       'api::case-technology.case-technology'
@@ -2513,6 +2546,7 @@ declare module '@strapi/strapi' {
       'api::insight-category.insight-category': ApiInsightCategoryInsightCategory;
       'api::insight-list-page.insight-list-page': ApiInsightListPageInsightListPage;
       'api::insight-page.insight-page': ApiInsightPageInsightPage;
+      'api::insight-tag.insight-tag': ApiInsightTagInsightTag;
       'api::insight.insight': ApiInsightInsight;
       'api::layout.layout': ApiLayoutLayout;
       'api::new-room.new-room': ApiNewRoomNewRoom;
