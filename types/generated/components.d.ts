@@ -1708,6 +1708,7 @@ export interface NewsAndEventBuildData extends Struct.ComponentSchema {
     icon: 'collapse';
   };
   attributes: {
+    button: Schema.Attribute.Component<'global.button', false>;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',

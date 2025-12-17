@@ -24,6 +24,11 @@
       "type": "component",
       "component": "global.custom-list",
       "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "global.button",
+      "repeatable": false
     }
   },
   "config": {}

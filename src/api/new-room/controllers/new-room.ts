@@ -74,6 +74,7 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
                       list: true,
                     }
                   },
+                  button: true,
                 },
               },
             }
