@@ -58,6 +58,11 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
               'news-and-event.news-banner': {
                 populate: {
                   image: true,
+                  form: {
+                    populate: {
+                      forms: true
+                    }
+                  },
                 }
               },
               'news-and-event.color-custom-description': true,
