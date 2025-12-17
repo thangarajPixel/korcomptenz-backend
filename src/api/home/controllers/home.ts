@@ -116,7 +116,8 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
               },
             },
           }
-        }
+        },
+        seo: true
       },
     }, {
       encode: false,
