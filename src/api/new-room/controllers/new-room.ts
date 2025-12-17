@@ -60,7 +60,15 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
                   image: true,
                   form: {
                     populate: {
-                      forms: true
+                      forms: {
+                        on: {
+                          'form-fields.news-room-form': {
+                            populate: {
+                              list: true
+                            }
+                          }
+                        }
+                      }
                     }
                   },
                 }
