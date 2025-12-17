@@ -8,16 +8,30 @@ export default factories.createCoreController('api::news-room-lead.news-room-lea
   async create(ctx) {
     try {
       const data = ctx.request.body.data;
-      if (data.newRoom) {
+      if (data.newRoomID) {
         const newRoom = await strapi.db.query('api::new-room.new-room').findOne({
           where: {
-            id: data.newRoom?.id,
+            slug: data.newRoomID,
           },
           populate: {
             attachment: true,
           }
         });
         if (newRoom) {
+          const newRoomData = {
+            connect: [
+              {
+                id: newRoom.id,
+                documentId: newRoom.documentId,
+                isTemporary: true,
+              },
+            ],
+          };
+
+          ctx.request.body.data = {
+            ...data,
+            newRoom: newRoomData,
+          };
           const response = await super.create(ctx);
           // const res = await strapi.plugin('email-designer');
           // const info = await strapi.plugin('email').service('email').send({

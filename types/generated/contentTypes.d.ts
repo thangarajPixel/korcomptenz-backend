@@ -1725,6 +1725,7 @@ export interface ApiNewsRoomLeadNewsRoomLead
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     newRoom: Schema.Attribute.Relation<'oneToOne', 'api::new-room.new-room'>;
+    newRoomID: Schema.Attribute.String & Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

@@ -12,15 +12,22 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "isRequired": true
     },
     "email": {
-      "type": "email"
+      "type": "email",
+      "isRequired": true
     },
     "newRoom": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::new-room.new-room"
+    },
+    "newRoomID": {
+      "type": "string",
+      "private": true,
+      "isRequired": true
     }
   }
 }
