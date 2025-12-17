@@ -8,10 +8,10 @@ export default factories.createCoreController('api::news-room-lead.news-room-lea
   async create(ctx) {
     try {
       const data = ctx.request.body.data;
-      if (data.newRoomId) {
+      if (data.newRoom) {
         const newRoom = await strapi.db.query('api::new-room.new-room').findOne({
           where: {
-            id: data.newRoomId,
+            id: data.newRoom?.id,
           },
           populate: {
             attachment: true,
