@@ -18,14 +18,15 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
           }
         });
         if (caseStudy) {
-          const response = await super.create(ctx);
+          await super.create(ctx);
+          console.log("Case study lead created successfully", caseStudy?.attachment);
           // const res = await strapi.plugin('email-designer');
           const info = await strapi.plugin('email').service('email').send({
             // from: '"Korcomptenz" <maddison53@ethereal.email>',
             to: data?.email,
             subject: "Case Study",
             text: "Hello world?", // plain‑text body
-            html: caseStudy?.attachment?.size > 700000 ? `
+            html: caseStudy?.attachment?.size > 400000 ? `
     <b>Case Study Details</b><br/>
     <p>Please download the case study using the link below:</p>
     <a href="${caseStudy?.attachment?.url}" target="_blank">Download Case Study</a>
