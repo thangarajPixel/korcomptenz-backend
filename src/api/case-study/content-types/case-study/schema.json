@@ -93,6 +93,25 @@
     "isAttachment": {
       "type": "boolean",
       "default": true
+    },
+    "isHaveRelatedCase": {
+      "type": "boolean",
+      "default": false
+    },
+    "relatedCaseStudies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::case-study.case-study",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isHaveRelatedCase"
+            },
+            true
+          ]
+        }
+      }
     }
   }
 }

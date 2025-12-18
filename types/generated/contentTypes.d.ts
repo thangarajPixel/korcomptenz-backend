@@ -885,6 +885,8 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
     >;
     heroSection: Schema.Attribute.Component<'case-study.hero-section', false>;
     isAttachment: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    isHaveRelatedCase: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -899,6 +901,10 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
     regions: Schema.Attribute.Relation<
       'oneToMany',
       'api::case-region.case-region'
+    >;
+    relatedCaseStudies: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::case-study.case-study'
     >;
     rightSection: Schema.Attribute.Component<'case-study.right-section', true>;
     seo: Schema.Attribute.Component<'seo.seo', false>;

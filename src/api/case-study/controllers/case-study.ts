@@ -179,6 +179,11 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
               customDescription: true,
             },
           },
+          relatedCaseStudies: {
+            populate: {
+              heroSection: { populate: { image: true } },
+            }
+          },
           case_industries: true,
           regions: true,
           technologies: true,
@@ -190,35 +195,32 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
         return ctx.notFound('Page not found');
       }
       // Extract related field IDs
-      const techIds = entity.technologies?.map(t => t.id) || [];
-      const serviceIds = entity.services?.map(s => s.id) || [];
-      const regionIds = entity.regions?.map(r => r.id) || [];
-      const industryIds = entity.case_industries?.map(i => i.id) || [];
+      // const techIds = entity.technologies?.map(t => t.id) || [];
+      // const serviceIds = entity.services?.map(s => s.id) || [];
+      // const regionIds = entity.regions?.map(r => r.id) || [];
+      // const industryIds = entity.case_industries?.map(i => i.id) || [];
       // Find related case studies
-      const related = await strapi.db.query('api::case-study.case-study').findMany({
-        where: {
-          id: { $ne: entity.id }, // exclude current one
-          publishedAt: { $notNull: true },
-          $or: [
-            techIds.length ? { technologies: { id: { $in: techIds } } } : {},
-            serviceIds.length ? { services: { id: { $in: serviceIds } } } : {},
-            regionIds.length ? { regions: { id: { $in: regionIds } } } : {},
-            industryIds.length ? { case_industries: { id: { $in: industryIds } } } : {},
-          ].filter(o => Object.keys(o).length), // remove empty filters
-        },
-        populate: {
-          heroSection: { populate: { image: true } },
-        },
-        limit: 3,
-        orderBy: { publishedAt: 'desc' },
-      });
+      // const related = await strapi.db.query('api::case-study.case-study').findMany({
+      //   where: {
+      //     id: { $ne: entity.id }, // exclude current one
+      //     publishedAt: { $notNull: true },
+      //     $or: [
+      //       techIds.length ? { technologies: { id: { $in: techIds } } } : {},
+      //       serviceIds.length ? { services: { id: { $in: serviceIds } } } : {},
+      //       regionIds.length ? { regions: { id: { $in: regionIds } } } : {},
+      //       industryIds.length ? { case_industries: { id: { $in: industryIds } } } : {},
+      //     ].filter(o => Object.keys(o).length), // remove empty filters
+      //   },
+      //   populate: {
+      //     heroSection: { populate: { image: true } },
+      //   },
+      //   limit: 3,
+      //   orderBy: { publishedAt: 'desc' },
+      // });
       // Sanitize responses
       // const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
-      const sanitizedRelated = await this.sanitizeOutput(related, ctx);
-      return this.transformResponse({
-        caseStudy: entity,
-        relatedCaseStudies: sanitizedRelated,
-      });
+      // const sanitizedRelated = await this.sanitizeOutput(related, ctx);
+      return this.transformResponse(entity);
     } catch (error) {
       strapi.log.error('Case Study find error:', error);
       return ctx.internalServerError('Failed to fetch case study data');
