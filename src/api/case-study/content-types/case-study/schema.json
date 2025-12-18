@@ -69,13 +69,30 @@
     "attachment": {
       "type": "media",
       "private": true,
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isAttachment"
+            },
+            true
+          ]
+        }
+      },
       "multiple": false,
-      "allowedTypes": ["images", "files"]
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     },
     "rightSection": {
       "type": "component",
       "component": "case-study.right-section",
       "repeatable": true
+    },
+    "isAttachment": {
+      "type": "boolean",
+      "default": true
     }
   }
 }

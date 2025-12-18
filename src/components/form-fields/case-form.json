@@ -33,6 +33,9 @@
     "buttonText": {
       "type": "string",
       "default": "Submit"
+    },
+    "downloadContent": {
+      "type": "string"
     }
   },
   "config": {}

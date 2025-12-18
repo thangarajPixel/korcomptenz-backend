@@ -884,6 +884,7 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
       true
     >;
     heroSection: Schema.Attribute.Component<'case-study.hero-section', false>;
+    isAttachment: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

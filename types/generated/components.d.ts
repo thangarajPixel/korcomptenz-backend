@@ -958,6 +958,7 @@ export interface FormFieldsCaseForm extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Submit'>;
+    downloadContent: Schema.Attribute.String;
     emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
     messageLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Message'>;
@@ -1181,22 +1182,6 @@ export interface GlobalTitleDescripiton extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
-  };
-}
-
-export interface HomeFourLayerGrid extends Struct.ComponentSchema {
-  collectionName: 'components_home_four_layer_grids';
-  info: {
-    displayName: 'four-layer-grid';
-    icon: 'cog';
-  };
-  attributes: {
-    des: Schema.Attribute.Text;
-    list: Schema.Attribute.Component<
-      'sub-page-componets.gram-banner-list',
-      true
-    >;
     title: Schema.Attribute.String;
   };
 }
@@ -2787,7 +2772,6 @@ declare module '@strapi/strapi' {
       'global.policy': GlobalPolicy;
       'global.social-platform': GlobalSocialPlatform;
       'global.title-descripiton': GlobalTitleDescripiton;
-      'home.four-layer-grid': HomeFourLayerGrid;
       'home.header': HomeHeader;
       'home.hero-section-one': HomeHeroSectionOne;
       'home.nav-item': HomeNavItem;
