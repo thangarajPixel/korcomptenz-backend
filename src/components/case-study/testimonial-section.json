@@ -15,6 +15,9 @@
       "options": {
         "preset": "defaultHtml"
       }
+    },
+    "author": {
+      "type": "string"
     }
   },
   "config": {}

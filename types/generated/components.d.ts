@@ -606,6 +606,7 @@ export interface CaseStudyTestimonialSection extends Struct.ComponentSchema {
     icon: 'chartBubble';
   };
   attributes: {
+    author: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
