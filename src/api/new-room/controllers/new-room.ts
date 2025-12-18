@@ -98,7 +98,7 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
         return ctx.notFound('Page not found');
       }
       const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
-      return this.transformResponse(sanitizedEntity);
+      return entity;
     } catch (error) {
       console.log(error);
       return error;
