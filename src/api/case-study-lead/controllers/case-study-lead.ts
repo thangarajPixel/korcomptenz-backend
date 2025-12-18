@@ -25,17 +25,19 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
             to: data?.email,
             subject: "Case Study",
             text: "Hello world?", // plain‑text body
-            html: `
+            html: caseStudy?.attachment?.size > 700000 ? `
     <b>Case Study Details</b><br/>
     <p>Please download the case study using the link below:</p>
     <a href="${caseStudy?.attachment?.url}" target="_blank">Download Case Study</a>
-  `, // HTML body
-            // attachments: !!caseStudy?.attachment?.url ? [
-            //   {
-            //     filename: caseStudy?.attachment?.name,
-            //     href: caseStudy?.attachment?.url
-            //   },
-            // ] : undefined,
+  ` : `
+    <b>Case Study Details</b>
+  `,
+            attachments: (!!caseStudy?.attachment?.url && caseStudy?.attachment?.size > 700000) ? [
+              {
+                filename: caseStudy?.attachment?.name,
+                href: caseStudy?.attachment?.url
+              },
+            ] : undefined,
           });
 
           console.log("Message sent:", info.messageId);
