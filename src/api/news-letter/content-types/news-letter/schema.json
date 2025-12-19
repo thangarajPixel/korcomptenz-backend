@@ -30,7 +30,26 @@
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "isHasExternalLink": {
+      "type": "boolean",
+      "default": false
+    },
+    "externalLink": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isHasExternalLink"
+            },
+            true
+          ]
+        }
+      }
     }
   }
 }
