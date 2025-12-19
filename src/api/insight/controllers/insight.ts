@@ -163,8 +163,8 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
       }
       // If Blog
       if (entity.content === 'blog') {
-        const techIds = entity.technologies?.map(t => t.id) || [];
-        const serviceIds = entity.services?.map(s => s.id) || [];
+        // const techIds = entity.technologies?.map(t => t.id) || [];
+        // const serviceIds = entity.services?.map(s => s.id) || [];
         const tagIds = entity.tags?.map(t => t.id) || [];
         // Find related Insights
         const relatedInsight = await strapi.db.query('api::insight.insight').findMany({
@@ -175,8 +175,8 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
               { publishedAt: { $notNull: true } },
               {
                 $or: [
-                  techIds.length ? { technologies: { id: { $in: techIds } } } : {},
-                  serviceIds.length ? { services: { id: { $in: serviceIds } } } : {},
+                  // techIds.length ? { technologies: { id: { $in: techIds } } } : {},
+                  // serviceIds.length ? { services: { id: { $in: serviceIds } } } : {},
                   tagIds.length ? { tags: { id: { $in: tagIds } } } : {},
                 ].filter(o => Object.keys(o).length), // remove empty filters
               }
