@@ -16,6 +16,20 @@
       "type": "boolean",
       "default": false
     },
+    "isPerRowThree": {
+      "type": "boolean",
+      "default": false,
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isSwap"
+            },
+            true
+          ]
+        }
+      }
+    },
     "slides": {
       "type": "component",
       "component": "page-componets.dark-slider-card",

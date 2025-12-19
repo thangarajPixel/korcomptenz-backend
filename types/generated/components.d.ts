@@ -2023,6 +2023,7 @@ export interface PageComponetsDarkSliderList extends Struct.ComponentSchema {
   attributes: {
     descripition: Schema.Attribute.Text;
     heading: Schema.Attribute.String;
+    isPerRowThree: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isSwap: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     slides: Schema.Attribute.Component<'page-componets.dark-slider-card', true>;
   };
