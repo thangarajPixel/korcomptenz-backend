@@ -41,6 +41,11 @@ export default factories.createCoreController('api::about-us.about-us', ({ strap
                     image: true,
                     logo: true,
                     logoMobile: true,
+                    footer: {
+                      populate: {
+                        logo: true,
+                      }
+                    }
                   }
                 },
               }

@@ -11,10 +11,39 @@
     },
     "description": {
       "type": "customField",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isHasCustomList"
+            },
+            false
+          ]
+        }
+      },
       "customField": "plugin::ckeditor5.CKEditor",
       "options": {
         "preset": "defaultHtml"
       }
+    },
+    "isHasCustomList": {
+      "type": "boolean",
+      "default": false
+    },
+    "list": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isHasCustomList"
+            },
+            true
+          ]
+        }
+      },
+      "component": "global.title-descripiton",
+      "repeatable": true
     }
   },
   "config": {}

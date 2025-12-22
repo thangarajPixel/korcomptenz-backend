@@ -2111,6 +2111,9 @@ export interface PageComponetsFaq extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
+    isHasCustomList: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    list: Schema.Attribute.Component<'global.title-descripiton', true>;
     title: Schema.Attribute.String;
   };
 }
@@ -2624,8 +2627,10 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
+    footer: Schema.Attribute.Component<'case-study.partner', false>;
     image: Schema.Attribute.Media<'images'>;
     imageMobile: Schema.Attribute.Media<'images'>;
+    isHasFooter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     logo: Schema.Attribute.Media<'images'>;
     logoMobile: Schema.Attribute.Media<'images'>;

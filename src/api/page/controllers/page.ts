@@ -43,6 +43,11 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                       image: true,
                       logo: true,
                       logoMobile: true,
+                      footer: {
+                        populate: {
+                          logo: true,
+                        }
+                      }
                     }
                   },
                 }
@@ -136,7 +141,11 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               },
               'page-componets.faq-title': {
                 populate: {
-                  faq: true
+                  faq: {
+                    populate: {
+                      list: true
+                    }
+                  }
                 }
               },
               'page-componets.dark-slider-list': {

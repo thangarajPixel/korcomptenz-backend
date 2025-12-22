@@ -41,6 +41,11 @@ export default factories.createCoreController('api::career.career', () => ({
                     image: true,
                     logo: true,
                     logoMobile: true,
+                    footer: {
+                      populate: {
+                        logo: true,
+                      }
+                    }
                   }
                 },
               }

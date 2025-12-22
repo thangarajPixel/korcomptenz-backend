@@ -8,22 +8,30 @@
     "imageMobile": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "logo": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "logoMobile": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "title": {
       "type": "string"
@@ -50,6 +58,25 @@
     },
     "secondLink": {
       "type": "string"
+    },
+    "isHasFooter": {
+      "type": "boolean",
+      "default": false
+    },
+    "footer": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isHasFooter"
+            },
+            true
+          ]
+        }
+      },
+      "component": "case-study.partner",
+      "repeatable": false
     }
   },
   "config": {}

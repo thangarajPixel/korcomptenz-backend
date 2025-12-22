@@ -41,6 +41,11 @@ export default factories.createCoreController('api::contact-us.contact-us', ({ s
                     image: true,
                     logo: true,
                     logoMobile: true,
+                    footer: {
+                      populate: {
+                        logo: true,
+                      }
+                    }
                   }
                 },
               }
