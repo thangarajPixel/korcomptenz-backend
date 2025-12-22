@@ -112,6 +112,11 @@
           ]
         }
       }
+    },
+    "video": {
+      "type": "component",
+      "component": "global.video",
+      "repeatable": false
     }
   }
 }

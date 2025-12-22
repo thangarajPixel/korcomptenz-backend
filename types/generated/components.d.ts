@@ -1187,6 +1187,18 @@ export interface GlobalTitleDescripiton extends Struct.ComponentSchema {
   };
 }
 
+export interface GlobalVideo extends Struct.ComponentSchema {
+  collectionName: 'components_global_videos';
+  info: {
+    displayName: 'video';
+    icon: 'play';
+  };
+  attributes: {
+    link: Schema.Attribute.String;
+    thumbnail: Schema.Attribute.Media<'images'>;
+  };
+}
+
 export interface HomeHeader extends Struct.ComponentSchema {
   collectionName: 'components_home_headers';
   info: {
@@ -2774,6 +2786,7 @@ declare module '@strapi/strapi' {
       'global.policy': GlobalPolicy;
       'global.social-platform': GlobalSocialPlatform;
       'global.title-descripiton': GlobalTitleDescripiton;
+      'global.video': GlobalVideo;
       'home.header': HomeHeader;
       'home.hero-section-one': HomeHeroSectionOne;
       'home.nav-item': HomeNavItem;

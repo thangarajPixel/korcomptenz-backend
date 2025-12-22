@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_global_videos",
+  "info": {
+    "displayName": "video",
+    "icon": "play"
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

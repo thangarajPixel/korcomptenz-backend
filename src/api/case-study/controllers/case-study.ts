@@ -188,7 +188,12 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
           regions: true,
           technologies: true,
           seo: true,
-          services: true
+          services: true,
+          video: {
+            populate: {
+              thumbnail: true
+            }
+          },
         },
       });
       if (!entity) {
