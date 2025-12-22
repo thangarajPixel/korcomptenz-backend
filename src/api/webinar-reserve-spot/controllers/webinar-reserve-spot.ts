@@ -24,6 +24,16 @@ export default factories.createCoreController('api::webinar-reserve-spot.webinar
       // });
 
       // console.log("Message sent:", info.messageId);
+      const info = await strapi.plugin('email').service('email').send({
+        // from: '"Korcomptenz" <maddison53@ethereal.email>',
+        to: ctx.request.body.data?.email,
+        subject: "Thank you for your message.",
+        text: "Hello world?", // plain‑text body
+        html: `
+    <b>Thank you for your message.</b>
+  `,
+      });
+      console.log("Message sent:", info.messageId);
       return { data: { success: true, ...response.data, message: 'Webinar Reserve Spot created successfully' } };
     } catch (error) {
       console.log(error);

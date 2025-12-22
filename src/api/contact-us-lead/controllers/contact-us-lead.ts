@@ -23,7 +23,16 @@ export default factories.createCoreController('api::contact-us-lead.contact-us-l
       //   ].filter(value => !!caseStudy?.attachment?.url),
       // });
 
-      // console.log("Message sent:", info.messageId);
+      const info = await strapi.plugin('email').service('email').send({
+        // from: '"Korcomptenz" <maddison53@ethereal.email>',
+        to: ctx.request.body.data?.email,
+        subject: "Thank you for your message.",
+        text: "Hello world?", // plain‑text body
+        html: `
+    <b>Thank you for your message.</b>
+  `,
+      });
+      console.log("Message sent:", info.messageId);
       return { data: { success: true, ...response.data, message: 'Thank you for your message. We will get back to you soon.' } };
     } catch (error) {
       console.log(error);

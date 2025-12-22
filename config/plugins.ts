@@ -25,14 +25,18 @@ module.exports = ({ env }) => {
           host: env('MAIL_HOST', 'smtp.example.com'),
           port: env('MAIL_PORT', 587),
           auth: {
-            user: env('MAIL_USERNAME'),
-            pass: env('MAIL_PASSWORD'),
+            user: env('MAIL_USERNAME', undefined),
+            pass: env('MAIL_PASSWORD', undefined),
           },
+          // secure: false, // Port 25 → no SSL/TLS by default
+          // tls: {
+          //   rejectUnauthorized: false, // optional, helps avoid cert issues
+          // },
           // ... any custom nodemailer options
         },
         settings: {
-          defaultFrom: env('MAIL_FROM', ''),
-          defaultReplyTo: env('MAIL_FROM', ''),
+          defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
+          defaultReplyTo: env('MAIL_FROM', 'info@korcomptenz.com'),
         },
       },
     },

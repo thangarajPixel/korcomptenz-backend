@@ -34,21 +34,16 @@ export default factories.createCoreController('api::news-room-lead.news-room-lea
           };
           const response = await super.create(ctx);
           // const res = await strapi.plugin('email-designer');
-          // const info = await strapi.plugin('email').service('email').send({
-          //   from: '"Korcomptenz" <maddison53@ethereal.email>',
-          //   to: data.email,
-          //   subject: "Case Study",
-          //   text: "Hello world?", // plain‑text body
-          //   html: "<b>Case Study Details</b>", // HTML body
-          //   attachments: [
-          //     {
-          //       filename: caseStudy?.attachment?.name,
-          //       href: caseStudy?.attachment?.url
-          //     },
-          //   ].filter(value => !!caseStudy?.attachment?.url),
-          // });
-
-          // console.log("Message sent:", info.messageId);
+          const info = await strapi.plugin('email').service('email').send({
+            // from: '"Korcomptenz" <maddison53@ethereal.email>',
+            to: ctx.request.body.data?.email,
+            subject: "Thank you for your message.",
+            text: "Hello world?", // plain‑text body
+            html: `
+    <b>Thank you for your message.</b>
+  `,
+          });
+          console.log("Message sent:", info.messageId);
           return { data: { success: true, ...response.data, message: 'New room lead created successfully', attachment: newRoom.attachment } };
         }
         return ctx.notFound('New room not found');
