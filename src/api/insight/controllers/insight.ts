@@ -3,7 +3,7 @@
  */
 
 import { factories } from '@strapi/strapi'
-import bulkJson from "../../../../public/kore.json";
+// import bulkJson from "../../../../public/kore.json";
 
 export default factories.createCoreController('api::insight.insight', ({ strapi }) => ({
   async find(ctx) {
@@ -234,6 +234,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
     }
   },
   async bulkCreate(ctx) {
+    const { bulkJson } = ctx.request.body;
     const compileData = (bulkJson as any).map((item) => {
       const commonData = {
         slug: item.slug,
