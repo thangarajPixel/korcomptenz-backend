@@ -20,6 +20,9 @@
       "options": {
         "preset": "defaultHtml"
       }
+    },
+    "link": {
+      "type": "string"
     }
   },
   "config": {}
