@@ -498,6 +498,7 @@ export interface CaseStudyPartner extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
+    link: Schema.Attribute.String;
     logo: Schema.Attribute.Media<'images'>;
     name: Schema.Attribute.String;
   };
