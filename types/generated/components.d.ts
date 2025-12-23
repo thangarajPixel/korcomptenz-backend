@@ -816,6 +816,8 @@ export interface DemoPageDemoDemonstration extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
+    footer: Schema.Attribute.Component<'global.image-description', false>;
+    isHasFooter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'global.editor-descripiton', true>;
     title: Schema.Attribute.Text;
   };
@@ -1136,6 +1138,18 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
     subtitle: Schema.Attribute.String;
     subTitleTwo: Schema.Attribute.String;
     title: Schema.Attribute.Text;
+  };
+}
+
+export interface GlobalImageDescription extends Struct.ComponentSchema {
+  collectionName: 'components_global_image_descriptions';
+  info: {
+    displayName: 'image-description';
+    icon: 'apps';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
   };
 }
 
@@ -2787,6 +2801,7 @@ declare module '@strapi/strapi' {
       'global.custom-list': GlobalCustomList;
       'global.editor-descripiton': GlobalEditorDescripiton;
       'global.global-field': GlobalGlobalField;
+      'global.image-description': GlobalImageDescription;
       'global.link': GlobalLink;
       'global.policy': GlobalPolicy;
       'global.social-platform': GlobalSocialPlatform;

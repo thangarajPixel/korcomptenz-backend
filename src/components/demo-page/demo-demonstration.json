@@ -20,6 +20,25 @@
       "type": "component",
       "component": "global.editor-descripiton",
       "repeatable": true
+    },
+    "isHasFooter": {
+      "type": "boolean",
+      "default": false
+    },
+    "footer": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isHasFooter"
+            },
+            true
+          ]
+        }
+      },
+      "component": "global.image-description",
+      "repeatable": false
     }
   },
   "config": {}

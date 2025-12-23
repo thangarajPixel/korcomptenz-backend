@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_global_image_descriptions",
+  "info": {
+    "displayName": "image-description",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
