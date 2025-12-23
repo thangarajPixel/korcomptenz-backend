@@ -384,6 +384,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               'demo-page.demo-demonstration': {
                 populate: {
                   list: true,
+                  footer: true
                 }
               },
               'demo-page.experts-section': {

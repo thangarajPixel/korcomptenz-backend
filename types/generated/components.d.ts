@@ -1148,7 +1148,13 @@ export interface GlobalImageDescription extends Struct.ComponentSchema {
     icon: 'apps';
   };
   attributes: {
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
   };
 }
