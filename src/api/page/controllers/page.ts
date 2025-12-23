@@ -381,10 +381,14 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 }
               },
+             
+
               'demo-page.demo-demonstration': {
                 populate: {
                   list: true,
-                  footer: true
+                  footer: {
+                    image:true
+                  }
                 }
               },
               'demo-page.experts-section': {
