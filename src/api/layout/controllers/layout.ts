@@ -32,6 +32,7 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
               items: {
                 populate: {
                   href: true,
+                  footerLink: true,
                   child: {
                     populate: {
                       href: true,

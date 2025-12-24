@@ -1705,6 +1705,7 @@ export interface MenuItems extends Struct.ComponentSchema {
   };
   attributes: {
     child: Schema.Attribute.Component<'menu.home-menu', true>;
+    footerLink: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     href: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     side: Schema.Attribute.Enumeration<['left', 'right', 'top', 'bottom']>;
     title: Schema.Attribute.String;
