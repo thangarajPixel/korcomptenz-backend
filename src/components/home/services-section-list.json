@@ -26,6 +26,9 @@
     },
     "link": {
       "type": "string"
+    },
+    "bottomButtonText": {
+      "type": "string"
     }
   },
   "config": {}

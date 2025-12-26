@@ -16,6 +16,10 @@
       "type": "component",
       "component": "case-study.partner",
       "repeatable": true
+    },
+    "isTwoPerRow": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

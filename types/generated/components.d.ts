@@ -885,6 +885,7 @@ export interface DemoPageDemoPartnership extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.Text;
+    isTwoPerRow: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'case-study.partner', true>;
     title: Schema.Attribute.Text;
   };
@@ -1323,6 +1324,8 @@ export interface HomeServicesSection extends Struct.ComponentSchema {
     displayName: 'services-section';
   };
   attributes: {
+    IsBottomButton: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'home.services-section-list', true>;
   };
 }
@@ -1333,6 +1336,7 @@ export interface HomeServicesSectionList extends Struct.ComponentSchema {
     displayName: 'services-section-list';
   };
   attributes: {
+    bottomButtonText: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     heading: Schema.Attribute.String;
@@ -2115,6 +2119,7 @@ export interface PageComponetsDomainSlides extends Struct.ComponentSchema {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }

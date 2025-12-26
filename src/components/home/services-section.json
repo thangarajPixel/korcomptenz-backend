@@ -9,6 +9,10 @@
       "type": "component",
       "component": "home.services-section-list",
       "repeatable": true
+    },
+    "IsBottomButton": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}
