@@ -29,6 +29,13 @@
     },
     "bottomButtonText": {
       "type": "string"
+    },
+    "bottomlink": {
+      "type": "string"
+    },
+    "isBottomButton": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

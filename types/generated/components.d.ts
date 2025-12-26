@@ -1324,8 +1324,6 @@ export interface HomeServicesSection extends Struct.ComponentSchema {
     displayName: 'services-section';
   };
   attributes: {
-    IsBottomButton: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'home.services-section-list', true>;
   };
 }
@@ -1337,10 +1335,13 @@ export interface HomeServicesSectionList extends Struct.ComponentSchema {
   };
   attributes: {
     bottomButtonText: Schema.Attribute.String;
+    bottomlink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     heading: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
+    isBottomButton: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     label: Schema.Attribute.String;
     link: Schema.Attribute.String;
   };
