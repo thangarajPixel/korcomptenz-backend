@@ -29,10 +29,10 @@ export default factories.createCoreController('api::layout.layout', ({ strapi })
           'serviceMenu': {
             populate: {
               image: true,
+              footerLink: true,
               items: {
                 populate: {
                   href: true,
-                  footerLink: true,
                   child: {
                     populate: {
                       href: true,
