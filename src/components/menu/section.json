@@ -15,6 +15,11 @@
         "images"
       ]
     },
+    "footerLink": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
+    },
     "items": {
       "type": "component",
       "component": "menu.items",

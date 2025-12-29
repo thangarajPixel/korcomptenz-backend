@@ -17,11 +17,6 @@
         "bottom"
       ]
     },
-    "footerLink": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::page.page"
-    },
     "href": {
       "type": "relation",
       "relation": "oneToOne",

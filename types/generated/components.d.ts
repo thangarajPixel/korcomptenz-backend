@@ -1710,7 +1710,6 @@ export interface MenuItems extends Struct.ComponentSchema {
   };
   attributes: {
     child: Schema.Attribute.Component<'menu.home-menu', true>;
-    footerLink: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     href: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     side: Schema.Attribute.Enumeration<['left', 'right', 'top', 'bottom']>;
     title: Schema.Attribute.String;
@@ -1723,6 +1722,7 @@ export interface MenuSection extends Struct.ComponentSchema {
     displayName: 'service-menu';
   };
   attributes: {
+    footerLink: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     image: Schema.Attribute.Media<'images'>;
     items: Schema.Attribute.Component<'menu.items', true>;
     title: Schema.Attribute.String;
