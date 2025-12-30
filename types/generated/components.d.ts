@@ -2078,6 +2078,7 @@ export interface PageComponetsDemonstrateCard extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'Explore More'>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    isTargetBlank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -2241,6 +2242,7 @@ export interface PageComponetsInsightsSectionCard
     category: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    isTargetBlank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };

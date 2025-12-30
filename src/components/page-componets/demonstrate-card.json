@@ -24,6 +24,10 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "isTargetBlank": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

@@ -24,6 +24,10 @@
     },
     "link": {
       "type": "string"
+    },
+    "isTargetBlank": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}
