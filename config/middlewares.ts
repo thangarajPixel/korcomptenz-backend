@@ -40,6 +40,7 @@ export default ({ env }) => {
     //     keepHeaderOnError: true,
     //   },
     // },
+    'strapi::cors',
     'strapi::poweredBy',
     'strapi::query',
     'strapi::body',
