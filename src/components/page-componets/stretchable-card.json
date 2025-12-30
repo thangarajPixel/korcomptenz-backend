@@ -30,6 +30,9 @@
     "link": {
       "type": "string",
       "default": "/"
+    },
+    "isTargetBlank": {
+      "type": "boolean"
     }
   },
   "config": {}

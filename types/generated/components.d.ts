@@ -2563,6 +2563,7 @@ export interface PageComponetsStretchableCard extends Struct.ComponentSchema {
         }
       >;
     image: Schema.Attribute.Media<'images' | 'files'>;
+    isTargetBlank: Schema.Attribute.Boolean;
     link: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
     title: Schema.Attribute.String;
   };
