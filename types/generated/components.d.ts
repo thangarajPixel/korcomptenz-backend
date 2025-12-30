@@ -2453,6 +2453,7 @@ export interface PageComponetsSolutions extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
+    isTargetBlank: Schema.Attribute.Boolean;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };

@@ -16,6 +16,9 @@
     },
     "link": {
       "type": "string"
+    },
+    "isTargetBlank": {
+      "type": "boolean"
     }
   },
   "config": {}
