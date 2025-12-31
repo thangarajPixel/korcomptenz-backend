@@ -28,18 +28,17 @@ export default ({ env }) => {
         },
       },
     },
-    // {
-    //   name: 'strapi::cors',
-    //   config: {
-    //     origin: env('API_ALLOW_ORIGIN', ['*'])
-    //       ?.split(',')
-    //       ?.map((o) => o.trim()),
-    //     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
-    //     headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
-    //     keepHeaderOnError: true,
-    //   },
-    // },
-    'strapi::cors',
+    {
+      name: 'strapi::cors',
+      config: {
+        origin: env('API_ALLOW_ORIGIN', ['*'])
+          ?.split(',')
+          ?.map((o) => o.trim()),
+        methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+        headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+        keepHeaderOnError: true,
+      },
+    },
     'strapi::poweredBy',
     'strapi::query',
     'strapi::body',
