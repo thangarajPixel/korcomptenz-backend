@@ -37,6 +37,7 @@ export default factories.createCoreService('api::case-study-list.case-study-list
           },
         },
         filterLabel: true,
+        seo:true,
         popularFilter: {
           populate: {
             popularFilterList: true,

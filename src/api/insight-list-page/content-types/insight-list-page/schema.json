@@ -29,7 +29,7 @@
     "categoryAllLabel": {
       "type": "string"
     },
-    "SEO": {
+    "seo": {
       "type": "component",
       "component": "seo.seo",
       "repeatable": false

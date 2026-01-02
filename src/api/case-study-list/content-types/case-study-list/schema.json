@@ -40,6 +40,11 @@
       "type": "component",
       "component": "case-study.popular-filter",
       "repeatable": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
     }
   }
 }

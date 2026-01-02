@@ -747,6 +747,7 @@ export interface ApiCaseStudyListCaseStudyList extends Struct.SingleTypeSchema {
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     testimonal: Schema.Attribute.Component<'global.title-descripiton', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1425,7 +1426,7 @@ export interface ApiInsightListPageInsightListPage
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
-    SEO: Schema.Attribute.Component<'seo.seo', false>;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
