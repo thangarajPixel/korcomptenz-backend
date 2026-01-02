@@ -156,6 +156,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
             }
           },
           featureImage: true,
+         
         },
       });
       if (!entity) {

@@ -128,7 +128,7 @@ export default factories.createCoreController('api::contact-us.contact-us', ({ s
               }
             }
           }
-        }
+        },seo: true
       },
     }, {
       encode: false,

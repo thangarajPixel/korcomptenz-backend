@@ -1425,6 +1425,7 @@ export interface ApiInsightListPageInsightListPage
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'seo.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1464,6 +1465,7 @@ export interface ApiInsightPageInsightPage extends Struct.SingleTypeSchema {
       'case-study.related-case-study',
       false
     >;
+    SEO: Schema.Attribute.Component<'seo.seo', false>;
     tableTitle: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

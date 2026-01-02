@@ -46,6 +46,11 @@
     },
     "expert": {
       "type": "text"
+    },
+    "SEO": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
     }
   }
 }

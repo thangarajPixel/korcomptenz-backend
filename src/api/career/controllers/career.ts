@@ -103,7 +103,7 @@ export default factories.createCoreController('api::career.career', () => ({
               }
             },
           }
-        }
+        },seo: true,
       },
     }, {
       encode: false,

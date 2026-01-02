@@ -28,6 +28,11 @@
     },
     "categoryAllLabel": {
       "type": "string"
+    },
+    "SEO": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
     }
   }
 }
