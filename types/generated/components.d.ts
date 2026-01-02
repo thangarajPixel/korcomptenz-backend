@@ -2521,6 +2521,7 @@ export interface PageComponetsStickyTitleCard extends Struct.ComponentSchema {
         }
       >;
     image: Schema.Attribute.Media<'images'>;
+    IsVideo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     position: Schema.Attribute.Enumeration<['corner', 'main', 'side']> &
       Schema.Attribute.DefaultTo<'corner'>;

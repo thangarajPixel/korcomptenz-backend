@@ -44,6 +44,10 @@
         "main",
         "side"
       ]
+    },
+    "IsVideo": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}
