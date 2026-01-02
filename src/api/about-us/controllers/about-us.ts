@@ -147,7 +147,7 @@ export default factories.createCoreController('api::about-us.about-us', ({ strap
               },
             },
           }
-        }
+        },seo: true,
       },
     }, {
       encode: false,
