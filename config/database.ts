@@ -15,15 +15,19 @@ export default ({ env }) => {
         flags: ['--default-storage-engine=InnoDB']
       },
       debug: false,
+      settings: { force: false,
+       alter: true,},
       options: {
         charset: 'utf8mb4_unicode_ci',
         engine: 'InnoDB', // Force InnoDB engine
       }
     },
+  
     sqlite: {
       connection: {
         filename: path.join(__dirname, '..', '..', env('DATABASE_FILENAME', '.tmp/data.db')),
       },
+
       useNullAsDefault: true,
     },
   };
