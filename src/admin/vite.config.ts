@@ -1,3 +1,4 @@
+import { server } from '@strapi/strapi/admin/test';
 import { mergeConfig, type UserConfig } from 'vite';
 
 export default (config: UserConfig) => {
@@ -7,6 +8,9 @@ export default (config: UserConfig) => {
       alias: {
         '@': '/src',
       },
+      server: {
+        allowedHosts: true,
+      }
     },
   });
 };
