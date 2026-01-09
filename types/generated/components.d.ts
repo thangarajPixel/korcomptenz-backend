@@ -2177,6 +2177,8 @@ export interface PageComponetsGramBanner extends Struct.ComponentSchema {
       >;
     image: Schema.Attribute.Media<'images'>;
     isCustomList: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isDescriptionLeft: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     isTitleLeft: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<
       'sub-page-componets.gram-banner-list',

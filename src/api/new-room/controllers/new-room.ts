@@ -90,7 +90,7 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
                   button: true,
                 },
               },
-              
+              'page-componets.gram-banner': true
             }
           },seo: true
         },

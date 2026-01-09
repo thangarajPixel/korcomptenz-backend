@@ -67,6 +67,10 @@
     "isTitleLeft": {
       "type": "boolean",
       "default": false
+    },
+    "isDescriptionLeft": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}
