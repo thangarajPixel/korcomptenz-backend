@@ -90,8 +90,9 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
                   button: true,
                 },
               },
+              
             }
-          }
+          },seo: true
         },
       });
       if (!entity) {
