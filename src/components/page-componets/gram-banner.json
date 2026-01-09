@@ -63,6 +63,10 @@
       },
       "component": "sub-page-componets.gram-banner-list",
       "repeatable": true
+    },
+    "isTitleLeft": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

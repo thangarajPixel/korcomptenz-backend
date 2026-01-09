@@ -39,10 +39,40 @@ export default factories.createCoreController('api::candidate-detail.candidate-d
       const info = await strapi.plugin('email').service('email').send({
         // from: '"Korcomptenz" <maddison53@ethereal.email>',
         to: ctx.request.body.data?.email,
-        subject: "Resume uploaded successfully",
+        subject: "Thank you for your Interest",
         text: "Hello world?", // plain‑text body
         html: `
-    <b>Thank you for your resume. We will get back to you soon.</b>
+     
+  <p>Dear <b>${ctx.request.body.data?.name}</b>,</p>
+
+  <p>
+    Thank you for evincing interest in our company. We truly appreciate the time
+    and effort you have taken to submit your resume.
+  </p>
+
+  <p>
+    We are currently in the process of reviewing multiple applications and will
+    get in touch with you soon regarding your job application.
+  </p>
+
+  <p>
+    We assure you that your resume will be kept in our repository, and we will
+    reach out to you should your skill set match our current requirements.
+    Please feel free to connect with us if you have any queries.
+  </p>
+
+  <p>
+    Best wishes for your job search.
+  </p>
+
+  <p>
+    Sincerely,<br>
+    <b>KORCOMPTENZ</b><br>
+    HR Team
+  </p>
+
+
+
   `,
       });
       console.log("Message sent:", info.messageId);

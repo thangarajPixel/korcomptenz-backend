@@ -40,5 +40,27 @@ module.exports = ({ env }) => {
         },
       },
     },
+    // email: {
+    //   config: {
+    //     provider: 'nodemailer',
+    //     providerOptions: {
+    //       host: env('MAIL_HOST', 'smtp.sendgrid.net'),
+    //       port: env('MAIL_PORT', 587),
+    //       secure: false, // false for 587 (TLS via STARTTLS)
+    //       auth: {
+    //         user: 'apikey', // MUST be exactly "apikey"
+    //         pass: env('SENDGRID_API_KEY'),
+    //       },
+    //       tls: {
+    //         rejectUnauthorized: false, // optional,️ remove in production if not needed
+    //       },
+    //     },
+    //     settings: {
+    //       defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
+    //       defaultReplyTo: env('MAIL_FROM', 'info@korcomptenz.com'),
+    //     },
+    //   },
+    // },
+
   })
 };

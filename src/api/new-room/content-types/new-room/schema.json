@@ -53,8 +53,14 @@
         "news-and-event.color-custom-description",
         "news-and-event.testimonal-list",
         "news-and-event.build-data",
-        "page-componets.gram-banner"
+        "page-componets.gram-banner",
+        "seo.seo"
       ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
     }
   }
 }
