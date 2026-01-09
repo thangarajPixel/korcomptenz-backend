@@ -9,10 +9,10 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
     try {
       ctx.query = {
         ...ctx.query,
+        isLinkOnly: "hai"
       };
 
       const { results, pagination } = await strapi.service('api::page.page').find(ctx.query);
-
       return { data: results, meta: { pagination } };
     } catch (error) {
       strapi.log.error('Page find error:', error);

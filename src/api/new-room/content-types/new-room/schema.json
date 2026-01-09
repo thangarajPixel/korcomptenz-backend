@@ -30,12 +30,16 @@
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "attachment": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "list": {
       "type": "dynamiczone",
@@ -48,7 +52,8 @@
         "news-and-event.news-banner",
         "news-and-event.color-custom-description",
         "news-and-event.testimonal-list",
-        "news-and-event.build-data"
+        "news-and-event.build-data",
+        "page-componets.gram-banner"
       ]
     }
   }

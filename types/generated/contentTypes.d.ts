@@ -1535,6 +1535,7 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     featureImage: Schema.Attribute.Media<'images'>;
     heroSection: Schema.Attribute.Component<'case-study.hero-section', false>;
+    isLinkOnly: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1637,6 +1638,7 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
         'news-and-event.color-custom-description',
         'news-and-event.testimonal-list',
         'news-and-event.build-data',
+        'page-componets.gram-banner',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

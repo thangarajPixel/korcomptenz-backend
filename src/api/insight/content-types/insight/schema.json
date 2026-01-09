@@ -62,7 +62,10 @@
       "type": "media",
       "private": true,
       "multiple": false,
-      "allowedTypes": ["images", "files"]
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     },
     "blog": {
       "type": "component",
@@ -83,6 +86,10 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::insight-category.insight-category"
+    },
+    "isLinkOnly": {
+      "type": "boolean",
+      "default": false
     },
     "webinar": {
       "type": "component",
@@ -149,7 +156,9 @@
     "featureImage": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "preWebinar": {
       "type": "component",
