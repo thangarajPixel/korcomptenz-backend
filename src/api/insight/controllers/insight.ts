@@ -42,34 +42,78 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         filters: {
           ...filters,
         },
-        where: {
+        // where: {
+        //   $and: [
+        //     {
+        //       $or: [
+        //         {
+        //           title: {
+        //             $contains: ctx?.query?.search,
+        //           }
+        //         },
+        //         {
+        //           heroSection: {
+        //             description: {
+        //               $contains: ctx?.query?.search,
+        //             }
+        //           }
+        //         }
+        //       ]
+        //     },
+        //     { category: { slug: { $eq: ctx.query.slug } } },
+        //     { publishedAt: { $notNull: true } },
+        //     { isLinkOnly: { $ne: true } }
+        //   ]
+        // },
+      };
+
+      ctx.query = {
+        ...ctx.query,
+        populate: {
+          attachment: true,
+          featureImage: true,
+          heroSection: {
+            populate: {
+              image: true,
+            },
+          },
+          services: true,
+          technologies: true,
+          category: true,
+        },
+        filters: {
+          ...filters,
           $and: [
             {
               $or: [
                 {
                   title: {
                     $contains: ctx?.query?.search,
-                  }
+                  },
                 },
                 {
                   heroSection: {
                     description: {
                       $contains: ctx?.query?.search,
-                    }
-                  }
-                }
-              ]
+                    },
+                  },
+                },
+              ],
             },
             { category: { slug: { $eq: ctx.query.slug } } },
             { publishedAt: { $notNull: true } },
-          ]
+            {
+              $or: [
+                { isLinkOnly: { $eq: false } },
+                { isLinkOnly: { $null: true } },
+              ],
+            },
+          ],
         },
       };
-
       const entity = await strapi.service('api::insight.insight').find({
         ...ctx.query,
       });
-
       const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
       const { data } = this.transformResponse(sanitizedEntity) as { data: any };
       return data;
@@ -156,7 +200,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
             }
           },
           featureImage: true,
-         
+
         },
       });
       if (!entity) {
