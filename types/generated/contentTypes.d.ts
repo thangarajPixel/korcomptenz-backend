@@ -1639,6 +1639,7 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
         'news-and-event.testimonal-list',
         'news-and-event.build-data',
         'page-componets.gram-banner',
+        'seo.seo',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1648,6 +1649,7 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
