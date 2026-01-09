@@ -25,47 +25,47 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
           filters.services = { id: { $in: serviceIds } };
         }
       }
-      ctx.query = {
-        ...ctx.query,
-        populate: {
-          attachment: true,
-          featureImage: true,
-          heroSection: {
-            populate: {
-              image: true,
-            },
-          },
-          services: true,
-          technologies: true,
-          category: true,
-        },
-        filters: {
-          ...filters,
-        },
-        // where: {
-        //   $and: [
-        //     {
-        //       $or: [
-        //         {
-        //           title: {
-        //             $contains: ctx?.query?.search,
-        //           }
-        //         },
-        //         {
-        //           heroSection: {
-        //             description: {
-        //               $contains: ctx?.query?.search,
-        //             }
-        //           }
-        //         }
-        //       ]
-        //     },
-        //     { category: { slug: { $eq: ctx.query.slug } } },
-        //     { publishedAt: { $notNull: true } },
-        //     { isLinkOnly: { $ne: true } }
-        //   ]
-        // },
-      };
+      // ctx.query = {
+      //   ...ctx.query,
+      //   populate: {
+      //     attachment: true,
+      //     featureImage: true,
+      //     heroSection: {
+      //       populate: {
+      //         image: true,
+      //       },
+      //     },
+      //     services: true,
+      //     technologies: true,
+      //     category: true,
+      //   },
+      //   filters: {
+      //     ...filters,
+      //   },
+      //   // where: {
+      //   //   $and: [
+      //   //     {
+      //   //       $or: [
+      //   //         {
+      //   //           title: {
+      //   //             $contains: ctx?.query?.search,
+      //   //           }
+      //   //         },
+      //   //         {
+      //   //           heroSection: {
+      //   //             description: {
+      //   //               $contains: ctx?.query?.search,
+      //   //             }
+      //   //           }
+      //   //         }
+      //   //       ]
+      //   //     },
+      //   //     { category: { slug: { $eq: ctx.query.slug } } },
+      //   //     { publishedAt: { $notNull: true } },
+      //   //     { isLinkOnly: { $ne: true } }
+      //   //   ]
+      //   // },
+      // };
 
       ctx.query = {
         ...ctx.query,
