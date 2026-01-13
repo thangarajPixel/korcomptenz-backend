@@ -213,7 +213,11 @@ export default factories.createCoreController('api::contact-us-lead.contact-us-l
             <tr style="background:#f4f5f7;">
               <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Page URL:</td>
               <td style="padding:10px;border-bottom:1px solid #CCC;">
-                ${lead.pageUrl || ''}
+                  <a href="https://www.korcomptenz.com/case-studies/${lead?.slug}"
+               target="_blank"
+               style="color:#249176;">
+              https://www.korcomptenz.com/case-studies/${lead?.slug}
+            </a>
               </td>
             </tr>
           </table>
