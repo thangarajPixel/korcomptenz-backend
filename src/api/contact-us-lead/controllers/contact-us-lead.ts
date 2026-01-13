@@ -41,11 +41,16 @@ export default factories.createCoreController('api::contact-us-lead.contact-us-l
       // console.log('Service Name:', serviceName);
       // console.log('Technology Name:', technologyName);
 
+      const SALES_EMAIL = strapi.config.get('emails.mail_to_emails.sales');
+      const CC_EMAIL = strapi.config.get('emails.mail_to_emails.cc');
+      // console.log('CC_EMAIL:', CC_EMAIL);
+      // console.log('SALES_EMAIL:', SALES_EMAIL);
+
       // Email to user
 
       await strapi.plugin('email').service('email').send({
         to: lead.email,
-        cc: "manikandan@pixel-studios.com",
+        cc: CC_EMAIL,
         subject: 'Request a Consultation – Korcomptenz',
         html: `
 <!DOCTYPE html>
@@ -111,9 +116,9 @@ export default factories.createCoreController('api::contact-us-lead.contact-us-l
       // Email to Admin team
 
       await strapi.plugin('email').service('email').send({
-        // to: 'sales@korcomptenz.com',
+        to: SALES_EMAIL,
+        cc: CC_EMAIL,
         subject: 'New Contact Us Lead | Korcomptenz',
-        cc: "manikandan@pixel-studios.com",
         html: `
 <!DOCTYPE html>
 <html lang="en">

@@ -60,11 +60,13 @@ export default factories.createCoreController('api::candidate-detail.candidate-d
 
       // console.log("Department Name:", departmentName);
       // console.log("Resume Link:", resumeLink);
+      const HR_EMAIL = strapi.config.get('emails.mail_to_emails.hr');
+      const CC_EMAIL = strapi.config.get('emails.mail_to_emails.cc');
 
       const info = await strapi.plugin('email').service('email').send({
         // from: '"Korcomptenz" <maddison53@ethereal.email>',
         to: ctx.request.body.data?.email,
-        cc: "manikandan@pixel-studios.com",
+        cc: CC_EMAIL,
         subject: 'Thank you for your Interest',
         html: `
 <!DOCTYPE html>
@@ -124,8 +126,8 @@ export default factories.createCoreController('api::candidate-detail.candidate-d
       });
       const info2 = await strapi.plugin('email').service('email').send({
         // from: '"Korcomptenz" <maddison53@ethereal.email>',
-        to: "hr@korcomptenz.com",
-        cc: "manikandan@pixel-studios.com",
+        to: HR_EMAIL,
+        cc: CC_EMAIL,
         subject: 'Submitted Profile | Korcomptenz',
         html: `
 <!DOCTYPE html>

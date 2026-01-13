@@ -30,11 +30,15 @@ export default factories.createCoreController('api::book-demo-lead.book-demo-lea
 
       // console.log('Demo From Name:', demoFromName);
       // console.log('Lead Details:', lead);
+      const SALES_EMAIL = strapi.config.get('emails.mail_to_emails.sales');
+      const CC_EMAIL = strapi.config.get('emails.mail_to_emails.cc');
+      // console.log('CC_EMAIL:', CC_EMAIL);
+      // console.log('SALES_EMAIL:', SALES_EMAIL);
 
       // email to user
       await strapi.plugin('email').service('email').send({
         to: lead.email,
-        cc: "manikandan@pixel-studios.com",
+        cc: CC_EMAIL,
         subject: 'Korcomptenz | Thank you for your enquiry',
         html: `
       <!DOCTYPE html>
@@ -101,8 +105,8 @@ export default factories.createCoreController('api::book-demo-lead.book-demo-lea
 
       // email to admin
       await strapi.plugin('email').service('email').send({
-        to: 'sales@korcomptenz.com',
-        cc: "manikandan@pixel-studios.com",
+        to: SALES_EMAIL,
+        cc: CC_EMAIL,
         subject: 'Korcomptenz | Online Enquiry',
         html: `
       <!DOCTYPE html>

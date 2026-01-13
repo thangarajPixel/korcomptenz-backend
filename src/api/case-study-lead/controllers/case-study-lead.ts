@@ -24,9 +24,15 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
           await super.create(ctx);
           console.log("Case study lead created successfully", caseStudy?.attachment);
           // const res = await strapi.plugin('email-designer');
+
+          const SALES_EMAIL = strapi.config.get('emails.mail_to_emails.sales');
+          const CC_EMAIL = strapi.config.get('emails.mail_to_emails.cc');
+          // console.log('CC_EMAIL:', CC_EMAIL);
+          // console.log('SALES_EMAIL:', SALES_EMAIL);
+
           const info = await strapi.plugin('email').service('email').send({
             to: data?.email,
-            cc: "manikandan@pixel-studios.com",
+            cc: CC_EMAIL,
             subject: 'Thank you for your interest in our Case Study',
             html: `
 <!DOCTYPE html>
@@ -105,8 +111,8 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
           });
 
           const info2 = await strapi.plugin('email').service('email').send({
-            to: "sales@korcomptenz.com",
-            cc: "manikandan@pixel-studios.com",
+            to: SALES_EMAIL,
+            cc: CC_EMAIL,
             subject: "Case Study Download",
             html: `
 <!DOCTYPE html>
