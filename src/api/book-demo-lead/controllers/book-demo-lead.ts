@@ -24,8 +24,8 @@ export default factories.createCoreController('api::book-demo-lead.book-demo-lea
       const demoFromName =
         lead.demoFrom?.title ||
         'N/A';
-      const demoFrom =
-        lead.demoFrom?.description ||
+      const slug =
+        lead.demoFrom?.buttonLink ||
         'N/A';
 
       // console.log('Demo From Name:', demoFromName);
@@ -182,9 +182,9 @@ export default factories.createCoreController('api::book-demo-lead.book-demo-lea
               </tr>
                <tr style="background-color:#f4f5f7;">
               <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Page URL:</td>
-              <td style="padding:10px;border-bottom:1px solid #CCC;">
-                <a href="https://www.korcomptenz.com/candidate-detail/${ctx.request.body.data?.slug}" target="_blank">
-                  https://www.korcomptenz.com/candidate-detail/${ctx.request.body.data?.slug}
+               <td style="padding:10px;border-bottom:1px solid #CCC;">
+                <a href="https://www.korcomptenz.com${slug}" target="_blank">
+                  https://www.korcomptenz.com${slug}
                 </a>
               </td>
 

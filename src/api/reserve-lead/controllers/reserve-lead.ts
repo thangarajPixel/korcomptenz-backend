@@ -24,8 +24,8 @@ export default factories.createCoreController('api::reserve-lead.reserve-lead', 
       const demoFromName =
         lead.demoFrom?.title ||
         'N/A';
-      const demoFrom =
-        lead.demoFrom?.description ||
+      const slug =
+        lead.demoFrom?.buttonLink ||
         'N/A';
       const SALES_EMAIL = strapi.config.get('emails.mail_to_emails.sales');
       const CC_EMAIL = strapi.config.get('emails.mail_to_emails.cc');
@@ -192,8 +192,8 @@ export default factories.createCoreController('api::reserve-lead.reserve-lead', 
                <tr style="background-color:#f4f5f7;">
               <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Page URL:</td>
               <td style="padding:10px;border-bottom:1px solid #CCC;">
-                <a href="https://www.korcomptenz.com/candidate-detail/${ctx.request.body.data?.slug}" target="_blank">
-                  https://www.korcomptenz.com/candidate-detail/${ctx.request.body.data?.slug}
+                <a href="https://www.korcomptenz.com${slug}" target="_blank">
+                  https://www.korcomptenz.com${slug}
                 </a>
               </td>
 
