@@ -57,6 +57,7 @@ module.exports = ({ env }) => {
         settings: {
           defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
           defaultReplyTo: env('MAIL_FROM', 'info@korcomptenz.com'),
+          timeout: 1000000,
         },
       },
     },
