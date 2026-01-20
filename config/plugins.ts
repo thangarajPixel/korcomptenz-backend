@@ -18,6 +18,9 @@ module.exports = ({ env }) => {
         // }
       },
     },
+
+    //smtp using app password
+
     // email: {
     //   config: {
     //     provider: 'nodemailer',
@@ -40,19 +43,37 @@ module.exports = ({ env }) => {
     //     },
     //   },
     // },
+
+    //  sendgrid [provider nodemailer]
+
+    // email: {
+    //   config: {
+    //     provider: 'nodemailer',
+    //     providerOptions: {
+    //       host: env('MAIL_HOST', undefined),
+    //       port: env('MAIL_PORT', undefined),
+    //       // host: 'smtp.sendgrid.net',
+    //       // port: 587,
+    //       secure: true, // true for 465, false for 587
+    //       auth: {
+    //         user: 'apikey',
+    //         pass: env('SENDGRID_API_KEY', undefined)
+    //       },
+    //     },
+    //     settings: {
+    //       defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
+    //       defaultReplyTo: env('MAIL_FROM', 'info@korcomptenz.com'),
+    //     },
+    //   },
+    // },
+
+    // sendgrid [provider @strapi/provider-email-sendgrid]
+
     email: {
       config: {
-        provider: 'nodemailer',
+        provider: '@strapi/provider-email-sendgrid', // Use the installed provider
         providerOptions: {
-          host: env('MAIL_HOST', undefined),
-          port: env('MAIL_PORT', undefined),
-          // host: 'smtp.sendgrid.net',
-          // port: 587,
-          secure: true, // true for 465, false for 587
-          auth: {
-            user: 'apikey',
-            pass: env('SENDGRID_API_KEY', undefined)
-          },
+          apiKey: env('SENDGRID_API_KEY'),
         },
         settings: {
           defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
@@ -61,8 +82,5 @@ module.exports = ({ env }) => {
         },
       },
     },
-
-
-
-  })
+  });
 };
