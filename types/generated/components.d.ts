@@ -2009,6 +2009,8 @@ export interface PageComponetsBuildData extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     imageCaption: Schema.Attribute.String;
     isSwap: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isTargetBlankDescription: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     mobileImage: Schema.Attribute.Media<'images'>;
     rightSection: Schema.Attribute.Component<
@@ -2187,6 +2189,7 @@ export interface PageComponetsGramBanner extends Struct.ComponentSchema {
     isCustomList: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isDescriptionLeft: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
+    isTargetBlank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTitleLeft: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<
       'sub-page-componets.gram-banner-list',

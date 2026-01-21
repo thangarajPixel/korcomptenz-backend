@@ -52,6 +52,10 @@
       "type": "component",
       "component": "sub-page-componets.build-data-right-section",
       "repeatable": false
+    },
+    "isTargetBlankDescription": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

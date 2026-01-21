@@ -71,6 +71,10 @@
     "isDescriptionLeft": {
       "type": "boolean",
       "default": false
+    },
+    "isTargetBlank": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}
