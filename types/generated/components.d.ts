@@ -1131,8 +1131,15 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
     icon: 'refresh';
   };
   attributes: {
+    backgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    bannerImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
+    design: Schema.Attribute.Enumeration<['image', 'video', 'bgcolor']>;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     logo: Schema.Attribute.Media<'images'>;
@@ -1140,6 +1147,7 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
     subtitle: Schema.Attribute.String;
     subTitleTwo: Schema.Attribute.String;
     title: Schema.Attribute.Text;
+    video: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 

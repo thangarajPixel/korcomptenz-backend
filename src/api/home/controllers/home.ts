@@ -18,6 +18,9 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                     image: true,
                     mobile_image: true,
                     logo: true,
+                    video: true,
+                    bannerImage:true,
+                    backgroundImage:true
                   },
                 },
               },

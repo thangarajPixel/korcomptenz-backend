@@ -14,6 +14,16 @@
     },
     "image": {
       "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "design"
+            },
+            "image"
+          ]
+        }
+      },
       "multiple": false,
       "allowedTypes": [
         "images"
@@ -21,6 +31,16 @@
     },
     "mobile_image": {
       "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "design"
+            },
+            "image"
+          ]
+        }
+      },
       "multiple": false,
       "allowedTypes": [
         "images"
@@ -43,6 +63,74 @@
       "multiple": false,
       "allowedTypes": [
         "images"
+      ]
+    },
+    "video": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "design"
+            },
+            "video"
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "design": {
+      "type": "enumeration",
+      "enum": [
+        "image",
+        "video",
+        "bgcolor"
+      ]
+    },
+    "backgroundImage": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "design"
+            },
+            "bgcolor"
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "bannerImage": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "design"
+            },
+            "bgcolor"
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
       ]
     }
   },
