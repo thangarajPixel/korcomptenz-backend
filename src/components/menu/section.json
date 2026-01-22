@@ -10,6 +10,16 @@
     },
     "image": {
       "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isText"
+            },
+            false
+          ]
+        }
+      },
       "multiple": false,
       "allowedTypes": [
         "images"
@@ -24,6 +34,36 @@
       "type": "component",
       "component": "menu.items",
       "repeatable": true
+    },
+    "isText": {
+      "type": "boolean",
+      "default": false
+    },
+    "discription": {
+      "type": "text",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isText"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "bgColor": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isText"
+            },
+            true
+          ]
+        }
+      }
     }
   },
   "config": {}
