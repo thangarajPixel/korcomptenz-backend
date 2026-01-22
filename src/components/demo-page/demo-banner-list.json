@@ -15,10 +15,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::book-demo.book-demo"
-    },
-    "isListPage": {
-      "type": "boolean",
-      "default": false
     }
   },
   "config": {}

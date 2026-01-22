@@ -799,7 +799,6 @@ export interface DemoPageDemoBannerList extends Struct.ComponentSchema {
       'oneToOne',
       'api::book-demo.book-demo'
     >;
-    isListPage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'service.banner-section-data', true>;
   };
 }
@@ -2679,6 +2678,7 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     imageMobile: Schema.Attribute.Media<'images'>;
     isHasFooter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isListPage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     logo: Schema.Attribute.Media<'images'>;
     logoMobile: Schema.Attribute.Media<'images'>;

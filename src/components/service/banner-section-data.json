@@ -77,6 +77,10 @@
       },
       "component": "case-study.partner",
       "repeatable": false
+    },
+    "isListPage": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}
