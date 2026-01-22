@@ -75,6 +75,53 @@
     "isTargetBlank": {
       "type": "boolean",
       "default": false
+    },
+    "isFooter": {
+      "type": "boolean",
+      "default": false
+    },
+    "footerDescription": {
+      "type": "customField",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isFooter"
+            },
+            true
+          ]
+        }
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "FooterbuttonText": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isFooter"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "footerButtonLink": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isFooter"
+            },
+            true
+          ]
+        }
+      }
     }
   },
   "config": {}

@@ -2185,10 +2185,20 @@ export interface PageComponetsGramBanner extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
+    footerButtonLink: Schema.Attribute.String;
+    FooterbuttonText: Schema.Attribute.String;
+    footerDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
     isCustomList: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isDescriptionLeft: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
+    isFooter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTargetBlank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTitleLeft: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<
