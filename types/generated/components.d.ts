@@ -799,7 +799,6 @@ export interface DemoPageDemoBannerList extends Struct.ComponentSchema {
       'oneToOne',
       'api::book-demo.book-demo'
     >;
-    isListPage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'service.banner-section-data', true>;
   };
 }
