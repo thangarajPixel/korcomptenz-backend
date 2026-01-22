@@ -36,6 +36,23 @@
     "isBottomButton": {
       "type": "boolean",
       "default": false
+    },
+    "isVideo": {
+      "type": "boolean",
+      "default": false
+    },
+    "videoLink": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isVideo"
+            },
+            true
+          ]
+        }
+      }
     }
   },
   "config": {}

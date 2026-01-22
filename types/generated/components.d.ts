@@ -1350,8 +1350,10 @@ export interface HomeServicesSectionList extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     isBottomButton: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
+    isVideo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     label: Schema.Attribute.String;
     link: Schema.Attribute.String;
+    videoLink: Schema.Attribute.String;
   };
 }
 
