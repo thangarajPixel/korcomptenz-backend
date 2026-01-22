@@ -39,7 +39,7 @@
       "type": "boolean",
       "default": false
     },
-    "discription": {
+    "description": {
       "type": "text",
       "conditions": {
         "visible": {

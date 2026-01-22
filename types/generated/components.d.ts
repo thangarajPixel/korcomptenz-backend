@@ -1731,7 +1731,7 @@ export interface MenuSection extends Struct.ComponentSchema {
   };
   attributes: {
     bgColor: Schema.Attribute.String;
-    discription: Schema.Attribute.Text;
+    description: Schema.Attribute.Text;
     footerLink: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     image: Schema.Attribute.Media<'images'>;
     isText: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
