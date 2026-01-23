@@ -2110,6 +2110,42 @@ export interface PageComponetsDemonstrateSection
   };
 }
 
+export interface PageComponetsDigitalBenefits extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_benefits';
+  info: {
+    displayName: 'digital-benefits';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<
+      'page-componets.digital-benifit-card',
+      true
+    >;
+    noOfColumn: Schema.Attribute.Enumeration<
+      [
+        'grid-cols-2',
+        'grid-cols-3',
+        'grid-cols-4',
+        'grid-cols-5',
+        'grid-cols--6',
+      ]
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsDigitalBenifitCard
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_benifit_cards';
+  info: {
+    displayName: 'digital-benifit-card';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsDomainData extends Struct.ComponentSchema {
   collectionName: 'components_service_domain_data';
   info: {
@@ -2909,6 +2945,8 @@ declare module '@strapi/strapi' {
       'page-componets.dark-slider-list': PageComponetsDarkSliderList;
       'page-componets.demonstrate-card': PageComponetsDemonstrateCard;
       'page-componets.demonstrate-section': PageComponetsDemonstrateSection;
+      'page-componets.digital-benefits': PageComponetsDigitalBenefits;
+      'page-componets.digital-benifit-card': PageComponetsDigitalBenifitCard;
       'page-componets.domain-data': PageComponetsDomainData;
       'page-componets.domain-slides': PageComponetsDomainSlides;
       'page-componets.faq': PageComponetsFaq;
