@@ -497,11 +497,13 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+
             },
           },
           seo: true,
         }
       });
+
       if (!entity) {
         const notFoundPages = await strapi.db.query('api::not-found.not-found').findMany({
           where: {
