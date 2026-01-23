@@ -381,15 +381,16 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 }
               },
-             
+
 
               'demo-page.demo-demonstration': {
                 populate: {
                   list: true,
                   footer: {
-                    populate:{
-                    image:true
-                  }}
+                    populate: {
+                      image: true
+                    }
+                  }
                 }
               },
               'demo-page.experts-section': {
@@ -483,6 +484,15 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                           image: true,
                         },
                       },
+                    },
+                  },
+                },
+              },
+              'page-componets.digital-benefits': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
                     },
                   },
                 },
