@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_componets_digital_card_sliders",
+  "info": {
+    "displayName": "digital-card-slider",
+    "icon": "slideshow"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.digital-card-slider-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

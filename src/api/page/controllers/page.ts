@@ -515,6 +515,15 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'page-componets.digital-card-slider': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
 
             },
           },

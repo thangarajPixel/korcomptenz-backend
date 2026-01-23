@@ -77,7 +77,8 @@
         "career.mansonry-gallery-section",
         "page-componets.digital-benefits",
         "page-componets.kpi-partner",
-        "page-componets.digital-services-section"
+        "page-componets.digital-services-section",
+        "page-componets.digital-card-slider"
       ]
     }
   }
