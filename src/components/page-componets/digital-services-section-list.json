@@ -5,14 +5,11 @@
   },
   "options": {},
   "attributes": {
-    "lable": {
+    "label": {
       "type": "string"
     },
     "heading": {
       "type": "string"
-    },
-    "description": {
-      "type": "text"
     },
     "image": {
       "type": "media",
@@ -26,6 +23,13 @@
     },
     "link": {
       "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
     }
   },
   "config": {}

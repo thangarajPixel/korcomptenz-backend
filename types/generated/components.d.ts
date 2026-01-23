@@ -2176,10 +2176,16 @@ export interface PageComponetsDigitalServicesSectionList
   };
   attributes: {
     buttonText: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     heading: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
-    lable: Schema.Attribute.String;
+    label: Schema.Attribute.String;
     link: Schema.Attribute.String;
   };
 }
