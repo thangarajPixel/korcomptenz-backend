@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_page_componets_digital_abouts",
+  "info": {
+    "displayName": "digital-about"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "badges": {
+      "type": "component",
+      "component": "sub-page-componets.badges",
+      "repeatable": false
+    },
+    "stats": {
+      "type": "component",
+      "component": "sub-page-componets.digitial-stats",
+      "repeatable": true
+    },
+    "features": {
+      "type": "component",
+      "component": "sub-page-componets.digitial-features",
+      "repeatable": true
+    },
+    "countries": {
+      "type": "component",
+      "component": "sub-page-componets.digitial-countries",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

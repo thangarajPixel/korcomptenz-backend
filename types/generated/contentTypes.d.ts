@@ -1880,6 +1880,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.kpi-partner',
         'page-componets.digital-services-section',
         'page-componets.digital-card-slider',
+        'page-componets.digital-about',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

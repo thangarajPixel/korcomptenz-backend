@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_sub_page_componets_badges",
+  "info": {
+    "displayName": "badges"
+  },
+  "options": {},
+  "attributes": {
+    "badge1": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "badge2": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

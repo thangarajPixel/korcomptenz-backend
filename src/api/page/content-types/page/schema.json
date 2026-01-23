@@ -78,7 +78,8 @@
         "page-componets.digital-benefits",
         "page-componets.kpi-partner",
         "page-componets.digital-services-section",
-        "page-componets.digital-card-slider"
+        "page-componets.digital-card-slider",
+        "page-componets.digital-about"
       ]
     }
   }

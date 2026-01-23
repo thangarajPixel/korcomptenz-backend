@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_sub_page_componets_digitial_stats",
+  "info": {
+    "displayName": "digitial-stats"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "label": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

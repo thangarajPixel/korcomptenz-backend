@@ -524,6 +524,29 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+               'page-componets.digital-about': {
+                populate: {
+                  backgroundImage: true,
+                  badges: {
+                    populate: {
+                      badge1: true,
+                        badge2: true,
+                    }
+
+                  },
+                  stats :true,
+                  features:{
+                    populate: {
+                      icon: true,
+                    }
+                  },
+                  countries: {
+                    populate: {
+                      flag: true,
+                    }
+                  }
+                },
+              },
 
             },
           },

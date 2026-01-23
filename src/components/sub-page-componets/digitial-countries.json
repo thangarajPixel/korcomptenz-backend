@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sub_page_componets_digitial_countries",
+  "info": {
+    "displayName": "digitial-countries"
+  },
+  "options": {},
+  "attributes": {
+    "flag": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "label": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

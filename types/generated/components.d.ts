@@ -2115,6 +2115,33 @@ export interface PageComponetsDemonstrateSection
   };
 }
 
+export interface PageComponetsDigitalAbout extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_abouts';
+  info: {
+    displayName: 'digital-about';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    badges: Schema.Attribute.Component<'sub-page-componets.badges', false>;
+    countries: Schema.Attribute.Component<
+      'sub-page-componets.digitial-countries',
+      true
+    >;
+    description: Schema.Attribute.Text;
+    features: Schema.Attribute.Component<
+      'sub-page-componets.digitial-features',
+      true
+    >;
+    stats: Schema.Attribute.Component<
+      'sub-page-componets.digitial-stats',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsDigitalBenefits extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_digital_benefits';
   info: {
@@ -2841,6 +2868,17 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
   };
 }
 
+export interface SubPageComponetsBadges extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_badges';
+  info: {
+    displayName: 'badges';
+  };
+  attributes: {
+    badge1: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    badge2: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface SubPageComponetsBuildDataRightSection
   extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_build_data_right_sections';
@@ -2870,6 +2908,44 @@ export interface SubPageComponetsBuildDataRightSection
     >;
     videoButtonText: Schema.Attribute.String;
     videoLink: Schema.Attribute.String;
+  };
+}
+
+export interface SubPageComponetsDigitialCountries
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_digitial_countries';
+  info: {
+    displayName: 'digitial-countries';
+  };
+  attributes: {
+    flag: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    label: Schema.Attribute.String;
+  };
+}
+
+export interface SubPageComponetsDigitialFeatures
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_digitial_features';
+  info: {
+    displayName: 'digitial-features';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface SubPageComponetsDigitialStats extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_digitial_stats';
+  info: {
+    displayName: 'digitial-stats';
+  };
+  attributes: {
+    label: Schema.Attribute.Text;
+    value: Schema.Attribute.String;
   };
 }
 
@@ -3052,6 +3128,7 @@ declare module '@strapi/strapi' {
       'page-componets.dark-slider-list': PageComponetsDarkSliderList;
       'page-componets.demonstrate-card': PageComponetsDemonstrateCard;
       'page-componets.demonstrate-section': PageComponetsDemonstrateSection;
+      'page-componets.digital-about': PageComponetsDigitalAbout;
       'page-componets.digital-benefits': PageComponetsDigitalBenefits;
       'page-componets.digital-benifit-card': PageComponetsDigitalBenifitCard;
       'page-componets.digital-card-slider': PageComponetsDigitalCardSlider;
@@ -3094,7 +3171,11 @@ declare module '@strapi/strapi' {
       'page-componets.why-we-are-list': PageComponetsWhyWeAreList;
       'seo.seo': SeoSeo;
       'service.banner-section-data': ServiceBannerSectionData;
+      'sub-page-componets.badges': SubPageComponetsBadges;
       'sub-page-componets.build-data-right-section': SubPageComponetsBuildDataRightSection;
+      'sub-page-componets.digitial-countries': SubPageComponetsDigitialCountries;
+      'sub-page-componets.digitial-features': SubPageComponetsDigitialFeatures;
+      'sub-page-componets.digitial-stats': SubPageComponetsDigitialStats;
       'sub-page-componets.gram-banner-list': SubPageComponetsGramBannerList;
       'sub-page-componets.pricing-plan': SubPageComponetsPricingPlan;
       'sub-page-componets.responsive-image': SubPageComponetsResponsiveImage;
