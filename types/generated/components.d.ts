@@ -2146,6 +2146,44 @@ export interface PageComponetsDigitalBenifitCard
   };
 }
 
+export interface PageComponetsDigitalServicesSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_services_sections';
+  info: {
+    displayName: 'digital-services-section';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    list: Schema.Attribute.Component<
+      'page-componets.digital-services-section-list',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsDigitalServicesSectionList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_services_section_lists';
+  info: {
+    displayName: 'Digital-services-section-list';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    lable: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsDomainData extends Struct.ComponentSchema {
   collectionName: 'components_service_domain_data';
   info: {
@@ -2969,6 +3007,8 @@ declare module '@strapi/strapi' {
       'page-componets.demonstrate-section': PageComponetsDemonstrateSection;
       'page-componets.digital-benefits': PageComponetsDigitalBenefits;
       'page-componets.digital-benifit-card': PageComponetsDigitalBenifitCard;
+      'page-componets.digital-services-section': PageComponetsDigitalServicesSection;
+      'page-componets.digital-services-section-list': PageComponetsDigitalServicesSectionList;
       'page-componets.domain-data': PageComponetsDomainData;
       'page-componets.domain-slides': PageComponetsDomainSlides;
       'page-componets.faq': PageComponetsFaq;

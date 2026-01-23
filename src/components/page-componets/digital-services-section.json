@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_page_componets_digital_services_sections",
+  "info": {
+    "displayName": "digital-services-section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.digital-services-section-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
