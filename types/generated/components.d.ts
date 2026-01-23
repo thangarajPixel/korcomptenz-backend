@@ -2115,6 +2115,86 @@ export interface PageComponetsDemonstrateSection
   };
 }
 
+export interface PageComponetsDigitalBenefits extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_benefits';
+  info: {
+    displayName: 'digital-benefits';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<
+      'page-componets.digital-benifit-card',
+      true
+    >;
+    noOfColumn: Schema.Attribute.Enumeration<
+      [
+        'grid-cols-2',
+        'grid-cols-3',
+        'grid-cols-4',
+        'grid-cols-5',
+        'grid-cols--6',
+      ]
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsDigitalBenifitCard
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_benifit_cards';
+  info: {
+    displayName: 'digital-benifit-card';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsDigitalServicesSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_services_sections';
+  info: {
+    displayName: 'digital-services-section';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    list: Schema.Attribute.Component<
+      'page-componets.digital-services-section-list',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsDigitalServicesSectionList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_services_section_lists';
+  info: {
+    displayName: 'Digital-services-section-list';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    label: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsDomainData extends Struct.ComponentSchema {
   collectionName: 'components_service_domain_data';
   info: {
@@ -2323,6 +2403,28 @@ export interface PageComponetsInspireSectionCard
     link: Schema.Attribute.String;
     position: Schema.Attribute.Enumeration<['bottom', 'top', 'topAbove']>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsKpiPartner extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_kpi_partners';
+  info: {
+    displayName: 'kpi-partner';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'page-componets.kpi-partner-items', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsKpiPartnerItems extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_kpi_partner_items';
+  info: {
+    displayName: 'kpi-partner-items';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images'>;
+    label: Schema.Attribute.String;
   };
 }
 
@@ -2914,6 +3016,10 @@ declare module '@strapi/strapi' {
       'page-componets.dark-slider-list': PageComponetsDarkSliderList;
       'page-componets.demonstrate-card': PageComponetsDemonstrateCard;
       'page-componets.demonstrate-section': PageComponetsDemonstrateSection;
+      'page-componets.digital-benefits': PageComponetsDigitalBenefits;
+      'page-componets.digital-benifit-card': PageComponetsDigitalBenifitCard;
+      'page-componets.digital-services-section': PageComponetsDigitalServicesSection;
+      'page-componets.digital-services-section-list': PageComponetsDigitalServicesSectionList;
       'page-componets.domain-data': PageComponetsDomainData;
       'page-componets.domain-slides': PageComponetsDomainSlides;
       'page-componets.faq': PageComponetsFaq;
@@ -2925,6 +3031,8 @@ declare module '@strapi/strapi' {
       'page-componets.insights-section-card': PageComponetsInsightsSectionCard;
       'page-componets.inspire-section': PageComponetsInspireSection;
       'page-componets.inspire-section-card': PageComponetsInspireSectionCard;
+      'page-componets.kpi-partner': PageComponetsKpiPartner;
+      'page-componets.kpi-partner-items': PageComponetsKpiPartnerItems;
       'page-componets.light-slider-card': PageComponetsLightSliderCard;
       'page-componets.light-slider-group-list': PageComponetsLightSliderGroupList;
       'page-componets.light-slider-list': PageComponetsLightSliderList;

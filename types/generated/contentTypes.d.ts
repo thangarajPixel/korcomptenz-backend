@@ -1876,6 +1876,9 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'kor-cares.award',
         'home.hero-section-one',
         'career.mansonry-gallery-section',
+        'page-componets.digital-benefits',
+        'page-componets.kpi-partner',
+        'page-componets.digital-services-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

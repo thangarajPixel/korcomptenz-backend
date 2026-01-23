@@ -381,15 +381,16 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 }
               },
-             
+
 
               'demo-page.demo-demonstration': {
                 populate: {
                   list: true,
                   footer: {
-                    populate:{
-                    image:true
-                  }}
+                    populate: {
+                      image: true
+                    }
+                  }
                 }
               },
               'demo-page.experts-section': {
@@ -487,11 +488,40 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'page-componets.digital-benefits': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
+              'page-componets.kpi-partner': {
+                populate: {
+                  items: {
+                    populate: {
+                      icon: true,
+                    },
+                  },
+                },
+              },
+              'page-componets.digital-services-section': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
+
             },
           },
           seo: true,
         }
       });
+
       if (!entity) {
         const notFoundPages = await strapi.db.query('api::not-found.not-found').findMany({
           where: {
