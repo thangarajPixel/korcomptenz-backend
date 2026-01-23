@@ -2357,6 +2357,28 @@ export interface PageComponetsInspireSectionCard
   };
 }
 
+export interface PageComponetsKpiPartner extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_kpi_partners';
+  info: {
+    displayName: 'kpi-partner';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'page-componets.kpi-partner-items', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsKpiPartnerItems extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_kpi_partner_items';
+  info: {
+    displayName: 'kpi-partner-items';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images'>;
+    label: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsLightSliderCard extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_light_slider_cards';
   info: {
@@ -2958,6 +2980,8 @@ declare module '@strapi/strapi' {
       'page-componets.insights-section-card': PageComponetsInsightsSectionCard;
       'page-componets.inspire-section': PageComponetsInspireSection;
       'page-componets.inspire-section-card': PageComponetsInspireSectionCard;
+      'page-componets.kpi-partner': PageComponetsKpiPartner;
+      'page-componets.kpi-partner-items': PageComponetsKpiPartnerItems;
       'page-componets.light-slider-card': PageComponetsLightSliderCard;
       'page-componets.light-slider-group-list': PageComponetsLightSliderGroupList;
       'page-componets.light-slider-list': PageComponetsLightSliderList;

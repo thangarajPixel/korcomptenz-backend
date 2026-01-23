@@ -497,6 +497,15 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'page-componets.kpi-partner': {
+                populate: {
+                  items: {
+                    populate: {
+                      icon: true,
+                    },
+                  },
+                },
+              },
 
             },
           },

@@ -1877,6 +1877,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'home.hero-section-one',
         'career.mansonry-gallery-section',
         'page-componets.digital-benefits',
+        'page-componets.kpi-partner',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
