@@ -73,14 +73,12 @@ module.exports = ({ env }) => {
     //   config: {
     //     provider: 'nodemailer',
     //     providerOptions: {
-    //       host: env('MAIL_HOST', undefined),
-    //       port: env('MAIL_PORT', undefined),
-    //       // host: 'smtp.sendgrid.net',
-    //       // port: 587,
-    //       secure: true, // true for 465, false for 587
+    //       host: env('MAIL_HOST'),
+    //       port: env.int('MAIL_PORT'), 
+    //       secure: false, //  false for 2525
     //       auth: {
     //         user: 'apikey',
-    //         pass: env('SENDGRID_API_KEY', undefined)
+    //         pass: env('SENDGRID_API_KEY'),
     //       },
     //     },
     //     settings: {
