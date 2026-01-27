@@ -15,10 +15,10 @@
     "buttonText": {
       "type": "string"
     },
-    "ButtonLink": {
+    "buttonLink": {
       "type": "string"
     },
-    "IsTarget": {
+    "isTarget": {
       "type": "boolean",
       "default": false
     }
