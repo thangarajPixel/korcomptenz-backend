@@ -2214,6 +2214,20 @@ export interface PageComponetsDigitalCardSliderList
   };
 }
 
+export interface PageComponetsDigitalErpList extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_erp_lists';
+  info: {
+    displayName: 'digital-erp-list';
+    icon: 'discuss';
+  };
+  attributes: {
+    list1: Schema.Attribute.Component<'page-componets.erp-list', true>;
+    list2: Schema.Attribute.Component<'page-componets.erp-list', true>;
+    title1: Schema.Attribute.Text;
+    title2: Schema.Attribute.Text;
+  };
+}
+
 export interface PageComponetsDigitalServicesSection
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_digital_services_sections';
@@ -2280,6 +2294,20 @@ export interface PageComponetsDomainSlides extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsErpList extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_erp_lists';
+  info: {
+    displayName: 'erp-list';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     title: Schema.Attribute.String;
   };
 }
@@ -3133,10 +3161,12 @@ declare module '@strapi/strapi' {
       'page-componets.digital-benifit-card': PageComponetsDigitalBenifitCard;
       'page-componets.digital-card-slider': PageComponetsDigitalCardSlider;
       'page-componets.digital-card-slider-list': PageComponetsDigitalCardSliderList;
+      'page-componets.digital-erp-list': PageComponetsDigitalErpList;
       'page-componets.digital-services-section': PageComponetsDigitalServicesSection;
       'page-componets.digital-services-section-list': PageComponetsDigitalServicesSectionList;
       'page-componets.domain-data': PageComponetsDomainData;
       'page-componets.domain-slides': PageComponetsDomainSlides;
+      'page-componets.erp-list': PageComponetsErpList;
       'page-componets.faq': PageComponetsFaq;
       'page-componets.faq-title': PageComponetsFaqTitle;
       'page-componets.gram-banner': PageComponetsGramBanner;

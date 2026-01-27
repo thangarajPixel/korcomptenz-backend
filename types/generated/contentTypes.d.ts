@@ -1881,6 +1881,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.digital-services-section',
         'page-componets.digital-card-slider',
         'page-componets.digital-about',
+        'page-componets.digital-erp-list',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

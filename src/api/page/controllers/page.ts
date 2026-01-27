@@ -524,18 +524,18 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
-               'page-componets.digital-about': {
+              'page-componets.digital-about': {
                 populate: {
                   backgroundImage: true,
                   badges: {
                     populate: {
                       badge1: true,
-                        badge2: true,
+                      badge2: true,
                     }
 
                   },
-                  stats :true,
-                  features:{
+                  stats: true,
+                  features: {
                     populate: {
                       icon: true,
                     }
@@ -546,6 +546,9 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                     }
                   }
                 },
+              },
+              'page-componets.digital-erp-list': {
+                populate: true,
               },
 
             },

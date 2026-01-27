@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_page_componets_digital_erp_lists",
+  "info": {
+    "displayName": "digital-erp-list",
+    "icon": "discuss"
+  },
+  "options": {},
+  "attributes": {
+    "title1": {
+      "type": "text"
+    },
+    "list1": {
+      "type": "component",
+      "component": "page-componets.erp-list",
+      "repeatable": true
+    },
+    "title2": {
+      "type": "text"
+    },
+    "list2": {
+      "type": "component",
+      "component": "page-componets.erp-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
