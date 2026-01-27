@@ -2499,7 +2499,7 @@ export interface PageComponetsFullLifecycleBottomCard
     displayName: 'full-lifecycle-bottom-card';
   };
   attributes: {
-    ButtonLink: Schema.Attribute.String;
+    buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
@@ -2508,7 +2508,7 @@ export interface PageComponetsFullLifecycleBottomCard
           preset: 'defaultHtml';
         }
       >;
-    IsTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 
