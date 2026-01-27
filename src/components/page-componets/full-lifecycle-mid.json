@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_page_componets_full_lifecycle_mids",
+  "info": {
+    "displayName": "full-lifecycle-mid"
+  },
+  "options": {},
+  "attributes": {
+    "midList1": {
+      "type": "component",
+      "component": "page-componets.full-lifecycle-mid-list1",
+      "repeatable": true
+    },
+    "midList2": {
+      "type": "component",
+      "component": "page-componets.full-lifecycle-bottom-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

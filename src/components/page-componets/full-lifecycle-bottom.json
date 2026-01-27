@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_page_componets_full_lifecycle_bottoms",
+  "info": {
+    "displayName": "full-lifecycle-bottom"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "bottomCard": {
+      "type": "component",
+      "component": "page-componets.full-lifecycle-bottom-card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

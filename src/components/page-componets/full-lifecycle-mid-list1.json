@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_page_componets_full_lifecycle_mid_list1s",
+  "info": {
+    "displayName": "full-lifecycle-mid-list1"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    }
+  },
+  "config": {}
+}

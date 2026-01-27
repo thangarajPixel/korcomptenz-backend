@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_page_componets_digital_full_lifecycles",
+  "info": {
+    "displayName": "digital-full-lifecycle",
+    "icon": "crop"
+  },
+  "options": {},
+  "attributes": {
+    "top": {
+      "type": "component",
+      "component": "page-componets.full-lifecycle-top",
+      "repeatable": false
+    },
+    "mid": {
+      "type": "component",
+      "component": "page-componets.full-lifecycle-mid",
+      "repeatable": false
+    },
+    "bottom": {
+      "type": "component",
+      "component": "page-componets.full-lifecycle-bottom",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

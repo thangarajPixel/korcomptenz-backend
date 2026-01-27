@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_page_componets_full_lifecycle_bottom_cards",
+  "info": {
+    "displayName": "full-lifecycle-bottom-card"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "ButtonLink": {
+      "type": "string"
+    },
+    "IsTarget": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}

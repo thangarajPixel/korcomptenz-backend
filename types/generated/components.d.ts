@@ -2294,6 +2294,23 @@ export interface PageComponetsDigitalErpList extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsDigitalFullLifecycle
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_full_lifecycles';
+  info: {
+    displayName: 'digital-full-lifecycle';
+    icon: 'crop';
+  };
+  attributes: {
+    bottom: Schema.Attribute.Component<
+      'page-componets.full-lifecycle-bottom',
+      false
+    >;
+    mid: Schema.Attribute.Component<'page-componets.full-lifecycle-mid', false>;
+    top: Schema.Attribute.Component<'page-componets.full-lifecycle-top', false>;
+  };
+}
+
 export interface PageComponetsDigitalServicesSection
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_digital_services_sections';
@@ -2407,6 +2424,116 @@ export interface PageComponetsFaqTitle extends Struct.ComponentSchema {
   };
   attributes: {
     faq: Schema.Attribute.Component<'page-componets.faq', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsFullLifecycleBottom
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_full_lifecycle_bottoms';
+  info: {
+    displayName: 'full-lifecycle-bottom';
+  };
+  attributes: {
+    bottomCard: Schema.Attribute.Component<
+      'page-componets.full-lifecycle-bottom-card',
+      true
+    >;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsFullLifecycleBottomCard
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_full_lifecycle_bottom_cards';
+  info: {
+    displayName: 'full-lifecycle-bottom-card';
+  };
+  attributes: {
+    ButtonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    IsTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface PageComponetsFullLifecycleMid extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_full_lifecycle_mids';
+  info: {
+    displayName: 'full-lifecycle-mid';
+  };
+  attributes: {
+    midList1: Schema.Attribute.Component<
+      'page-componets.full-lifecycle-mid-list1',
+      true
+    >;
+    midList2: Schema.Attribute.Component<
+      'page-componets.full-lifecycle-bottom-card',
+      true
+    >;
+  };
+}
+
+export interface PageComponetsFullLifecycleMidList1
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_full_lifecycle_mid_list1s';
+  info: {
+    displayName: 'full-lifecycle-mid-list1';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsFullLifecycleTop extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_full_lifecycle_tops';
+  info: {
+    displayName: 'full-lifecycle-top';
+  };
+  attributes: {
+    title: Schema.Attribute.Text;
+    topList: Schema.Attribute.Component<
+      'page-componets.full-lifecycle-top-list',
+      true
+    >;
+  };
+}
+
+export interface PageComponetsFullLifecycleTopList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_full_lifecycle_top_lists';
+  info: {
+    displayName: 'full-lifecycle-top-list';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
@@ -3231,6 +3358,7 @@ declare module '@strapi/strapi' {
       'page-componets.digital-card-slider': PageComponetsDigitalCardSlider;
       'page-componets.digital-card-slider-list': PageComponetsDigitalCardSliderList;
       'page-componets.digital-erp-list': PageComponetsDigitalErpList;
+      'page-componets.digital-full-lifecycle': PageComponetsDigitalFullLifecycle;
       'page-componets.digital-services-section': PageComponetsDigitalServicesSection;
       'page-componets.digital-services-section-list': PageComponetsDigitalServicesSectionList;
       'page-componets.domain-data': PageComponetsDomainData;
@@ -3238,6 +3366,12 @@ declare module '@strapi/strapi' {
       'page-componets.erp-list': PageComponetsErpList;
       'page-componets.faq': PageComponetsFaq;
       'page-componets.faq-title': PageComponetsFaqTitle;
+      'page-componets.full-lifecycle-bottom': PageComponetsFullLifecycleBottom;
+      'page-componets.full-lifecycle-bottom-card': PageComponetsFullLifecycleBottomCard;
+      'page-componets.full-lifecycle-mid': PageComponetsFullLifecycleMid;
+      'page-componets.full-lifecycle-mid-list1': PageComponetsFullLifecycleMidList1;
+      'page-componets.full-lifecycle-top': PageComponetsFullLifecycleTop;
+      'page-componets.full-lifecycle-top-list': PageComponetsFullLifecycleTopList;
       'page-componets.gram-banner': PageComponetsGramBanner;
       'page-componets.image': PageComponetsImage;
       'page-componets.image-section': PageComponetsImageSection;

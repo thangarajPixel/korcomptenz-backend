@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_page_componets_full_lifecycle_tops",
+  "info": {
+    "displayName": "full-lifecycle-top"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "topList": {
+      "type": "component",
+      "component": "page-componets.full-lifecycle-top-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

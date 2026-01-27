@@ -553,6 +553,30 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               'page-componets.digital-analytics': {
                 populate: true,
               },
+              'page-componets.digital-full-lifecycle': {
+                populate: {
+                  top: {
+                    populate: {
+                      topList: {
+                        populate: {
+                          image: true,
+                        },
+                      },
+                    },
+                  },
+                  mid: {
+                    populate: {
+                      midList1: true,
+                      midList2: true,
+                    },
+                  },
+                  bottom: {
+                    populate: {
+                      bottomCard: true,
+                    },
+                  },
+                },
+              }
 
             },
           },
