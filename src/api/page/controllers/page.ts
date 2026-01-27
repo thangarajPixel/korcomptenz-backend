@@ -550,6 +550,9 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               'page-componets.digital-erp-list': {
                 populate: true,
               },
+              'page-componets.digital-analytics': {
+                populate: true,
+              },
 
             },
           },

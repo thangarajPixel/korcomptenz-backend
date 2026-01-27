@@ -80,7 +80,8 @@
         "page-componets.digital-services-section",
         "page-componets.digital-card-slider",
         "page-componets.digital-about",
-        "page-componets.digital-erp-list"
+        "page-componets.digital-erp-list",
+        "page-componets.digital-analytics"
       ]
     }
   }

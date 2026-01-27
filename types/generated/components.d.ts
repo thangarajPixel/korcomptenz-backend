@@ -2142,6 +2142,72 @@ export interface PageComponetsDigitalAbout extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsDigitalAnalytics extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_analytics';
+  info: {
+    displayName: 'digital-analytics';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    heading1: Schema.Attribute.String;
+    heading2: Schema.Attribute.String;
+    list1: Schema.Attribute.Component<
+      'page-componets.digital-analytics-list1',
+      true
+    >;
+    list2: Schema.Attribute.Component<
+      'page-componets.digital-analytics-list2',
+      true
+    >;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsDigitalAnalyticsList1
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_analytics_list1s';
+  info: {
+    displayName: 'digital-analytics-list1';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsDigitalAnalyticsList2
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_analytics_list2s';
+  info: {
+    displayName: 'digital-analytics-list2';
+    icon: 'book';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
 export interface PageComponetsDigitalBenefits extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_digital_benefits';
   info: {
@@ -3157,6 +3223,9 @@ declare module '@strapi/strapi' {
       'page-componets.demonstrate-card': PageComponetsDemonstrateCard;
       'page-componets.demonstrate-section': PageComponetsDemonstrateSection;
       'page-componets.digital-about': PageComponetsDigitalAbout;
+      'page-componets.digital-analytics': PageComponetsDigitalAnalytics;
+      'page-componets.digital-analytics-list1': PageComponetsDigitalAnalyticsList1;
+      'page-componets.digital-analytics-list2': PageComponetsDigitalAnalyticsList2;
       'page-componets.digital-benefits': PageComponetsDigitalBenefits;
       'page-componets.digital-benifit-card': PageComponetsDigitalBenifitCard;
       'page-componets.digital-card-slider': PageComponetsDigitalCardSlider;

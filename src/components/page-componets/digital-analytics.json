@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_page_componets_digital_analytics",
+  "info": {
+    "displayName": "digital-analytics"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "heading1": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "heading2": {
+      "type": "string"
+    },
+    "list1": {
+      "type": "component",
+      "component": "page-componets.digital-analytics-list1",
+      "repeatable": true
+    },
+    "list2": {
+      "type": "component",
+      "component": "page-componets.digital-analytics-list2",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
