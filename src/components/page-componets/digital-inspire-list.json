@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_page_componets_digital_inspire_lists",
+  "info": {
+    "displayName": "digital-inspire-list",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "image1": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "image2": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageText": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "isTarget": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}

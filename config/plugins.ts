@@ -21,21 +21,42 @@ module.exports = ({ env }) => {
 
     //smtp using app password
 
+    // email: {
+    //   config: {
+    //     provider: 'nodemailer',
+    //     providerOptions: {
+    //       host: env('MAIL_HOST', 'smtp.example.com'),
+    //       port: env('MAIL_PORT', 587),
+    //       auth: {
+    //         user: env('MAIL_USERNAME', undefined),
+    //         pass: env('MAIL_PASSWORD', undefined),
+    //       },
+    //       // secure: false, // Port 25 → no SSL/TLS by default
+    //       // tls: {
+    //       //   rejectUnauthorized: false, // optional, helps avoid cert issues
+    //       // },
+    //       // ... any custom nodemailer options
+    //     },
+    //     settings: {
+    //       defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
+    //       defaultReplyTo: env('MAIL_FROM', 'info@korcomptenz.com'),
+    //     },
+    //   },
+    // },
+
+
     email: {
       config: {
         provider: 'nodemailer',
         providerOptions: {
-          host: env('MAIL_HOST', 'smtp.example.com'),
-          port: env('MAIL_PORT', 587),
-          auth: {
-            user: env('MAIL_USERNAME', undefined),
-            pass: env('MAIL_PASSWORD', undefined),
+          host: 'smtprelay.korcomptenz.com',
+          port: 25,
+          secure: false, //  false for port 25
+          tls: {
+            rejectUnauthorized: false, // avoids TLS issues
           },
-          // secure: false, // Port 25 → no SSL/TLS by default
-          // tls: {
-          //   rejectUnauthorized: false, // optional, helps avoid cert issues
-          // },
-          // ... any custom nodemailer options
+
+
         },
         settings: {
           defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
@@ -43,6 +64,8 @@ module.exports = ({ env }) => {
         },
       },
     },
+
+
 
     //  sendgrid [provider nodemailer]
 

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_page_componets_digital_inspires",
+  "info": {
+    "displayName": "digital-inspire",
+    "icon": "collapse"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.digital-inspire-list",
+      "repeatable": true
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "isTarget": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}

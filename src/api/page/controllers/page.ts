@@ -576,7 +576,18 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                     },
                   },
                 },
-              }
+              },
+              'page-componets.digital-inspire': {
+                populate: {
+                  list: {
+                    populate: {
+                      image1: true,
+                      image2: true,
+                    },
+                  },
+                },
+              },
+
 
             },
           },

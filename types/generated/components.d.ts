@@ -2311,6 +2311,48 @@ export interface PageComponetsDigitalFullLifecycle
   };
 }
 
+export interface PageComponetsDigitalInspire extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_inspires';
+  info: {
+    displayName: 'digital-inspire';
+    icon: 'collapse';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    list: Schema.Attribute.Component<
+      'page-componets.digital-inspire-list',
+      true
+    >;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsDigitalInspireList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_inspire_lists';
+  info: {
+    displayName: 'digital-inspire-list';
+    icon: 'calendar';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image1: Schema.Attribute.Media<'images'>;
+    image2: Schema.Attribute.Media<'images'>;
+    imageText: Schema.Attribute.String;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
 export interface PageComponetsDigitalServicesSection
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_digital_services_sections';
@@ -3359,6 +3401,8 @@ declare module '@strapi/strapi' {
       'page-componets.digital-card-slider-list': PageComponetsDigitalCardSliderList;
       'page-componets.digital-erp-list': PageComponetsDigitalErpList;
       'page-componets.digital-full-lifecycle': PageComponetsDigitalFullLifecycle;
+      'page-componets.digital-inspire': PageComponetsDigitalInspire;
+      'page-componets.digital-inspire-list': PageComponetsDigitalInspireList;
       'page-componets.digital-services-section': PageComponetsDigitalServicesSection;
       'page-componets.digital-services-section-list': PageComponetsDigitalServicesSectionList;
       'page-componets.domain-data': PageComponetsDomainData;
