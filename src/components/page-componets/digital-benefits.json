@@ -22,6 +22,10 @@
         "grid-cols-5",
         "grid-cols--6"
       ]
+    },
+    "isbgGrey": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

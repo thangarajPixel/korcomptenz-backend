@@ -2214,6 +2214,7 @@ export interface PageComponetsDigitalBenefits extends Struct.ComponentSchema {
     displayName: 'digital-benefits';
   };
   attributes: {
+    isbgGrey: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<
       'page-componets.digital-benifit-card',
       true
