@@ -1822,9 +1822,12 @@ export interface NewsAndEventNewsBanner extends Struct.ComponentSchema {
     icon: 'archive';
   };
   attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isVideo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     title: Schema.Attribute.Text;
     videoLink: Schema.Attribute.String;

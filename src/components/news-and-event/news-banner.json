@@ -50,6 +50,16 @@
     },
     "description": {
       "type": "text"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "isTarget": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}
