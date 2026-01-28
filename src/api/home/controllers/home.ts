@@ -17,10 +17,12 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                   populate: {
                     image: true,
                     mobile_image: true,
+                    mobileVideo: true,
+
                     logo: true,
                     video: true,
-                    bannerImage:true,
-                    backgroundImage:true
+                    bannerImage: true,
+                    backgroundImage: true
                   },
                 },
               },

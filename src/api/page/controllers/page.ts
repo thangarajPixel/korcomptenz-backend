@@ -478,6 +478,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                     populate: {
                       image: true,
                       mobile_image: true,
+                      mobileVideo: true,
                       logo: true,
                     },
                   },
