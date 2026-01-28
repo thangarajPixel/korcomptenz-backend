@@ -1144,6 +1144,7 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
     link: Schema.Attribute.String;
     logo: Schema.Attribute.Media<'images'>;
     mobile_image: Schema.Attribute.Media<'images'>;
+    mobileVideo: Schema.Attribute.Media<'videos'>;
     subtitle: Schema.Attribute.String;
     subTitleTwo: Schema.Attribute.String;
     title: Schema.Attribute.Text;

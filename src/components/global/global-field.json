@@ -85,6 +85,23 @@
         "audios"
       ]
     },
+    "mobileVideo": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "design"
+            },
+            "video"
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
     "design": {
       "type": "enumeration",
       "enum": [
