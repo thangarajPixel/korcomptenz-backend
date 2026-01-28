@@ -595,6 +595,42 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'page-componets.combined-about-card-slider': {
+                populate: {
+                  digitalAbout: {
+                    populate: {
+                      backgroundImage: true,
+                      badges: {
+                        populate: {
+                          badge1: true,
+                          badge2: true,
+                        },
+                      },
+                      stats: true,
+                      features: {
+                        populate: {
+                          icon: true,
+                        },
+                      },
+                      countries: {
+                        populate: {
+                          flag: true,
+                        },
+                      },
+                    },
+                  },
+                  digitalCardSlider: {
+                    populate: {
+                      list: {
+                        populate: {
+                          image: true,
+                        },
+                      },
+                    },
+                  },
+                },
+              }
+
 
 
             },

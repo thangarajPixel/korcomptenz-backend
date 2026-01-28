@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_page_componets_combined_about_card_sliders",
+  "info": {
+    "displayName": "combined-about-card-slider"
+  },
+  "options": {},
+  "attributes": {
+    "digitalAbout": {
+      "type": "component",
+      "component": "page-componets.digital-about",
+      "repeatable": false
+    },
+    "digitalCardSlider": {
+      "type": "component",
+      "component": "page-componets.digital-card-slider",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

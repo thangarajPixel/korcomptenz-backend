@@ -2047,6 +2047,24 @@ export interface PageComponetsCard extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsCombinedAboutCardSlider
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_combined_about_card_sliders';
+  info: {
+    displayName: 'combined-about-card-slider';
+  };
+  attributes: {
+    digitalAbout: Schema.Attribute.Component<
+      'page-componets.digital-about',
+      false
+    >;
+    digitalCardSlider: Schema.Attribute.Component<
+      'page-componets.digital-card-slider',
+      false
+    >;
+  };
+}
+
 export interface PageComponetsCustomFooter extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_custom_footers';
   info: {
@@ -3419,6 +3437,7 @@ declare module '@strapi/strapi' {
       'page-componets.build-data': PageComponetsBuildData;
       'page-componets.build-datas': PageComponetsBuildDatas;
       'page-componets.card': PageComponetsCard;
+      'page-componets.combined-about-card-slider': PageComponetsCombinedAboutCardSlider;
       'page-componets.custom-footer': PageComponetsCustomFooter;
       'page-componets.custom-footer-list': PageComponetsCustomFooterList;
       'page-componets.dark-slider-card': PageComponetsDarkSliderCard;

@@ -1885,6 +1885,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.digital-analytics',
         'page-componets.digital-full-lifecycle',
         'page-componets.digital-inspire',
+        'page-componets.combined-about-card-slider',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
