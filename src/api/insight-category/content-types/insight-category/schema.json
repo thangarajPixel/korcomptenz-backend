@@ -19,6 +19,13 @@
       "type": "uid",
       "targetField": "label",
       "required": true
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
     }
   }
 }

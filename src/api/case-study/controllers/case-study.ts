@@ -141,11 +141,19 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
           }
         },
       });
+      const service = await strapi.service('api::case-service.case-service').find({
+        populate: '*',
+      });
+      const technology = await strapi.service('api::case-technology.case-technology').find({
+        populate: '*',
+      });
       const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
       const { data } = this.transformResponse(sanitizedEntity) as { data: any };
       return {
         ...data,
         sponsor: sponser?.results?.[0] || null,
+        service: service?.results || [],
+        technology: technology?.results || [],
       };
     } catch (error) {
       strapi.log.error('Case Study find error:', error);
