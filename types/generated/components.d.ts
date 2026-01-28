@@ -2047,6 +2047,30 @@ export interface PageComponetsCard extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsCustomFooter extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_custom_footers';
+  info: {
+    displayName: 'custom-footer';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    image: Schema.Attribute.Media<'images'>;
+    list: Schema.Attribute.Component<'page-componets.custom-footer-list', true>;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsCustomFooterList extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_custom_footer_lists';
+  info: {
+    displayName: 'custom-footer-list';
+  };
+  attributes: {
+    link: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface PageComponetsDarkSliderCard extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_dark_slider_cards';
   info: {
@@ -2606,6 +2630,7 @@ export interface PageComponetsGramBanner extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
+    footerHeading: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     isCustomList: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isDescriptionLeft: Schema.Attribute.Boolean &
@@ -3111,6 +3136,10 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
     bannerCaption: Schema.Attribute.Text;
     buttonText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Contact us'>;
+    customFooter: Schema.Attribute.Component<
+      'page-componets.custom-footer',
+      false
+    >;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -3121,6 +3150,8 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
     footer: Schema.Attribute.Component<'case-study.partner', false>;
     image: Schema.Attribute.Media<'images'>;
     imageMobile: Schema.Attribute.Media<'images'>;
+    isCustomFooter: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     isHasFooter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isListPage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
@@ -3388,6 +3419,8 @@ declare module '@strapi/strapi' {
       'page-componets.build-data': PageComponetsBuildData;
       'page-componets.build-datas': PageComponetsBuildDatas;
       'page-componets.card': PageComponetsCard;
+      'page-componets.custom-footer': PageComponetsCustomFooter;
+      'page-componets.custom-footer-list': PageComponetsCustomFooterList;
       'page-componets.dark-slider-card': PageComponetsDarkSliderCard;
       'page-componets.dark-slider-list': PageComponetsDarkSliderList;
       'page-componets.demonstrate-card': PageComponetsDemonstrateCard;

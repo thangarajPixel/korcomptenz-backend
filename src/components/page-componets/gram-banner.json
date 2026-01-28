@@ -122,6 +122,19 @@
           ]
         }
       }
+    },
+    "footerHeading": {
+      "type": "text",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isFooter"
+            },
+            true
+          ]
+        }
+      }
     }
   },
   "config": {}

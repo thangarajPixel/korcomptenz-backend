@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_page_componets_custom_footer_lists",
+  "info": {
+    "displayName": "custom-footer-list"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "link": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

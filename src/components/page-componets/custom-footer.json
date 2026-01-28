@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_page_componets_custom_footers",
+  "info": {
+    "displayName": "custom-footer"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.custom-footer-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

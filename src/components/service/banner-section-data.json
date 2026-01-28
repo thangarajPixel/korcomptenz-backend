@@ -69,9 +69,9 @@
         "visible": {
           "==": [
             {
-              "var": "isHasFooter"
+              "var": "isCustomFooter"
             },
-            true
+            false
           ]
         }
       },
@@ -81,6 +81,35 @@
     "isListPage": {
       "type": "boolean",
       "default": false
+    },
+    "isCustomFooter": {
+      "type": "boolean",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isHasFooter"
+            },
+            true
+          ]
+        }
+      },
+      "default": false
+    },
+    "customFooter": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isCustomFooter"
+            },
+            true
+          ]
+        }
+      },
+      "component": "page-componets.custom-footer",
+      "repeatable": false
     }
   },
   "config": {}

@@ -47,6 +47,14 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                         populate: {
                           logo: true,
                         }
+                      },
+                      customFooter: {
+                        populate: {
+                          image: true,
+                          backgroundImage: true,
+                          list: true
+
+                        }
                       }
                     }
                   },
