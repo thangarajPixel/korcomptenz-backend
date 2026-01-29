@@ -53,7 +53,7 @@ module.exports = ({ env }) => {
           port: 25,
           secure: false, //  false for port 25
           tls: {
-            rejectUnauthorized: false, // avoids TLS issues
+            rejectUnauthorized: true,
           },
 
 
