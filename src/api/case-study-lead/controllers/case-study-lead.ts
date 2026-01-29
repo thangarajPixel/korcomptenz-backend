@@ -18,7 +18,7 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
             slug: true,
             document_Id: true
           }
-        });
+        }) ;
 
         if (caseStudy) {
           await super.create(ctx);
