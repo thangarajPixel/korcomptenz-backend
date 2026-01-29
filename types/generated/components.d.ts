@@ -3301,6 +3301,8 @@ export interface SubPageComponetsResponsiveImage
   };
   attributes: {
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    imageLink: Schema.Attribute.String;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     mobileImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
