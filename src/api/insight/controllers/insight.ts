@@ -144,7 +144,11 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
           category: true,
           blog: {
             populate: {
-              faq: true
+              faq: {
+                populate: {
+                  faq: true
+                }
+              }
             }
           },
           author: {
