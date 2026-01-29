@@ -22,7 +22,7 @@ export interface AboutUsAchievementList extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
-          max: 2;
+          max: 4;
           min: 1;
         },
         number
@@ -41,7 +41,7 @@ export interface AboutUsAchievementSection extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
-          max: 3;
+          max: 4;
           min: 3;
         },
         number

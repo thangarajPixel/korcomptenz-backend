@@ -15,7 +15,7 @@
       "repeatable": true,
       "required": true,
       "min": 3,
-      "max": 3
+      "max": 4
     }
   },
   "config": {}
