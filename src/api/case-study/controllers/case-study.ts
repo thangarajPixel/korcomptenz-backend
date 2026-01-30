@@ -3,6 +3,7 @@
  */
 
 import { factories } from '@strapi/strapi'
+import { name } from 'assert/strict';
 
 export default factories.createCoreController('api::case-study.case-study', ({ strapi }) => ({
   async find(ctx) {
@@ -321,8 +322,10 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
 
       // Return only name and url
       return {
-        name: attachment.name,
-        url: attachment.url
+        data: {
+          name: attachment.name,
+          url: attachment.url
+        }
       };
 
     } catch (error) {
