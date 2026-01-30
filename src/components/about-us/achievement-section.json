@@ -16,6 +16,10 @@
       "required": true,
       "min": 3,
       "max": 4
+    },
+    "isColumnFour": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}
