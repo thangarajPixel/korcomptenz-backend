@@ -18,7 +18,7 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
             slug: true,
             document_Id: true
           }
-        }) ;
+        });
 
         if (caseStudy) {
           await super.create(ctx);
@@ -75,8 +75,8 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
                 : ''
               }
 
-          <a href="https://www.korcomptenz.com/client-success/" target="_blank">
-            https://www.korcomptenz.com/client-success/
+          <a href="https://www.korcomptenz.com/case-studies/" target="_blank">
+            https://www.korcomptenz.com/case-studies/
           </a><br/>
           <a href="https://www.korcomptenz.com/insights/" target="_blank">
             https://www.korcomptenz.com/insights/
