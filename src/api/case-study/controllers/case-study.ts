@@ -47,7 +47,7 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
       ctx.query = {
         ...ctx.query,
         populate: {
-          attachment: false,
+          attachment: true,
           heroSection: {
             populate: {
               image: true,
@@ -176,6 +176,7 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
           },
           descriptionSection: true,
           testimonials: true,
+          attachment: true,
           rightSection: {
             populate: {
               icon: true,
@@ -285,4 +286,48 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
       return ctx.internalServerError('Failed to fetch case study data');
     }
   },
+  async findByAttachment(ctx) {
+    try {
+      const { filename } = ctx.params;
+
+      if (!filename) {
+        return ctx.badRequest('Filename parameter is required');
+      }
+
+      // Use the service find method
+      const entity = await strapi.service('api::case-study.case-study').find({
+        filters: {
+          attachment: {
+            name: {
+              $eq: filename
+            }
+          }
+        },
+        populate: {
+          attachment: true,
+        },
+      });
+
+      if (!entity?.results || entity.results.length === 0) {
+        return ctx.notFound('Case study with this attachment not found');
+      }
+
+      // Get the attachment from the first matching case study
+      const attachment = entity.results[0].attachment;
+
+      if (!attachment) {
+        return ctx.notFound('Attachment not found');
+      }
+
+      // Return only name and url
+      return {
+        name: attachment.name,
+        url: attachment.url
+      };
+
+    } catch (error) {
+      strapi.log.error('Case Study findByAttachment error:', error);
+      return ctx.internalServerError('Failed to fetch case study attachment');
+    }
+  }
 }));

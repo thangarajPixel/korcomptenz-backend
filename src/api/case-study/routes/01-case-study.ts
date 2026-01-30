@@ -1,6 +1,16 @@
 
 export default {
   routes: [
+
+    {
+      method: 'GET',
+      path: '/case-studies/by-attachment/:filename',
+      handler: 'case-study.findByAttachment',
+      config: {
+        auth: false,
+
+      },
+    },
     { // Path defined with a URL parameter
       method: 'GET',
       path: '/case-studies/:slug',
@@ -32,6 +42,7 @@ export default {
       config: {
         auth: false,
       },
-    }
+    },
+
   ]
 }
