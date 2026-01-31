@@ -37,6 +37,7 @@ export interface AboutUsAchievementSection extends Struct.ComponentSchema {
     icon: 'gift';
   };
   attributes: {
+    isColumnFour: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'about-us.achievement-list', true> &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
