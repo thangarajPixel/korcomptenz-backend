@@ -172,7 +172,12 @@ export default factories.createCoreController('api::contact-us-lead.contact-us-l
                     </td>
                   </tr>
 
-            
+                  <tr>
+                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Organization:</td>
+                    <td style="padding:10px;border-bottom:1px solid #CCC;">
+                      ${lead.organization || ''}
+                    </td>
+                  </tr>
 
                   <tr style="background:#f4f5f7;">
                     <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Phone Number:</td>
@@ -181,23 +186,33 @@ export default factories.createCoreController('api::contact-us-lead.contact-us-l
                     </td>
                   </tr>
 
-                  
+                  <tr>
+                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Location:</td>
+                    <td style="padding:10px;border-bottom:1px solid #CCC;">
+                      ${lead.location || ''}
+                    </td>
+                  </tr>
 
                   <tr style="background:#f4f5f7;">
                     <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Services:</td>
                     <td style="padding:10px;border-bottom:1px solid #CCC;">
-                      ${serviceName|| ''}
+                      ${lead.services || ''}
                     </td>
                   </tr>
 
                   <tr>
                     <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Technology:</td>
                     <td style="padding:10px;border-bottom:1px solid #CCC;">
-                      ${technologyName || ''}
+                      ${lead.technology || ''}
                     </td>
                   </tr>
 
-                 
+                  <tr style="background:#f4f5f7;">
+                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Industry:</td>
+                    <td style="padding:10px;border-bottom:1px solid #CCC;">
+                      ${lead.industry || ''}
+                    </td>
+                  </tr>
 
                   <tr>
                     <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Message:</td>
