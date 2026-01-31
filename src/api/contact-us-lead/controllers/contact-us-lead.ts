@@ -43,6 +43,10 @@ export default factories.createCoreController('api::contact-us-lead.contact-us-l
       // console.log('Service Name:', serviceName);
       // console.log('Technology Name:', technologyName);
 
+
+
+      
+
       const SALES_EMAIL = strapi.config.get('emails.mail_to_emails.sales');
       const CC_EMAIL = strapi.config.get('emails.mail_to_emails.cc');
       // console.log('CC_EMAIL:', CC_EMAIL);
