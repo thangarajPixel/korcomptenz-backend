@@ -44,7 +44,7 @@ export default factories.createCoreController('api::news-room-lead.news-room-lea
   `,
           });
           console.log("Message sent:", info.messageId);
-          return { data: { success: true, ...response.data, message: 'New room lead created successfully', attachment: newRoom.attachment } };
+          return { data: { success: true, ...response.data, message: 'The form has been submitted successfully', attachment: newRoom.attachment } };
         }
         return ctx.notFound('New room not found');
       }

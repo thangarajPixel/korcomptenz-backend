@@ -22,7 +22,7 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
 
         if (caseStudy) {
           await super.create(ctx);
-          console.log("Case study lead created successfully", caseStudy?.attachment);
+          console.log("The form has been submitted successfully", caseStudy?.attachment);
           // const res = await strapi.plugin('email-designer');
 
           const SALES_EMAIL = strapi.config.get('emails.mail_to_emails.sales');
@@ -217,7 +217,7 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
 
           console.log("Message sent:", info.messageId);
           console.log("Message sent:", info2.messageId);
-          return { data: { success: true, message: 'Case study lead created successfully', attachment: caseStudy?.attachment } };
+          return { data: { success: true, message: 'The form has been submitted successfully', attachment: caseStudy?.attachment } };
         }
         return ctx.notFound('Case study not found');
       }

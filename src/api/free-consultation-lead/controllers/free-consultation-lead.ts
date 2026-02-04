@@ -19,7 +19,7 @@ export default factories.createCoreController('api::free-consultation-lead.free-
   `,
       });
       console.log("Message sent:", info.messageId);
-      return { data: { success: true, ...response.data, message: 'Free Consultation Lead created successfully' } };
+      return { data: { success: true, ...response.data, message: 'The form has been submitted successfully' } };
     } catch (error) {
       console.log(error);
       return ctx.badRequest(error);
