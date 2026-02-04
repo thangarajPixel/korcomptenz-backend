@@ -89,7 +89,7 @@ export default factories.createCoreController('api::candidate-detail.candidate-d
       <tr>
         <td style="text-align:center;padding:10px;background:#FFF;font-family:'Arial',Sans-serif;border-bottom:3px solid #249176;">
           <a href="https://www.korcomptenz.com/" target="_blank">
-            <img src="https://www.korcomptenz.com/wp-content/uploads/2021/10/logo.png" alt="" />
+            <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="" />
           </a>
         </td>
       </tr>
@@ -150,7 +150,7 @@ export default factories.createCoreController('api::candidate-detail.candidate-d
       <tr>
         <td style="text-align:center;padding:10px;background:#FFF;font-family:'Arial',Sans-serif;border-bottom:3px solid #249176;">
           <a href="https://www.korcomptenz.com/" target="_blank">
-            <img src="https://www.korcomptenz.com/wp-content/uploads/2021/10/logo.png" alt="" />
+            <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="" />
           </a>
         </td>
       </tr>
@@ -165,43 +165,43 @@ export default factories.createCoreController('api::candidate-detail.candidate-d
         <td style="text-align:left;padding:10px 20px;font-family:'Arial',Sans-serif;font-size:14px;line-height:24px;color:#040505;">
           <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
-              <td width="150" style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Name:</td>
-              <td style="padding:10px;border-bottom:1px solid #CCC;">
+              <td width="150" style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Name:</td>
+              <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
                 ${ctx.request.body.data?.name}
               </td>
             </tr>
 
             <tr style="background-color:#f4f5f7;">
-              <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Email:</td>
-              <td style="padding:10px;border-bottom:1px solid #CCC;">
+              <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Email:</td>
+              <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
                 ${ctx.request.body.data?.email}
               </td>
             </tr>
 
             <tr>
-              <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Phone Number:</td>
-              <td style="padding:10px;border-bottom:1px solid #CCC;">
+              <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Phone Number:</td>
+              <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
                 ${ctx.request.body.data?.phone}
               </td>
             </tr>
 
             <tr style="background-color:#f4f5f7;">
-              <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Department:</td>
-              <td style="padding:10px;border-bottom:1px solid #CCC;">
+              <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Department:</td>
+              <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
                 ${departmentName}
               </td>
             </tr>
 
             <tr>
-              <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Resume:</td>
-              <td style="padding:10px;border-bottom:1px solid #CCC;">
+              <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Resume:</td>
+              <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
                 ${resumeLink}
               </td>
             </tr>
 
             <tr style="background-color:#f4f5f7;">
-              <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;">Page URL:</td>
-              <td style="padding:10px;border-bottom:1px solid #CCC;">
+              <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Page URL:</td>
+              <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
                 <a href="https://www.korcomptenz.com/candidate-detail/${ctx.request.body.data?.slug}" target="_blank">
                   https://www.korcomptenz.com/candidate-detail/${ctx.request.body.data?.slug}
                 </a>
@@ -212,7 +212,7 @@ export default factories.createCoreController('api::candidate-detail.candidate-d
       </tr>
 
       <tr>
-        <td style="text-align:left;padding:20px;font-family:'Arial',Sans-serif;font-size:14px;line-height:24px;color:#040505;">
+        <td style="text-align:left;padding:20px;font-family:'Arial',Sans-serif;font-size:14px;line-height:24px;color:#040505;text-align:left;">
           <strong>Sincerely,</strong><br/>
           ${ctx.request.body.data?.name}
         </td>

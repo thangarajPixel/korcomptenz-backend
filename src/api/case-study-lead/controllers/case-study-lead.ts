@@ -53,7 +53,7 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
       <tr>
         <td style="text-align:center;padding:10px;background:#FFF;font-family:'Arial',Sans-serif;border-bottom:3px solid #249176;">
           <a href="https://www.korcomptenz.com/" target="_blank">
-            <img src="https://www.korcomptenz.com/wp-content/uploads/2021/10/logo.png" alt="" />
+            <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="" />
           </a>
         </td>
       </tr>
@@ -131,7 +131,7 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
   <tr>
     <td style="text-align:center; padding:15px; border-bottom:3px solid #249176;">
       <a href="https://www.korcomptenz.com/" target="_blank">
-        <img src="https://www.korcomptenz.com/wp-content/uploads/2021/10/logo.png"
+        <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png"
              alt="Korcomptenz" style="max-width:180px;" />
       </a>
     </td>
@@ -150,43 +150,43 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
       <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
 
         <tr>
-          <td style="padding:10px; font-weight:600; border-bottom:1px solid #CCC;">Name</td>
-          <td style="padding:10px; border-bottom:1px solid #CCC;">
+          <td style="padding:10px; font-weight:600; border-bottom:1px solid #CCC;text-align:left;">Name</td>
+          <td style="padding:10px; border-bottom:1px solid #CCC;text-align:left;">
             ${data?.fullName || "-"}
           </td>
         </tr>
 
         <tr style="background:#f4f5f7;">
-          <td style="padding:10px; font-weight:600; border-bottom:1px solid #CCC;">Email</td>
-          <td style="padding:10px; border-bottom:1px solid #CCC;">
+          <td style="padding:10px; font-weight:600; border-bottom:1px solid #CCC;text-align:left;">Email</td>
+          <td style="padding:10px; border-bottom:1px solid #CCC;text-align:left;">
             ${data?.email || "-"}
           </td>
         </tr>
 
         <tr>
-          <td style="padding:10px; font-weight:600; border-bottom:1px solid #CCC;">Organization</td>
-          <td style="padding:10px; border-bottom:1px solid #CCC;">
+          <td style="padding:10px; font-weight:600; border-bottom:1px solid #CCC;text-align:left;">Organization</td>
+          <td style="padding:10px; border-bottom:1px solid #CCC;text-align:left;">
             ${data?.organization || "-"}
           </td>
         </tr>
 
         <tr style="background:#f4f5f7;">
-          <td style="padding:10px; font-weight:600; border-bottom:1px solid #CCC;">Phone Number</td>
-          <td style="padding:10px; border-bottom:1px solid #CCC;">
+          <td style="padding:10px; font-weight:600; border-bottom:1px solid #CCC;text-align:left;">Phone Number</td>
+          <td style="padding:10px; border-bottom:1px solid #CCC;text-align:left;">
             ${data?.phone || "-"}
           </td>
         </tr>
 
         <tr>
-          <td style="padding:10px; font-weight:600; border-bottom:1px solid #CCC;">Message</td>
-          <td style="padding:10px; border-bottom:1px solid #CCC;">
+          <td style="padding:10px; font-weight:600; border-bottom:1px solid #CCC;text-align:left;">Message</td>
+          <td style="padding:10px; border-bottom:1px solid #CCC;text-align:left;">
             ${data?.message || "-"}
           </td>
         </tr>
 
         <tr style="background:#f4f5f7;">
-          <td style="padding:10px; font-weight:600; border-bottom:1px solid #CCC;">Page URL</td>
-          <td style="padding:10px; border-bottom:1px solid #CCC;">
+          <td style="padding:10px; font-weight:600; border-bottom:1px solid #CCC;text-align:left;">Page URL</td>
+          <td style="padding:10px; border-bottom:1px solid #CCC;text-align:left;">
             <a href="https://www.korcomptenz.com/case-studies/${caseStudy?.slug}"
                target="_blank"
                style="color:#249176;">

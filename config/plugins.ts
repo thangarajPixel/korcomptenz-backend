@@ -21,42 +21,17 @@ module.exports = ({ env }) => {
 
     //smtp using app password
 
-    // email: {
-    //   config: {
-    //     provider: 'nodemailer',
-    //     providerOptions: {
-    //       host: env('MAIL_HOST'),
-    //       port: env.int('MAIL_PORT'),
-    //       secure: true,
-    //       auth: {
-    //         user: env('MAIL_USERNAME'),
-    //         pass: env('MAIL_PASSWORD'),
-    //       },
-    //     },
-    //     settings: {
-    //       defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
-    //       defaultReplyTo: env('MAIL_FROM', 'info@korcomptenz.com'),
-    //     },
-    //   },
-    // },
-
-
-
-
-    // SMTP RELAY without auth
-
     email: {
       config: {
         provider: 'nodemailer',
         providerOptions: {
-          host: 'smtprelay.korcomptenz.com',
-          port: 25,
-          secure: false, //  false for port 25
-          tls: {
-            rejectUnauthorized: true,
+          host: env('MAIL_HOST'),
+          port: env.int('MAIL_PORT'),
+          secure: true,
+          auth: {
+            user: env('MAIL_USERNAME'),
+            pass: env('MAIL_PASSWORD'),
           },
-
-
         },
         settings: {
           defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
@@ -64,6 +39,31 @@ module.exports = ({ env }) => {
         },
       },
     },
+
+
+
+
+    // SMTP RELAY without auth
+
+    // email: {
+    //   config: {
+    //     provider: 'nodemailer',
+    //     providerOptions: {
+    //       host: 'smtprelay.korcomptenz.com',
+    //       port: 25,
+    //       secure: false, //  false for port 25
+    //       tls: {
+    //         rejectUnauthorized: true,
+    //       },
+
+
+    //     },
+    //     settings: {
+    //       defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
+    //       defaultReplyTo: env('MAIL_FROM', 'info@korcomptenz.com'),
+    //     },
+    //   },
+    // },
 
 
 

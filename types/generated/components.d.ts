@@ -3177,6 +3177,7 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<false>;
     isHasFooter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isListPage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     logo: Schema.Attribute.Media<'images'>;
     logoMobile: Schema.Attribute.Media<'images'>;

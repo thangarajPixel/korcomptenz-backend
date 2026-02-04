@@ -59,6 +59,10 @@
     "secondLink": {
       "type": "string"
     },
+    "isTarget": {
+      "type": "boolean",
+      "default": false
+    },
     "isHasFooter": {
       "type": "boolean",
       "default": false
