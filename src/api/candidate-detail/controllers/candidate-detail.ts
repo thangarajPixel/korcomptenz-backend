@@ -199,14 +199,7 @@ export default factories.createCoreController('api::candidate-detail.candidate-d
               </td>
             </tr>
 
-            <tr style="background-color:#f4f5f7;">
-              <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Page URL:</td>
-              <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
-                <a href="https://www.korcomptenz.com/candidate-detail/${ctx.request.body.data?.slug}" target="_blank">
-                  https://www.korcomptenz.com/candidate-detail/${ctx.request.body.data?.slug}
-                </a>
-              </td>
-            </tr>
+           
           </table>
         </td>
       </tr>
