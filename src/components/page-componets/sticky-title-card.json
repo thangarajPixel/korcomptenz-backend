@@ -48,6 +48,10 @@
     "IsVideo": {
       "type": "boolean",
       "default": false
+    },
+    "IsTarget": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}

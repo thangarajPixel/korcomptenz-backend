@@ -8,7 +8,7 @@ export default factories.createCoreController('api::free-consultation-lead.free-
   async create(ctx) {
     try {
       // const data = ctx.request.body.data;
-      console.log('Free consultation lead payload:', ctx.request.body?.data);
+      // console.log('Free consultation lead payload:', ctx.request.body?.data);
       const lead = ctx.request.body.data;
       const SALES_EMAIL = strapi.config.get('emails.mail_to_emails.sales');
       const CC_EMAIL = strapi.config.get('emails.mail_to_emails.cc');
@@ -38,7 +38,7 @@ export default factories.createCoreController('api::free-consultation-lead.free-
             <tr>
               <td style="text-align:center;padding:10px;background:#FFF;font-family:'Arial',Sans-serif;border-bottom:3px solid #249176;">
                 <a href="https://www.korcomptenz.com/" target="_blank">
-                  <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="Korcomptenz Logo" />
+                  <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="Korcomptenz Logo"style="width: 250px;" />
                 </a>
               </td>
             </tr>
@@ -112,7 +112,7 @@ export default factories.createCoreController('api::free-consultation-lead.free-
       <td
         style="text-align:center;padding:10px;background:#FFF;font-family:Arial,sans-serif;border-bottom:3px solid #249176;">
         <a href="https://www.korcomptenz.com/" target="_blank">
-          <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="Korcomptenz Logo" />
+          <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="Korcomptenz Logo" style="width: 250px;" />
         </a>
       </td>
     </tr>

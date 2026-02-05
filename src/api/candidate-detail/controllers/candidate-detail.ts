@@ -89,7 +89,7 @@ export default factories.createCoreController('api::candidate-detail.candidate-d
       <tr>
         <td style="text-align:center;padding:10px;background:#FFF;font-family:'Arial',Sans-serif;border-bottom:3px solid #249176;">
           <a href="https://www.korcomptenz.com/" target="_blank">
-            <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="" />
+            <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="" style="width: 250px;"/>
           </a>
         </td>
       </tr>
@@ -150,7 +150,7 @@ export default factories.createCoreController('api::candidate-detail.candidate-d
       <tr>
         <td style="text-align:center;padding:10px;background:#FFF;font-family:'Arial',Sans-serif;border-bottom:3px solid #249176;">
           <a href="https://www.korcomptenz.com/" target="_blank">
-            <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="" />
+            <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="" style="width: 250px;" />
           </a>
         </td>
       </tr>

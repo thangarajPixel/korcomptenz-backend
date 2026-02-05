@@ -2323,6 +2323,7 @@ export interface PageComponetsDigitalCardSliderList
         }
       >;
     image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -3027,6 +3028,7 @@ export interface PageComponetsStickyTitleCard extends Struct.ComponentSchema {
         }
       >;
     image: Schema.Attribute.Media<'images'>;
+    IsTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     IsVideo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     position: Schema.Attribute.Enumeration<['corner', 'main', 'side']> &
