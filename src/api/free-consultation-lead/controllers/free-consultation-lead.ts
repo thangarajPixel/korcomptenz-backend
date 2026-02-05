@@ -15,7 +15,7 @@ export default factories.createCoreController('api::free-consultation-lead.free-
       const response = await super.create(ctx);
       await strapi.plugin('email').service('email').send({
         to: lead.email,
-        cc: CC_EMAIL,
+        bcc: CC_EMAIL,
         subject: 'Request a Consultation – Korcomptenz',
         html: `
       <!DOCTYPE html>
@@ -82,7 +82,7 @@ export default factories.createCoreController('api::free-consultation-lead.free-
 
       await strapi.plugin('email').service('email').send({
         to: SALES_EMAIL,
-        cc: CC_EMAIL,
+        bcc: CC_EMAIL,
         subject: 'New Contact Us Lead | Korcomptenz',
         html: `
      <!DOCTYPE html>

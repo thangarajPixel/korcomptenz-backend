@@ -49,7 +49,7 @@ export default factories.createCoreController('api::contact-us-lead.contact-us-l
 
       await strapi.plugin('email').service('email').send({
         to: lead.email,
-        cc: CC_EMAIL,
+        bcc: CC_EMAIL,
         subject: 'Request a Consultation – Korcomptenz',
         html: `
       <!DOCTYPE html>
@@ -116,7 +116,7 @@ export default factories.createCoreController('api::contact-us-lead.contact-us-l
 
       await strapi.plugin('email').service('email').send({
         to: SALES_EMAIL,
-        cc: CC_EMAIL,
+        bbcc: CC_EMAIL,
         subject: 'New Contact Us Lead | Korcomptenz',
         html: `
       <!DOCTYPE html>

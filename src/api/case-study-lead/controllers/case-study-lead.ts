@@ -32,7 +32,7 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
 
           const info = await strapi.plugin('email').service('email').send({
             to: data?.email,
-            cc: CC_EMAIL,
+            bcc: CC_EMAIL,
             subject: 'Thank you for your interest in our Case Study',
             html: `
 <!DOCTYPE html>
@@ -112,7 +112,7 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
 
           const info2 = await strapi.plugin('email').service('email').send({
             to: SALES_EMAIL,
-            cc: CC_EMAIL,
+            bcc: CC_EMAIL,
             subject: "Case Study Download",
             html: `
 <!DOCTYPE html>

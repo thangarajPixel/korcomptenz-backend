@@ -66,7 +66,7 @@ export default factories.createCoreController('api::candidate-detail.candidate-d
       const info = await strapi.plugin('email').service('email').send({
         // from: '"Korcomptenz" <maddison53@ethereal.email>',
         to: ctx.request.body.data?.email,
-        cc: CC_EMAIL,
+        bcc: CC_EMAIL,
         subject: 'Thank you for your Interest',
         html: `
 <!DOCTYPE html>
@@ -127,7 +127,7 @@ export default factories.createCoreController('api::candidate-detail.candidate-d
       const info2 = await strapi.plugin('email').service('email').send({
         // from: '"Korcomptenz" <maddison53@ethereal.email>',
         to: HR_EMAIL,
-        cc: CC_EMAIL,
+        bcc: CC_EMAIL,
         subject: 'Submitted Profile | Korcomptenz',
         html: `
 <!DOCTYPE html>

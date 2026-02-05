@@ -43,7 +43,7 @@ export default factories.createCoreController('api::news-room-lead.news-room-lea
           // email to user
           await strapi.plugin('email').service('email').send({
             to: data.email,
-            cc: CC_EMAIL,
+            bcc: CC_EMAIL,
             subject: 'Korcomptenz | Thank you for your enquiry',
             html: `
       <!DOCTYPE html>
@@ -111,7 +111,7 @@ export default factories.createCoreController('api::news-room-lead.news-room-lea
           // email to admin
           await strapi.plugin('email').service('email').send({
             to: SALES_EMAIL,
-            cc: CC_EMAIL,
+            bcc: CC_EMAIL,
             subject: 'Korcomptenz | Online Enquiry',
             html: `
       <!DOCTYPE html>
