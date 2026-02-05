@@ -19,14 +19,14 @@ export interface AboutUsAchievementList extends Struct.ComponentSchema {
   };
   attributes: {
     column: Schema.Attribute.Component<'about-us.achievement-column', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 4;
-          min: 1;
-        },
-        number
-      >;
+    Schema.Attribute.Required &
+    Schema.Attribute.SetMinMax<
+      {
+        max: 4;
+        min: 1;
+      },
+      number
+    >;
   };
 }
 
@@ -39,14 +39,14 @@ export interface AboutUsAchievementSection extends Struct.ComponentSchema {
   attributes: {
     isColumnFour: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'about-us.achievement-list', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 4;
-          min: 3;
-        },
-        number
-      >;
+    Schema.Attribute.Required &
+    Schema.Attribute.SetMinMax<
+      {
+        max: 4;
+        min: 3;
+      },
+      number
+    >;
     title: Schema.Attribute.Text;
   };
 }
@@ -97,23 +97,23 @@ export interface AboutUsMapSectionCard extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     title: Schema.Attribute.String;
     x: Schema.Attribute.Decimal &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 110;
-          min: 0;
-        },
-        number
-      >;
+    Schema.Attribute.Required &
+    Schema.Attribute.SetMinMax<
+      {
+        max: 110;
+        min: 0;
+      },
+      number
+    >;
     y: Schema.Attribute.Decimal &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 110;
-          min: 0;
-        },
-        number
-      >;
+    Schema.Attribute.Required &
+    Schema.Attribute.SetMinMax<
+      {
+        max: 110;
+        min: 0;
+      },
+      number
+    >;
   };
 }
 
@@ -194,12 +194,12 @@ export interface AboutUsPeopleShowcaseCard extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     image: Schema.Attribute.Media<'images'>;
     miniDescription: Schema.Attribute.Text;
     position: Schema.Attribute.Text;
@@ -220,14 +220,14 @@ export interface AboutUsPeopleShowcaseList extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     list: Schema.Attribute.Component<'about-us.people-showcase-card', true>;
     perRow: Schema.Attribute.Integer &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 3;
-          min: 2;
-        },
-        number
-      > &
-      Schema.Attribute.DefaultTo<3>;
+    Schema.Attribute.SetMinMax<
+      {
+        max: 3;
+        min: 2;
+      },
+      number
+    > &
+    Schema.Attribute.DefaultTo<3>;
     title: Schema.Attribute.String;
   };
 }
@@ -299,13 +299,13 @@ export interface CareerMansonryGalleryCol extends Struct.ComponentSchema {
   };
   attributes: {
     column: Schema.Attribute.Component<'career.mansonry-gallery', true> &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 3;
-          min: 2;
-        },
-        number
-      >;
+    Schema.Attribute.SetMinMax<
+      {
+        max: 3;
+        min: 2;
+      },
+      number
+    >;
   };
 }
 
@@ -344,13 +344,13 @@ export interface CaseStudyBanner extends Struct.ComponentSchema {
   attributes: {
     description: Schema.Attribute.Text;
     images: Schema.Attribute.Component<'case-study.banner-image', true> &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 3;
-          min: 3;
-        },
-        number
-      >;
+    Schema.Attribute.SetMinMax<
+      {
+        max: 3;
+        min: 3;
+      },
+      number
+    >;
     searchPlaceholder: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -374,9 +374,9 @@ export interface CaseStudyCaseStudyDomainData extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Read All'>;
+    Schema.Attribute.DefaultTo<'Read All'>;
     link: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'/client-success'>;
+    Schema.Attribute.DefaultTo<'/client-success'>;
     list: Schema.Attribute.Relation<'oneToMany', 'api::case-study.case-study'>;
     title: Schema.Attribute.String;
   };
@@ -443,12 +443,12 @@ export interface CaseStudyDescriptionSection extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     title: Schema.Attribute.String;
   };
 }
@@ -464,7 +464,7 @@ export interface CaseStudyFilterLabel extends Struct.ComponentSchema {
       ['businessOutcomes', 'industries', 'region', 'service', 'technology']
     >;
     isDesignedDropdown: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>;
+    Schema.Attribute.DefaultTo<false>;
     isMultiple: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     label: Schema.Attribute.String;
   };
@@ -478,7 +478,7 @@ export interface CaseStudyHeroSection extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Learn More'>;
+    Schema.Attribute.DefaultTo<'Learn More'>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     mobileImage: Schema.Attribute.Media<'images'>;
@@ -493,12 +493,12 @@ export interface CaseStudyPartner extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     link: Schema.Attribute.String;
     logo: Schema.Attribute.Media<'images'>;
     name: Schema.Attribute.String;
@@ -530,7 +530,7 @@ export interface CaseStudyPopularFilter extends Struct.ComponentSchema {
       true
     >;
     resetButtonText: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Reset'>;
+    Schema.Attribute.DefaultTo<'Reset'>;
   };
 }
 
@@ -556,9 +556,9 @@ export interface CaseStudyRelatedCaseStudy extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'View all case studies'>;
+    Schema.Attribute.DefaultTo<'View all case studies'>;
     title: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Explore more success stories'>;
+    Schema.Attribute.DefaultTo<'Explore more success stories'>;
   };
 }
 
@@ -575,7 +575,7 @@ export interface CaseStudyRightSection extends Struct.ComponentSchema {
     >;
     icon: Schema.Attribute.Media<'images'>;
     isCustomDescripition: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>;
+    Schema.Attribute.DefaultTo<false>;
     isPreTitle: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     preTitle: Schema.Attribute.Relation<
       'oneToOne',
@@ -610,12 +610,12 @@ export interface CaseStudyTestimonialSection extends Struct.ComponentSchema {
   attributes: {
     author: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     title: Schema.Attribute.String;
   };
 }
@@ -667,12 +667,12 @@ export interface ContactUsFixedSection extends Struct.ComponentSchema {
   };
   attributes: {
     buttons: Schema.Attribute.Component<'global.button', true> &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 2;
-        },
-        number
-      >;
+    Schema.Attribute.SetMinMax<
+      {
+        max: 2;
+      },
+      number
+    >;
     description: Schema.Attribute.Text;
   };
 }
@@ -763,12 +763,12 @@ export interface DemoPageBuildDemo extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     isSwap: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     item: Schema.Attribute.Relation<'oneToOne', 'api::book-demo.book-demo'>;
@@ -812,12 +812,12 @@ export interface DemoPageDemoDemonstration extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     footer: Schema.Attribute.Component<'global.image-description', false>;
     isHasFooter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'global.editor-descripiton', true>;
@@ -834,7 +834,7 @@ export interface DemoPageDemoItem extends Struct.ComponentSchema {
   attributes: {
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Book a Demo'>;
+    Schema.Attribute.DefaultTo<'Book a Demo'>;
     date: Schema.Attribute.Date;
     description: Schema.Attribute.Text;
     title: Schema.Attribute.String;
@@ -920,11 +920,11 @@ export interface FormFieldsBookDemoForm extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Book a Demo'>;
+    Schema.Attribute.DefaultTo<'Book a Demo'>;
     emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
     nameLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Name'>;
     organizationLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Organization'>;
+    Schema.Attribute.DefaultTo<'Organization'>;
     title: Schema.Attribute.Text & Schema.Attribute.DefaultTo<'Book a Demo'>;
   };
 }
@@ -938,21 +938,21 @@ export interface FormFieldsCareer extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Send'>;
     companyLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Company'>;
+    Schema.Attribute.DefaultTo<'Company'>;
     departmentLabel: Schema.Attribute.Text &
-      Schema.Attribute.DefaultTo<'Department'>;
+    Schema.Attribute.DefaultTo<'Department'>;
     emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
     firstNameLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'First Name'>;
+    Schema.Attribute.DefaultTo<'First Name'>;
     lastNameLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Last Name'>;
+    Schema.Attribute.DefaultTo<'Last Name'>;
     mobileLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Phone'>;
     phoneLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Phone'>;
     resumeLabel: Schema.Attribute.Text & Schema.Attribute.DefaultTo<'Resume'>;
     serviceLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Select Service'>;
+    Schema.Attribute.DefaultTo<'Select Service'>;
     technologyLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Select Technology'>;
+    Schema.Attribute.DefaultTo<'Select Technology'>;
   };
 }
 
@@ -967,10 +967,10 @@ export interface FormFieldsCaseForm extends Struct.ComponentSchema {
     downloadContent: Schema.Attribute.String;
     emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
     messageLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Message'>;
+    Schema.Attribute.DefaultTo<'Message'>;
     nameLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Name'>;
     organizationLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Organization'>;
+    Schema.Attribute.DefaultTo<'Organization'>;
     phoneLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Phone'>;
     title: Schema.Attribute.Text & Schema.Attribute.DefaultTo<'Case Form'>;
   };
@@ -985,19 +985,19 @@ export interface FormFieldsContactUsForm extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Send'>;
     companyLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Company'>;
+    Schema.Attribute.DefaultTo<'Company'>;
     emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
     firstNameLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'First Name'>;
+    Schema.Attribute.DefaultTo<'First Name'>;
     lastNameLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Last Name'>;
+    Schema.Attribute.DefaultTo<'Last Name'>;
     list: Schema.Attribute.Component<'global.custom-list', true>;
     messageLabel: Schema.Attribute.Text & Schema.Attribute.DefaultTo<'Message'>;
     phoneLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Phone'>;
     serviceLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Select Service'>;
+    Schema.Attribute.DefaultTo<'Select Service'>;
     technologyLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Select Technology'>;
+    Schema.Attribute.DefaultTo<'Select Technology'>;
   };
 }
 
@@ -1023,12 +1023,12 @@ export interface FormFieldsFreeConsultationForm extends Struct.ComponentSchema {
     emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
     image: Schema.Attribute.Media<'images'>;
     locationLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Location'>;
+    Schema.Attribute.DefaultTo<'Location'>;
     messageLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Message'>;
+    Schema.Attribute.DefaultTo<'Message'>;
     nameLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Name'>;
     organizationLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Organization'>;
+    Schema.Attribute.DefaultTo<'Organization'>;
     phoneLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Phone'>;
     title: Schema.Attribute.Text & Schema.Attribute.DefaultTo<'Case Form'>;
   };
@@ -1043,13 +1043,13 @@ export interface FormFieldsInsightReserveSpot extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String & Schema.Attribute.Required;
     companyLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Company'>;
+    Schema.Attribute.DefaultTo<'Company'>;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
     nameLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Full Name'>;
+    Schema.Attribute.DefaultTo<'Full Name'>;
     phoneLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Phone Number'>;
+    Schema.Attribute.DefaultTo<'Phone Number'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -1073,12 +1073,12 @@ export interface FormFieldsReserveSpotFields extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Submit'>;
     companyLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Company'>;
+    Schema.Attribute.DefaultTo<'Company'>;
     emailLabel: Schema.Attribute.String & Schema.Attribute.DefaultTo<'Email'>;
     nameLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Full Name'>;
+    Schema.Attribute.DefaultTo<'Full Name'>;
     phoneLabel: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Phone Number'>;
+    Schema.Attribute.DefaultTo<'Phone Number'>;
   };
 }
 
@@ -1091,8 +1091,8 @@ export interface GlobalButton extends Struct.ComponentSchema {
   attributes: {
     isTargetNew: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     link: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'#'>;
+    Schema.Attribute.Required &
+    Schema.Attribute.DefaultTo<'#'>;
     text: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -1116,12 +1116,12 @@ export interface GlobalEditorDescripiton extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
   };
 }
 
@@ -1161,12 +1161,12 @@ export interface GlobalImageDescription extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     image: Schema.Attribute.Media<'images'>;
   };
 }
@@ -1287,12 +1287,12 @@ export interface HomeOpportunity extends Struct.ComponentSchema {
     button: Schema.Attribute.Component<'global.button', false>;
     description: Schema.Attribute.Text;
     profiles: Schema.Attribute.Component<'home.opportunity-profile', true> &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 3;
-        },
-        number
-      >;
+    Schema.Attribute.SetMinMax<
+      {
+        max: 3;
+      },
+      number
+    >;
   };
 }
 
@@ -1314,14 +1314,14 @@ export interface HomeScheduleCall extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Schedule a Call'>;
+    Schema.Attribute.DefaultTo<'Schedule a Call'>;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     link: Schema.Attribute.String;
     title: Schema.Attribute.Text;
     topDescription: Schema.Attribute.Text;
@@ -1351,7 +1351,7 @@ export interface HomeServicesSectionList extends Struct.ComponentSchema {
     heading: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     isBottomButton: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>;
+    Schema.Attribute.DefaultTo<false>;
     isVideo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     label: Schema.Attribute.String;
     link: Schema.Attribute.String;
@@ -1383,12 +1383,12 @@ export interface InsightSectionBlogSection extends Struct.ComponentSchema {
   };
   attributes: {
     content: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     faq: Schema.Attribute.Component<'page-componets.faq-title', false>;
   };
 }
@@ -1401,9 +1401,9 @@ export interface InsightSectionInsightList extends Struct.ComponentSchema {
   };
   attributes: {
     buttonLink: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'/insights'>;
+    Schema.Attribute.DefaultTo<'/insights'>;
     buttontext: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Read All'>;
+    Schema.Attribute.DefaultTo<'Read All'>;
     list: Schema.Attribute.Relation<'oneToOne', 'api::insight.insight'>;
     title: Schema.Attribute.String;
   };
@@ -1447,12 +1447,12 @@ export interface InsightSectionWebStories extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
@@ -1766,12 +1766,12 @@ export interface NewsAndEventBuildData extends Struct.ComponentSchema {
   attributes: {
     button: Schema.Attribute.Component<'global.button', false>;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     image: Schema.Attribute.Media<'images'>;
     listDescription: Schema.Attribute.Component<'global.custom-list', true>;
   };
@@ -1786,12 +1786,12 @@ export interface NewsAndEventColorCustomDescription
   attributes: {
     colour: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
   };
 }
 
@@ -1845,12 +1845,12 @@ export interface NewsAndEventNewsDescriptionOnly
   };
   attributes: {
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
   };
 }
 
@@ -1906,19 +1906,19 @@ export interface NewsAndEventNewsTitleDescriptionOnly
   };
   attributes: {
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     title: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
   };
 }
 
@@ -1989,12 +1989,12 @@ export interface PageComponetsBenifitCards extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     number: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -2008,19 +2008,19 @@ export interface PageComponetsBuildData extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     descriptionButtonLink: Schema.Attribute.String;
     descriptionButtonText: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     imageCaption: Schema.Attribute.String;
     isSwap: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTargetBlankDescription: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>;
+    Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     mobileImage: Schema.Attribute.Media<'images'>;
     rightSection: Schema.Attribute.Component<
@@ -2103,12 +2103,12 @@ export interface PageComponetsDarkSliderCard extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
@@ -2137,7 +2137,7 @@ export interface PageComponetsDemonstrateCard extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Explore More'>;
+    Schema.Attribute.DefaultTo<'Explore More'>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     isTargetBlank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -2196,12 +2196,12 @@ export interface PageComponetsDigitalAnalytics extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     heading1: Schema.Attribute.String;
     heading2: Schema.Attribute.String;
     list1: Schema.Attribute.Component<
@@ -2224,12 +2224,12 @@ export interface PageComponetsDigitalAnalyticsList1
   };
   attributes: {
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     title: Schema.Attribute.String;
   };
 }
@@ -2245,12 +2245,12 @@ export interface PageComponetsDigitalAnalyticsList2
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
@@ -2316,12 +2316,12 @@ export interface PageComponetsDigitalCardSliderList
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     image: Schema.Attribute.Media<'images'>;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
@@ -2389,12 +2389,12 @@ export interface PageComponetsDigitalInspireList
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     image1: Schema.Attribute.Media<'images'>;
     image2: Schema.Attribute.Media<'images'>;
     imageText: Schema.Attribute.String;
@@ -2410,12 +2410,12 @@ export interface PageComponetsDigitalServicesSection
   };
   attributes: {
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     list: Schema.Attribute.Component<
       'page-componets.digital-services-section-list',
       true
@@ -2433,12 +2433,12 @@ export interface PageComponetsDigitalServicesSectionList
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     heading: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     label: Schema.Attribute.String;
@@ -2494,14 +2494,14 @@ export interface PageComponetsFaq extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     isHasCustomList: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>;
+    Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'global.title-descripiton', true>;
     title: Schema.Attribute.String;
   };
@@ -2531,12 +2531,12 @@ export interface PageComponetsFullLifecycleBottom
       true
     >;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     title: Schema.Attribute.Text;
   };
 }
@@ -2551,12 +2551,12 @@ export interface PageComponetsFullLifecycleBottomCard
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
@@ -2586,12 +2586,12 @@ export interface PageComponetsFullLifecycleMidList1
   };
   attributes: {
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     title: Schema.Attribute.Text;
   };
 }
@@ -2618,12 +2618,12 @@ export interface PageComponetsFullLifecycleTopList
   };
   attributes: {
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
@@ -2639,26 +2639,26 @@ export interface PageComponetsGramBanner extends Struct.ComponentSchema {
     buttonLink: Schema.Attribute.Text;
     buttonText: Schema.Attribute.Text;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     footerButtonLink: Schema.Attribute.String;
     FooterbuttonText: Schema.Attribute.String;
     footerDescription: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     footerHeading: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     isCustomList: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isDescriptionLeft: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>;
+    Schema.Attribute.DefaultTo<false>;
     isFooter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTargetBlank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTitleLeft: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -2707,7 +2707,7 @@ export interface PageComponetsInsightsSection extends Struct.ComponentSchema {
   attributes: {
     buttonLink: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
     buttontext: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Read All'>;
+    Schema.Attribute.DefaultTo<'Read All'>;
     list: Schema.Attribute.Component<
       'page-componets.insights-section-card',
       true
@@ -2746,14 +2746,14 @@ export interface PageComponetsInspireSection extends Struct.ComponentSchema {
       'page-componets.inspire-section-card',
       true
     > &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 8;
-          min: 2;
-        },
-        number
-      >;
+    Schema.Attribute.Required &
+    Schema.Attribute.SetMinMax<
+      {
+        max: 8;
+        min: 2;
+      },
+      number
+    >;
     title: Schema.Attribute.String;
   };
 }
@@ -2767,14 +2767,14 @@ export interface PageComponetsInspireSectionCard
   };
   attributes: {
     buttonText: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Know More'>;
+    Schema.Attribute.DefaultTo<'Know More'>;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
     position: Schema.Attribute.Enumeration<['bottom', 'top', 'topAbove']>;
@@ -2828,12 +2828,12 @@ export interface PageComponetsLightSliderGroupList
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -2926,7 +2926,7 @@ export interface PageComponetsSapSectionData extends Struct.ComponentSchema {
     >;
     isItemOnly: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isSecoundImage: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>;
+    Schema.Attribute.DefaultTo<false>;
     item: Schema.Attribute.Component<'page-componets.card', true>;
     itemDescription: Schema.Attribute.Text;
   };
@@ -3021,25 +3021,25 @@ export interface PageComponetsStickyTitleCard extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     image: Schema.Attribute.Media<'images'>;
-    IsTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     IsVideo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     position: Schema.Attribute.Enumeration<['corner', 'main', 'side']> &
-      Schema.Attribute.DefaultTo<'corner'>;
+    Schema.Attribute.DefaultTo<'corner'>;
     secondaryDescription: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     title: Schema.Attribute.String;
   };
 }
@@ -3064,14 +3064,14 @@ export interface PageComponetsStretchableCard extends Struct.ComponentSchema {
   };
   attributes: {
     buttonText: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Learn more'>;
+    Schema.Attribute.DefaultTo<'Learn more'>;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     image: Schema.Attribute.Media<'images' | 'files'>;
     isTargetBlank: Schema.Attribute.Boolean;
     link: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
@@ -3129,12 +3129,12 @@ export interface PageComponetsWhyWeAreList extends Struct.ComponentSchema {
   };
   attributes: {
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.Text;
   };
@@ -3160,23 +3160,23 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
   attributes: {
     bannerCaption: Schema.Attribute.Text;
     buttonText: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'Contact us'>;
+    Schema.Attribute.DefaultTo<'Contact us'>;
     customFooter: Schema.Attribute.Component<
       'page-componets.custom-footer',
       false
     >;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     footer: Schema.Attribute.Component<'case-study.partner', false>;
     image: Schema.Attribute.Media<'images'>;
     imageMobile: Schema.Attribute.Media<'images'>;
     isCustomFooter: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>;
+    Schema.Attribute.DefaultTo<false>;
     isHasFooter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isListPage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -3215,12 +3215,12 @@ export interface SubPageComponetsBuildDataRightSection
     customDescriptionImage: Schema.Attribute.Media<'images'>;
     customTitle: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
-      Schema.Attribute.CustomField<
-        'plugin::ckeditor5.CKEditor',
-        {
-          preset: 'defaultHtml';
-        }
-      >;
+    Schema.Attribute.CustomField<
+      'plugin::ckeditor5.CKEditor',
+      {
+        preset: 'defaultHtml';
+      }
+    >;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     isBgGray: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     responsiveImage: Schema.Attribute.Component<
