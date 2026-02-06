@@ -205,9 +205,9 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
           },
         },
       });
-      if (!entity) {
-        return ctx.notFound('Page not found');
-      }
+      // if (!entity) {
+      //   return ctx.notFound('Page not found');
+      // }
       // Extract related field IDs
       // const techIds = entity.technologies?.map(t => t.id) || [];
       // const serviceIds = entity.services?.map(s => s.id) || [];
@@ -234,7 +234,35 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
       // Sanitize responses
       // const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
       // const sanitizedRelated = await this.sanitizeOutput(related, ctx);
-      return this.transformResponse(entity);
+      if (!entity) {
+        const notFoundPages = await strapi.db.query('api::not-found.not-found').findMany({
+          where: {
+            publishedAt: { $notNull: true },
+          },
+          populate: {
+            list: {
+              on: {
+                'not-found.not-found': {
+                  populate: {
+                    image: true,
+                  },
+                }
+              }
+            },
+            seo: true,
+          }
+        });
+
+        const notFoundPage = notFoundPages?.[0];
+        if (!notFoundPage) {
+          return ctx.notFound('Page not found');
+        }
+        const sanitizedEntity = await this.sanitizeOutput(notFoundPage, ctx);
+        return this.transformResponse(sanitizedEntity);
+      }
+
+      const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+      return this.transformResponse(sanitizedEntity);
     } catch (error) {
       strapi.log.error('Case Study find error:', error);
       return ctx.internalServerError('Failed to fetch case study data');
