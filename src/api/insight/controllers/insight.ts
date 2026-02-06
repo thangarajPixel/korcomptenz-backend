@@ -237,7 +237,6 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         const sanitizedNotFound = await this.sanitizeOutput(notFoundPage, ctx);
         return this.transformResponse(sanitizedNotFound);
       }
-
       // If Blog
       if (entity.content === 'blog') {
         // const techIds = entity.technologies?.map(t => t.id) || [];
