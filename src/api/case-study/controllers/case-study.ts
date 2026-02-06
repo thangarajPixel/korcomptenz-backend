@@ -234,6 +234,7 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
       // Sanitize responses
       // const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
       // const sanitizedRelated = await this.sanitizeOutput(related, ctx);
+
       if (!entity) {
         const notFoundPages = await strapi.db.query('api::not-found.not-found').findMany({
           where: {
@@ -261,8 +262,8 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
         return this.transformResponse(sanitizedEntity);
       }
 
-      const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
-      return this.transformResponse(sanitizedEntity);
+      // const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+      return this.transformResponse(entity);
     } catch (error) {
       strapi.log.error('Case Study find error:', error);
       return ctx.internalServerError('Failed to fetch case study data');
