@@ -213,31 +213,8 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
         },
       });
       if (!entity) {
-        const notFoundPages = await strapi.db
-          .query('api::not-found.not-found')
-          .findMany({
-            where: {
-              publishedAt: { $notNull: true },
-            },
-            populate: {
-              list: {
-                populate: {
-                  image: true,
-                },
-              },
-              seo: true,
-            },
-          });
-
-        const notFoundPage = notFoundPages?.[0];
-
-        if (!notFoundPage) {
-          return ctx.notFound('Page not found');
-        }
-        const sanitizedNotFound = await this.sanitizeOutput(notFoundPage, ctx);
-        return this.transformResponse(sanitizedNotFound);
+        return ctx.notFound('Page not found');
       }
-
       // If Blog
       if (entity.content === 'blog') {
         // const techIds = entity.technologies?.map(t => t.id) || [];
