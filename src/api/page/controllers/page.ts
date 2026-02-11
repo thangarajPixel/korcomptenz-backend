@@ -288,11 +288,13 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               },
               'about-us.map-section-list': {
                 populate: {
+                  image: true,
                   list: {
                     populate: {
                       image: true,
                     },
                   },
+
                 },
               },
               'about-us.our-story': {
@@ -627,15 +629,6 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                           image: true,
                         },
                       },
-                    },
-                  },
-                },
-              },
-              'page-componets.map-section-list': {
-                populate: {
-                  list: {
-                    populate: {
-                      image: true,
                     },
                   },
                 },
