@@ -2960,6 +2960,45 @@ export interface PageComponetsSlideContent extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsSmartForgeOperationalRoadblock
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_smart_forge_operational_roadblocks';
+  info: {
+    displayName: 'smart-forge-operational-roadblock';
+  };
+  attributes: {
+    isBgGrey: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    list: Schema.Attribute.Component<
+      'page-componets.smart-forge-operational-roadblock-list',
+      true
+    >;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsSmartForgeOperationalRoadblockList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_smart_forge_operational_roadblock_lists';
+  info: {
+    displayName: 'smartForge-operational-roadblock-list';
+    icon: 'cloud';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    number: Schema.Attribute.Integer;
+  };
+}
+
 export interface PageComponetsSolutions extends Struct.ComponentSchema {
   collectionName: 'components_service_solutions';
   info: {
@@ -3506,6 +3545,8 @@ declare module '@strapi/strapi' {
       'page-componets.sap-section-data': PageComponetsSapSectionData;
       'page-componets.sap-section-image': PageComponetsSapSectionImage;
       'page-componets.slide-content': PageComponetsSlideContent;
+      'page-componets.smart-forge-operational-roadblock': PageComponetsSmartForgeOperationalRoadblock;
+      'page-componets.smart-forge-operational-roadblock-list': PageComponetsSmartForgeOperationalRoadblockList;
       'page-componets.solutions': PageComponetsSolutions;
       'page-componets.solutions-data': PageComponetsSolutionsData;
       'page-componets.sticky-card': PageComponetsStickyCard;

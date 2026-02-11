@@ -1937,6 +1937,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.digital-full-lifecycle',
         'page-componets.digital-inspire',
         'page-componets.combined-about-card-slider',
+        'page-componets.smart-forge-operational-roadblock',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

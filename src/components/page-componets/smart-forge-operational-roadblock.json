@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_page_componets_smart_forge_operational_roadblocks",
+  "info": {
+    "displayName": "smart-forge-operational-roadblock"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "isBgGrey": {
+      "type": "boolean",
+      "default": false
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.smart-forge-operational-roadblock-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

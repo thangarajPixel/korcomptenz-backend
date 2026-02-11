@@ -630,8 +630,16 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                     },
                   },
                 },
-              }
-
+              },
+              'page-componets.smart-forge-operational-roadblock': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
 
 
             },
