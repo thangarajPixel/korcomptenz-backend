@@ -2514,7 +2514,15 @@ export interface PageComponetsFaqTitle extends Struct.ComponentSchema {
     icon: 'car';
   };
   attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     faq: Schema.Attribute.Component<'page-componets.faq', true>;
+    subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
