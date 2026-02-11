@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_page_componets_smart_forge_build_lists",
+  "info": {
+    "displayName": "Smart-forge-build-list",
+    "icon": "crop"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "title": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "isTarget": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}

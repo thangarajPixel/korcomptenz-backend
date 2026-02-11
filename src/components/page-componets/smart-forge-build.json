@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_page_componets_smart_forge_builds",
+  "info": {
+    "displayName": "smart-forge-build",
+    "icon": "cast"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.smart-forge-build-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

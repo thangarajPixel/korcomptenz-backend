@@ -631,7 +631,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
-              'page-componets.map-section-list': {
+              'page-componets.smart-forge-operational-roadblock': {
                 populate: {
                   list: {
                     populate: {
@@ -640,7 +640,24 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
-
+              'page-componets.smart-forge-build': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
+              'page-componets.smart-forge-enterprises': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
 
 
             },

@@ -2514,7 +2514,15 @@ export interface PageComponetsFaqTitle extends Struct.ComponentSchema {
     icon: 'car';
   };
   attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     faq: Schema.Attribute.Component<'page-componets.faq', true>;
+    subtitle: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -2949,6 +2957,101 @@ export interface PageComponetsSlideContent extends Struct.ComponentSchema {
   };
   attributes: {
     solutions: Schema.Attribute.Component<'page-componets.solutions', true>;
+  };
+}
+
+export interface PageComponetsSmartForgeBuild extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_smart_forge_builds';
+  info: {
+    displayName: 'smart-forge-build';
+    icon: 'cast';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<
+      'page-componets.smart-forge-build-list',
+      true
+    >;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsSmartForgeBuildList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_smart_forge_build_lists';
+  info: {
+    displayName: 'Smart-forge-build-list';
+    icon: 'crop';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsSmartForgeEnterprises
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_smart_forge_enterprises';
+  info: {
+    displayName: 'smart-forge-enterprises';
+    icon: 'file';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<
+      'page-componets.smart-forge-build-list',
+      true
+    >;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsSmartForgeOperationalRoadblock
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_smart_forge_operational_roadblocks';
+  info: {
+    displayName: 'smart-forge-operational-roadblock';
+  };
+  attributes: {
+    isBgGrey: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    list: Schema.Attribute.Component<
+      'page-componets.smart-forge-operational-roadblock-list',
+      true
+    >;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsSmartForgeOperationalRoadblockList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_smart_forge_operational_roadblock_lists';
+  info: {
+    displayName: 'smartForge-operational-roadblock-list';
+    icon: 'cloud';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    number: Schema.Attribute.Integer;
   };
 }
 
@@ -3498,6 +3601,11 @@ declare module '@strapi/strapi' {
       'page-componets.sap-section-data': PageComponetsSapSectionData;
       'page-componets.sap-section-image': PageComponetsSapSectionImage;
       'page-componets.slide-content': PageComponetsSlideContent;
+      'page-componets.smart-forge-build': PageComponetsSmartForgeBuild;
+      'page-componets.smart-forge-build-list': PageComponetsSmartForgeBuildList;
+      'page-componets.smart-forge-enterprises': PageComponetsSmartForgeEnterprises;
+      'page-componets.smart-forge-operational-roadblock': PageComponetsSmartForgeOperationalRoadblock;
+      'page-componets.smart-forge-operational-roadblock-list': PageComponetsSmartForgeOperationalRoadblockList;
       'page-componets.solutions': PageComponetsSolutions;
       'page-componets.solutions-data': PageComponetsSolutionsData;
       'page-componets.sticky-card': PageComponetsStickyCard;

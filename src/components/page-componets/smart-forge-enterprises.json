@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_page_componets_smart_forge_enterprises",
+  "info": {
+    "displayName": "smart-forge-enterprises",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.smart-forge-build-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

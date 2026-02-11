@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_page_componets_smart_forge_operational_roadblock_lists",
+  "info": {
+    "displayName": "smartForge-operational-roadblock-list",
+    "icon": "cloud"
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "isTarget": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}
