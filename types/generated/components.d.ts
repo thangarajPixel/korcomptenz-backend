@@ -2960,6 +2960,62 @@ export interface PageComponetsSlideContent extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsSmartForgeBuild extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_smart_forge_builds';
+  info: {
+    displayName: 'smart-forge-build';
+    icon: 'cast';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<
+      'page-componets.smart-forge-build-list',
+      true
+    >;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsSmartForgeBuildList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_smart_forge_build_lists';
+  info: {
+    displayName: 'Smart-forge-build-list';
+    icon: 'crop';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images' | 'files'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsSmartForgeEnterprises
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_smart_forge_enterprises';
+  info: {
+    displayName: 'smart-forge-enterprises';
+    icon: 'file';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<
+      'page-componets.smart-forge-build-list',
+      true
+    >;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface PageComponetsSmartForgeOperationalRoadblock
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_smart_forge_operational_roadblocks';
@@ -3545,6 +3601,9 @@ declare module '@strapi/strapi' {
       'page-componets.sap-section-data': PageComponetsSapSectionData;
       'page-componets.sap-section-image': PageComponetsSapSectionImage;
       'page-componets.slide-content': PageComponetsSlideContent;
+      'page-componets.smart-forge-build': PageComponetsSmartForgeBuild;
+      'page-componets.smart-forge-build-list': PageComponetsSmartForgeBuildList;
+      'page-componets.smart-forge-enterprises': PageComponetsSmartForgeEnterprises;
       'page-componets.smart-forge-operational-roadblock': PageComponetsSmartForgeOperationalRoadblock;
       'page-componets.smart-forge-operational-roadblock-list': PageComponetsSmartForgeOperationalRoadblockList;
       'page-componets.solutions': PageComponetsSolutions;
