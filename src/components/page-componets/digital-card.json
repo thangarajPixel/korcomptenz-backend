@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_page_componets_digital_cards",
+  "info": {
+    "displayName": "digital-card",
+    "icon": "filePdf"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.digital-card-list",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

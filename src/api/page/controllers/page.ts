@@ -658,6 +658,11 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'page-componets.digital-card': {
+                populate: {
+                  list: true
+                },
+              },
 
 
             },

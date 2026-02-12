@@ -87,7 +87,8 @@
         "page-componets.combined-about-card-slider",
         "page-componets.smart-forge-operational-roadblock",
         "page-componets.smart-forge-build",
-        "page-componets.smart-forge-enterprises"
+        "page-componets.smart-forge-enterprises",
+        "page-componets.digital-card"
       ]
     }
   }

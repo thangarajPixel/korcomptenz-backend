@@ -2292,6 +2292,46 @@ export interface PageComponetsDigitalBenifitCard
   };
 }
 
+export interface PageComponetsDigitalCard extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_cards';
+  info: {
+    displayName: 'digital-card';
+    icon: 'filePdf';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    list: Schema.Attribute.Component<'page-componets.digital-card-list', false>;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsDigitalCardList extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_digital_card_lists';
+  info: {
+    displayName: 'digital-card-list';
+    icon: 'cloud';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface PageComponetsDigitalCardSlider extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_digital_card_sliders';
   info: {
@@ -3563,6 +3603,8 @@ declare module '@strapi/strapi' {
       'page-componets.digital-analytics-list2': PageComponetsDigitalAnalyticsList2;
       'page-componets.digital-benefits': PageComponetsDigitalBenefits;
       'page-componets.digital-benifit-card': PageComponetsDigitalBenifitCard;
+      'page-componets.digital-card': PageComponetsDigitalCard;
+      'page-componets.digital-card-list': PageComponetsDigitalCardList;
       'page-componets.digital-card-slider': PageComponetsDigitalCardSlider;
       'page-componets.digital-card-slider-list': PageComponetsDigitalCardSliderList;
       'page-componets.digital-erp-list': PageComponetsDigitalErpList;

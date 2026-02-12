@@ -1940,6 +1940,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.smart-forge-operational-roadblock',
         'page-componets.smart-forge-build',
         'page-componets.smart-forge-enterprises',
+        'page-componets.digital-card',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
