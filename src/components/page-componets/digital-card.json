@@ -19,7 +19,7 @@
     "list": {
       "type": "component",
       "component": "page-componets.digital-card-list",
-      "repeatable": false
+      "repeatable": true
     }
   },
   "config": {}
