@@ -912,6 +912,27 @@ export interface DemoPageExpertsSection extends Struct.ComponentSchema {
   };
 }
 
+export interface EmailTemplateEmailTemplate extends Struct.ComponentSchema {
+  collectionName: 'components_email_template_email_templates';
+  info: {
+    displayName: 'email-template';
+    icon: 'discuss';
+  };
+  attributes: {
+    body: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    subject: Schema.Attribute.Text & Schema.Attribute.Required;
+    type: Schema.Attribute.Enumeration<['user', 'admin']> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface FormFieldsBookDemoForm extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_book_demo_forms';
   info: {
@@ -3477,6 +3498,7 @@ declare module '@strapi/strapi' {
       'demo-page.demo-partnership': DemoPageDemoPartnership;
       'demo-page.demo-time-descripition': DemoPageDemoTimeDescripition;
       'demo-page.experts-section': DemoPageExpertsSection;
+      'email-template.email-template': EmailTemplateEmailTemplate;
       'form-fields.book-demo-form': FormFieldsBookDemoForm;
       'form-fields.career': FormFieldsCareer;
       'form-fields.case-form': FormFieldsCaseForm;

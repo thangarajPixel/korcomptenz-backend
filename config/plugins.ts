@@ -21,24 +21,24 @@ module.exports = ({ env }) => {
 
     //smtp using app password
 
-    // email: {
-    //   config: {
-    //     provider: 'nodemailer',
-    //     providerOptions: {
-    //       host: env('MAIL_HOST'),
-    //       port: env.int('MAIL_PORT'),
-    //       secure: true,
-    //       auth: {
-    //         user: env('MAIL_USERNAME'),
-    //         pass: env('MAIL_PASSWORD'),
-    //       },
-    //     },
-    //     settings: {
-    //       defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
-    //       defaultReplyTo: env('MAIL_FROM', 'info@korcomptenz.com'),
-    //     },
-    //   },
-    // },
+    email: {
+      config: {
+        provider: 'nodemailer',
+        providerOptions: {
+          host: env('MAIL_HOST'),
+          port: env.int('MAIL_PORT'),
+          secure: true,
+          auth: {
+            user: env('MAIL_USERNAME'),
+            pass: env('MAIL_PASSWORD'),
+          },
+        },
+        settings: {
+          defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
+          defaultReplyTo: env('MAIL_FROM', 'info@korcomptenz.com'),
+        },
+      },
+    },
 
 
 
@@ -69,24 +69,24 @@ module.exports = ({ env }) => {
 
     //  sendgrid [provider nodemailer]
 
-    email: {
-      config: {
-        provider: 'nodemailer',
-        providerOptions: {
-          host: env('MAIL_HOST'),
-          port: env.int('MAIL_PORT'),
-          secure: false, //  false for 2525
-          auth: {
-            user: 'apikey',
-            pass: env('SENDGRID_API_KEY'),
-          },
-        },
-        settings: {
-          defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
-          defaultReplyTo: env('MAIL_FROM', 'info@korcomptenz.com'),
-        },
-      },
-    },
+    // email: {
+    //   config: {
+    //     provider: 'nodemailer',
+    //     providerOptions: {
+    //       host: env('MAIL_HOST'),
+    //       port: env.int('MAIL_PORT'),
+    //       secure: false, //  false for 2525
+    //       auth: {
+    //         user: 'apikey',
+    //         pass: env('SENDGRID_API_KEY'),
+    //       },
+    //     },
+    //     settings: {
+    //       defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
+    //       defaultReplyTo: env('MAIL_FROM', 'info@korcomptenz.com'),
+    //     },
+    //   },
+    // },
 
     // sendgrid [provider @strapi/provider-email-sendgrid]
 
@@ -103,5 +103,7 @@ module.exports = ({ env }) => {
     //     },
     //   },
     // },
+
   });
+
 };

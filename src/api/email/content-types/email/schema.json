@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "emails",
+  "info": {
+    "singularName": "email",
+    "pluralName": "emails",
+    "displayName": "email"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "text"
+    },
+    "title": {
+      "type": "text"
+    },
+    "template": {
+      "type": "dynamiczone",
+      "components": [
+        "email-template.email-template"
+      ]
+    },
+    "deletedAt": {
+  "type": "datetime"
+}
+  }
+}

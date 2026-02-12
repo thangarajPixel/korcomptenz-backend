@@ -1,5 +1,8 @@
 
 import { factories } from '@strapi/strapi'
+import he from 'he';
+
+
 
 export default factories.createCoreController('api::contact-us-lead.contact-us-lead', () => ({
   async create(ctx) {
@@ -47,188 +50,277 @@ export default factories.createCoreController('api::contact-us-lead.contact-us-l
 
       // Email to user
 
+      const replaceVars = (text = '', data = {}) =>
+        text.replace(/{{\s*(.*?)\s*}}/g, (_, key) => data[key] ?? '');
+
+      //  Fetch the Form by title
+      const form = await strapi.db.query('api::form.form').findOne({
+        where: { slug: 'contact-us-lead' },
+        populate: {
+          forms: true, // dynamic zone
+        },
+      });
+
+      if (!form) {
+        throw new Error('Form not found');
+      }
+
+      //  Extract ALL email templates from dynamic zone
+      const emailTemplates = form.forms.filter(
+        (block) => block.__component === 'email-template.email-template'
+      );
+      console.log('Email Templates:', emailTemplates);
+      if (!emailTemplates.length) {
+        throw new Error('No email templates found');
+      }
+
+      // Separate templates by type
+      const userEmail = emailTemplates.find((t) => t.type === 'user');
+      const adminEmail = emailTemplates.find((t) => t.type === 'admin');
+
+      if (!userEmail) {
+        throw new Error('User email template missing');
+      }
+      if (!adminEmail) {
+        throw new Error('Admin email template missing');
+      }
+
+      // Prepare USER email
+      let userHtml = he.decode(userEmail.body);
+      userHtml = replaceVars(userHtml, {
+        firstName: lead.firstName || 'null',
+        lastName: lead.lastName || '',
+        email: lead.email,
+      });
+
+      const userSubject = replaceVars(userEmail.subject, {
+        firstName: lead.firstName || '',
+        lastName: lead.lastName || '',
+      });
+
+      //  Send USER email
       await strapi.plugin('email').service('email').send({
         to: lead.email,
-        bcc: CC_EMAIL,
-        subject: 'Request a Consultation – Korcomptenz',
-        html: `
-      <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="utf-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">		
-          <title>Korcomptenz</title>
-          <meta name="description" content="">
-          <meta name="keywords" content="">
-          <link rel="shortcut icon" type="image/x-icon" href="https://www.korcomptenz.com/wp-content/uploads/2021/10/favicon.png"/>
-          <style type="text/css">
-            html{padding:0;margin:0;}
-            body{padding:0;margin:0;text-align:center;}
-          </style>
-        </head>	
-        <body>
-          <table border="0" width="600" cellpadding="0" cellspacing="0" style="border:1px solid #CCC; margin:0 auto;">
-            <tr>
-              <td style="text-align:center;padding:10px;background:#FFF;font-family:'Arial',Sans-serif;border-bottom:3px solid #249176;">
-                <a href="https://www.korcomptenz.com/" target="_blank">
-                  <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="" style="width: 250px;"/>
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td style="text-align:left;padding:20px 20px 0;font-family:'Arial',Sans-serif;font-weight:600;font-size:20px;line-height:30px;color:#040505;">
-                Request a Consultation – Korcomptenz 
-              </td>
-            </tr>
-
-            <tr>
-              <td style="text-align:left;padding:20px;font-family:'Arial',Sans-serif;font-weight:400;font-size:14px;line-height:24px;color:#040505;">
-                <strong>Hi, ${lead.firstName} ${lead.lastName}</strong><br/><br/>
-
-                Thank you for your interest in our solutions. We are looking forward to hear from you soon.<br/><br/>
-
-                We wanted to confirm that we have received your inquiry details and one of our consultants will contact you soon to schedule a discussion.<br/><br/>
-
-                Thank you again for your interest.<br/><br/>
-
-                <strong>Sincerely,</strong><br/>
-                KORCOMPTENZ<br/>
-                Customer Solutions Team					
-              </td>
-            </tr>	
-
-            <tr>
-              <td style="text-align:left;padding:10px 20px;font-family:'Arial',Sans-serif;font-weight:400;font-size:14px;line-height:24px;color:#FFF;background:#040505;">
-                Copyrights &copy; 2026. Korcomptenz.com
-              </td>
-            </tr>
-          </table>
-        </body>
-      </html>
-      `,
+        // bcc: CC_EMAIL,
+        subject: userSubject,
+        html: userHtml,
       });
+
+      // await strapi.plugin('email').service('email').send({
+      //   to: lead.email,
+      //   bcc: CC_EMAIL,
+      //   subject: 'Request a Consultation – Korcomptenz',
+      //   html: `
+      // <!DOCTYPE html>
+      // <html lang="en">
+      //   <head>
+      //     <meta charset="utf-8">
+      //     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+      //     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">		
+      //     <title>Korcomptenz</title>
+      //     <meta name="description" content="">
+      //     <meta name="keywords" content="">
+      //     <link rel="shortcut icon" type="image/x-icon" href="https://www.korcomptenz.com/wp-content/uploads/2021/10/favicon.png"/>
+      //     <style type="text/css">
+      //       html{padding:0;margin:0;}
+      //       body{padding:0;margin:0;text-align:center;}
+      //     </style>
+      //   </head>	
+      //   <body>
+      //     <table border="0" width="600" cellpadding="0" cellspacing="0" style="border:1px solid #CCC; margin:0 auto;">
+      //       <tr>
+      //         <td style="text-align:center;padding:10px;background:#FFF;font-family:'Arial',Sans-serif;border-bottom:3px solid #249176;">
+      //           <a href="https://www.korcomptenz.com/" target="_blank">
+      //             <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="" style="width: 250px;"/>
+      //           </a>
+      //         </td>
+      //       </tr>
+
+      //       <tr>
+      //         <td style="text-align:left;padding:20px 20px 0;font-family:'Arial',Sans-serif;font-weight:600;font-size:20px;line-height:30px;color:#040505;">
+      //           Request a Consultation – Korcomptenz 
+      //         </td>
+      //       </tr>
+
+      //       <tr>
+      //         <td style="text-align:left;padding:20px;font-family:'Arial',Sans-serif;font-weight:400;font-size:14px;line-height:24px;color:#040505;">
+      //           <strong>Hi, ${lead.firstName} ${lead.lastName}</strong><br/><br/>
+
+      //           Thank you for your interest in our solutions. We are looking forward to hear from you soon.<br/><br/>
+
+      //           We wanted to confirm that we have received your inquiry details and one of our consultants will contact you soon to schedule a discussion.<br/><br/>
+
+      //           Thank you again for your interest.<br/><br/>
+
+      //           <strong>Sincerely,</strong><br/>
+      //           KORCOMPTENZ<br/>
+      //           Customer Solutions Team					
+      //         </td>
+      //       </tr>	
+
+      //       <tr>
+      //         <td style="text-align:left;padding:10px 20px;font-family:'Arial',Sans-serif;font-weight:400;font-size:14px;line-height:24px;color:#FFF;background:#040505;">
+      //           Copyrights &copy; 2026. Korcomptenz.com
+      //         </td>
+      //       </tr>
+      //     </table>
+      //   </body>
+      // </html>
+      // `,
+      // });
 
 
 
       // Email to Admin team
 
+      // await strapi.plugin('email').service('email').send({
+      //   to: SALES_EMAIL,
+      //   bcc: CC_EMAIL,
+      //   subject: 'New Contact Us Lead | Korcomptenz',
+      //   html: `
+      // <!DOCTYPE html>
+      // <html lang="en">
+      //   <head>
+      //     <meta charset="utf-8">
+      //     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+      //     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">		
+      //     <title>Korcomptenz</title>
+      //     <link rel="shortcut icon" type="image/x-icon" href="https://www.korcomptenz.com/wp-content/uploads/2021/10/favicon.png"/>
+      //     <style type="text/css">
+      //       html{padding:0;margin:0;}
+      //       body{padding:0;margin:0;text-align:center;}
+      //     </style>
+      //   </head>	
+      //   <body>
+      //     <table border="0" width="600" cellpadding="0" cellspacing="0" style="border:1px solid #CCC; margin:0 auto;">
+      //       <tr>
+      //         <td style="text-align:center;padding:10px;background:#FFF;font-family:Arial,sans-serif;border-bottom:3px solid #249176;">
+      //           <a href="https://www.korcomptenz.com/" target="_blank">
+      //             <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="Korcomptenz" style="width: 250px;"/>
+      //           </a>
+      //         </td>
+      //       </tr>
+
+      //       <tr>
+      //         <td style="text-align:left;padding:20px 20px 0;font-family:Arial,sans-serif;font-weight:600;font-size:20px;line-height:30px;color:#040505;">
+      //           Request a Consultation – Korcomptenz
+      //         </td>
+      //       </tr>
+
+      //       <tr>
+      //         <td style="padding:10px 20px;font-family:Arial,sans-serif;">
+      //           <table width="100%" cellpadding="0" cellspacing="0">
+      //             <tr>
+      //               <td width="150" style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Name:</td>
+      //               <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+      //                 ${lead.firstName} ${lead.lastName}
+      //               </td>
+      //             </tr>
+
+      //             <tr style="background:#f4f5f7;">
+      //               <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Email:</td>
+      //               <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+      //                 ${lead.email}
+      //               </td>
+      //             </tr>
+
+
+
+      //             <tr style="background:#f4f5f7;">
+      //               <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Phone Number:</td>
+      //               <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+      //                 ${lead.phone || ''}
+      //               </td>
+      //             </tr>
+
+
+
+      //             <tr style="background:#f4f5f7;">
+      //               <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Services:</td>
+      //               <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+      //                 ${serviceName || ''}
+      //               </td>
+      //             </tr>
+
+      //             <tr>
+      //               <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Technology:</td>
+      //               <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+      //                 ${technologyName || ''}
+      //               </td>
+      //             </tr>
+
+
+
+      //             <tr>
+      //               <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Message:</td>
+      //               <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+      //                 ${lead.message || ''}
+      //               </td>
+      //             </tr>
+
+      //             <tr style="background:#f4f5f7;">
+      //               <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Page URL:</td>
+      //               <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+      //                   <a href="https://www.korcomptenz.com/contact-us/${slug}"
+      //                target="_blank"
+      //                style="color:#249176;">
+      //               https://www.korcomptenz.com/contact-us/${slug}
+      //             </a>
+      //               </td>
+      //             </tr>
+      //           </table>
+      //         </td>
+      //       </tr>
+
+      //       <tr>
+      //         <td style="padding:20px;font-family:Arial,sans-serif;text-align:left;">
+      //           <strong>Sincerely,</strong><br/>
+      //          ${lead.firstName} ${lead.lastName}
+      //         </td>
+      //       </tr>
+
+      //       <tr>
+      //         <td style="padding:10px 20px;background:#040505;color:#FFF;font-family:Arial,sans-serif;">
+      //           Copyrights &copy; 2026. Korcomptenz.com
+      //         </td>
+      //       </tr>
+      //     </table>
+      //   </body>
+      // </html>
+      // `,
+      // });
+
+
+
+      let adminHtml = he.decode(adminEmail.body);
+      adminHtml = replaceVars(adminHtml, {
+        firstName: lead.firstName || 'null',
+        lastName: lead.lastName || '',
+        email: lead.email,
+        phone: lead.phone || '',
+        message: lead.message || '',
+        technologyName: lead.technology?.label || 'N/A',
+        serviceName: lead.service?.label || 'N/A',
+        slug: lead.service?.slug || 'N/A',
+      });
+
+      const adminSubject = replaceVars(adminEmail.subject, {
+        firstName: lead.firstName || 'null',
+        lastName: lead.lastName || '',
+        email: lead.email,
+        phone: lead.phone || '',
+        message: lead.message || '',
+        technologyName: lead.technology?.label || 'N/A',
+        serviceName: lead.service?.label || 'N/A',
+        slug: lead.service?.slug || 'N/A',
+      });
+
+      //  Send ADMIN email
       await strapi.plugin('email').service('email').send({
-        to: SALES_EMAIL,
-        bbcc: CC_EMAIL,
-        subject: 'New Contact Us Lead | Korcomptenz',
-        html: `
-      <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="utf-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">		
-          <title>Korcomptenz</title>
-          <link rel="shortcut icon" type="image/x-icon" href="https://www.korcomptenz.com/wp-content/uploads/2021/10/favicon.png"/>
-          <style type="text/css">
-            html{padding:0;margin:0;}
-            body{padding:0;margin:0;text-align:center;}
-          </style>
-        </head>	
-        <body>
-          <table border="0" width="600" cellpadding="0" cellspacing="0" style="border:1px solid #CCC; margin:0 auto;">
-            <tr>
-              <td style="text-align:center;padding:10px;background:#FFF;font-family:Arial,sans-serif;border-bottom:3px solid #249176;">
-                <a href="https://www.korcomptenz.com/" target="_blank">
-                  <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="Korcomptenz" style="width: 250px;"/>
-                </a>
-              </td>
-            </tr>
-
-            <tr>
-              <td style="text-align:left;padding:20px 20px 0;font-family:Arial,sans-serif;font-weight:600;font-size:20px;line-height:30px;color:#040505;">
-                Request a Consultation – Korcomptenz
-              </td>
-            </tr>
-
-            <tr>
-              <td style="padding:10px 20px;font-family:Arial,sans-serif;">
-                <table width="100%" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td width="150" style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Name:</td>
-                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
-                      ${lead.firstName} ${lead.lastName}
-                    </td>
-                  </tr>
-
-                  <tr style="background:#f4f5f7;">
-                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Email:</td>
-                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
-                      ${lead.email}
-                    </td>
-                  </tr>
-
-            
-
-                  <tr style="background:#f4f5f7;">
-                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Phone Number:</td>
-                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
-                      ${lead.phone || ''}
-                    </td>
-                  </tr>
-
-                  
-
-                  <tr style="background:#f4f5f7;">
-                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Services:</td>
-                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
-                      ${serviceName || ''}
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Technology:</td>
-                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
-                      ${technologyName || ''}
-                    </td>
-                  </tr>
-
-                 
-
-                  <tr>
-                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Message:</td>
-                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
-                      ${lead.message || ''}
-                    </td>
-                  </tr>
-
-                  <tr style="background:#f4f5f7;">
-                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Page URL:</td>
-                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
-                        <a href="https://www.korcomptenz.com/contact-us/${slug}"
-                     target="_blank"
-                     style="color:#249176;">
-                    https://www.korcomptenz.com/contact-us/${slug}
-                  </a>
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-
-            <tr>
-              <td style="padding:20px;font-family:Arial,sans-serif;text-align:left;">
-                <strong>Sincerely,</strong><br/>
-               ${lead.firstName} ${lead.lastName}
-              </td>
-            </tr>
-
-            <tr>
-              <td style="padding:10px 20px;background:#040505;color:#FFF;font-family:Arial,sans-serif;">
-                Copyrights &copy; 2026. Korcomptenz.com
-              </td>
-            </tr>
-          </table>
-        </body>
-      </html>
-      `,
+        to: CC_EMAIL, // or sales@korcomptenz.com
+        // bcc: CC_EMAIL,
+        subject: adminSubject,
+        html: adminHtml,
       });
 
       return {

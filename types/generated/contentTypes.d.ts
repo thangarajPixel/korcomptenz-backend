@@ -1187,6 +1187,34 @@ export interface ApiDepartmentDepartment extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiEmailEmail extends Struct.CollectionTypeSchema {
+  collectionName: 'emails';
+  info: {
+    displayName: 'email';
+    pluralName: 'emails';
+    singularName: 'email';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    deletedAt: Schema.Attribute.DateTime;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::email.email'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.Text;
+    template: Schema.Attribute.DynamicZone<['email-template.email-template']>;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEventListEventList extends Struct.SingleTypeSchema {
   collectionName: 'event_lists';
   info: {
@@ -1281,13 +1309,14 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.free-consultation-form',
         'form-fields.insight-reserve-spot',
         'form-fields.news-room-form',
+        'email-template.email-template',
       ]
     > &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
-          max: 1;
-          min: 1;
+          max: 3;
+          min: 3;
         },
         number
       >;
@@ -1295,6 +1324,10 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::form.form'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.Enumeration<
+      ['reserve-lead', 'book-demo-lead', 'contact-us-lead', 'case-study-lead']
+    > &
+      Schema.Attribute.Required;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -2621,6 +2654,7 @@ declare module '@strapi/strapi' {
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::demo-list.demo-list': ApiDemoListDemoList;
       'api::department.department': ApiDepartmentDepartment;
+      'api::email.email': ApiEmailEmail;
       'api::event-list.event-list': ApiEventListEventList;
       'api::event.event': ApiEventEvent;
       'api::form.form': ApiFormForm;

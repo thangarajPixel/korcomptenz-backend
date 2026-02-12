@@ -21,11 +21,12 @@
         "form-fields.reserve-spot-fields",
         "form-fields.free-consultation-form",
         "form-fields.insight-reserve-spot",
-        "form-fields.news-room-form"
+        "form-fields.news-room-form",
+        "email-template.email-template"
       ],
       "required": true,
-      "min": 1,
-      "max": 1
+      "min": 3,
+      "max": 3
     },
     "title": {
       "type": "string",
@@ -41,6 +42,16 @@
         "contact-form",
         "career",
         "free-consultation-form"
+      ]
+    },
+    "slug": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "reserve-lead",
+        "book-demo-lead",
+        "contact-us-lead",
+        "case-study-lead"
       ]
     }
   }

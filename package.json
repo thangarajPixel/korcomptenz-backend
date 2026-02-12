@@ -21,6 +21,7 @@
     "@strapi/provider-email-nodemailer": "^5.31.0",
     "@strapi/provider-email-sendgrid": "^5.33.2",
     "@strapi/strapi": "5.23.0",
+    "he": "^1.2.0",
     "mysql2": "3.9.8",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -32,6 +33,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "baseline-browser-mapping": "^2.9.19",
     "typescript": "^5"
   },
   "engines": {
