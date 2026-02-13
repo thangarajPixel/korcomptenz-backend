@@ -873,6 +873,13 @@ export interface DemoPageDemoOpportunity extends Struct.ComponentSchema {
   attributes: {
     arrowImage: Schema.Attribute.Media<'images'>;
     bannerImage: Schema.Attribute.Media<'images'>;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     list: Schema.Attribute.Component<'global.custom-list', true>;
     title: Schema.Attribute.Text;
   };
@@ -2306,7 +2313,7 @@ export interface PageComponetsDigitalCard extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
-    list: Schema.Attribute.Component<'page-componets.digital-card-list', false>;
+    list: Schema.Attribute.Component<'page-componets.digital-card-list', true>;
     title: Schema.Attribute.Text;
   };
 }

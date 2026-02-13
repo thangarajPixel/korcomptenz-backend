@@ -48,7 +48,36 @@ export default {
     },
 
   },
-  bootstrap(app: StrapiApp) {
-    console.log(app);
+  bootstrap(app: any) {
+    document.title = "Korcomptenz";
+    const updateTitle = () => {
+      if (document.title.includes('Strapi')) {
+        document.title = document.title.replace(/Strapi/gi, 'Korcomptenz');
+      }
+      // Replace common patterns
+      if (document.title === 'Homepage | Korcomptenz') {
+        document.title = 'Korcomptenz';
+      }
+      if (document.title.includes('Content Manager')) {
+        document.title = document.title.replace('Content Manager', 'Korcomptenz');
+      }
+    };
+
+    // Run on initial load
+    updateTitle();
+
+    // Watch for title changes using MutationObserver
+    const titleElement = document.querySelector('title');
+    if (titleElement) {
+      const observer = new MutationObserver(updateTitle);
+      observer.observe(titleElement, {
+        childList: true,
+        characterData: true,
+        subtree: true,
+      });
+    }
+
+    // Also watch on route changes
+    setInterval(updateTitle, 500);
   },
 };
