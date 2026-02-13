@@ -51,7 +51,8 @@
         "reserve-lead",
         "book-demo-lead",
         "contact-us-lead",
-        "case-study-lead"
+        "case-study-lead",
+        "candidate-detail-lead"
       ]
     }
   }

@@ -1325,7 +1325,13 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.Enumeration<
-      ['reserve-lead', 'book-demo-lead', 'contact-us-lead', 'case-study-lead']
+      [
+        'reserve-lead',
+        'book-demo-lead',
+        'contact-us-lead',
+        'case-study-lead',
+        'candidate-detail-lead',
+      ]
     > &
       Schema.Attribute.Required;
     title: Schema.Attribute.String &
