@@ -2533,6 +2533,29 @@ export interface PageComponetsErpList extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsExportMigration extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_export_migrations';
+  info: {
+    displayName: 'export-migration';
+    icon: 'cog';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.String;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface PageComponetsFaq extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_faqs';
   info: {
@@ -3623,6 +3646,7 @@ declare module '@strapi/strapi' {
       'page-componets.domain-data': PageComponetsDomainData;
       'page-componets.domain-slides': PageComponetsDomainSlides;
       'page-componets.erp-list': PageComponetsErpList;
+      'page-componets.export-migration': PageComponetsExportMigration;
       'page-componets.faq': PageComponetsFaq;
       'page-componets.faq-title': PageComponetsFaqTitle;
       'page-componets.full-lifecycle-bottom': PageComponetsFullLifecycleBottom;

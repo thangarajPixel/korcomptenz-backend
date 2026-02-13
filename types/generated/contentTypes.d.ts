@@ -1941,6 +1941,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.smart-forge-build',
         'page-componets.smart-forge-enterprises',
         'page-componets.digital-card',
+        'news-and-event.news-banner',
+        'page-componets.export-migration',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

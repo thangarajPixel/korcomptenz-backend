@@ -663,6 +663,36 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   list: true
                 },
               },
+              'news-and-event.news-banner': {
+                populate: {
+                  image: true,
+                  form: {
+                    populate: {
+                      forms: {
+                        on: {
+                          'form-fields.news-room-form': {
+                            populate: {
+                              list: true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                }
+              },
+              'page-componets.export-migration': {
+                populate: {
+                  image: true
+                },
+              },
+
+
+
+
+
+
+
 
 
             },

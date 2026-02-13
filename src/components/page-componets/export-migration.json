@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_page_componets_export_migrations",
+  "info": {
+    "displayName": "export-migration",
+    "icon": "cog"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "isTarget": {
+      "type": "boolean",
+      "default": false
+    },
+    "bgColor": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}
