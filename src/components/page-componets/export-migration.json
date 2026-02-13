@@ -27,10 +27,41 @@
       "default": false
     },
     "bgColor": {
-      "type": "string"
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "bgImage"
+            },
+            false
+          ]
+        }
+      }
     },
     "image": {
       "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "bgImage": {
+      "type": "boolean",
+      "default": false
+    },
+    "backgroundImage": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "bgImage"
+            },
+            true
+          ]
+        }
+      },
       "multiple": false,
       "allowedTypes": [
         "images"

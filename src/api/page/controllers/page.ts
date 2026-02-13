@@ -683,7 +683,8 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               },
               'page-componets.export-migration': {
                 populate: {
-                  image: true
+                  image: true,
+                  backgroundImage: true
                 },
               },
 

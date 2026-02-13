@@ -2540,7 +2540,9 @@ export interface PageComponetsExportMigration extends Struct.ComponentSchema {
     icon: 'cog';
   };
   attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
     bgColor: Schema.Attribute.String;
+    bgImage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
