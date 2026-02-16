@@ -12,6 +12,13 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "link": {
+      "type": "string"
+    },
+    "isTarget": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}
