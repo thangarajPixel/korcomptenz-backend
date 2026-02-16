@@ -96,7 +96,8 @@
         "page-componets.fabcon-about",
         "page-componets.fabcon-smart-forge",
         "page-componets.fabcon-led-transformation",
-        "page-componets.fabcon-composable-intelligence"
+        "page-componets.fabcon-composable-intelligence",
+        "page-componets.fabcon-fabric-ai-leadership"
       ]
     }
   }

@@ -745,6 +745,17 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'page-componets.fabcon-fabric-ai-leadership': {
+                populate: {
+                  backgroundImage: true,
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
+
 
 
 

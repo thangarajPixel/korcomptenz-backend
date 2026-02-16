@@ -1949,6 +1949,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.fabcon-smart-forge',
         'page-componets.fabcon-led-transformation',
         'page-componets.fabcon-composable-intelligence',
+        'page-componets.fabcon-fabric-ai-leadership',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

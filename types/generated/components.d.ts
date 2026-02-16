@@ -2605,7 +2605,7 @@ export interface PageComponetsFabconAiPoweresList
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_fabcon_ai_poweres_lists';
   info: {
-    displayName: 'fabcon-ai-poweres-list';
+    displayName: 'fabcon-ai-powered-list';
     icon: 'crop';
   };
   attributes: {
@@ -2742,6 +2742,46 @@ export interface PageComponetsFabconDataAnalyticsTopList
       >;
     image: Schema.Attribute.Media<'images'>;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsFabconFabricAiLeadership
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_fabric_ai_leaderships';
+  info: {
+    displayName: 'fabcon-fabric-ai-leadership';
+    icon: 'globe';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    fabconColor: Schema.Attribute.Enumeration<['title1', 'title2', 'title3']>;
+    list: Schema.Attribute.Component<
+      'page-componets.fabcon-fabric-ai-leadership-list',
+      true
+    >;
+    title1: Schema.Attribute.Text;
+    title2: Schema.Attribute.Text;
+    title3: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsFabconFabricAiLeadershipList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_fabric_ai_leadership_lists';
+  info: {
+    displayName: 'fabcon-fabric-ai-leadership-list';
+    icon: 'crop';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.Text;
   };
 }
@@ -3916,6 +3956,8 @@ declare module '@strapi/strapi' {
       'page-componets.fabcon-data-analytics-bottom-list': PageComponetsFabconDataAnalyticsBottomList;
       'page-componets.fabcon-data-analytics-mid-list': PageComponetsFabconDataAnalyticsMidList;
       'page-componets.fabcon-data-analytics-top-list': PageComponetsFabconDataAnalyticsTopList;
+      'page-componets.fabcon-fabric-ai-leadership': PageComponetsFabconFabricAiLeadership;
+      'page-componets.fabcon-fabric-ai-leadership-list': PageComponetsFabconFabricAiLeadershipList;
       'page-componets.fabcon-led-transformation': PageComponetsFabconLedTransformation;
       'page-componets.fabcon-led-transformation-list': PageComponetsFabconLedTransformationList;
       'page-componets.fabcon-smart-forge': PageComponetsFabconSmartForge;
