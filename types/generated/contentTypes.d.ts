@@ -1945,6 +1945,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.export-migration',
         'page-componets.fabcon-ai-powered',
         'page-componets.fabcon-data-analytics',
+        'page-componets.fabcon-about',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

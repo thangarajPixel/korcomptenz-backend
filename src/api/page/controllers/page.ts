@@ -715,6 +715,15 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'page-componets.fabcon-about': {
+                populate: {
+                  image: true,
+                  backgroundImage: true
+                },
+              },
+
+
+
 
 
 

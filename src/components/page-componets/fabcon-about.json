@@ -1,0 +1,55 @@
+{
+  "collectionName": "components_page_componets_fabcon_abouts",
+  "info": {
+    "displayName": "fabcon-about",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title1": {
+      "type": "string"
+    },
+    "title2": {
+      "type": "string"
+    },
+    "fabconColor": {
+      "type": "enumeration",
+      "enum": [
+        "title1",
+        "title2"
+      ]
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "isTarget": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}

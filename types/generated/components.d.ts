@@ -2558,6 +2558,31 @@ export interface PageComponetsExportMigration extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsFabconAbout extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_abouts';
+  info: {
+    displayName: 'fabcon-about';
+    icon: 'earth';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    fabconColor: Schema.Attribute.Enumeration<['title1', 'title2']>;
+    image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title1: Schema.Attribute.String;
+    title2: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsFabconAiPowered extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_fabcon_ai_powereds';
   info: {
@@ -3771,6 +3796,7 @@ declare module '@strapi/strapi' {
       'page-componets.domain-slides': PageComponetsDomainSlides;
       'page-componets.erp-list': PageComponetsErpList;
       'page-componets.export-migration': PageComponetsExportMigration;
+      'page-componets.fabcon-about': PageComponetsFabconAbout;
       'page-componets.fabcon-ai-powered': PageComponetsFabconAiPowered;
       'page-componets.fabcon-ai-poweres-list': PageComponetsFabconAiPoweresList;
       'page-componets.fabcon-data-analytics': PageComponetsFabconDataAnalytics;
