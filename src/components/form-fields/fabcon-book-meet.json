@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_form_fields_fabcon_book_meets",
+  "info": {
+    "displayName": "fabcon-book-meet",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "timeSlot": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

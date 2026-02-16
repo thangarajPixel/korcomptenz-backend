@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fabcon_book_meet_leads",
+  "info": {
+    "singularName": "fabcon-book-meet-lead",
+    "pluralName": "fabcon-book-meet-leads",
+    "displayName": "fabcon-book-meet-lead"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "company": {
+      "type": "text"
+    },
+    "timeSlot": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
+    }
+  }
+}

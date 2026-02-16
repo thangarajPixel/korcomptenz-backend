@@ -756,6 +756,21 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'page-componets.fabcon-fabric-community-conference': {
+                populate: {
+                  backgroundImage: true,
+                  form: {
+                    populate: {
+                      forms: {
+                        on: {
+                          'form-fields.fabcon-book-meet': true
+                        }
+                      }
+                    }
+                  },
+
+                },
+              },
 
 
 

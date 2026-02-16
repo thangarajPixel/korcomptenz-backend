@@ -1247,6 +1247,39 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFabconBookMeetLeadFabconBookMeetLead
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'fabcon_book_meet_leads';
+  info: {
+    displayName: 'fabcon-book-meet-lead';
+    pluralName: 'fabcon-book-meet-leads';
+    singularName: 'fabcon-book-meet-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    firstName: Schema.Attribute.String;
+    lastName: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fabcon-book-meet-lead.fabcon-book-meet-lead'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    timeSlot: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFormForm extends Struct.CollectionTypeSchema {
   collectionName: 'forms';
   info: {
@@ -1268,6 +1301,8 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'contact-form',
         'career',
         'free-consultation-form',
+        'fabcon-book-meet-form',
+        'reserve-my-fabcon-form',
       ]
     > &
       Schema.Attribute.Required;
@@ -1281,6 +1316,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.free-consultation-form',
         'form-fields.insight-reserve-spot',
         'form-fields.news-room-form',
+        'form-fields.fabcon-book-meet',
       ]
     > &
       Schema.Attribute.Required &
@@ -1950,6 +1986,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.fabcon-led-transformation',
         'page-componets.fabcon-composable-intelligence',
         'page-componets.fabcon-fabric-ai-leadership',
+        'page-componets.fabcon-fabric-community-conference',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -2633,6 +2670,7 @@ declare module '@strapi/strapi' {
       'api::department.department': ApiDepartmentDepartment;
       'api::event-list.event-list': ApiEventListEventList;
       'api::event.event': ApiEventEvent;
+      'api::fabcon-book-meet-lead.fabcon-book-meet-lead': ApiFabconBookMeetLeadFabconBookMeetLead;
       'api::form.form': ApiFormForm;
       'api::free-consultation-lead.free-consultation-lead': ApiFreeConsultationLeadFreeConsultationLead;
       'api::home.home': ApiHomeHome;

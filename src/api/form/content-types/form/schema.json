@@ -21,7 +21,8 @@
         "form-fields.reserve-spot-fields",
         "form-fields.free-consultation-form",
         "form-fields.insight-reserve-spot",
-        "form-fields.news-room-form"
+        "form-fields.news-room-form",
+        "form-fields.fabcon-book-meet"
       ],
       "required": true,
       "min": 1,
@@ -40,7 +41,9 @@
         "book-demo-form",
         "contact-form",
         "career",
-        "free-consultation-form"
+        "free-consultation-form",
+        "fabcon-book-meet-form",
+        "reserve-my-fabcon-form"
       ]
     }
   }
