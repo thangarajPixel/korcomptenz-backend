@@ -1943,6 +1943,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.digital-card',
         'news-and-event.news-banner',
         'page-componets.export-migration',
+        'page-componets.fabcon-ai-powered',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

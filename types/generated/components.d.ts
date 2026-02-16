@@ -2558,6 +2558,47 @@ export interface PageComponetsExportMigration extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsFabconAiPowered extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_ai_powereds';
+  info: {
+    displayName: 'fabcon-ai-powered';
+    icon: 'collapse';
+  };
+  attributes: {
+    fabconColor: Schema.Attribute.Enumeration<['title1', 'title2', 'title3']>;
+    list: Schema.Attribute.Component<
+      'page-componets.fabcon-ai-poweres-list',
+      true
+    >;
+    title1: Schema.Attribute.Text;
+    title2: Schema.Attribute.Text;
+    title3: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsFabconAiPoweresList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_ai_poweres_lists';
+  info: {
+    displayName: 'fabcon-ai-poweres-list';
+    icon: 'crop';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface PageComponetsFaq extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_faqs';
   info: {
@@ -3649,6 +3690,8 @@ declare module '@strapi/strapi' {
       'page-componets.domain-slides': PageComponetsDomainSlides;
       'page-componets.erp-list': PageComponetsErpList;
       'page-componets.export-migration': PageComponetsExportMigration;
+      'page-componets.fabcon-ai-powered': PageComponetsFabconAiPowered;
+      'page-componets.fabcon-ai-poweres-list': PageComponetsFabconAiPoweresList;
       'page-componets.faq': PageComponetsFaq;
       'page-componets.faq-title': PageComponetsFaqTitle;
       'page-componets.full-lifecycle-bottom': PageComponetsFullLifecycleBottom;

@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_page_componets_fabcon_ai_powereds",
+  "info": {
+    "displayName": "fabcon-ai-powered",
+    "icon": "collapse"
+  },
+  "options": {},
+  "attributes": {
+    "title1": {
+      "type": "text"
+    },
+    "title2": {
+      "type": "text"
+    },
+    "title3": {
+      "type": "text"
+    },
+    "fabconColor": {
+      "type": "enumeration",
+      "enum": [
+        "title1",
+        "title2",
+        "title3"
+      ]
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.fabcon-ai-poweres-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
