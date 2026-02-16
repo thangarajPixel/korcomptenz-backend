@@ -721,6 +721,11 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   backgroundImage: true
                 },
               },
+              'page-componets.fabcon-smart-forge': {
+                populate: {
+                  buttonImage: true,
+                },
+              },
 
 
 

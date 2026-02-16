@@ -2705,6 +2705,30 @@ export interface PageComponetsFabconDataAnalyticsTopList
   };
 }
 
+export interface PageComponetsFabconSmartForge extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_smart_forges';
+  info: {
+    displayName: 'fabcon-smart-forge';
+    icon: 'eye';
+  };
+  attributes: {
+    buttonImage: Schema.Attribute.Media<'images'>;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    fabconColor: Schema.Attribute.Enumeration<['title1', 'title2', 'title3']>;
+    isVideoLink: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title1: Schema.Attribute.Text;
+    title2: Schema.Attribute.Text;
+    title3: Schema.Attribute.String;
+    videoLink: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsFaq extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_faqs';
   info: {
@@ -3803,6 +3827,7 @@ declare module '@strapi/strapi' {
       'page-componets.fabcon-data-analytics-bottom-list': PageComponetsFabconDataAnalyticsBottomList;
       'page-componets.fabcon-data-analytics-mid-list': PageComponetsFabconDataAnalyticsMidList;
       'page-componets.fabcon-data-analytics-top-list': PageComponetsFabconDataAnalyticsTopList;
+      'page-componets.fabcon-smart-forge': PageComponetsFabconSmartForge;
       'page-componets.faq': PageComponetsFaq;
       'page-componets.faq-title': PageComponetsFaqTitle;
       'page-componets.full-lifecycle-bottom': PageComponetsFullLifecycleBottom;

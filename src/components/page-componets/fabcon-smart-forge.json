@@ -1,0 +1,59 @@
+{
+  "collectionName": "components_page_componets_fabcon_smart_forges",
+  "info": {
+    "displayName": "fabcon-smart-forge",
+    "icon": "eye"
+  },
+  "options": {},
+  "attributes": {
+    "title1": {
+      "type": "text"
+    },
+    "title2": {
+      "type": "text"
+    },
+    "title3": {
+      "type": "string"
+    },
+    "fabconColor": {
+      "type": "enumeration",
+      "enum": [
+        "title1",
+        "title2",
+        "title3"
+      ]
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "isVideoLink": {
+      "type": "boolean",
+      "default": false
+    },
+    "videoLink": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isVideoLink"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "buttonImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}
