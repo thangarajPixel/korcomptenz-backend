@@ -696,6 +696,25 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'page-componets.fabcon-data-analytics': {
+                populate: {
+                  top: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                  mid: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                  bottom: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
 
 
 

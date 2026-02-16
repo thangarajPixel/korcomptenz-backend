@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_page_componets_fabcon_data_analytics_bottom_lists",
+  "info": {
+    "displayName": "fabcon-data-analytics-bottom-list",
+    "icon": "expand"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

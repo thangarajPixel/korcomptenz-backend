@@ -1944,6 +1944,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'news-and-event.news-banner',
         'page-componets.export-migration',
         'page-componets.fabcon-ai-powered',
+        'page-componets.fabcon-data-analytics',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_page_componets_fabcon_data_analytics_mid_lists",
+  "info": {
+    "displayName": "fabcon-data-analytics-mid-list",
+    "icon": "crop"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "percentage": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    }
+  },
+  "config": {}
+}

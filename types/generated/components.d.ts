@@ -2599,6 +2599,87 @@ export interface PageComponetsFabconAiPoweresList
   };
 }
 
+export interface PageComponetsFabconDataAnalytics
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_data_analytics';
+  info: {
+    displayName: 'fabcon-data-analytics';
+    icon: 'file';
+  };
+  attributes: {
+    bottom: Schema.Attribute.Component<
+      'page-componets.fabcon-data-analytics-bottom-list',
+      true
+    >;
+    fabconColor: Schema.Attribute.Enumeration<['title1', 'title2']>;
+    mid: Schema.Attribute.Component<
+      'page-componets.fabcon-data-analytics-mid-list',
+      true
+    >;
+    title1: Schema.Attribute.Text;
+    title2: Schema.Attribute.Text;
+    top: Schema.Attribute.Component<
+      'page-componets.fabcon-data-analytics-top-list',
+      true
+    >;
+  };
+}
+
+export interface PageComponetsFabconDataAnalyticsBottomList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_data_analytics_bottom_lists';
+  info: {
+    displayName: 'fabcon-data-analytics-bottom-list';
+    icon: 'expand';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface PageComponetsFabconDataAnalyticsMidList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_data_analytics_mid_lists';
+  info: {
+    displayName: 'fabcon-data-analytics-mid-list';
+    icon: 'crop';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    percentage: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsFabconDataAnalyticsTopList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_data_analytics_top_lists';
+  info: {
+    displayName: 'fabcon-data-analytics-top-list';
+    icon: 'crop';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface PageComponetsFaq extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_faqs';
   info: {
@@ -3692,6 +3773,10 @@ declare module '@strapi/strapi' {
       'page-componets.export-migration': PageComponetsExportMigration;
       'page-componets.fabcon-ai-powered': PageComponetsFabconAiPowered;
       'page-componets.fabcon-ai-poweres-list': PageComponetsFabconAiPoweresList;
+      'page-componets.fabcon-data-analytics': PageComponetsFabconDataAnalytics;
+      'page-componets.fabcon-data-analytics-bottom-list': PageComponetsFabconDataAnalyticsBottomList;
+      'page-componets.fabcon-data-analytics-mid-list': PageComponetsFabconDataAnalyticsMidList;
+      'page-componets.fabcon-data-analytics-top-list': PageComponetsFabconDataAnalyticsTopList;
       'page-componets.faq': PageComponetsFaq;
       'page-componets.faq-title': PageComponetsFaqTitle;
       'page-componets.full-lifecycle-bottom': PageComponetsFullLifecycleBottom;

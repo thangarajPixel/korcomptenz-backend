@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_page_componets_fabcon_data_analytics",
+  "info": {
+    "displayName": "fabcon-data-analytics",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "title1": {
+      "type": "text"
+    },
+    "title2": {
+      "type": "text"
+    },
+    "fabconColor": {
+      "type": "enumeration",
+      "enum": [
+        "title1",
+        "title2"
+      ]
+    },
+    "top": {
+      "type": "component",
+      "component": "page-componets.fabcon-data-analytics-top-list",
+      "repeatable": true
+    },
+    "mid": {
+      "type": "component",
+      "component": "page-componets.fabcon-data-analytics-mid-list",
+      "repeatable": true
+    },
+    "bottom": {
+      "type": "component",
+      "component": "page-componets.fabcon-data-analytics-bottom-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
