@@ -698,6 +698,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               },
               'page-componets.fabcon-data-analytics': {
                 populate: {
+                  backgroundImage: true,
                   top: {
                     populate: {
                       image: true,
@@ -724,6 +725,14 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               'page-componets.fabcon-smart-forge': {
                 populate: {
                   buttonImage: true,
+                  backgroundImage: true,
+                },
+              },
+              'page-componets.fabcon-led-transformation': {
+                populate: {
+                  image: true,
+                  backgroundImage: true,
+                  list: true
                 },
               },
 

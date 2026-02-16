@@ -19,6 +19,13 @@
         "title2"
       ]
     },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "top": {
       "type": "component",
       "component": "page-componets.fabcon-data-analytics-top-list",

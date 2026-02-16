@@ -53,6 +53,13 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}

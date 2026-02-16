@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_page_componets_fabcon_led_transformation_lists",
+  "info": {
+    "displayName": "fabcon-led-transformation-list",
+    "icon": "crop"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    }
+  },
+  "config": {}
+}

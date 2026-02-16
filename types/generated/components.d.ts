@@ -2632,6 +2632,7 @@ export interface PageComponetsFabconDataAnalytics
     icon: 'file';
   };
   attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
     bottom: Schema.Attribute.Component<
       'page-componets.fabcon-data-analytics-bottom-list',
       true
@@ -2705,6 +2706,51 @@ export interface PageComponetsFabconDataAnalyticsTopList
   };
 }
 
+export interface PageComponetsFabconLedTransformation
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_led_transformations';
+  info: {
+    displayName: 'fabcon-led-transformation';
+    icon: 'filter';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    fabconColor: Schema.Attribute.Enumeration<['title1', 'title2', 'title3']>;
+    image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    list: Schema.Attribute.Component<
+      'page-componets.fabcon-led-transformation-list',
+      true
+    >;
+    title1: Schema.Attribute.Text;
+    title2: Schema.Attribute.Text;
+    title3: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsFabconLedTransformationList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_led_transformation_lists';
+  info: {
+    displayName: 'fabcon-led-transformation-list';
+    icon: 'crop';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface PageComponetsFabconSmartForge extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_fabcon_smart_forges';
   info: {
@@ -2712,6 +2758,7 @@ export interface PageComponetsFabconSmartForge extends Struct.ComponentSchema {
     icon: 'eye';
   };
   attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
     buttonImage: Schema.Attribute.Media<'images'>;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
@@ -3827,6 +3874,8 @@ declare module '@strapi/strapi' {
       'page-componets.fabcon-data-analytics-bottom-list': PageComponetsFabconDataAnalyticsBottomList;
       'page-componets.fabcon-data-analytics-mid-list': PageComponetsFabconDataAnalyticsMidList;
       'page-componets.fabcon-data-analytics-top-list': PageComponetsFabconDataAnalyticsTopList;
+      'page-componets.fabcon-led-transformation': PageComponetsFabconLedTransformation;
+      'page-componets.fabcon-led-transformation-list': PageComponetsFabconLedTransformationList;
       'page-componets.fabcon-smart-forge': PageComponetsFabconSmartForge;
       'page-componets.faq': PageComponetsFaq;
       'page-componets.faq-title': PageComponetsFaqTitle;
