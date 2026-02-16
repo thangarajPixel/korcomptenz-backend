@@ -2624,6 +2624,46 @@ export interface PageComponetsFabconAiPoweresList
   };
 }
 
+export interface PageComponetsFabconComposableIntelligence
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_composable_intelligences';
+  info: {
+    displayName: 'fabcon-composable-intelligence';
+    icon: 'arrowUp';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    fabconColor: Schema.Attribute.Enumeration<['title1', 'title2', 'title3']>;
+    list: Schema.Attribute.Component<
+      'page-componets.fabcon-composable-intelligence-list',
+      true
+    >;
+    title1: Schema.Attribute.Text;
+    title2: Schema.Attribute.Text;
+    title3: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsFabconComposableIntelligenceList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_composable_intelligence_lists';
+  info: {
+    displayName: 'fabcon-composable-intelligence-list';
+    icon: 'crop';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface PageComponetsFabconDataAnalytics
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_fabcon_data_analytics';
@@ -3870,6 +3910,8 @@ declare module '@strapi/strapi' {
       'page-componets.fabcon-about': PageComponetsFabconAbout;
       'page-componets.fabcon-ai-powered': PageComponetsFabconAiPowered;
       'page-componets.fabcon-ai-poweres-list': PageComponetsFabconAiPoweresList;
+      'page-componets.fabcon-composable-intelligence': PageComponetsFabconComposableIntelligence;
+      'page-componets.fabcon-composable-intelligence-list': PageComponetsFabconComposableIntelligenceList;
       'page-componets.fabcon-data-analytics': PageComponetsFabconDataAnalytics;
       'page-componets.fabcon-data-analytics-bottom-list': PageComponetsFabconDataAnalyticsBottomList;
       'page-componets.fabcon-data-analytics-mid-list': PageComponetsFabconDataAnalyticsMidList;

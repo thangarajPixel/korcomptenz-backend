@@ -735,6 +735,16 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   list: true
                 },
               },
+              'page-componets.fabcon-composable-intelligence': {
+                populate: {
+                  backgroundImage: true,
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
 
 
 

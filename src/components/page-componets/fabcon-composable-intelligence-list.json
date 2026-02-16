@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_page_componets_fabcon_composable_intelligence_lists",
+  "info": {
+    "displayName": "fabcon-composable-intelligence-list",
+    "icon": "crop"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    }
+  },
+  "config": {}
+}
