@@ -726,6 +726,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                 populate: {
                   buttonImage: true,
                   backgroundImage: true,
+                  image: true,
                 },
               },
               'page-componets.fabcon-led-transformation': {

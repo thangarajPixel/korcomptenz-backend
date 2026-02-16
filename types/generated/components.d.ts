@@ -1008,6 +1008,22 @@ export interface FormFieldsContactUsForm extends Struct.ComponentSchema {
   };
 }
 
+export interface FormFieldsFabconBookMeet extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_fabcon_book_meets';
+  info: {
+    displayName: 'fabcon-book-meet';
+    icon: 'book';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    company: Schema.Attribute.String;
+    firstName: Schema.Attribute.String;
+    lastName: Schema.Attribute.String;
+    message: Schema.Attribute.Text;
+    timeSlot: Schema.Attribute.String;
+  };
+}
+
 export interface FormFieldsForm extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_forms';
   info: {
@@ -2700,6 +2716,8 @@ export interface PageComponetsFabconDataAnalyticsBottomList
   };
   attributes: {
     image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    link: Schema.Attribute.String;
   };
 }
 
@@ -2786,6 +2804,34 @@ export interface PageComponetsFabconFabricAiLeadershipList
   };
 }
 
+export interface PageComponetsFabconFabricCommunityConference
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_fabric_community_conferences';
+  info: {
+    displayName: 'fabcon-fabric-community-conference';
+    icon: 'cast';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    date: Schema.Attribute.Date;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    fabconColor: Schema.Attribute.Enumeration<['title1', 'title2']>;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    location: Schema.Attribute.String;
+    title1: Schema.Attribute.Text;
+    title2: Schema.Attribute.Text;
+  };
+}
+
 export interface PageComponetsFabconLedTransformation
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_fabcon_led_transformations';
@@ -2848,6 +2894,7 @@ export interface PageComponetsFabconSmartForge extends Struct.ComponentSchema {
         }
       >;
     fabconColor: Schema.Attribute.Enumeration<['title1', 'title2', 'title3']>;
+    image: Schema.Attribute.Media<'images'>;
     isVideoLink: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     title1: Schema.Attribute.Text;
     title2: Schema.Attribute.Text;
@@ -3851,6 +3898,7 @@ declare module '@strapi/strapi' {
       'form-fields.career': FormFieldsCareer;
       'form-fields.case-form': FormFieldsCaseForm;
       'form-fields.contact-us-form': FormFieldsContactUsForm;
+      'form-fields.fabcon-book-meet': FormFieldsFabconBookMeet;
       'form-fields.form': FormFieldsForm;
       'form-fields.free-consultation-form': FormFieldsFreeConsultationForm;
       'form-fields.insight-reserve-spot': FormFieldsInsightReserveSpot;
@@ -3958,6 +4006,7 @@ declare module '@strapi/strapi' {
       'page-componets.fabcon-data-analytics-top-list': PageComponetsFabconDataAnalyticsTopList;
       'page-componets.fabcon-fabric-ai-leadership': PageComponetsFabconFabricAiLeadership;
       'page-componets.fabcon-fabric-ai-leadership-list': PageComponetsFabconFabricAiLeadershipList;
+      'page-componets.fabcon-fabric-community-conference': PageComponetsFabconFabricCommunityConference;
       'page-componets.fabcon-led-transformation': PageComponetsFabconLedTransformation;
       'page-componets.fabcon-led-transformation-list': PageComponetsFabconLedTransformationList;
       'page-componets.fabcon-smart-forge': PageComponetsFabconSmartForge;

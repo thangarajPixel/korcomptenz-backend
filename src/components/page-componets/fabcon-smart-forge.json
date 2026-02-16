@@ -60,6 +60,13 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}
