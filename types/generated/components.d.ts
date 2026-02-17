@@ -1017,8 +1017,8 @@ export interface FormFieldsFabconBookMeet extends Struct.ComponentSchema {
   attributes: {
     buttonText: Schema.Attribute.String;
     company: Schema.Attribute.String;
-    firstName: Schema.Attribute.String;
-    lastName: Schema.Attribute.String;
+    email: Schema.Attribute.String;
+    fullName: Schema.Attribute.String;
     message: Schema.Attribute.Text;
     timeSlot: Schema.Attribute.String;
   };
