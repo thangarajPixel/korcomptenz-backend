@@ -62,11 +62,7 @@ export default factories.createCoreController(
         </td>
       </tr>
 
-      <tr>
-        <td style="text-align:left;padding:20px 20px 0;font-family:'Arial',Sans-serif;font-weight:600;font-size:20px;line-height:30px;color:#040505;">
-          Request a Meeting – FABCON 2026
-        </td>
-      </tr>
+   
 
         <tr>
         <td style="text-align:left;padding:20px;font-family:'Arial',Sans-serif;font-weight:400;font-size:14px;line-height:24px;color:#040505;">
@@ -135,12 +131,7 @@ export default factories.createCoreController(
         </a>
       </td>
     </tr>
-    <tr>
-      <td
-        style="text-align:left;padding:20px 20px 0;font-family:Arial,sans-serif;font-weight:600;font-size:20px;line-height:30px;color:#040505;">
-        New FABCON Booking
-      </td>
-    </tr>
+   
     <tr>
       <td style="padding:10px 20px;font-family:Arial,sans-serif;">
         <table width="100%" cellpadding="0" cellspacing="0">
