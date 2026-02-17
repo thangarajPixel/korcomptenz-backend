@@ -34,7 +34,7 @@
       }
     },
     "date": {
-      "type": "date"
+      "type": "text"
     },
     "location": {
       "type": "string"

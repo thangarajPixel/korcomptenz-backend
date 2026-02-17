@@ -2832,7 +2832,7 @@ export interface PageComponetsFabconFabricCommunityConference
     backgroundImage: Schema.Attribute.Media<'images'>;
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
-    date: Schema.Attribute.Date;
+    date: Schema.Attribute.Text;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
