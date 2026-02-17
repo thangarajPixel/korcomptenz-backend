@@ -741,7 +741,8 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   backgroundImage: true,
                   list: {
                     populate: {
-                      image: true,
+                      mainImage: true,
+                      subImage: true
                     },
                   },
                 },
