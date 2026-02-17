@@ -98,7 +98,8 @@
         "page-componets.fabcon-led-transformation",
         "page-componets.fabcon-composable-intelligence",
         "page-componets.fabcon-fabric-ai-leadership",
-        "page-componets.fabcon-fabric-community-conference"
+        "page-componets.fabcon-fabric-community-conference",
+        "page-componets.fabcon-decision-fabric"
       ]
     }
   }

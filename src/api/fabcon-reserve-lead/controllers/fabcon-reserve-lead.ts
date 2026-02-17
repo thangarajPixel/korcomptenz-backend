@@ -1,11 +1,10 @@
 /**
- * fabcon-book-meet-lead controller
+ * fabcon-reserve-lead controller
  */
 
-import { factories } from '@strapi/strapi';
+import { factories } from '@strapi/strapi'
 
-export default factories.createCoreController(
-  'api::fabcon-book-meet-lead.fabcon-book-meet-lead',
+export default factories.createCoreController('api::fabcon-reserve-lead.fabcon-reserve-lead',
   ({ strapi }) => ({
 
     async create(ctx) {
@@ -19,7 +18,7 @@ export default factories.createCoreController(
 
 
         const lead = await strapi.entityService.findOne(
-          'api::fabcon-book-meet-lead.fabcon-book-meet-lead',
+          'api::fabcon-reserve-lead.fabcon-reserve-lead',
           leadId
         ) as any;
 
@@ -62,7 +61,7 @@ export default factories.createCoreController(
           <body style="font-family:Arial,sans-serif;">
             <h3>New FABCON Booking</h3>
             <table border="1" cellpadding="8" cellspacing="0">
-            
+             
               <tr>
                 <td><strong>Name</strong></td>
                 <td>${fullName},</td>
@@ -85,7 +84,7 @@ export default factories.createCoreController(
           `,
         });
 
-        //  Custom response
+        // 4️⃣ Custom response
         return {
           data: {
             success: true,

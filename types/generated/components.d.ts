@@ -2675,7 +2675,8 @@ export interface PageComponetsFabconComposableIntelligenceList
           preset: 'defaultHtml';
         }
       >;
-    image: Schema.Attribute.Media<'images'>;
+    mainImage: Schema.Attribute.Media<'images'>;
+    subImage: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.Text;
   };
 }
@@ -2761,6 +2762,22 @@ export interface PageComponetsFabconDataAnalyticsTopList
     image: Schema.Attribute.Media<'images'>;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsFabconDecisionFabric
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_decision_fabrics';
+  info: {
+    displayName: 'fabcon-decision-fabric';
+    icon: 'connector';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    fabconColor: Schema.Attribute.Enumeration<['title1', 'title2']>;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    title1: Schema.Attribute.Text;
+    title2: Schema.Attribute.Text;
   };
 }
 
@@ -4004,6 +4021,7 @@ declare module '@strapi/strapi' {
       'page-componets.fabcon-data-analytics-bottom-list': PageComponetsFabconDataAnalyticsBottomList;
       'page-componets.fabcon-data-analytics-mid-list': PageComponetsFabconDataAnalyticsMidList;
       'page-componets.fabcon-data-analytics-top-list': PageComponetsFabconDataAnalyticsTopList;
+      'page-componets.fabcon-decision-fabric': PageComponetsFabconDecisionFabric;
       'page-componets.fabcon-fabric-ai-leadership': PageComponetsFabconFabricAiLeadership;
       'page-componets.fabcon-fabric-ai-leadership-list': PageComponetsFabconFabricAiLeadershipList;
       'page-componets.fabcon-fabric-community-conference': PageComponetsFabconFabricCommunityConference;

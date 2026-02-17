@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fabcon_reserve_leads",
+  "info": {
+    "singularName": "fabcon-reserve-lead",
+    "pluralName": "fabcon-reserve-leads",
+    "displayName": "fabcon-reserve-lead"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "text"
+    },
+    "lastName": {
+      "type": "text"
+    },
+    "company": {
+      "type": "text"
+    },
+    "timeSlot": {
+      "type": "text"
+    },
+    "message": {
+      "type": "text"
+    }
+  }
+}

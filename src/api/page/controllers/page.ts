@@ -772,6 +772,22 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
 
                 },
               },
+              'page-componets.fabcon-decision-fabric': {
+                populate: {
+                  backgroundImage: true,
+                  form: {
+                    populate: {
+                      forms: {
+                        on: {
+                          'form-fields.fabcon-book-meet': true
+                        }
+                      }
+                    }
+                  },
+
+                },
+              },
+
 
 
 

@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_page_componets_fabcon_decision_fabrics",
+  "info": {
+    "displayName": "fabcon-decision-fabric",
+    "icon": "connector"
+  },
+  "options": {},
+  "attributes": {
+    "title1": {
+      "type": "text"
+    },
+    "title2": {
+      "type": "text"
+    },
+    "fabconColor": {
+      "type": "enumeration",
+      "enum": [
+        "title1",
+        "title2"
+      ]
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form"
+    }
+  },
+  "config": {}
+}

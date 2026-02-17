@@ -1280,6 +1280,39 @@ export interface ApiFabconBookMeetLeadFabconBookMeetLead
   };
 }
 
+export interface ApiFabconReserveLeadFabconReserveLead
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'fabcon_reserve_leads';
+  info: {
+    displayName: 'fabcon-reserve-lead';
+    pluralName: 'fabcon-reserve-leads';
+    singularName: 'fabcon-reserve-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    firstName: Schema.Attribute.Text;
+    lastName: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fabcon-reserve-lead.fabcon-reserve-lead'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    timeSlot: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFormForm extends Struct.CollectionTypeSchema {
   collectionName: 'forms';
   info: {
@@ -1987,6 +2020,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.fabcon-composable-intelligence',
         'page-componets.fabcon-fabric-ai-leadership',
         'page-componets.fabcon-fabric-community-conference',
+        'page-componets.fabcon-decision-fabric',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -2671,6 +2705,7 @@ declare module '@strapi/strapi' {
       'api::event-list.event-list': ApiEventListEventList;
       'api::event.event': ApiEventEvent;
       'api::fabcon-book-meet-lead.fabcon-book-meet-lead': ApiFabconBookMeetLeadFabconBookMeetLead;
+      'api::fabcon-reserve-lead.fabcon-reserve-lead': ApiFabconReserveLeadFabconReserveLead;
       'api::form.form': ApiFormForm;
       'api::free-consultation-lead.free-consultation-lead': ApiFreeConsultationLeadFreeConsultationLead;
       'api::home.home': ApiHomeHome;
