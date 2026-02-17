@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fabcon_time_slots",
+  "info": {
+    "singularName": "fabcon-time-slot",
+    "pluralName": "fabcon-time-slots",
+    "displayName": "fabcon-time-slot"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "timeSlot": {
+      "type": "text"
+    }
+  }
+}

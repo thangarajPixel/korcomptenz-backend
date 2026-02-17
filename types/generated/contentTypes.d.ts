@@ -1313,6 +1313,35 @@ export interface ApiFabconReserveLeadFabconReserveLead
   };
 }
 
+export interface ApiFabconTimeSlotFabconTimeSlot
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'fabcon_time_slots';
+  info: {
+    displayName: 'fabcon-time-slot';
+    pluralName: 'fabcon-time-slots';
+    singularName: 'fabcon-time-slot';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fabcon-time-slot.fabcon-time-slot'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    timeSlot: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFormForm extends Struct.CollectionTypeSchema {
   collectionName: 'forms';
   info: {
@@ -2706,6 +2735,7 @@ declare module '@strapi/strapi' {
       'api::event.event': ApiEventEvent;
       'api::fabcon-book-meet-lead.fabcon-book-meet-lead': ApiFabconBookMeetLeadFabconBookMeetLead;
       'api::fabcon-reserve-lead.fabcon-reserve-lead': ApiFabconReserveLeadFabconReserveLead;
+      'api::fabcon-time-slot.fabcon-time-slot': ApiFabconTimeSlotFabconTimeSlot;
       'api::form.form': ApiFormForm;
       'api::free-consultation-lead.free-consultation-lead': ApiFreeConsultationLeadFreeConsultationLead;
       'api::home.home': ApiHomeHome;
