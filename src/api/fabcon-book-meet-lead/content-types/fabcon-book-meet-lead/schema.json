@@ -11,10 +11,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "firstName": {
+    "fullName": {
       "type": "string"
     },
-    "lastName": {
+    "email": {
       "type": "string"
     },
     "company": {
