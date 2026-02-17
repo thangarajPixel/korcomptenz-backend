@@ -6,6 +6,9 @@
   },
   "options": {},
   "attributes": {
+    "title": {
+      "type": "text"
+    },
     "fullName": {
       "type": "string"
     },

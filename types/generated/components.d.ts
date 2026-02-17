@@ -1021,6 +1021,7 @@ export interface FormFieldsFabconBookMeet extends Struct.ComponentSchema {
     fullName: Schema.Attribute.String;
     message: Schema.Attribute.Text;
     timeSlot: Schema.Attribute.String;
+    title: Schema.Attribute.Text;
   };
 }
 
