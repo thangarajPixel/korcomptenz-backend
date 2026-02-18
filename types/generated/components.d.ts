@@ -2775,10 +2775,11 @@ export interface PageComponetsFabconDecisionFabric
   };
   attributes: {
     backgroundImage: Schema.Attribute.Media<'images'>;
-    fabconColor: Schema.Attribute.Enumeration<['title1', 'title2']>;
+    fabconColor: Schema.Attribute.Enumeration<['title1', 'title2', 'title3']>;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     title1: Schema.Attribute.Text;
     title2: Schema.Attribute.Text;
+    title3: Schema.Attribute.Text;
   };
 }
 
