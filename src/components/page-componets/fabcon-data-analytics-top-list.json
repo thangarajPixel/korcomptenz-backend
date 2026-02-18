@@ -14,7 +14,7 @@
       ]
     },
     "title": {
-      "type": "text"
+      "type": "string"
     },
     "description": {
       "type": "customField",

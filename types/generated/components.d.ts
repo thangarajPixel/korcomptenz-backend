@@ -2637,7 +2637,7 @@ export interface PageComponetsFabconAiPoweresList
       >;
     image: Schema.Attribute.Media<'images'>;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    title: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -2678,7 +2678,7 @@ export interface PageComponetsFabconComposableIntelligenceList
       >;
     mainImage: Schema.Attribute.Media<'images'>;
     subImage: Schema.Attribute.Media<'images'>;
-    title: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -2762,7 +2762,7 @@ export interface PageComponetsFabconDataAnalyticsTopList
       >;
     image: Schema.Attribute.Media<'images'>;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    title: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -2818,7 +2818,7 @@ export interface PageComponetsFabconFabricAiLeadershipList
         }
       >;
     image: Schema.Attribute.Media<'images'>;
-    title: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -2891,7 +2891,7 @@ export interface PageComponetsFabconLedTransformationList
           preset: 'defaultHtml';
         }
       >;
-    title: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
   };
 }
 
