@@ -215,7 +215,7 @@ export default factories.createCoreController('api::book-demo-lead.book-demo-lea
       return {
         data: {
           success: true,
-          message: 'Demo created successfully',
+          message: 'The form has been submitted successfully',
         },
       };
 

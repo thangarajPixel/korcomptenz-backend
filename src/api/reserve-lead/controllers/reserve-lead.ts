@@ -221,7 +221,7 @@ export default factories.createCoreController('api::reserve-lead.reserve-lead', 
       </html>
         `,
       });
-      return { data: { success: true, ...response.data, message: 'Reserved successfully' } };
+      return { data: { success: true, ...response.data, message: 'The form has been submitted successfully' } };
     } catch (error) {
       console.log(error);
       return ctx.badRequest(error);

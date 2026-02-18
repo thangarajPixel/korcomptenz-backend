@@ -185,7 +185,7 @@ export default factories.createCoreController('api::fabcon-reserve-lead.fabcon-r
           data: {
             success: true,
             id: leadId,
-            message: 'Fabcon meeting request created successfully',
+            message: 'The form has been submitted successfully',
           },
         };
 
