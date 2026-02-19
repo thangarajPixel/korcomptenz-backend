@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_componets_fabcon_data_analytics_mids",
+  "info": {
+    "displayName": "fabcon-data-analytics-mid",
+    "icon": "command"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "midList": {
+      "type": "component",
+      "component": "page-componets.fabcon-data-analytics-mid-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

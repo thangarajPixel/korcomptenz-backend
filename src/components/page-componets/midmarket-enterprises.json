@@ -9,6 +9,13 @@
     "title": {
       "type": "string"
     },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "list": {
       "type": "component",
       "component": "page-componets.midmarket-enterprises-list",

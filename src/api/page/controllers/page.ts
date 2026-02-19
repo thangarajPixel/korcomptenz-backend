@@ -706,7 +706,11 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                   mid: {
                     populate: {
-                      image: true,
+                      midList: {
+                        populate: {
+                          image: true,
+                        },
+                      },
                     },
                   },
                   bottom: {
@@ -793,6 +797,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               },
               'page-componets.midmarket-enterprises': {
                 populate: {
+                  backgroundImage: true,
                   list: {
                     populate: {
                       image: true,

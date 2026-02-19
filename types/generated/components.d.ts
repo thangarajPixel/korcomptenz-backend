@@ -2697,8 +2697,8 @@ export interface PageComponetsFabconDataAnalytics
     >;
     fabconColor: Schema.Attribute.Enumeration<['title1', 'title2']>;
     mid: Schema.Attribute.Component<
-      'page-componets.fabcon-data-analytics-mid-list',
-      true
+      'page-componets.fabcon-data-analytics-mid',
+      false
     >;
     title1: Schema.Attribute.Text;
     title2: Schema.Attribute.Text;
@@ -2720,6 +2720,22 @@ export interface PageComponetsFabconDataAnalyticsBottomList
     image: Schema.Attribute.Media<'images'>;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsFabconDataAnalyticsMid
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_fabcon_data_analytics_mids';
+  info: {
+    displayName: 'fabcon-data-analytics-mid';
+    icon: 'command';
+  };
+  attributes: {
+    midList: Schema.Attribute.Component<
+      'page-componets.fabcon-data-analytics-mid-list',
+      true
+    >;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -3297,6 +3313,16 @@ export interface PageComponetsLightSliderList extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsMidFabconDataAnalytics
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_mid_fabcon_data_analytics';
+  info: {
+    displayName: 'mid-fabcon-data-analytics';
+    icon: 'crop';
+  };
+  attributes: {};
+}
+
 export interface PageComponetsMidmarketEnterprises
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_midmarket_enterprises';
@@ -3305,6 +3331,7 @@ export interface PageComponetsMidmarketEnterprises
     icon: 'clock';
   };
   attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
     list: Schema.Attribute.Component<
       'page-componets.midmarket-enterprises-list',
       true
@@ -4059,6 +4086,7 @@ declare module '@strapi/strapi' {
       'page-componets.fabcon-composable-intelligence-list': PageComponetsFabconComposableIntelligenceList;
       'page-componets.fabcon-data-analytics': PageComponetsFabconDataAnalytics;
       'page-componets.fabcon-data-analytics-bottom-list': PageComponetsFabconDataAnalyticsBottomList;
+      'page-componets.fabcon-data-analytics-mid': PageComponetsFabconDataAnalyticsMid;
       'page-componets.fabcon-data-analytics-mid-list': PageComponetsFabconDataAnalyticsMidList;
       'page-componets.fabcon-data-analytics-top-list': PageComponetsFabconDataAnalyticsTopList;
       'page-componets.fabcon-decision-fabric': PageComponetsFabconDecisionFabric;
@@ -4088,6 +4116,7 @@ declare module '@strapi/strapi' {
       'page-componets.light-slider-card': PageComponetsLightSliderCard;
       'page-componets.light-slider-group-list': PageComponetsLightSliderGroupList;
       'page-componets.light-slider-list': PageComponetsLightSliderList;
+      'page-componets.mid-fabcon-data-analytics': PageComponetsMidFabconDataAnalytics;
       'page-componets.midmarket-enterprises': PageComponetsMidmarketEnterprises;
       'page-componets.midmarket-enterprises-list': PageComponetsMidmarketEnterprisesList;
       'page-componets.pricing-section': PageComponetsPricingSection;

@@ -33,8 +33,8 @@
     },
     "mid": {
       "type": "component",
-      "component": "page-componets.fabcon-data-analytics-mid-list",
-      "repeatable": true
+      "component": "page-componets.fabcon-data-analytics-mid",
+      "repeatable": false
     },
     "bottom": {
       "type": "component",
