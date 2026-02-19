@@ -3372,6 +3372,7 @@ export interface PageComponetsMidmarketEnterprisesList
       >;
     image: Schema.Attribute.Media<'images'>;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
   };
 }
 
