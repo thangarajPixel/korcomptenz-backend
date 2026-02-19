@@ -2731,11 +2731,13 @@ export interface PageComponetsFabconDataAnalyticsMid
     icon: 'command';
   };
   attributes: {
+    fabconColor: Schema.Attribute.Enumeration<['title1', 'title2']>;
     midList: Schema.Attribute.Component<
       'page-componets.fabcon-data-analytics-mid-list',
       true
     >;
-    title: Schema.Attribute.String;
+    title1: Schema.Attribute.String;
+    title2: Schema.Attribute.String;
   };
 }
 
