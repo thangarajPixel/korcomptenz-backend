@@ -2205,6 +2205,7 @@ export interface PageComponetsDigitalAbout extends Struct.ComponentSchema {
       'sub-page-componets.digitial-features',
       true
     >;
+    noPadding: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     stats: Schema.Attribute.Component<
       'sub-page-componets.digitial-stats',
       true
@@ -2438,6 +2439,7 @@ export interface PageComponetsDigitalInspire extends Struct.ComponentSchema {
       'page-componets.digital-inspire-list',
       true
     >;
+    noPadding: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     title: Schema.Attribute.Text;
   };
 }

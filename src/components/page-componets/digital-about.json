@@ -8,6 +8,10 @@
     "title": {
       "type": "string"
     },
+    "noPadding": {
+      "type": "boolean",
+      "default": false
+    },
     "description": {
       "type": "text"
     },

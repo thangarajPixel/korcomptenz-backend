@@ -9,6 +9,10 @@
     "title": {
       "type": "text"
     },
+    "noPadding": {
+      "type": "boolean",
+      "default": false
+    },
     "list": {
       "type": "component",
       "component": "page-componets.digital-inspire-list",
