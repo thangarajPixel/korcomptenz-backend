@@ -2050,6 +2050,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.fabcon-fabric-ai-leadership',
         'page-componets.fabcon-fabric-community-conference',
         'page-componets.fabcon-decision-fabric',
+        'page-componets.midmarket-enterprises',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

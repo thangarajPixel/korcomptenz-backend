@@ -15,6 +15,13 @@
       "options": {
         "preset": "defaultHtml"
       }
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   },
   "config": {}

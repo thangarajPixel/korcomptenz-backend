@@ -2865,7 +2865,6 @@ export interface PageComponetsFabconLedTransformation
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     fabconColor: Schema.Attribute.Enumeration<['title1', 'title2', 'title3']>;
-    image: Schema.Attribute.Media<'images'>;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<
       'page-componets.fabcon-led-transformation-list',
@@ -2892,6 +2891,7 @@ export interface PageComponetsFabconLedTransformationList
           preset: 'defaultHtml';
         }
       >;
+    image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
@@ -3294,6 +3294,44 @@ export interface PageComponetsLightSliderList extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     list: Schema.Attribute.Component<'page-componets.light-slider-card', true>;
     title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsMidmarketEnterprises
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_midmarket_enterprises';
+  info: {
+    displayName: 'midmarket-enterprises';
+    icon: 'clock';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<
+      'page-componets.midmarket-enterprises-list',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsMidmarketEnterprisesList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_midmarket_enterprises_lists';
+  info: {
+    displayName: 'midmarket-enterprises-list';
+    icon: 'crop';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 
@@ -4050,6 +4088,8 @@ declare module '@strapi/strapi' {
       'page-componets.light-slider-card': PageComponetsLightSliderCard;
       'page-componets.light-slider-group-list': PageComponetsLightSliderGroupList;
       'page-componets.light-slider-list': PageComponetsLightSliderList;
+      'page-componets.midmarket-enterprises': PageComponetsMidmarketEnterprises;
+      'page-componets.midmarket-enterprises-list': PageComponetsMidmarketEnterprisesList;
       'page-componets.pricing-section': PageComponetsPricingSection;
       'page-componets.salesforce': PageComponetsSalesforce;
       'page-componets.salesforce-services': PageComponetsSalesforceServices;

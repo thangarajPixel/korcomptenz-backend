@@ -733,7 +733,11 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                 populate: {
                   image: true,
                   backgroundImage: true,
-                  list: true
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
                 },
               },
               'page-componets.fabcon-composable-intelligence': {
@@ -787,6 +791,17 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
 
                 },
               },
+              'page-componets.midmarket-enterprises': {
+                populate: {
+                  list: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
+
+
 
 
 

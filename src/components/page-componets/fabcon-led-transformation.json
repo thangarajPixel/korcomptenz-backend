@@ -23,13 +23,6 @@
         "title3"
       ]
     },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "backgroundImage": {
       "type": "media",
       "multiple": false,

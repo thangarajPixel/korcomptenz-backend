@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_componets_midmarket_enterprises",
+  "info": {
+    "displayName": "midmarket-enterprises",
+    "icon": "clock"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "component": "page-componets.midmarket-enterprises-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
