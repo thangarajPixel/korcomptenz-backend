@@ -9,12 +9,8 @@
     "title": {
       "type": "string"
     },
-    "backgroundImage": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+    "backgroundColor": {
+      "type": "string"
     },
     "list": {
       "type": "component",

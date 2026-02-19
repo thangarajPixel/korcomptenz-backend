@@ -3333,7 +3333,7 @@ export interface PageComponetsMidmarketEnterprises
     icon: 'clock';
   };
   attributes: {
-    backgroundImage: Schema.Attribute.Media<'images'>;
+    backgroundColor: Schema.Attribute.String;
     list: Schema.Attribute.Component<
       'page-componets.midmarket-enterprises-list',
       true

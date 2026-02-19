@@ -797,7 +797,6 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
               },
               'page-componets.midmarket-enterprises': {
                 populate: {
-                  backgroundImage: true,
                   list: {
                     populate: {
                       image: true,
