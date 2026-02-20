@@ -1036,6 +1036,21 @@ export interface FormFieldsForm extends Struct.ComponentSchema {
   };
 }
 
+export interface FormFieldsForresterReportDownload
+  extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_forrester_report_downloads';
+  info: {
+    displayName: 'forrester-report-download';
+    icon: 'dashboard';
+  };
+  attributes: {
+    download: Schema.Attribute.String;
+    emal: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    organization: Schema.Attribute.String;
+  };
+}
+
 export interface FormFieldsFreeConsultationForm extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_free_consultation_forms';
   info: {
@@ -3998,6 +4013,7 @@ declare module '@strapi/strapi' {
       'form-fields.contact-us-form': FormFieldsContactUsForm;
       'form-fields.fabcon-book-meet': FormFieldsFabconBookMeet;
       'form-fields.form': FormFieldsForm;
+      'form-fields.forrester-report-download': FormFieldsForresterReportDownload;
       'form-fields.free-consultation-form': FormFieldsFreeConsultationForm;
       'form-fields.insight-reserve-spot': FormFieldsInsightReserveSpot;
       'form-fields.news-room-form': FormFieldsNewsRoomForm;

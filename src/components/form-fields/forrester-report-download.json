@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_form_fields_forrester_report_downloads",
+  "info": {
+    "displayName": "forrester-report-download",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "emal": {
+      "type": "string"
+    },
+    "organization": {
+      "type": "string"
+    },
+    "download": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
