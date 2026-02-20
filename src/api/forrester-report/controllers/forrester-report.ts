@@ -49,7 +49,7 @@ export default factories.createCoreController('api::forrester-report.forrester-r
           await strapi.plugin('email').service('email').send({
             to: SALES_EMAIL,
             bcc: CC_EMAIL,
-            subject: 'Fabcon Meeting Request Received',
+            subject: 'Forrester Report',
             html: `
 <!DOCTYPE html>
 <html lang="en">
@@ -115,19 +115,20 @@ export default factories.createCoreController('api::forrester-report.forrester-r
             </a>
           </td>
         </tr>
-         
+         </table>  
     <tr>
       <td style="padding:20px;font-family:Arial,sans-serif;text-align:left;">
         <strong>Sincerely,</strong><br />
         ${lead.name}
       </td>
     </tr>
-      <tr>
-      <td style="padding:10px 20px;background:#040505;color:#FFF;font-family:Arial,sans-serif;">
-        Copyrights &copy; 2026. Korcomptenz.com
-      </td>
-    </tr>
-  </table>
+     
+            <tr>
+              <td style="padding:10px 20px;background:#040505;color:#FFF;font-family:Arial,sans-serif;width:140%;">
+                Copyrights &copy; 2026. Korcomptenz.com
+              </td>
+            </tr>
+
 </body>
 </html>
   `,
