@@ -35,7 +35,7 @@ export default factories.createCoreController('api::forrester-report.forrester-r
             }
           });
 
-          console.log("The form has been submitted successfully", blog?.attachment);
+          // console.log("The form has been submitted successfully", blog?.attachment);
 
 
           const SALES_EMAIL = strapi.config.get('emails.mail_to_emails.sales');
@@ -104,16 +104,27 @@ export default factories.createCoreController('api::forrester-report.forrester-r
               ${lead.organization || ''}
             </td>
           </tr>
+
+        <tr style="background:#f4f5f7;">
+          <td style="padding:10px; font-weight:600; border-bottom:1px solid #CCC;text-align:left;">Page URL</td>
+          <td style="padding:10px; border-bottom:1px solid #CCC;text-align:left;">
+            <a href="https://www.korcomptenz.com/blog/${blog?.slug}"
+               target="_blank"
+               style="color:#249176;">
+              https://www.korcomptenz.com/blog/${blog?.slug}
+            </a>
+          </td>
+        </tr>
          
     <tr>
       <td style="padding:20px;font-family:Arial,sans-serif;text-align:left;">
         <strong>Sincerely,</strong><br />
-        ${lead.fullName}
+        ${lead.name}
       </td>
     </tr>
-    <tr>
+      <tr>
       <td style="padding:10px 20px;background:#040505;color:#FFF;font-family:Arial,sans-serif;">
-          Copyrights &copy; 2026. Korcomptenz.com
+        Copyrights &copy; 2026. Korcomptenz.com
       </td>
     </tr>
   </table>

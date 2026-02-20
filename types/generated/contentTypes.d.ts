@@ -1717,6 +1717,7 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     downloadBlog: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    downloadButton: Schema.Attribute.String;
     featureImage: Schema.Attribute.Media<'images'>;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     heroSection: Schema.Attribute.Component<'case-study.hero-section', false>;
