@@ -27,13 +27,13 @@ export default {
     },
 
     //  CUSTOM ROUTE
-    {
-      method: 'GET',
-      path: '/assets/by-slug/:slug',
-      handler: 'asset.findBySlug',
-      config: {
-        auth: false,
-      },
-    },
+{
+  method: 'GET',
+  path: '/assets/by-slug/:slug(.*)',
+  handler: 'asset.findBySlug',
+  config: {
+    auth: false,
+  },
+}
   ],
 };
