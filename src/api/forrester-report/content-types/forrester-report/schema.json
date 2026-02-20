@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "forrester_reports",
+  "info": {
+    "singularName": "forrester-report",
+    "pluralName": "forrester-reports",
+    "displayName": "forrester-report"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "organization": {
+      "type": "string"
+    },
+    "blogId": {
+      "type": "string"
+    }
+  }
+}

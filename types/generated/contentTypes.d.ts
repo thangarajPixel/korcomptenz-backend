@@ -1365,6 +1365,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'free-consultation-form',
         'fabcon-book-meet-form',
         'reserve-my-fabcon-form',
+        'forrester-report',
       ]
     > &
       Schema.Attribute.Required;
@@ -1379,6 +1380,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.insight-reserve-spot',
         'form-fields.news-room-form',
         'form-fields.fabcon-book-meet',
+        'form-fields.forrester-report-download',
       ]
     > &
       Schema.Attribute.Required &
@@ -1396,6 +1398,38 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiForresterReportForresterReport
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'forrester_reports';
+  info: {
+    displayName: 'forrester-report';
+    pluralName: 'forrester-reports';
+    singularName: 'forrester-report';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    blogId: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::forrester-report.forrester-report'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    organization: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1682,7 +1716,9 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    downloadBlog: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     featureImage: Schema.Attribute.Media<'images'>;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     heroSection: Schema.Attribute.Component<'case-study.hero-section', false>;
     isLinkOnly: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -2738,6 +2774,7 @@ declare module '@strapi/strapi' {
       'api::fabcon-reserve-lead.fabcon-reserve-lead': ApiFabconReserveLeadFabconReserveLead;
       'api::fabcon-time-slot.fabcon-time-slot': ApiFabconTimeSlotFabconTimeSlot;
       'api::form.form': ApiFormForm;
+      'api::forrester-report.forrester-report': ApiForresterReportForresterReport;
       'api::free-consultation-lead.free-consultation-lead': ApiFreeConsultationLeadFreeConsultationLead;
       'api::home.home': ApiHomeHome;
       'api::insight-author.insight-author': ApiInsightAuthorInsightAuthor;
