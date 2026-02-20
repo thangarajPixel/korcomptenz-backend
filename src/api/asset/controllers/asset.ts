@@ -54,7 +54,7 @@ export default factories.createCoreController(
         return ctx.notFound('Asset or file not found');
       }
 
-      return ctx.transformResponse(asset.file);
+      return this.transformResponse(asset.file);
     }
 
 
