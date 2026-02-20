@@ -165,7 +165,12 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
               },
             },
           },
-
+          asset: {
+            populate: {
+              file: true,
+              seo: true,
+            }
+          },
           author: {
             populate: {
               image: true

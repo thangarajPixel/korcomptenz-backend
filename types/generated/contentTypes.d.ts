@@ -1697,6 +1697,7 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    asset: Schema.Attribute.Relation<'oneToOne', 'api::asset.asset'>;
     attachment: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Private;
     author: Schema.Attribute.Relation<
@@ -1704,6 +1705,7 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
       'api::insight-author.insight-author'
     >;
     blog: Schema.Attribute.Component<'insight-section.blog-section', false>;
+    blogDownloadLink: Schema.Attribute.String;
     category: Schema.Attribute.Relation<
       'oneToOne',
       'api::insight-category.insight-category'

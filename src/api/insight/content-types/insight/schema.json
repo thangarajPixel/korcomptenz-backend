@@ -216,6 +216,34 @@
           ]
         }
       }
+    },
+    "blogDownloadLink": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "downloadBlog"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "asset": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::asset.asset",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "downloadBlog"
+            },
+            true
+          ]
+        }
+      }
     }
   }
 }
