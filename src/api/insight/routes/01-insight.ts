@@ -9,6 +9,15 @@ export default {
         auth: false,
       },
     },
+    {
+      method: 'GET',
+      path: '/insights/by-attachment/:filename',
+      handler: 'insight.findByAttachment',
+      config: {
+        auth: false,
+
+      },
+    },
     { // Path defined with a URL parameter
       method: 'GET',
       path: '/insight-filter',

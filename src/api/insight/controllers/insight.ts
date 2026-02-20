@@ -465,4 +465,49 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
       return ctx.internalServerError('Failed to fetch insight data');
     }
   },
+
+  async findByAttachment(ctx) {
+    try {
+      const { filename } = ctx.params;
+
+      if (!filename) {
+        return ctx.badRequest('Filename parameter is required');
+      }
+
+      // Use the service find method
+      const entity = await strapi.service('api::insight.insight').find({
+        filters: {
+          attachment: {
+            name: {
+              $eq: filename
+            }
+          }
+        },
+        populate: {
+          attachment: true,
+        },
+      });
+
+      if (!entity?.results || entity.results.length === 0) {
+        return ctx.notFound('Insight with this attachment not found');
+      }
+
+      // Get the attachment from the first matching insight
+      const attachment = entity.results[0].attachment;
+
+      if (!attachment) {
+        return ctx.notFound('Attachment not found');
+      }
+
+      // Return only name and url
+      return {
+        name: attachment.name,
+        url: attachment.url
+      };
+
+    } catch (error) {
+      strapi.log.error('Insight findByAttachment error:', error);
+      return ctx.internalServerError('Failed to fetch insight attachment');
+    }
+  }
 }));
