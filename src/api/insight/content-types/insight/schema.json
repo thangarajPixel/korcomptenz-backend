@@ -217,19 +217,6 @@
         }
       }
     },
-    "blogDownloadLink": {
-      "type": "string",
-      "conditions": {
-        "visible": {
-          "==": [
-            {
-              "var": "downloadBlog"
-            },
-            true
-          ]
-        }
-      }
-    },
     "asset": {
       "type": "relation",
       "relation": "oneToOne",
