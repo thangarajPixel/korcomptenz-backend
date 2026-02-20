@@ -19,6 +19,9 @@
     },
     "organization": {
       "type": "string"
+    },
+    "blogId": {
+      "type": "string"
     }
   }
 }

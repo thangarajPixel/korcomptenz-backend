@@ -15,25 +15,42 @@ export default factories.createCoreController('api::forrester-report.forrester-r
         const response = await super.create(ctx);
         const leadId = response.data.id;
 
-
+        // console.log('Forrester report lead payload:', data);
         const lead = await strapi.entityService.findOne(
           'api::forrester-report.forrester-report',
           leadId
         ) as any;
 
-        const SALES_EMAIL = strapi.config.get('emails.mail_to_emails.sales');
-        const CC_EMAIL = strapi.config.get('emails.mail_to_emails.cc');
+
+        if (data.blogId) {
+          // console.log('Blog ID:', data.blogId);
+          const blog = await strapi.db.query('api::insight.insight').findOne({
+            where: {
+              documentId: data.blogId,
+            },
+            populate: {
+              attachment: true,
+              slug: true,
+              document_Id: true
+            }
+          });
+
+          console.log("The form has been submitted successfully", blog?.attachment);
+
+
+          const SALES_EMAIL = strapi.config.get('emails.mail_to_emails.sales');
+          const CC_EMAIL = strapi.config.get('emails.mail_to_emails.cc');
 
 
 
-        //EMAIL TO ADMIN
+          //EMAIL TO ADMIN
 
 
-        await strapi.plugin('email').service('email').send({
-          to: SALES_EMAIL,
-          bcc: CC_EMAIL,
-          subject: 'Fabcon Meeting Request Received',
-          html: `
+          await strapi.plugin('email').service('email').send({
+            to: SALES_EMAIL,
+            bcc: CC_EMAIL,
+            subject: 'Fabcon Meeting Request Received',
+            html: `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,16 +120,19 @@ export default factories.createCoreController('api::forrester-report.forrester-r
 </body>
 </html>
   `,
-        });
+          });
 
-        //  Custom response
-        return {
-          data: {
-            success: true,
-            id: leadId,
-            message: 'The form has been submitted successfully',
-          },
-        };
+          //  Custom response
+          return {
+            data: {
+              success: true,
+              id: leadId,
+              message: 'The form has been submitted successfully, ',
+              attachment: blog?.attachment
+            },
+          };
+        }
+        return ctx.notFound('Blog not found');
 
       } catch (error: any) {
         console.error(error);
