@@ -156,6 +156,16 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
               }
             }
           },
+          form: {
+            populate: {
+              forms: {
+                on: {
+                  'form-fields.forrester-report-download': true,
+                },
+              },
+            },
+          },
+
           author: {
             populate: {
               image: true
