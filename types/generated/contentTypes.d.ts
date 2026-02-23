@@ -1565,6 +1565,9 @@ export interface ApiInsightCategoryInsightCategory
           preset: 'defaultHtml';
         }
       >;
+    image1: Schema.Attribute.Media<'images'>;
+    image2: Schema.Attribute.Media<'images'>;
+    image3: Schema.Attribute.Media<'images'>;
     label: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
