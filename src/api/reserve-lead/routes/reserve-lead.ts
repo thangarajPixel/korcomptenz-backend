@@ -12,7 +12,7 @@ export default factories.createCoreRouter('api::reserve-lead.reserve-lead',
           {
             name: 'global::recaptcha',
             config: {
-              action: 'reserve-lead', // must match frontend action
+              action: 'reserve_lead', // must match frontend action
             },
           },
         ],
