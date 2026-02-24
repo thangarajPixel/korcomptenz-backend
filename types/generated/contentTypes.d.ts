@@ -1720,6 +1720,7 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    date: Schema.Attribute.Date;
     downloadBlog: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     downloadButton: Schema.Attribute.String;
     featureImage: Schema.Attribute.Media<'images'>;

@@ -2057,6 +2057,7 @@ export interface PageComponetsBuildData extends Struct.ComponentSchema {
     descriptionButtonText: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     imageCaption: Schema.Attribute.String;
+    isBgGray: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isSwap: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTargetBlankDescription: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;

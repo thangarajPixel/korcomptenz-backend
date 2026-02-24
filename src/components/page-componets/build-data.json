@@ -8,6 +8,10 @@
     "title": {
       "type": "string"
     },
+    "isBgGray": {
+      "type": "boolean",
+      "default": false
+    },
     "description": {
       "type": "customField",
       "customField": "plugin::ckeditor5.CKEditor",
