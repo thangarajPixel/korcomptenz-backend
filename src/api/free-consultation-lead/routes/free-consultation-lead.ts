@@ -12,7 +12,7 @@ export default factories.createCoreRouter('api::free-consultation-lead.free-cons
           {
             name: 'global::recaptcha',
             config: {
-              action: 'freeconsultationleads', // must match frontend action
+              action: 'freeconsultationlead', // must match frontend action
             },
           },
         ],
