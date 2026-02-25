@@ -22,7 +22,7 @@ export default factories.createCoreController(
           'api::fabcon-book-meet-lead.fabcon-book-meet-lead',
           leadId
         ) as any;
-        console.log('Lead Details:', lead);
+        // console.log('Lead Details:', lead);
 
         const SALES_EMAIL = strapi.config.get('emails.mail_to_emails.sales');
         const CC_EMAIL = strapi.config.get('emails.mail_to_emails.cc');
