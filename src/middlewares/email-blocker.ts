@@ -25,19 +25,31 @@ export default () => {
 
     // REST standard
     if (body?.data?.email && checkEmail(body.data.email)) {
-      return ctx.badRequest('Email domain is not allowed');
+      return ctx.badRequest({
+        errors: {
+          email: "Email domain is not allowed",
+        },
+      });
     }
 
     // Direct body email
     if (body?.email && checkEmail(body.email)) {
-      return ctx.badRequest('Email domain is not allowed');
+      return ctx.badRequest({
+        errors: {
+          email: "Email domain is not allowed",
+        },
+      });
     }
 
     // Bulk create
     if (Array.isArray(body?.data)) {
       for (const item of body.data) {
         if (item.email && checkEmail(item.email)) {
-          return ctx.badRequest('One or more email domains are not allowed');
+          return ctx.badRequest({
+            errors: {
+              email: "Email domain is not allowed",
+            },
+          });
         }
       }
     }
