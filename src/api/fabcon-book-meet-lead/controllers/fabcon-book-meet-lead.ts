@@ -22,6 +22,7 @@ export default factories.createCoreController(
           'api::fabcon-book-meet-lead.fabcon-book-meet-lead',
           leadId
         ) as any;
+        console.log('Lead Details:', lead);
 
         const SALES_EMAIL = strapi.config.get('emails.mail_to_emails.sales');
         const CC_EMAIL = strapi.config.get('emails.mail_to_emails.cc');
@@ -164,6 +165,14 @@ export default factories.createCoreController(
             <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
               ${lead.message || ''}
             </td>
+          </tr>
+           <tr >
+            <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Submitted From:</td>
+              <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+                <a href="https://www.korcomptenz.com/events/korcomptenz-at-microsoft-fabric-community-conference-2026" target="_blank">
+                  https://www.korcomptenz.com/events/korcomptenz-at-microsoft-fabric-community-conference-2026
+                </a>
+              </td>
           </tr>
         </table>
       </td>

@@ -9,15 +9,23 @@ export default factories.createCoreController('api::news-room-lead.news-room-lea
     try {
       const data = ctx.request.body.data;
       // console.log("dssdsd", data)
-      if (data.newRoomID) {
+      const connectData = data?.newRoom?.connect?.[0];
+
+      // const newRoomId = connectData?.id;
+      const documentId = connectData?.documentId;
+
+      // console.log("newRoomId:", newRoomId);
+      // console.log("documentId:", documentId);
+      if (documentId) {
         const newRoom = await strapi.db.query('api::new-room.new-room').findOne({
           where: {
-            slug: data.newRoomID,
+            documentId: documentId,
           },
           populate: {
             attachment: true,
           }
         });
+        // console.log("The ", newRoom);
         if (newRoom) {
           const newRoomData = {
             connect: [
@@ -166,6 +174,18 @@ export default factories.createCoreController('api::news-room-lead.news-room-lea
                 <td style="padding:10px; border-bottom:1px solid #CCC;text-align:left;">
                   ${data.email}
                 </td>
+              </tr>
+
+
+             <tr>
+                <td width="150" style="padding:10px; font-weight:500; border-bottom:1px solid #CCC;text-align:left;">
+                 Submitted From:
+                </td>
+                <td style="padding:10px; border-bottom:1px solid #CCC;text-align:left;">
+                <a href="https://www.korcomptenz.com/newsroom/${newRoom.slug}" target="_blank">
+                  https://www.korcomptenz.com/newsroom/${newRoom.slug}
+                </a>
+              </td>
               </tr>
 
             </table>

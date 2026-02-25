@@ -200,7 +200,7 @@ export default factories.createCoreController('api::contact-us-lead.contact-us-l
                   </tr>
 
                   <tr style="background:#f4f5f7;">
-                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Page URL:</td>
+                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Submitted From:</td>
                     <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
                         <a href="https://www.korcomptenz.com/contact-us/${slug}"
                      target="_blank"

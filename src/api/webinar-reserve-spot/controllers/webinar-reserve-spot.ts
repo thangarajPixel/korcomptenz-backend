@@ -9,6 +9,22 @@ export default factories.createCoreController('api::webinar-reserve-spot.webinar
     try {
       const lead = ctx.request.body.data;
       // console.log("webinar-reserve-spot data", lead);
+      const insightDocId =
+        lead.insight?.connect?.[0]?.documentId;
+
+      let insightDetails = null;
+
+      if (insightDocId) {
+        insightDetails = await strapi
+          .documents('api::insight.insight')
+          .findOne({
+            documentId: insightDocId,
+            populate: '*', // if you need image/seo etc
+          });
+      }
+
+      // console.log("Insight Details:", insightDetails);
+      const Slug = insightDetails?.slug || "";
       const response = await super.create(ctx);
       // const info = await transporter.sendMail({
       //   from: '"Korcomptenz" <maddison53@ethereal.email>',
@@ -166,6 +182,17 @@ export default factories.createCoreController('api::webinar-reserve-spot.webinar
                   ${lead.organization}
                 </td>
               </tr>
+
+               <tr style="background:#f4f5f7;">
+          <td style="padding:10px; font-weight:500; border-bottom:1px solid #CCC;text-align:left;">Submitted From:</td>
+          <td style="padding:10px; border-bottom:1px solid #CCC;text-align:left;">
+            <a href="https://www.korcomptenz.com/webinar/${Slug}"
+               target="_blank"
+               style="color:#249176;">
+              https://www.korcomptenz.com/webinar/${Slug}
+            </a>
+          </td>
+        </tr>
 
              
 

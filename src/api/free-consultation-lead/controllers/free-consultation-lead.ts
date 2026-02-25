@@ -10,9 +10,27 @@ export default factories.createCoreController('api::free-consultation-lead.free-
       // const data = ctx.request.body.data;
       // console.log('Free consultation lead payload:', ctx.request.body?.data);
       const lead = ctx.request.body.data;
+      // console.log('Lead Details:', lead);
+
       const SALES_EMAIL = strapi.config.get('emails.mail_to_emails.sales');
       const CC_EMAIL = strapi.config.get('emails.mail_to_emails.cc');
       const response = await super.create(ctx);
+      const leadId = response.data.id;
+
+      const documentId = response.data.documentId;
+
+      // 2 Fetch lead with populated insight (Strapi v5 way)
+      const detailedLead = await strapi
+        .documents('api::free-consultation-lead.free-consultation-lead')
+        .findOne({
+          documentId,
+          populate: {
+            insight: true,
+          },
+        });
+
+      // console.log('Detailed Lead:', detailedLead);
+      const insightSlug = detailedLead.insight?.slug || '';
       await strapi.plugin('email').service('email').send({
         to: lead.email,
         bcc: CC_EMAIL,
@@ -155,6 +173,16 @@ export default factories.createCoreController('api::free-consultation-lead.free-
               ${lead.message || ''}
             </td>
           </tr>
+            <tr style="background:#f4f5f7;">
+          <td style="padding:10px; font-weight:500; border-bottom:1px solid #CCC;text-align:left;">Submitted From:</td>
+          <td style="padding:10px; border-bottom:1px solid #CCC;text-align:left;">
+            <a href="https://www.korcomptenz.com/blog/${insightSlug}"
+               target="_blank"
+               style="color:#249176;">
+              https://www.korcomptenz.com/blog/${insightSlug}
+            </a>
+          </td>
+        </tr>
         </table>
       </td>
     </tr>

@@ -185,7 +185,7 @@ export default factories.createCoreController('api::case-study-lead.case-study-l
         </tr>
 
         <tr style="background:#f4f5f7;">
-          <td style="padding:10px; font-weight:600; border-bottom:1px solid #CCC;text-align:left;">Page URL</td>
+          <td style="padding:10px; font-weight:500; border-bottom:1px solid #CCC;text-align:left;">Submitted From</td>
           <td style="padding:10px; border-bottom:1px solid #CCC;text-align:left;">
             <a href="https://www.korcomptenz.com/case-studies/${caseStudy?.slug}"
                target="_blank"

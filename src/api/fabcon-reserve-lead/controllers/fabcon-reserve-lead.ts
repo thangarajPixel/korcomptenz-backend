@@ -160,6 +160,15 @@ export default factories.createCoreController('api::fabcon-reserve-lead.fabcon-r
               ${lead.message || ''}
             </td>
           </tr>
+
+           <tr >
+            <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Submitted From:</td>
+              <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+                <a href="https://www.korcomptenz.com/events/korcomptenz-at-microsoft-fabric-community-conference-2026" target="_blank">
+                  https://www.korcomptenz.com/events/korcomptenz-at-microsoft-fabric-community-conference-2026
+                </a>
+              </td>
+          </tr>
         </table>
       </td>
     </tr>
