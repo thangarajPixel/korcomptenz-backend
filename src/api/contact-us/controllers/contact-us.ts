@@ -127,7 +127,6 @@ export default factories.createCoreController('api::contact-us.contact-us', ({ s
                             list: true
                           }
                         },
-                        'form-fields.newsletter-subscription': true
                       },
                     }
                   }
