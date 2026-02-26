@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_contact_us_logo_sliders",
+  "info": {
+    "displayName": "logo-slider",
+    "icon": "envelop"
+  },
+  "options": {},
+  "attributes": {
+    "logo": {
+      "type": "component",
+      "component": "contact-us.logo-slider-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

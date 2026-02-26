@@ -9,6 +9,13 @@
     "title": {
       "type": "string"
     },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "form": {
       "type": "relation",
       "relation": "oneToOne",

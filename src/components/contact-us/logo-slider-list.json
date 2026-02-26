@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_contact_us_logo_slider_lists",
+  "info": {
+    "displayName": "logo-slider-list",
+    "icon": "crop"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

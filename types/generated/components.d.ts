@@ -627,6 +627,7 @@ export interface ContactUsContactUsFormSection extends Struct.ComponentSchema {
     icon: 'puzzle';
   };
   attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     images: Schema.Attribute.Component<'case-study.banner-image', true>;
     listLeft: Schema.Attribute.Component<
@@ -697,6 +698,28 @@ export interface ContactUsFixedSection extends Struct.ComponentSchema {
         number
       >;
     description: Schema.Attribute.Text;
+  };
+}
+
+export interface ContactUsLogoSlider extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_logo_sliders';
+  info: {
+    displayName: 'logo-slider';
+    icon: 'envelop';
+  };
+  attributes: {
+    logo: Schema.Attribute.Component<'contact-us.logo-slider-list', true>;
+  };
+}
+
+export interface ContactUsLogoSliderList extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_logo_slider_lists';
+  info: {
+    displayName: 'logo-slider-list';
+    icon: 'crop';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
   };
 }
 
@@ -4016,6 +4039,8 @@ declare module '@strapi/strapi' {
       'contact-us.contact-us-insight': ContactUsContactUsInsight;
       'contact-us.contact-us-insight-list': ContactUsContactUsInsightList;
       'contact-us.fixed-section': ContactUsFixedSection;
+      'contact-us.logo-slider': ContactUsLogoSlider;
+      'contact-us.logo-slider-list': ContactUsLogoSliderList;
       'contact-us.news-letter': ContactUsNewsLetter;
       'contact-us.office-location': ContactUsOfficeLocation;
       'contact-us.office-location-list': ContactUsOfficeLocationList;
