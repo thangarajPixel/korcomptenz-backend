@@ -1150,6 +1150,19 @@ export interface FormFieldsNewsRoomForm extends Struct.ComponentSchema {
   };
 }
 
+export interface FormFieldsNewsletterSubscription
+  extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_newsletter_subscriptions';
+  info: {
+    displayName: 'newsletter-subscription';
+    icon: 'file';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    email: Schema.Attribute.String;
+  };
+}
+
 export interface FormFieldsReserveSpotFields extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_reserve_spot_fields';
   info: {
@@ -4067,6 +4080,7 @@ declare module '@strapi/strapi' {
       'form-fields.free-consultation-form': FormFieldsFreeConsultationForm;
       'form-fields.insight-reserve-spot': FormFieldsInsightReserveSpot;
       'form-fields.news-room-form': FormFieldsNewsRoomForm;
+      'form-fields.newsletter-subscription': FormFieldsNewsletterSubscription;
       'form-fields.reserve-spot-fields': FormFieldsReserveSpotFields;
       'global.button': GlobalButton;
       'global.custom-list': GlobalCustomList;

@@ -117,8 +117,9 @@ export default factories.createCoreController('api::contact-us.contact-us', ({ s
                           populate: {
                             list: true
                           }
-                        }
-                      }
+                        },
+                        'form-fields.newsletter-subscription': true
+                      },
                     }
                   }
                 }
@@ -127,6 +128,15 @@ export default factories.createCoreController('api::contact-us.contact-us', ({ s
             'contact-us.fixed-section': {
               populate: {
                 buttons: true
+              }
+            },
+            'contact-us.logo-slider': {
+              populate: {
+                logo: {
+                  populate: {
+                    image: true,
+                  }
+                }
               }
             }
           }

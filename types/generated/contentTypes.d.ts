@@ -1112,6 +1112,7 @@ export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
         'contact-us.contact-us-insight-list',
         'contact-us.contact-us-form-section',
         'contact-us.fixed-section',
+        'contact-us.logo-slider',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1366,6 +1367,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'fabcon-book-meet-form',
         'reserve-my-fabcon-form',
         'forrester-report',
+        'newsletter-subscription',
       ]
     > &
       Schema.Attribute.Required;
@@ -1381,6 +1383,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.news-room-form',
         'form-fields.fabcon-book-meet',
         'form-fields.forrester-report-download',
+        'form-fields.newsletter-subscription',
       ]
     > &
       Schema.Attribute.Required &

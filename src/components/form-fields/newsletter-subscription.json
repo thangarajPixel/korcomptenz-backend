@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_form_fields_newsletter_subscriptions",
+  "info": {
+    "displayName": "newsletter-subscription",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "email": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
