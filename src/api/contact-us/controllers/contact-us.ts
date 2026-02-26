@@ -107,6 +107,7 @@ export default factories.createCoreController('api::contact-us.contact-us', ({ s
                     image: true,
                   }
                 },
+                listLeft: true,
                 form: {
                   populate: {
                     forms: {
@@ -128,7 +129,7 @@ export default factories.createCoreController('api::contact-us.contact-us', ({ s
               }
             }
           }
-        },seo: true
+        }, seo: true
       },
     }, {
       encode: false,

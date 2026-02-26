@@ -1,5 +1,10 @@
 export default () => {
   return async (ctx, next) => {
+
+    if (ctx.request.path === '/api/candidate-details' && ctx.request.method === 'POST') {
+      return await next();
+    }
+
     const blockedDomains =
       process.env.BLOCKED_EMAIL_DOMAINS?.split(',').map(d => d.trim().toLowerCase()) || [];
 

@@ -18,6 +18,11 @@
       "type": "component",
       "component": "case-study.banner-image",
       "repeatable": true
+    },
+    "listLeft": {
+      "type": "component",
+      "component": "contact-us.contact-us-from-left-section-list",
+      "repeatable": true
     }
   },
   "config": {}

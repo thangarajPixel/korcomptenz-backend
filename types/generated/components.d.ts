@@ -629,6 +629,29 @@ export interface ContactUsContactUsFormSection extends Struct.ComponentSchema {
   attributes: {
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     images: Schema.Attribute.Component<'case-study.banner-image', true>;
+    listLeft: Schema.Attribute.Component<
+      'contact-us.contact-us-from-left-section-list',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ContactUsContactUsFromLeftSectionList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_contact_us_contact_us_from_left_section_lists';
+  info: {
+    displayName: 'contact-us-from-left-section-list';
+    icon: 'cloud';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     title: Schema.Attribute.String;
   };
 }
@@ -3989,6 +4012,7 @@ declare module '@strapi/strapi' {
       'case-study.sponser-card': CaseStudySponserCard;
       'case-study.testimonial-section': CaseStudyTestimonialSection;
       'contact-us.contact-us-form-section': ContactUsContactUsFormSection;
+      'contact-us.contact-us-from-left-section-list': ContactUsContactUsFromLeftSectionList;
       'contact-us.contact-us-insight': ContactUsContactUsInsight;
       'contact-us.contact-us-insight-list': ContactUsContactUsInsightList;
       'contact-us.fixed-section': ContactUsFixedSection;

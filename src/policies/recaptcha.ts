@@ -57,7 +57,7 @@ export default async (ctx, config, { strapi }) => {
     ctx.request.body.data = cleanData;
 
     console.log(' reCAPTCHA token validated successfully');
-    console.log(' Form data entering controller:', cleanData);
+    // console.log(' Form data entering controller:', cleanData);
 
 
     return true;
