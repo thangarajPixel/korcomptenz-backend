@@ -88,17 +88,18 @@ export default factories.createCoreController('api::contact-us.contact-us', ({ s
             },
             'contact-us.news-letter': {
               populate: {
-                image: true
-              },
-              form: {
-                populate: {
-                  forms: {
-                    on: {
-                      'form-fields.newsletter-subscription': true
-                    },
+                image: true,
+                form: {
+                  populate: {
+                    forms: {
+                      on: {
+                        'form-fields.newsletter-subscription': true
+                      },
+                    }
                   }
                 }
-              }
+              },
+
             },
             'contact-us.contact-us-insight-list': {
               populate: {
