@@ -1237,7 +1237,13 @@ export interface GlobalGlobalField extends Struct.ComponentSchema {
       'images' | 'files' | 'videos' | 'audios'
     >;
     buttonText: Schema.Attribute.String;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     design: Schema.Attribute.Enumeration<['image', 'video', 'bgcolor']>;
     image: Schema.Attribute.Media<'images'>;
     link: Schema.Attribute.String;
