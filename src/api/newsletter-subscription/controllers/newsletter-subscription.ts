@@ -15,7 +15,7 @@ export default factories.createCoreController(
           data: {
             success: true,
             ...response.data,
-            message: 'Form submitted successfully',
+            message: 'Thank you for subscribing to our newsletter',
           },
         };
 
