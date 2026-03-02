@@ -3520,6 +3520,18 @@ export interface PageComponetsSapImageSection extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsSapImplementation extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_sap_implementations';
+  info: {
+    displayName: 'sap-implementation';
+    icon: 'alien';
+  };
+  attributes: {
+    list: Schema.Attribute.Component<'sub-page-componets.list', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsSapSectionData extends Struct.ComponentSchema {
   collectionName: 'components_service_sap_section_data';
   info: {
@@ -3559,6 +3571,18 @@ export interface PageComponetsSlideContent extends Struct.ComponentSchema {
   };
   attributes: {
     solutions: Schema.Attribute.Component<'page-componets.solutions', true>;
+  };
+}
+
+export interface PageComponetsSliderServiceSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_slider_service_sections';
+  info: {
+    displayName: 'slider-service-section';
+  };
+  attributes: {
+    tablist: Schema.Attribute.Component<'sub-page-componets.tab-list', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -3998,6 +4022,24 @@ export interface SubPageComponetsImageList extends Struct.ComponentSchema {
   };
 }
 
+export interface SubPageComponetsList extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_lists';
+  info: {
+    displayName: 'list';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    sublist: Schema.Attribute.Component<'sub-page-componets.sub-list', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SubPageComponetsPricingPlan extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_pricing_plans';
   info: {
@@ -4026,6 +4068,52 @@ export interface SubPageComponetsResponsiveImage
     mobileImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
+  };
+}
+
+export interface SubPageComponetsSubList extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_sub_lists';
+  info: {
+    displayName: 'sub-list';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SubPageComponetsSublist extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_sublists';
+  info: {
+    displayName: 'sublist';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SubPageComponetsTabList extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_tab_lists';
+  info: {
+    displayName: 'tabList';
+  };
+  attributes: {
+    sublist: Schema.Attribute.Component<'sub-page-componets.sublist', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -4240,9 +4328,11 @@ declare module '@strapi/strapi' {
       'page-componets.salesforce': PageComponetsSalesforce;
       'page-componets.salesforce-services': PageComponetsSalesforceServices;
       'page-componets.sap-image-section': PageComponetsSapImageSection;
+      'page-componets.sap-implementation': PageComponetsSapImplementation;
       'page-componets.sap-section-data': PageComponetsSapSectionData;
       'page-componets.sap-section-image': PageComponetsSapSectionImage;
       'page-componets.slide-content': PageComponetsSlideContent;
+      'page-componets.slider-service-section': PageComponetsSliderServiceSection;
       'page-componets.smart-forge-build': PageComponetsSmartForgeBuild;
       'page-componets.smart-forge-build-list': PageComponetsSmartForgeBuildList;
       'page-componets.smart-forge-enterprises': PageComponetsSmartForgeEnterprises;
@@ -4268,8 +4358,12 @@ declare module '@strapi/strapi' {
       'sub-page-componets.digitial-stats': SubPageComponetsDigitialStats;
       'sub-page-componets.gram-banner-list': SubPageComponetsGramBannerList;
       'sub-page-componets.image-list': SubPageComponetsImageList;
+      'sub-page-componets.list': SubPageComponetsList;
       'sub-page-componets.pricing-plan': SubPageComponetsPricingPlan;
       'sub-page-componets.responsive-image': SubPageComponetsResponsiveImage;
+      'sub-page-componets.sub-list': SubPageComponetsSubList;
+      'sub-page-componets.sublist': SubPageComponetsSublist;
+      'sub-page-componets.tab-list': SubPageComponetsTabList;
     }
   }
 }

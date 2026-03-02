@@ -811,6 +811,28 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+              'page-componets.sap-implementation': {
+                populate: {
+                  list: {
+                    populate: {
+                      sublist: true,
+                    },
+                  },
+                },
+              },
+              'page-componets.slider-service-section': {
+                populate: {
+                  tablist: {
+                    populate: {
+                      sublist: {
+                      populate: {
+                      image: true,
+                    },
+                      }
+                    },
+                  },
+                },
+              },
 
 
 

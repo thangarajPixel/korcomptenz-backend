@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_componets_sap_implementations",
+  "info": {
+    "displayName": "sap-implementation",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "component": "sub-page-componets.list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

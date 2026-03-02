@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_sub_page_componets_sub_lists",
+  "info": {
+    "displayName": "sub-list"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    }
+  },
+  "config": {}
+}

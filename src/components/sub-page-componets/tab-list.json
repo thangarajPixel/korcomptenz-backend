@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sub_page_componets_tab_lists",
+  "info": {
+    "displayName": "tabList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "sublist": {
+      "type": "component",
+      "component": "sub-page-componets.sublist",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

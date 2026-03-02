@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_page_componets_slider_service_sections",
+  "info": {
+    "displayName": "slider-service-section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "tablist": {
+      "type": "component",
+      "component": "sub-page-componets.tab-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

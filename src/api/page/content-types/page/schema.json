@@ -100,8 +100,9 @@
         "page-componets.fabcon-fabric-ai-leadership",
         "page-componets.fabcon-fabric-community-conference",
         "page-componets.fabcon-decision-fabric",
-        "page-componets.midmarket-enterprises"
-       
+        "page-componets.midmarket-enterprises",
+        "page-componets.sap-implementation",
+        "page-componets.slider-service-section"
       ]
     }
   }
