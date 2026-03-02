@@ -220,7 +220,13 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                 populate: {
                   image: true,
                   mobileImage: true,
-                  '*': true
+                  '*': true,
+                  imageList : {
+                    populate: {
+                    image: true,
+                  mobileImage: true,
+                    },
+                  },
                 },
               },
               "page-componets.stretchable-section": {
@@ -233,6 +239,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+             
               'case-study.case-study-sticky-cards-list': {
                 populate: {
                   list: {

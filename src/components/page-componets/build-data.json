@@ -60,6 +60,19 @@
     "isTargetBlankDescription": {
       "type": "boolean",
       "default": false
+    },
+    "descriptiontitle": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isSwap"
+            },
+            true
+          ]
+        }
+      }
     }
   },
   "config": {}

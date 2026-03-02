@@ -2120,6 +2120,7 @@ export interface PageComponetsBuildData extends Struct.ComponentSchema {
       >;
     descriptionButtonLink: Schema.Attribute.String;
     descriptionButtonText: Schema.Attribute.String;
+    descriptiontitle: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     imageCaption: Schema.Attribute.String;
     isBgGray: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -3201,10 +3202,15 @@ export interface PageComponetsGramBanner extends Struct.ComponentSchema {
       >;
     footerHeading: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    imageList: Schema.Attribute.Component<
+      'sub-page-componets.image-list',
+      true
+    >;
     isCustomList: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isDescriptionLeft: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     isFooter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isImageSlider: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTargetBlank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTitleLeft: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<
@@ -3981,6 +3987,17 @@ export interface SubPageComponetsGramBannerList extends Struct.ComponentSchema {
   };
 }
 
+export interface SubPageComponetsImageList extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_image_lists';
+  info: {
+    displayName: 'imageList';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    mobileImage: Schema.Attribute.Media<'images'>;
+  };
+}
+
 export interface SubPageComponetsPricingPlan extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_pricing_plans';
   info: {
@@ -4250,6 +4267,7 @@ declare module '@strapi/strapi' {
       'sub-page-componets.digitial-features': SubPageComponetsDigitialFeatures;
       'sub-page-componets.digitial-stats': SubPageComponetsDigitialStats;
       'sub-page-componets.gram-banner-list': SubPageComponetsGramBannerList;
+      'sub-page-componets.image-list': SubPageComponetsImageList;
       'sub-page-componets.pricing-plan': SubPageComponetsPricingPlan;
       'sub-page-componets.responsive-image': SubPageComponetsResponsiveImage;
     }

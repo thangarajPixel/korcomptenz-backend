@@ -18,6 +18,16 @@
     },
     "image": {
       "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isImageSlider"
+            },
+            false
+          ]
+        }
+      },
       "multiple": false,
       "allowedTypes": [
         "images"
@@ -25,6 +35,16 @@
     },
     "mobileImage": {
       "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isImageSlider"
+            },
+            false
+          ]
+        }
+      },
       "multiple": false,
       "allowedTypes": [
         "images"
@@ -135,6 +155,25 @@
           ]
         }
       }
+    },
+    "isImageSlider": {
+      "type": "boolean",
+      "default": false
+    },
+    "imageList": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isImageSlider"
+            },
+            true
+          ]
+        }
+      },
+      "component": "sub-page-componets.image-list",
+      "repeatable": true
     }
   },
   "config": {}
