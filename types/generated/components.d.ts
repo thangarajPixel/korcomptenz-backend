@@ -2315,6 +2315,13 @@ export interface PageComponetsDigitalAnalytics extends Struct.ComponentSchema {
     displayName: 'digital-analytics';
   };
   attributes: {
+    bottomDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -2560,6 +2567,7 @@ export interface PageComponetsDigitalInspireList
     image2: Schema.Attribute.Media<'images'>;
     imageText: Schema.Attribute.String;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -3906,6 +3914,13 @@ export interface PageComponetsStretchableSection
     icon: 'command';
   };
   attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images' | 'files'>;
     list: Schema.Attribute.Component<'page-componets.stretchable-card', true>;
     title: Schema.Attribute.String;

@@ -21,6 +21,13 @@
       "type": "component",
       "component": "page-componets.stretchable-card",
       "repeatable": true
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
     }
   },
   "config": {}
