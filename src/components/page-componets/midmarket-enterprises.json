@@ -9,7 +9,17 @@
     "title": {
       "type": "string"
     },
-      "noOfColumn": {
+    "topTitle": {
+      "type": "string"
+    },
+    "topDescription": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "noOfColumn": {
       "type": "enumeration",
       "enum": [
         "grid-cols-2",
@@ -19,8 +29,39 @@
         "grid-cols--6"
       ]
     },
+    "isBackground": {
+      "type": "boolean",
+      "default": false
+    },
     "backgroundColor": {
-      "type": "string"
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isBackground"
+            },
+            false
+          ]
+        }
+      }
+    },
+    "backgroundImage": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isBackground"
+            },
+            true
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "list": {
       "type": "component",

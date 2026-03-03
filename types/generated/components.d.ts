@@ -1180,19 +1180,6 @@ export interface FormFieldsReserveSpotFields extends Struct.ComponentSchema {
   };
 }
 
-export interface FormFieldsStreamlineForm extends Struct.ComponentSchema {
-  collectionName: 'components_form_fields_streamline_forms';
-  info: {
-    displayName: 'streamline-form';
-    icon: 'dashboard';
-  };
-  attributes: {
-    designation: Schema.Attribute.String;
-    yourEmail: Schema.Attribute.String;
-    yourName: Schema.Attribute.String;
-  };
-}
-
 export interface GlobalButton extends Struct.ComponentSchema {
   collectionName: 'components_global_buttons';
   info: {
@@ -3521,6 +3508,8 @@ export interface PageComponetsMidmarketEnterprises
   };
   attributes: {
     backgroundColor: Schema.Attribute.String;
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    isBackground: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<
       'page-componets.midmarket-enterprises-list',
       true
@@ -3535,6 +3524,14 @@ export interface PageComponetsMidmarketEnterprises
       ]
     >;
     title: Schema.Attribute.String;
+    topDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    topTitle: Schema.Attribute.String;
   };
 }
 
@@ -4298,7 +4295,6 @@ declare module '@strapi/strapi' {
       'form-fields.news-room-form': FormFieldsNewsRoomForm;
       'form-fields.newsletter-subscription': FormFieldsNewsletterSubscription;
       'form-fields.reserve-spot-fields': FormFieldsReserveSpotFields;
-      'form-fields.streamline-form': FormFieldsStreamlineForm;
       'global.button': GlobalButton;
       'global.custom-list': GlobalCustomList;
       'global.editor-descripiton': GlobalEditorDescripiton;
