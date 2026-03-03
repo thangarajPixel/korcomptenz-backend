@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_page_componets_microsoft_gold_certifieds",
+  "info": {
+    "displayName": "microsoft-gold-certified",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "card1": {
+      "type": "component",
+      "component": "page-componets.microsoft-gold-certified-card1",
+      "repeatable": false
+    },
+    "card2": {
+      "type": "component",
+      "component": "page-componets.microsoft-gold-certified-card2",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

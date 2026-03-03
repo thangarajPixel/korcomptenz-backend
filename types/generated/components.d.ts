@@ -1180,6 +1180,19 @@ export interface FormFieldsReserveSpotFields extends Struct.ComponentSchema {
   };
 }
 
+export interface FormFieldsStreamlineForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_streamline_forms';
+  info: {
+    displayName: 'streamline-form';
+    icon: 'dashboard';
+  };
+  attributes: {
+    designation: Schema.Attribute.String;
+    yourEmail: Schema.Attribute.String;
+    yourName: Schema.Attribute.String;
+  };
+}
+
 export interface GlobalButton extends Struct.ComponentSchema {
   collectionName: 'components_global_buttons';
   info: {
@@ -3404,6 +3417,83 @@ export interface PageComponetsLightSliderList extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsMicrosoftGoldCertified
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_microsoft_gold_certifieds';
+  info: {
+    displayName: 'microsoft-gold-certified';
+    icon: 'code';
+  };
+  attributes: {
+    card1: Schema.Attribute.Component<
+      'page-componets.microsoft-gold-certified-card1',
+      false
+    >;
+    card2: Schema.Attribute.Component<
+      'page-componets.microsoft-gold-certified-card2',
+      false
+    >;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsMicrosoftGoldCertifiedCard1
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_microsoft_gold_certified_card1s';
+  info: {
+    displayName: 'microsoft-gold-certified-card1';
+    icon: 'command';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsMicrosoftGoldCertifiedCard2
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_microsoft_gold_certified_card2s';
+  info: {
+    displayName: 'microsoft-gold-certified-card2';
+    icon: 'command';
+  };
+  attributes: {
+    buttonImage: Schema.Attribute.Media<'images'>;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title1: Schema.Attribute.String;
+    title2: Schema.Attribute.String;
+    title3: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsMidFabconDataAnalytics
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_mid_fabcon_data_analytics';
@@ -4193,6 +4283,7 @@ declare module '@strapi/strapi' {
       'form-fields.news-room-form': FormFieldsNewsRoomForm;
       'form-fields.newsletter-subscription': FormFieldsNewsletterSubscription;
       'form-fields.reserve-spot-fields': FormFieldsReserveSpotFields;
+      'form-fields.streamline-form': FormFieldsStreamlineForm;
       'global.button': GlobalButton;
       'global.custom-list': GlobalCustomList;
       'global.editor-descripiton': GlobalEditorDescripiton;
@@ -4321,6 +4412,9 @@ declare module '@strapi/strapi' {
       'page-componets.light-slider-card': PageComponetsLightSliderCard;
       'page-componets.light-slider-group-list': PageComponetsLightSliderGroupList;
       'page-componets.light-slider-list': PageComponetsLightSliderList;
+      'page-componets.microsoft-gold-certified': PageComponetsMicrosoftGoldCertified;
+      'page-componets.microsoft-gold-certified-card1': PageComponetsMicrosoftGoldCertifiedCard1;
+      'page-componets.microsoft-gold-certified-card2': PageComponetsMicrosoftGoldCertifiedCard2;
       'page-componets.mid-fabcon-data-analytics': PageComponetsMidFabconDataAnalytics;
       'page-componets.midmarket-enterprises': PageComponetsMidmarketEnterprises;
       'page-componets.midmarket-enterprises-list': PageComponetsMidmarketEnterprisesList;

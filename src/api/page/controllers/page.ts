@@ -221,10 +221,10 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   image: true,
                   mobileImage: true,
                   '*': true,
-                  imageList : {
+                  imageList: {
                     populate: {
-                    image: true,
-                  mobileImage: true,
+                      image: true,
+                      mobileImage: true,
                     },
                   },
                 },
@@ -239,7 +239,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
-             
+
               'case-study.case-study-sticky-cards-list': {
                 populate: {
                   list: {
@@ -825,10 +825,25 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   tablist: {
                     populate: {
                       sublist: {
-                      populate: {
+                        populate: {
+                          image: true,
+                        },
+                      }
+                    },
+                  },
+                },
+              },
+              'page-componets.microsoft-gold-certified': {
+                populate: {
+                  card1: {
+                    populate: {
                       image: true,
                     },
-                      }
+                  },
+                  card2: {
+                    populate: {
+                      image: true,
+                      buttonImage: true
                     },
                   },
                 },

@@ -102,7 +102,8 @@
         "page-componets.fabcon-decision-fabric",
         "page-componets.midmarket-enterprises",
         "page-componets.sap-implementation",
-        "page-componets.slider-service-section"
+        "page-componets.slider-service-section",
+        "page-componets.microsoft-gold-certified"
       ]
     }
   }

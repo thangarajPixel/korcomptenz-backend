@@ -2127,6 +2127,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.midmarket-enterprises',
         'page-componets.sap-implementation',
         'page-componets.slider-service-section',
+        'page-componets.microsoft-gold-certified',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
