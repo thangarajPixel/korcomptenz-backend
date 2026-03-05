@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "streamline_form_labels",
+  "info": {
+    "singularName": "streamline-form-label",
+    "pluralName": "streamline-form-labels",
+    "displayName": "Streamline-form-label"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "formLabel": {
+      "type": "dynamiczone",
+      "components": [
+        "form-fields.streamline-form"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "form": {
+      "type": "enumeration",
+      "enum": [
+        "streamline-form"
+      ]
+    },
+    "active": {
+      "type": "enumeration",
+      "required": true,
+      "default": "false",
+      "enum": [
+        "true",
+        "false"
+      ]
+    }
+  }
+}

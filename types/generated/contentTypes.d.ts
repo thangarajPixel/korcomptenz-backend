@@ -1716,7 +1716,15 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
       'api::insight-category.insight-category'
     >;
     content: Schema.Attribute.Enumeration<
-      ['file', 'blog', 'podcast', 'post-webinar', 'pre-webinar', 'web-stories']
+      [
+        'file',
+        'blog',
+        'podcast',
+        'post-webinar',
+        'pre-webinar',
+        'web-stories',
+        'thirdparty-link',
+      ]
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'file'>;
@@ -1730,6 +1738,7 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     heroSection: Schema.Attribute.Component<'case-study.hero-section', false>;
     isLinkOnly: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isTarget: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1756,6 +1765,7 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::case-technology.case-technology'
     >;
+    thirdpartyLink: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2245,6 +2255,84 @@ export interface ApiReserveSpotLeadReserveSpotLead
   };
 }
 
+export interface ApiStreamlineFormLabelStreamlineFormLabel
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'streamline_form_labels';
+  info: {
+    displayName: 'Streamline-form-label';
+    pluralName: 'streamline-form-labels';
+    singularName: 'streamline-form-label';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    active: Schema.Attribute.Enumeration<['true', 'false']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'false'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    form: Schema.Attribute.Enumeration<['streamline-form']>;
+    formLabel: Schema.Attribute.DynamicZone<['form-fields.streamline-form']>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::streamline-form-label.streamline-form-label'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiStreamlineFormStreamlineForm
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'streamline_forms';
+  info: {
+    displayName: 'streamline-form';
+    pluralName: 'streamline-forms';
+    singularName: 'streamline-form';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    designation: Schema.Attribute.String;
+    email: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::streamline-form.streamline-form'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    stayCompetitive: Schema.Attribute.Enumeration<
+      ['Yes', 'No', 'Maybe', 'Not sure']
+    >;
+    streamlineOperation: Schema.Attribute.Enumeration<
+      ['Yes', 'No', 'Maybe', 'Not sure']
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiWebinarReserveSpotWebinarReserveSpot
   extends Struct.CollectionTypeSchema {
   collectionName: 'webinar_reserve_spots';
@@ -2512,6 +2600,62 @@ export interface PluginReviewWorkflowsWorkflowStage
       'manyToOne',
       'plugin::review-workflows.workflow'
     >;
+  };
+}
+
+export interface PluginStrapiPluginPdfCreatorTemplate
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'strapi-plugin-pdf-creator_template';
+  info: {
+    description: 'Templates used for PDF Template plugin';
+    displayName: 'PDF Templates';
+    kind: 'collectionType';
+    pluralName: 'templates';
+    singularName: 'template';
+    tableName: 'template';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: true;
+    };
+    'content-type-builder': {
+      visible: true;
+    };
+  };
+  attributes: {
+    collectionName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 40;
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    enabled: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    file: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    flattenDocument: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'plugin::strapi-plugin-pdf-creator.template'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 40;
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -2836,12 +2980,15 @@ declare module '@strapi/strapi' {
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::reserve-lead.reserve-lead': ApiReserveLeadReserveLead;
       'api::reserve-spot-lead.reserve-spot-lead': ApiReserveSpotLeadReserveSpotLead;
+      'api::streamline-form-label.streamline-form-label': ApiStreamlineFormLabelStreamlineFormLabel;
+      'api::streamline-form.streamline-form': ApiStreamlineFormStreamlineForm;
       'api::webinar-reserve-spot.webinar-reserve-spot': ApiWebinarReserveSpotWebinarReserveSpot;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::review-workflows.workflow': PluginReviewWorkflowsWorkflow;
       'plugin::review-workflows.workflow-stage': PluginReviewWorkflowsWorkflowStage;
+      'plugin::strapi-plugin-pdf-creator.template': PluginStrapiPluginPdfCreatorTemplate;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;

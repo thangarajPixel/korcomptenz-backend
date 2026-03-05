@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_form_fields_streamline_forms",
+  "info": {
+    "displayName": "streamline-form",
+    "icon": "cast"
+  },
+  "options": {},
+  "attributes": {
+    "nameLabel": {
+      "type": "string"
+    },
+    "emailLabel": {
+      "type": "string"
+    },
+    "designationLabel": {
+      "type": "string"
+    },
+    "question1Label": {
+      "type": "text"
+    },
+    "question2Label": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

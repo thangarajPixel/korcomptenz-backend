@@ -218,16 +218,9 @@ export interface AboutUsPeopleShowcaseList extends Struct.ComponentSchema {
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
+    isAdvisoryBoard: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'about-us.people-showcase-card', true>;
-    perRow: Schema.Attribute.Integer &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 3;
-          min: 2;
-        },
-        number
-      > &
-      Schema.Attribute.DefaultTo<3>;
     title: Schema.Attribute.String;
   };
 }
@@ -1177,6 +1170,21 @@ export interface FormFieldsReserveSpotFields extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<'Full Name'>;
     phoneLabel: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Phone Number'>;
+  };
+}
+
+export interface FormFieldsStreamlineForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_streamline_forms';
+  info: {
+    displayName: 'streamline-form';
+    icon: 'cast';
+  };
+  attributes: {
+    designationLabel: Schema.Attribute.String;
+    emailLabel: Schema.Attribute.String;
+    nameLabel: Schema.Attribute.String;
+    question1Label: Schema.Attribute.Text;
+    question2Label: Schema.Attribute.Text;
   };
 }
 
@@ -4295,6 +4303,7 @@ declare module '@strapi/strapi' {
       'form-fields.news-room-form': FormFieldsNewsRoomForm;
       'form-fields.newsletter-subscription': FormFieldsNewsletterSubscription;
       'form-fields.reserve-spot-fields': FormFieldsReserveSpotFields;
+      'form-fields.streamline-form': FormFieldsStreamlineForm;
       'global.button': GlobalButton;
       'global.custom-list': GlobalCustomList;
       'global.editor-descripiton': GlobalEditorDescripiton;
