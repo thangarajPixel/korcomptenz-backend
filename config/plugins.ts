@@ -104,5 +104,21 @@ module.exports = ({ env }) => {
     //     },
     //   },
     // },
+
+
+    'strapi-plugin-pdf-creator': {
+      enabled: true,
+      config: {
+        beautifyDate: {
+          fields: ['date'],
+          options: {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          }
+        }
+      }
+    },
+
   });
 };
