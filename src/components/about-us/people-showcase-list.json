@@ -26,12 +26,6 @@
     },
     "buttonLink": {
       "type": "string"
-    },
-    "perRow": {
-      "type": "integer",
-      "default": 3,
-      "min": 2,
-      "max": 3
     }
   },
   "config": {}

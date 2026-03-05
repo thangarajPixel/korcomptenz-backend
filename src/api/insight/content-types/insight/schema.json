@@ -35,7 +35,8 @@
         "podcast",
         "post-webinar",
         "pre-webinar",
-        "web-stories"
+        "web-stories",
+        "thirdparty-link"
       ]
     },
     "technologies": {
@@ -234,6 +235,32 @@
     },
     "date": {
       "type": "date"
+    },
+    "thirdpartyLink": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "content"
+            },
+            "thirdparty-link"
+          ]
+        }
+      }
+    },
+    "isTarget": {
+      "type": "boolean",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "content"
+            },
+            "thirdparty-link"
+          ]
+        }
+      }
     }
   }
 }
