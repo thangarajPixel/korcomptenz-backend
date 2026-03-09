@@ -203,6 +203,11 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
               thumbnail: true
             }
           },
+          offeringList: {
+            populate: {
+              image: true
+            }
+          }
         },
       });
       // if (!entity) {

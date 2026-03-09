@@ -555,6 +555,28 @@ export interface CaseStudyRelatedCaseStudy extends Struct.ComponentSchema {
   };
 }
 
+export interface CaseStudyRelatedOfferings extends Struct.ComponentSchema {
+  collectionName: 'components_case_study_related_offerings';
+  info: {
+    displayName: 'related-offerings';
+    icon: 'cloud';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface CaseStudyRightSection extends Struct.ComponentSchema {
   collectionName: 'components_case_study_right_sections';
   info: {
@@ -4291,6 +4313,7 @@ declare module '@strapi/strapi' {
       'case-study.popular-filter': CaseStudyPopularFilter;
       'case-study.popular-filter-list': CaseStudyPopularFilterList;
       'case-study.related-case-study': CaseStudyRelatedCaseStudy;
+      'case-study.related-offerings': CaseStudyRelatedOfferings;
       'case-study.right-section': CaseStudyRightSection;
       'case-study.sponser-card': CaseStudySponserCard;
       'case-study.testimonial-section': CaseStudyTestimonialSection;

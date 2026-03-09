@@ -930,6 +930,11 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
       'api::case-study.case-study'
     > &
       Schema.Attribute.Private;
+    offeringList: Schema.Attribute.Component<
+      'case-study.related-offerings',
+      true
+    >;
+    offeringTitle: Schema.Attribute.String;
     outcome: Schema.Attribute.Relation<
       'oneToMany',
       'api::case-business-outcome.case-business-outcome'
