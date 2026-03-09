@@ -50,25 +50,54 @@ export default factories.createCoreController('api::streamline-form.streamline-f
 
         const emailHtmlupdate = `
            <table border="0" width="600" cellpadding="0" cellspacing="0" style="border:1px solid #CCC; margin:0 auto;">
-    <tr>
-      <td width="150" style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">${formLabels?.nameLabel || 'Name'}:</td>
-      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.name || ''}</td>
-    </tr>
-    <tr >
-      <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">${formLabels?.emailLabel || 'Email'}:</td>
-      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.email || ''}</td>
-    </tr>
-    <tr>
-      <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">${formLabels?.designationLabel || 'Designation'}:</td>
-      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.designation || ''}</td>
-    </tr>
+   
     <tr >
       <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">${formLabels?.question1Label || ''}:</td>
-      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.streamlineOperation || ''}</td>
+      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.question1 || ''}</td>
     </tr>
     <tr>
       <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">${formLabels?.question2Label || ''}:</td>
-      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.stayCompetitive || ''}</td>
+      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.question2 || ''}</td>
+    </tr>
+     <tr>
+      <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">${formLabels?.question3Label || ''}:</td>
+      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.question3 || ''}</td>
+    </tr>
+     <tr>
+      <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">${formLabels?.question4Label || ''}:</td>
+      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.question4 || ''}</td>
+    </tr>
+     <tr>
+      <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">${formLabels?.question5Label || ''}:</td>
+      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.question5 || ''}</td>
+    </tr>
+     <tr>
+      <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">${formLabels?.question6Label || ''}:</td>
+      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.question6 || ''}</td>
+    </tr>
+     <tr>
+      <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">${formLabels?.question7Label || ''}:</td>
+      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.question7 || ''}</td>
+    </tr>
+     <tr>
+      <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">${formLabels?.question8Label || ''}:</td>
+      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.question8 || ''}</td>
+    </tr>
+     <tr>
+      <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">${formLabels?.question9Label || ''}:</td>
+      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.question9 || ''}</td>
+    </tr>
+     <tr>
+      <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">${formLabels?.question10Label || ''}:</td>
+      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.question10 || ''}</td>
+    </tr>
+     <tr>
+      <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">${formLabels?.question11Label || ''}:</td>
+      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.question11 || ''}</td>
+    </tr>
+     <tr>
+      <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">${formLabels?.question12Label || ''}:</td>
+      <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">${lead.question12 || ''}</td>
     </tr>
    
   </table>
@@ -132,14 +161,80 @@ export default factories.createCoreController('api::streamline-form.streamline-f
                   <tr style="background:#f4f5f7;">
                     <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">  ${formLabels?.question1Label || ''}:</td>
                     <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
-                      ${lead.streamlineOperation || ''}
+                      ${lead.question1 || ''}
                     </td>
                   </tr>
                   <tr >
                     <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;"> ${formLabels?.question2Label || ''}:</td>
                     <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
-                      ${lead.stayCompetitive || ''}
+                      ${lead.question2 || ''}
                     </td>
+                  </tr>
+                     <tr style="background:#f4f5f7;">
+                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">  ${formLabels?.question3Label || ''}:</td>
+                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+                      ${lead.question3 || ''}
+                    </td>
+                  </tr>
+                     <tr >
+                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">  ${formLabels?.question4Label || ''}:</td>
+                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+                      ${lead.question4 || ''}
+                    </td>
+                  </tr>
+                     <tr style="background:#f4f5f7;">
+                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">  ${formLabels?.question5Label || ''}:</td>
+                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+                      ${lead.question5 || ''}
+                    </td>
+                  </tr>
+                      <tr >
+                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">  ${formLabels?.question6Label || ''}:</td>
+                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+                      ${lead.question6 || ''}
+                    </td>
+                  </tr>
+                     <tr style="background:#f4f5f7;">
+                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">  ${formLabels?.question7Label || ''}:</td>
+                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+                      ${lead.question7 || ''}
+                    </td>
+                  </tr>
+                     <tr >
+                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">  ${formLabels?.question8Label || ''}:</td>
+                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+                      ${lead.question8 || ''}
+                    </td>
+                  </tr>
+                     <tr style="background:#f4f5f7;">
+                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">  ${formLabels?.question9Label || ''}:</td>
+                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+                      ${lead.question9 || ''}
+                    </td>
+                  </tr>
+                    <tr >
+                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">  ${formLabels?.question10Label || ''}:</td>
+                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+                      ${lead.question10 || ''}
+                    </td>
+                  </tr>
+                     <tr style="background:#f4f5f7;">
+                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">  ${formLabels?.question11Label || ''}:</td>
+                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+                      ${lead.question11 || ''}
+                    </td>
+                       <tr >
+                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">  ${formLabels?.question12Label || ''}:</td>
+                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+                      ${lead.question12 || ''}
+                    </td>
+                  </tr>
+                  <tr style="background:#f4f5f7;">
+                    <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;"> Message:</td>
+                    <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+                      ${lead.message || ''}
+                    </td>
+                       <tr >
                   </tr>
 
                   

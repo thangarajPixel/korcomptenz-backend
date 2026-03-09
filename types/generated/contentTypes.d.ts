@@ -2138,6 +2138,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.sap-implementation',
         'page-componets.slider-service-section',
         'page-componets.microsoft-gold-certified',
+        'page-componets.sap-questionnaire',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -2259,7 +2260,7 @@ export interface ApiStreamlineFormLabelStreamlineFormLabel
   extends Struct.CollectionTypeSchema {
   collectionName: 'streamline_form_labels';
   info: {
-    displayName: 'Streamline-form-label';
+    displayName: 'sap-questionnaire-form-label';
     pluralName: 'streamline-form-labels';
     singularName: 'streamline-form-label';
   };
@@ -2273,7 +2274,7 @@ export interface ApiStreamlineFormLabelStreamlineFormLabel
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    form: Schema.Attribute.Enumeration<['streamline-form']>;
+    form: Schema.Attribute.Enumeration<['sap-questionnaire-form']>;
     formLabel: Schema.Attribute.DynamicZone<['form-fields.streamline-form']>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -2293,7 +2294,7 @@ export interface ApiStreamlineFormStreamlineForm
   extends Struct.CollectionTypeSchema {
   collectionName: 'streamline_forms';
   info: {
-    displayName: 'streamline-form';
+    displayName: 'sap-questionnaire-form';
     pluralName: 'streamline-forms';
     singularName: 'streamline-form';
   };
@@ -2319,14 +2320,27 @@ export interface ApiStreamlineFormStreamlineForm
       'api::streamline-form.streamline-form'
     > &
       Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    stayCompetitive: Schema.Attribute.Enumeration<
+    question1: Schema.Attribute.Enumeration<['Yes', 'No', 'Maybe', 'Not sure']>;
+    question10: Schema.Attribute.Enumeration<
       ['Yes', 'No', 'Maybe', 'Not sure']
     >;
-    streamlineOperation: Schema.Attribute.Enumeration<
+    question11: Schema.Attribute.Enumeration<
       ['Yes', 'No', 'Maybe', 'Not sure']
     >;
+    question12: Schema.Attribute.Enumeration<
+      ['Yes', 'No', 'Maybe', 'Not sure']
+    >;
+    question2: Schema.Attribute.Enumeration<['Yes', 'No', 'Maybe', 'Not sure']>;
+    question3: Schema.Attribute.Enumeration<['Yes', 'No', 'Maybe', 'Not sure']>;
+    question4: Schema.Attribute.Enumeration<['Yes', 'No', 'Maybe', 'Not sure']>;
+    question5: Schema.Attribute.Enumeration<['Yes', 'No', 'Maybe', 'Not sure']>;
+    question6: Schema.Attribute.Enumeration<['Yes', 'No', 'Maybe', 'Not sure']>;
+    question7: Schema.Attribute.Enumeration<['Yes', 'No', 'Maybe', 'Not sure']>;
+    question8: Schema.Attribute.Enumeration<['Yes', 'No', 'Maybe', 'Not sure']>;
+    question9: Schema.Attribute.Enumeration<['Yes', 'No', 'Maybe', 'Not sure']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2600,62 +2614,6 @@ export interface PluginReviewWorkflowsWorkflowStage
       'manyToOne',
       'plugin::review-workflows.workflow'
     >;
-  };
-}
-
-export interface PluginStrapiPluginPdfCreatorTemplate
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'strapi-plugin-pdf-creator_template';
-  info: {
-    description: 'Templates used for PDF Template plugin';
-    displayName: 'PDF Templates';
-    kind: 'collectionType';
-    pluralName: 'templates';
-    singularName: 'template';
-    tableName: 'template';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: true;
-    };
-    'content-type-builder': {
-      visible: true;
-    };
-  };
-  attributes: {
-    collectionName: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 40;
-      }>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    enabled: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<false>;
-    file: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
-    flattenDocument: Schema.Attribute.Boolean &
-      Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<true>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'plugin::strapi-plugin-pdf-creator.template'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 40;
-      }>;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
   };
 }
 
@@ -2988,7 +2946,6 @@ declare module '@strapi/strapi' {
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::review-workflows.workflow': PluginReviewWorkflowsWorkflow;
       'plugin::review-workflows.workflow-stage': PluginReviewWorkflowsWorkflowStage;
-      'plugin::strapi-plugin-pdf-creator.template': PluginStrapiPluginPdfCreatorTemplate;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;

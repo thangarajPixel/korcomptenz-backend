@@ -1176,15 +1176,26 @@ export interface FormFieldsReserveSpotFields extends Struct.ComponentSchema {
 export interface FormFieldsStreamlineForm extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_streamline_forms';
   info: {
-    displayName: 'streamline-form';
+    displayName: 'sap-questionnaire-form';
     icon: 'cast';
   };
   attributes: {
     designationLabel: Schema.Attribute.String;
     emailLabel: Schema.Attribute.String;
+    messageLabel: Schema.Attribute.Text;
     nameLabel: Schema.Attribute.String;
+    question10Label: Schema.Attribute.Text;
+    question11Label: Schema.Attribute.Text;
+    question12Label: Schema.Attribute.Text;
     question1Label: Schema.Attribute.Text;
     question2Label: Schema.Attribute.Text;
+    question3Label: Schema.Attribute.Text;
+    question4Label: Schema.Attribute.Text;
+    question5Label: Schema.Attribute.Text;
+    question6Label: Schema.Attribute.Text;
+    question7Label: Schema.Attribute.Text;
+    question8Label: Schema.Attribute.Text;
+    question9Label: Schema.Attribute.Text;
   };
 }
 
@@ -3635,6 +3646,21 @@ export interface PageComponetsSapImplementation extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsSapQuestionnaire extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_sap_questionnaires';
+  info: {
+    displayName: 'sap-questionnaire';
+    icon: 'filter';
+  };
+  attributes: {
+    sap_questionnaire_form_label: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::streamline-form-label.streamline-form-label'
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsSapSectionData extends Struct.ComponentSchema {
   collectionName: 'components_service_sap_section_data';
   info: {
@@ -4443,6 +4469,7 @@ declare module '@strapi/strapi' {
       'page-componets.salesforce-services': PageComponetsSalesforceServices;
       'page-componets.sap-image-section': PageComponetsSapImageSection;
       'page-componets.sap-implementation': PageComponetsSapImplementation;
+      'page-componets.sap-questionnaire': PageComponetsSapQuestionnaire;
       'page-componets.sap-section-data': PageComponetsSapSectionData;
       'page-componets.sap-section-image': PageComponetsSapSectionImage;
       'page-componets.slide-content': PageComponetsSlideContent;

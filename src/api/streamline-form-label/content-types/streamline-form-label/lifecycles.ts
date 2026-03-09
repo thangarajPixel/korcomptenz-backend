@@ -1,50 +1,50 @@
-// import { errors } from '@strapi/utils';
+import { errors } from '@strapi/utils';
 
-// const { ApplicationError } = errors;
+const { ApplicationError } = errors;
 
-// export default {
-//   async beforeCreate(event) {
-//     const { data } = event.params;
+export default {
+  async beforeCreate(event) {
+    const { data } = event.params;
 
-//     if (data.active === 'true') {
-//       const existing = await strapi.db.query(
-//         'api::streamline-form-label.streamline-form-label'
-//       ).findOne({
-//         where: { active: 'true' },
-//       });
+    if (data.active === 'true') {
+      const existing = await strapi.db.query(
+        'api::streamline-form-label.streamline-form-label'
+      ).findOne({
+        where: {
+          active: 'true',
+          publishedAt: { $ne: null } // only check published records
+        },
+      });
 
-//       if (existing) {
-//         throw new ApplicationError(
-//           'Active fromlabel already exists. Only one can be active at a time.'
-//         );
-//       }
-//     }
-//   },
+      if (existing) {
+        throw new ApplicationError(
+          'Active form label already exists. Only one can be active at a time.'
+        );
+      }
+    }
+  },
 
-//   async beforeUpdate(event) {
-//     const { data, where } = event.params;
+  async beforeUpdate(event) {
+    const { data, where } = event.params;
 
-//     if (data.active === 'true') {
-//       const current = await strapi.db.query(
-//         'api::streamline-form-label.streamline-form-label'
-//       ).findOne({
-//         where: { id: where.id },
-//       });
+    if (data.active === 'true') {
+      const existing = await strapi.db.query(
+        'api::streamline-form-label.streamline-form-label'
+      ).findOne({
+        where: {
+          active: 'true',
+          publishedAt: { $ne: null }, // only check published records
+          $and: [
+            { id: { $ne: where.id } } // exclude current record
+          ]
+        },
+      });
 
-//       const existing = await strapi.db.query(
-//         'api::streamline-form-label.streamline-form-label'
-//       ).findOne({
-//         where: {
-//           active: 'true',
-//           id: { $ne: current?.id },
-//         },
-//       });
-
-//       if (existing) {
-//         throw new ApplicationError(
-//           'Active fromlabel already exists. Only one can be active at a time.'
-//         );
-//       }
-//     }
-//   }
-// };
+      if (existing) {
+        throw new ApplicationError(
+          'Active form label already exists. Only one can be active at a time.'
+        );
+      }
+    }
+  }
+};

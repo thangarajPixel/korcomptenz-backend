@@ -4,7 +4,7 @@
   "info": {
     "singularName": "streamline-form",
     "pluralName": "streamline-forms",
-    "displayName": "streamline-form"
+    "displayName": "sap-questionnaire-form"
   },
   "options": {
     "draftAndPublish": true
@@ -20,7 +20,7 @@
     "designation": {
       "type": "string"
     },
-    "streamlineOperation": {
+    "question1": {
       "type": "enumeration",
       "enum": [
         "Yes",
@@ -29,7 +29,97 @@
         "Not sure"
       ]
     },
-    "stayCompetitive": {
+    "question2": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No",
+        "Maybe",
+        "Not sure"
+      ]
+    },
+    "question3": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No",
+        "Maybe",
+        "Not sure"
+      ]
+    },
+    "question4": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No",
+        "Maybe",
+        "Not sure"
+      ]
+    },
+    "question5": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No",
+        "Maybe",
+        "Not sure"
+      ]
+    },
+    "question6": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No",
+        "Maybe",
+        "Not sure"
+      ]
+    },
+    "question7": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No",
+        "Maybe",
+        "Not sure"
+      ]
+    },
+    "question8": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No",
+        "Maybe",
+        "Not sure"
+      ]
+    },
+    "question9": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No",
+        "Maybe",
+        "Not sure"
+      ]
+    },
+    "question10": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No",
+        "Maybe",
+        "Not sure"
+      ]
+    },
+    "question11": {
+      "type": "enumeration",
+      "enum": [
+        "Yes",
+        "No",
+        "Maybe",
+        "Not sure"
+      ]
+    },
+    "question12": {
       "type": "enumeration",
       "enum": [
         "Yes",
@@ -44,6 +134,9 @@
       "options": {
         "preset": "defaultHtml"
       }
+    },
+    "message": {
+      "type": "text"
     }
   }
 }

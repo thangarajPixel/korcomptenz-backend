@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_page_componets_sap_questionnaires",
+  "info": {
+    "displayName": "sap-questionnaire",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "sap_questionnaire_form_label": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::streamline-form-label.streamline-form-label"
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

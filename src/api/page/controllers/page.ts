@@ -849,8 +849,26 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
-
-
+              'page-componets.sap-questionnaire': {
+                populate: {
+                  sap_questionnaire_form_label: {
+                    filters: {
+                      active: {
+                        $eq: true
+                      }
+                    },
+                    populate: {
+                      formLabel: {
+                        populate: {
+                          form: {
+                            populate: '*'
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
 
 
 

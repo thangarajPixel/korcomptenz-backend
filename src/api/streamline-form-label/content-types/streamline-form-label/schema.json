@@ -4,7 +4,7 @@
   "info": {
     "singularName": "streamline-form-label",
     "pluralName": "streamline-form-labels",
-    "displayName": "Streamline-form-label"
+    "displayName": "sap-questionnaire-form-label"
   },
   "options": {
     "draftAndPublish": true
@@ -23,7 +23,7 @@
     "form": {
       "type": "enumeration",
       "enum": [
-        "streamline-form"
+        "sap-questionnaire-form"
       ]
     },
     "active": {

@@ -1,7 +1,7 @@
 {
   "collectionName": "components_form_fields_streamline_forms",
   "info": {
-    "displayName": "streamline-form",
+    "displayName": "sap-questionnaire-form",
     "icon": "cast"
   },
   "options": {},
@@ -19,6 +19,39 @@
       "type": "text"
     },
     "question2Label": {
+      "type": "text"
+    },
+    "question3Label": {
+      "type": "text"
+    },
+    "question4Label": {
+      "type": "text"
+    },
+    "question5Label": {
+      "type": "text"
+    },
+    "question6Label": {
+      "type": "text"
+    },
+    "question7Label": {
+      "type": "text"
+    },
+    "question8Label": {
+      "type": "text"
+    },
+    "question9Label": {
+      "type": "text"
+    },
+    "question10Label": {
+      "type": "text"
+    },
+    "question11Label": {
+      "type": "text"
+    },
+    "question12Label": {
+      "type": "text"
+    },
+    "messageLabel": {
       "type": "text"
     }
   },
