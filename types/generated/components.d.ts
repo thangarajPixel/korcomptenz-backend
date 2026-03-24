@@ -4000,6 +4000,9 @@ export interface PageComponetsWhyWeAre extends Struct.ComponentSchema {
     icon: 'briefcase';
   };
   attributes: {
+    colSpan: Schema.Attribute.Enumeration<
+      ['grid-cols-3', 'grid-cols-4', 'grid-cols-6']
+    >;
     description: Schema.Attribute.Text;
     isBgGray: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isPerRowFive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -4207,7 +4210,13 @@ export interface SubPageComponetsPricingPlan extends Struct.ComponentSchema {
   attributes: {
     billing: Schema.Attribute.String;
     button: Schema.Attribute.Component<'global.button', false>;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     price: Schema.Attribute.Decimal;
   };

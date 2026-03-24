@@ -26,6 +26,24 @@
       "type": "boolean",
       "required": false,
       "default": false
+    },
+    "colSpan": {
+      "type": "enumeration",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isPerRowFive"
+            },
+            false
+          ]
+        }
+      },
+      "enum": [
+        "grid-cols-3",
+        "grid-cols-4",
+        "grid-cols-6"
+      ]
     }
   },
   "config": {}
