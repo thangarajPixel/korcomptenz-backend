@@ -169,7 +169,7 @@ export default {
           bannerTitle: firstBanner?.title ?? null,
           description: firstBanner?.description ?? null,
           slug: item.slug,
-          date: null,
+          date: item.publishedAt ?? item.createdAt ?? null,
           image: null,
           category: 'Pages',
           type: 'page',
@@ -208,16 +208,15 @@ export default {
           ? allResults.filter((item) => item.category === category)
           : allResults;
 
-      // Sort by date: newest (desc) or oldest (asc); items without a date go last
-      if (sort === 'newest' || sort === 'oldest') {
-        const dir = sort === 'newest' ? -1 : 1;
-        filteredResults.sort((a, b) => {
-          if (!a.date && !b.date) return 0;
-          if (!a.date) return 1;
-          if (!b.date) return -1;
-          return dir * (new Date(a.date).getTime() - new Date(b.date).getTime());
-        });
-      }
+      // Default: newest first. sort=oldest reverses it. Items without date go last.
+      filteredResults.sort((a, b) => {
+        if (!a.date && !b.date) return 0;
+        if (!a.date) return 1;
+        if (!b.date) return -1;
+        const aTime = new Date(a.date).getTime();
+        const bTime = new Date(b.date).getTime();
+        return sort === 'oldest' ? aTime - bTime : bTime - aTime;
+      });
 
       const total = filteredResults.length;
       const paginatedResults = filteredResults.slice(offset, offset + limit);
