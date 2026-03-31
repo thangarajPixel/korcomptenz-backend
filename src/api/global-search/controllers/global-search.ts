@@ -124,7 +124,6 @@ export default {
       });
     } catch (error) {
       strapi.log.error('Global search error:', error);
-      // Return the actual error message in dev for debugging
       return ctx.internalServerError(
         process.env.NODE_ENV !== 'production'
           ? `Global search failed: ${(error as Error).message}`
