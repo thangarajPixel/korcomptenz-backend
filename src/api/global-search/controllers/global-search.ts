@@ -34,39 +34,165 @@ export default {
 
       // Always fetch ALL types for accurate tab counts — category filter only affects pagination
       const [caseStudies, insights, pages] = await Promise.all([
-        strapi.db.query('api::case-study.case-study').findMany({
-          where: {
-            publishedAt: { $notNull: true },
-            $or: [
-              { title: { $containsi: searchTerm } },
-              { heroSection: { description: { $containsi: searchTerm } } },
-            ],
-          },
-          populate: { heroSection: true },
-        }),
+        // Fetch case studies: search title/heroSection + all relations, merge
+        (async () => {
+          const baseWhere = { publishedAt: { $notNull: true } };
+          const populate = {
+            heroSection: true,
+            outcome: true,
+            case_industries: true,
+            regions: true,
+            technologies: true,
+            services: true,
+          };
 
-        strapi.db.query('api::insight.insight').findMany({
-          where: {
+          const [byTitle, byTech, byService, byOutcome, byIndustry, byRegion] =
+            await Promise.all([
+              strapi.db.query('api::case-study.case-study').findMany({
+                where: {
+                  ...baseWhere,
+                  $or: [
+                    { title: { $containsi: searchTerm } },
+                    { heroSection: { description: { $containsi: searchTerm } } },
+                  ],
+                },
+                populate,
+              }),
+              strapi.db.query('api::case-study.case-study').findMany({
+                where: {
+                  ...baseWhere,
+                  technologies: {
+                    $or: [
+                      { title: { $containsi: searchTerm } },
+                      { description: { $containsi: searchTerm } },
+                    ],
+                  },
+                },
+                populate,
+              }),
+              strapi.db.query('api::case-study.case-study').findMany({
+                where: {
+                  ...baseWhere,
+                  services: {
+                    $or: [
+                      { title: { $containsi: searchTerm } },
+                      { description: { $containsi: searchTerm } },
+                    ],
+                  },
+                },
+                populate,
+              }),
+              strapi.db.query('api::case-study.case-study').findMany({
+                where: {
+                  ...baseWhere,
+                  outcome: { label: { $containsi: searchTerm } },
+                },
+                populate,
+              }),
+              strapi.db.query('api::case-study.case-study').findMany({
+                where: {
+                  ...baseWhere,
+                  case_industries: { label: { $containsi: searchTerm } },
+                },
+                populate,
+              }),
+              strapi.db.query('api::case-study.case-study').findMany({
+                where: {
+                  ...baseWhere,
+                  regions: { label: { $containsi: searchTerm } },
+                },
+                populate,
+              }),
+            ]);
+
+          const seen = new Set<number>();
+          const merged: any[] = [];
+          for (const item of [
+            ...byTitle,
+            ...byTech,
+            ...byService,
+            ...byOutcome,
+            ...byIndustry,
+            ...byRegion,
+          ]) {
+            if (!seen.has(item.id)) {
+              seen.add(item.id);
+              merged.push(item);
+            }
+          }
+          return merged;
+        })(),
+
+        // Fetch insights: search title/heroSection via DB, then tech/service via separate queries, merge
+        (async () => {
+          const baseWhere = {
             publishedAt: { $notNull: true },
-            $or: [
-              { isLinkOnly: { $eq: false } },
-              { isLinkOnly: { $null: true } },
-            ],
             $and: [
               {
+                $or: [
+                  { isLinkOnly: { $eq: false } },
+                  { isLinkOnly: { $null: true } },
+                ],
+              },
+            ],
+          };
+
+          const populate = {
+            heroSection: true,
+            featureImage: true,
+            category: true,
+            technologies: true,
+            services: true,
+          };
+
+          const [byTitle, byTech, byService] = await Promise.all([
+            strapi.db.query('api::insight.insight').findMany({
+              where: {
+                ...baseWhere,
                 $or: [
                   { title: { $containsi: searchTerm } },
                   { heroSection: { description: { $containsi: searchTerm } } },
                 ],
               },
-            ],
-          },
-          populate: {
-            heroSection: true,
-            featureImage: true,
-            category: true,
-          },
-        }),
+              populate,
+            }),
+            strapi.db.query('api::insight.insight').findMany({
+              where: {
+                ...baseWhere,
+                technologies: {
+                  $or: [
+                    { title: { $containsi: searchTerm } },
+                    { description: { $containsi: searchTerm } },
+                  ],
+                },
+              },
+              populate,
+            }),
+            strapi.db.query('api::insight.insight').findMany({
+              where: {
+                ...baseWhere,
+                services: {
+                  $or: [
+                    { title: { $containsi: searchTerm } },
+                    { description: { $containsi: searchTerm } },
+                  ],
+                },
+              },
+              populate,
+            }),
+          ]);
+
+          // Deduplicate by id
+          const seen = new Set<number>();
+          const merged: any[] = [];
+          for (const item of [...byTitle, ...byTech, ...byService]) {
+            if (!seen.has(item.id)) {
+              seen.add(item.id);
+              merged.push(item);
+            }
+          }
+          return merged;
+        })(),
 
         // Fetch pages matching pageTitle OR having a bannerSection list item matching title/description
         (async () => {
@@ -133,6 +259,23 @@ export default {
         image: null,
         category: 'Case Studies',
         type: 'case-study',
+        technologies: (item.technologies ?? []).map((t: any) => ({
+          id: t.id,
+          label: t.label,
+          slug: t.slug,
+          title: t.title ?? null,
+          description: t.description ?? null,
+        })),
+        services: (item.services ?? []).map((s: any) => ({
+          id: s.id,
+          label: s.label,
+          slug: s.slug,
+          title: s.title ?? null,
+          description: s.description ?? null,
+        })),
+        outcome: (item.outcome ?? []).map((o: any) => ({ id: o.id, label: o.label })),
+        industries: (item.case_industries ?? []).map((i: any) => ({ id: i.id, label: i.label })),
+        regions: (item.regions ?? []).map((r: any) => ({ id: r.id, label: r.label })),
       }));
 
       const normalizedInsights = (insights as any[]).map((item) => ({
@@ -154,6 +297,22 @@ export default {
           categoryLabelMap.get(item.category?.id) ??
           'Insight',
         type: 'insight',
+        thirdpartyLink: item.thirdpartyLink ?? null,
+        isTarget: item.isTarget ?? null,
+        technologies: (item.technologies ?? []).map((t: any) => ({
+          id: t.id,
+          label: t.label,
+          slug: t.slug,
+          title: t.title ?? null,
+          description: t.description ?? null,
+        })),
+        services: (item.services ?? []).map((s: any) => ({
+          id: s.id,
+          label: s.label,
+          slug: s.slug,
+          title: s.title ?? null,
+          description: s.description ?? null,
+        })),
       }));
 
       const normalizedPages = (pages as any[]).map((item) => {
@@ -190,16 +349,19 @@ export default {
 
       const fixedLabels = ['Case Studies', 'Pages'];
       const insightCategoryLabels = insightCategories.map((c) => c.label);
-      const orderedCategoryLabels = [
+      const allCategoryLabels = [
         ...fixedLabels,
         ...insightCategoryLabels.filter((l) => !fixedLabels.includes(l)),
       ];
 
+      // Include all tabs even with 0 count, sorted by count descending
+      const tabsWithoutAll = allCategoryLabels
+        .map((label) => ({ label, count: categoryCounts[label] ?? 0 }))
+        .sort((a, b) => b.count - a.count);
+
       const tabs = [
         { label: 'All', count: allResults.length },
-        ...orderedCategoryLabels
-          .filter((label) => categoryCounts[label] !== undefined)
-          .map((label) => ({ label, count: categoryCounts[label] })),
+        ...tabsWithoutAll,
       ];
 
       // Apply category filter only for pagination
