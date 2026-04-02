@@ -1,5 +1,51 @@
 import { Context } from 'koa';
 
+// Helper: extract banner title/description from a dynamiczone list (banner-section-list component)
+function extractBannerData(list: any[], lowerTerm?: string) {
+  const bannerSection = (list ?? []).find(
+    (s: any) => s.__component === 'page-componets.banner-section-list'
+  );
+  const firstBanner = bannerSection?.list?.[0] ?? null;
+  return { bannerTitle: firstBanner?.title ?? null, description: firstBanner?.description ?? null };
+}
+
+// Helper: check if a single-type's dynamiczone banner matches search term
+function matchesBanner(list: any[], lowerTerm: string): boolean {
+  return (list ?? []).some(
+    (section: any) =>
+      section.__component === 'page-componets.banner-section-list' &&
+      (section.list ?? []).some(
+        (item: any) =>
+          item.title?.toLowerCase().includes(lowerTerm) ||
+          item.description?.toLowerCase().includes(lowerTerm)
+      )
+  );
+}
+
+// Helper: check if home hero-section-one matches search term
+function matchesHero(list: any[], lowerTerm: string): boolean {
+  return (list ?? []).some(
+    (section: any) =>
+      section.__component === 'home.hero-section-one' &&
+      (section.list ?? []).some(
+        (item: any) =>
+          item.title?.toLowerCase().includes(lowerTerm) ||
+          item.description?.toLowerCase().includes(lowerTerm)
+      )
+  );
+}
+
+// Helper: normalize image media object
+function normalizeImage(media: any, fallbackAlt = '') {
+  if (!media) return null;
+  return {
+    url: media.url,
+    alt: media.alternativeText ?? fallbackAlt,
+    width: media.width,
+    height: media.height,
+  };
+}
+
 export default {
   async search(ctx: Context) {
     try {
@@ -8,7 +54,7 @@ export default {
         page?: string;
         pageSize?: string;
         category?: string;
-        sort?: string; // 'newest' | 'oldest'
+        sort?: string;
       };
 
       if (!q || typeof q !== 'string' || q.trim().length === 0) {
@@ -16,6 +62,7 @@ export default {
       }
 
       const searchTerm = q.trim();
+      const lowerTerm = searchTerm.toLowerCase();
       const currentPage = Math.max(1, parseInt(page ?? '1', 10) || 1);
       const limit = Math.min(100, Math.max(1, parseInt(pageSize ?? '10', 10) || 10));
       const offset = (currentPage - 1) * limit;
@@ -32,13 +79,49 @@ export default {
         insightCategories.map((c) => [c.id, c.label])
       );
 
-      // Always fetch ALL types for accurate tab counts — category filter only affects pagination
-      const [caseStudies, insights, pages] = await Promise.all([
-        // Fetch case studies: search title/heroSection + all relations, merge
+      const bannerDynamicPopulate = {
+        list: {
+          on: {
+            'page-componets.banner-section-list': {
+              populate: { list: true },
+            },
+          },
+        },
+      };
+
+      const heroDynamicPopulate = {
+        list: {
+          on: {
+            'home.hero-section-one': {
+              populate: { list: true },
+            },
+          },
+        },
+      };
+
+      const [
+        caseStudies,
+        insights,
+        pages,
+        events,
+        newsRooms,
+        // single types
+        aboutUs,
+        careerPage,
+        contactUsPage,
+        homePage,
+        eventListPage,
+        newsListPage,
+        caseStudyListPage,
+        insightListPage,
+        privacyPolicy,
+      ] = await Promise.all([
+
+        // ── Case Studies ──────────────────────────────────────────────────────
         (async () => {
           const baseWhere = { publishedAt: { $notNull: true } };
           const populate = {
-            heroSection: true,
+            heroSection: { populate: { image: true } },
             outcome: true,
             case_industries: true,
             regions: true,
@@ -85,67 +168,34 @@ export default {
                 populate,
               }),
               strapi.db.query('api::case-study.case-study').findMany({
-                where: {
-                  ...baseWhere,
-                  outcome: { label: { $containsi: searchTerm } },
-                },
+                where: { ...baseWhere, outcome: { label: { $containsi: searchTerm } } },
                 populate,
               }),
               strapi.db.query('api::case-study.case-study').findMany({
-                where: {
-                  ...baseWhere,
-                  case_industries: { label: { $containsi: searchTerm } },
-                },
+                where: { ...baseWhere, case_industries: { label: { $containsi: searchTerm } } },
                 populate,
               }),
               strapi.db.query('api::case-study.case-study').findMany({
-                where: {
-                  ...baseWhere,
-                  regions: { label: { $containsi: searchTerm } },
-                },
+                where: { ...baseWhere, regions: { label: { $containsi: searchTerm } } },
                 populate,
               }),
             ]);
 
           const seen = new Set<number>();
           const merged: any[] = [];
-          for (const item of [
-            ...byTitle,
-            ...byTech,
-            ...byService,
-            ...byOutcome,
-            ...byIndustry,
-            ...byRegion,
-          ]) {
-            if (!seen.has(item.id)) {
-              seen.add(item.id);
-              merged.push(item);
-            }
+          for (const item of [...byTitle, ...byTech, ...byService, ...byOutcome, ...byIndustry, ...byRegion]) {
+            if (!seen.has(item.id)) { seen.add(item.id); merged.push(item); }
           }
           return merged;
         })(),
 
-        // Fetch insights: search title/heroSection via DB, then tech/service via separate queries, merge
+        // ── Insights ──────────────────────────────────────────────────────────
         (async () => {
           const baseWhere = {
             publishedAt: { $notNull: true },
-            $and: [
-              {
-                $or: [
-                  { isLinkOnly: { $eq: false } },
-                  { isLinkOnly: { $null: true } },
-                ],
-              },
-            ],
+            $and: [{ $or: [{ isLinkOnly: { $eq: false } }, { isLinkOnly: { $null: true } }] }],
           };
-
-          const populate = {
-            heroSection: true,
-            featureImage: true,
-            category: true,
-            technologies: true,
-            services: true,
-          };
+          const populate = { heroSection: true, featureImage: true, category: true, technologies: true, services: true };
 
           const [byTitle, byTech, byService] = await Promise.all([
             strapi.db.query('api::insight.insight').findMany({
@@ -186,97 +236,158 @@ export default {
             }),
           ]);
 
-          // Deduplicate by id
           const seen = new Set<number>();
           const merged: any[] = [];
           for (const item of [...byTitle, ...byTech, ...byService]) {
-            if (!seen.has(item.id)) {
-              seen.add(item.id);
-              merged.push(item);
-            }
+            if (!seen.has(item.id)) { seen.add(item.id); merged.push(item); }
           }
           return merged;
         })(),
 
-        // Fetch pages matching pageTitle OR having a bannerSection list item matching title/description
+        // ── Pages (collection) ────────────────────────────────────────────────
         (async () => {
-          const bannerPopulate = {
-            list: {
-              on: {
-                'page-componets.banner-section-list': {
-                  populate: { list: true },
-                },
-              },
-            },
-          };
-
           const [byTitle, byBanner] = await Promise.all([
             strapi.db.query('api::page.page').findMany({
-              where: {
-                publishedAt: { $notNull: true },
-                pageTitle: { $containsi: searchTerm },
-              },
-              populate: bannerPopulate,
+              where: { publishedAt: { $notNull: true }, pageTitle: { $containsi: searchTerm } },
+              populate: bannerDynamicPopulate,
             }),
-            // Dynamic zones aren't filterable — populate and filter in memory
             strapi.db.query('api::page.page').findMany({
               where: { publishedAt: { $notNull: true } },
-              populate: bannerPopulate,
+              populate: bannerDynamicPopulate,
             }),
           ]);
 
-          const lowerTerm = searchTerm.toLowerCase();
+          const byBannerFiltered = (byBanner as any[]).filter((p) => matchesBanner(p.list, lowerTerm));
 
-          // Filter pages whose banner list contains a matching title or description
-          const byBannerFiltered = (byBanner as any[]).filter((p) =>
-            (p.list ?? []).some(
-              (section: any) =>
-                section.__component === 'page-componets.banner-section-list' &&
-                (section.list ?? []).some(
-                  (item: any) =>
-                    item.title?.toLowerCase().includes(lowerTerm) ||
-                    item.description?.toLowerCase().includes(lowerTerm)
-                )
-            )
-          );
-
-          // Merge and deduplicate by id
           const seen = new Set<number>();
           const merged: any[] = [];
           for (const p of [...byTitle, ...byBannerFiltered]) {
-            if (!seen.has(p.id)) {
-              seen.add(p.id);
-              merged.push(p);
-            }
+            if (!seen.has(p.id)) { seen.add(p.id); merged.push(p); }
           }
           return merged;
         })(),
+
+        // ── Events (collection) ───────────────────────────────────────────────
+        strapi.db.query('api::event.event').findMany({
+          where: {
+            publishedAt: { $notNull: true },
+            $or: [
+              { title: { $containsi: searchTerm } },
+              { description: { $containsi: searchTerm } },
+            ],
+          },
+          populate: { image: true },
+        }),
+
+        // ── News Room (collection) ────────────────────────────────────────────
+        strapi.db.query('api::new-room.new-room').findMany({
+          where: {
+            publishedAt: { $notNull: true },
+            $or: [
+              { title: { $containsi: searchTerm } },
+              { description: { $containsi: searchTerm } },
+            ],
+          },
+          populate: { image: true },
+        }),
+
+        // ── About Us (single) ─────────────────────────────────────────────────
+        strapi.db.query('api::about-us.about-us').findOne({ populate: bannerDynamicPopulate }),
+
+        // ── Career (single) ───────────────────────────────────────────────────
+        strapi.db.query('api::career.career').findOne({ populate: bannerDynamicPopulate }),
+
+        // ── Contact Us (single) ───────────────────────────────────────────────
+        strapi.db.query('api::contact-us.contact-us').findOne({ populate: bannerDynamicPopulate }),
+
+        // ── Home (single) ─────────────────────────────────────────────────────
+        strapi.db.query('api::home.home').findOne({ populate: heroDynamicPopulate }),
+
+        // ── Event List (single) ───────────────────────────────────────────────
+        strapi.db.query('api::event-list.event-list').findOne({
+          populate: {
+            list: { on: { 'demo-page.demo-banner-list': { populate: { list: true } } } },
+          },
+        }),
+
+        // ── News List (single) ────────────────────────────────────────────────
+        strapi.db.query('api::news-list.news-list').findOne({
+          populate: {
+            list: { on: { 'demo-page.demo-banner-list': { populate: { list: true } } } },
+          },
+        }),
+
+        // ── Case Study List (single) ──────────────────────────────────────────
+        strapi.db.query('api::case-study-list.case-study-list').findOne({
+          populate: { banner: true },
+        }),
+
+        // ── Insight List Page (single) ────────────────────────────────────────
+        strapi.db.query('api::insight-list-page.insight-list-page').findOne({
+          populate: { banner: true },
+        }),
+
+        // ── Privacy Policy (single) ───────────────────────────────────────────
+        strapi.db.query('api::privacy-policy.privacy-policy').findOne({
+          populate: { description: true },
+        }),
       ]);
 
-      // Normalize
+      // ── Normalize helpers ─────────────────────────────────────────────────
+
+      // Single type: has dynamiczone with banner-section-list
+      function normalizeSingleBanner(item: any, label: string, slug: string) {
+        if (!item) return null;
+        const { bannerTitle, description } = extractBannerData(item.list ?? []);
+        const matches =
+          bannerTitle?.toLowerCase().includes(lowerTerm) ||
+          description?.toLowerCase().includes(lowerTerm);
+        if (!matches) return null;
+        return {
+          id: `single-${label.toLowerCase().replace(/\s+/g, '-')}`,
+          title: bannerTitle ?? label,
+          description: description ?? null,
+          slug,
+          date: item.publishedAt ?? item.updatedAt ?? null,
+          image: null,
+          category: 'Pages',
+          type: 'single-page',
+        };
+      }
+
+      // Single type: has direct banner component (case-study-list, insight-list-page)
+      function normalizeSingleDirectBanner(item: any, label: string, slug: string) {
+        if (!item?.banner) return null;
+        const { title, description } = item.banner;
+        const matches =
+          title?.toLowerCase().includes(lowerTerm) ||
+          description?.toLowerCase().includes(lowerTerm);
+        if (!matches) return null;
+        return {
+          id: `single-${label.toLowerCase().replace(/\s+/g, '-')}`,
+          title: title ?? label,
+          description: description ?? null,
+          slug,
+          date: item.publishedAt ?? item.updatedAt ?? null,
+          image: null,
+          category: 'Pages',
+          type: 'single-page',
+        };
+      }
+
+      // ── Normalize results ─────────────────────────────────────────────────
+
       const normalizedCaseStudies = (caseStudies as any[]).map((item) => ({
         id: item.id,
         title: item.title,
         description: item.heroSection?.description ?? null,
         slug: item.slug,
         date: item.publishedAt ?? null,
-        image: null,
+        image: normalizeImage(item.heroSection?.image, item.title),
         category: 'Case Studies',
         type: 'case-study',
-        technologies: (item.technologies ?? []).map((t: any) => ({
-          id: t.id,
-          label: t.label,
-          slug: t.slug,
-          title: t.title ?? null,
-          description: t.description ?? null,
-        })),
-        services: (item.services ?? []).map((s: any) => ({
-          id: s.id,
-          label: s.label,
-          slug: s.slug,
-          title: s.title ?? null,
-          description: s.description ?? null,
-        })),
+        technologies: (item.technologies ?? []).map((t: any) => ({ id: t.id, label: t.label, slug: t.slug, title: t.title ?? null, description: t.description ?? null })),
+        services: (item.services ?? []).map((s: any) => ({ id: s.id, label: s.label, slug: s.slug, title: s.title ?? null, description: s.description ?? null })),
         outcome: (item.outcome ?? []).map((o: any) => ({ id: o.id, label: o.label })),
         industries: (item.case_industries ?? []).map((i: any) => ({ id: i.id, label: i.label })),
         regions: (item.regions ?? []).map((r: any) => ({ id: r.id, label: r.label })),
@@ -288,49 +399,22 @@ export default {
         description: item.heroSection?.description ?? null,
         slug: item.slug,
         date: item.date ?? item.publishedAt ?? null,
-        image: item.featureImage
-          ? {
-            url: item.featureImage.url,
-            alt: item.featureImage.alternativeText ?? item.title,
-            width: item.featureImage.width,
-            height: item.featureImage.height,
-          }
-          : null,
-        category:
-          item.category?.label ??
-          categoryLabelMap.get(item.category?.id) ??
-          'Insight',
+        image: normalizeImage(item.featureImage, item.title),
+        category: item.category?.label ?? categoryLabelMap.get(item.category?.id) ?? 'Insight',
         type: 'insight',
         thirdpartyLink: item.thirdpartyLink ?? null,
         isTarget: item.isTarget ?? null,
-        technologies: (item.technologies ?? []).map((t: any) => ({
-          id: t.id,
-          label: t.label,
-          slug: t.slug,
-          title: t.title ?? null,
-          description: t.description ?? null,
-        })),
-        services: (item.services ?? []).map((s: any) => ({
-          id: s.id,
-          label: s.label,
-          slug: s.slug,
-          title: s.title ?? null,
-          description: s.description ?? null,
-        })),
+        technologies: (item.technologies ?? []).map((t: any) => ({ id: t.id, label: t.label, slug: t.slug, title: t.title ?? null, description: t.description ?? null })),
+        services: (item.services ?? []).map((s: any) => ({ id: s.id, label: s.label, slug: s.slug, title: s.title ?? null, description: s.description ?? null })),
       }));
 
       const normalizedPages = (pages as any[]).map((item) => {
-        // Extract first banner section's title and description
-        const bannerSection = (item.list ?? []).find(
-          (s: any) => s.__component === 'page-componets.banner-section-list'
-        );
-        const firstBanner = bannerSection?.list?.[0] ?? null;
-
+        const { bannerTitle, description } = extractBannerData(item.list ?? []);
         return {
           id: item.id,
           title: item.pageTitle,
-          bannerTitle: firstBanner?.title ?? null,
-          description: firstBanner?.description ?? null,
+          bannerTitle: bannerTitle ?? null,
+          description: description ?? null,
           slug: item.slug,
           date: item.publishedAt ?? item.createdAt ?? null,
           image: null,
@@ -339,28 +423,139 @@ export default {
         };
       });
 
+      const normalizedEvents = (events as any[]).map((item) => ({
+        id: item.id,
+        title: item.title,
+        description: item.description ?? null,
+        slug: null,
+        date: item.date ?? item.publishedAt ?? null,
+        image: normalizeImage(item.image, item.title),
+        category: 'Events',
+        type: 'event',
+        buttonText: item.buttonText ?? null,
+        buttonLink: item.buttonLink ?? null,
+      }));
+
+      const normalizedNewsRooms = (newsRooms as any[]).map((item) => ({
+        id: item.id,
+        title: item.title,
+        description: item.description ?? null,
+        slug: item.slug,
+        date: item.publishedAt ?? null,
+        image: normalizeImage(item.image, item.title),
+        category: 'News Room',
+        type: 'news-room',
+      }));
+
+      // Single types — banner-section-list based
+      const singleBannerPages = [
+        normalizeSingleBanner(aboutUs, 'About Us', '/about-us'),
+        normalizeSingleBanner(careerPage, 'Careers', '/career'),
+        normalizeSingleBanner(contactUsPage, 'Contact Us', '/contact-us'),
+      ].filter(Boolean);
+
+      // Home — hero-section-one based
+      const homeResult = (() => {
+        if (!homePage) return null;
+        const heroSection = (homePage.list ?? []).find(
+          (s: any) => s.__component === 'home.hero-section-one'
+        );
+        const firstItem = heroSection?.list?.[0] ?? null;
+        const title = firstItem?.title ?? null;
+        const description = firstItem?.description ?? null;
+        const matches =
+          title?.toLowerCase().includes(lowerTerm) ||
+          description?.toLowerCase().includes(lowerTerm);
+        if (!matches) return null;
+        return {
+          id: 'single-home',
+          title: title ?? 'Home',
+          description: description ?? null,
+          slug: '/',
+          date: homePage.publishedAt ?? homePage.updatedAt ?? null,
+          image: null,
+          category: 'Pages',
+          type: 'single-page',
+        };
+      })();
+
+      // Event List / News List — demo-banner-list based
+      function normalizeSingleDemoBanner(item: any, label: string, slug: string) {
+        if (!item) return null;
+        const demoBanner = (item.list ?? []).find(
+          (s: any) => s.__component === 'demo-page.demo-banner-list'
+        );
+        const firstItem = demoBanner?.list?.[0] ?? null;
+        const title = firstItem?.title ?? null;
+        const description = firstItem?.description ?? null;
+        const matches =
+          title?.toLowerCase().includes(lowerTerm) ||
+          description?.toLowerCase().includes(lowerTerm);
+        if (!matches) return null;
+        return {
+          id: `single-${label.toLowerCase().replace(/\s+/g, '-')}`,
+          title: title ?? label,
+          description: description ?? null,
+          slug,
+          date: item.publishedAt ?? item.updatedAt ?? null,
+          image: null,
+          category: 'Pages',
+          type: 'single-page',
+        };
+      }
+
+      // Privacy Policy — direct title + description component
+      const privacyResult = (() => {
+        if (!privacyPolicy) return null;
+        const title = privacyPolicy.title ?? null;
+        const description = (privacyPolicy.description ?? []).map((d: any) => d.description).join(' ');
+        const matches =
+          title?.toLowerCase().includes(lowerTerm) ||
+          description?.toLowerCase().includes(lowerTerm);
+        if (!matches) return null;
+        return {
+          id: 'single-privacy-policy',
+          title: title ?? 'Privacy Policy',
+          description: description || null,
+          slug: '/privacy-policy',
+          date: privacyPolicy.publishedAt ?? privacyPolicy.updatedAt ?? null,
+          image: null,
+          category: 'Pages',
+          type: 'single-page',
+        };
+      })();
+
       const allResults = [
         ...normalizedCaseStudies,
         ...normalizedInsights,
         ...normalizedPages,
+        ...normalizedEvents,
+        ...normalizedNewsRooms,
+        ...singleBannerPages,
+        ...(homeResult ? [homeResult] : []),
+        ...(normalizeSingleDemoBanner(eventListPage, 'Events', '/events') ? [normalizeSingleDemoBanner(eventListPage, 'Events', '/events')] : []),
+        ...(normalizeSingleDemoBanner(newsListPage, 'News', '/news') ? [normalizeSingleDemoBanner(newsListPage, 'News', '/news')] : []),
+        ...(normalizeSingleDirectBanner(caseStudyListPage, 'Case Studies', '/case-studies') ? [normalizeSingleDirectBanner(caseStudyListPage, 'Case Studies', '/case-studies')] : []),
+        ...(normalizeSingleDirectBanner(insightListPage, 'Insights', '/insights') ? [normalizeSingleDirectBanner(insightListPage, 'Insights', '/insights')] : []),
+        ...(privacyResult ? [privacyResult] : []),
       ];
 
-      // Build tabs from ALL results — never affected by category filter
+      // Build tabs
       const categoryCounts = allResults.reduce<Record<string, number>>((acc, item) => {
         acc[item.category] = (acc[item.category] ?? 0) + 1;
         return acc;
       }, {});
 
-      const fixedLabels = ['Case Studies', 'Pages'];
+      const fixedLabels = ['Case Studies', 'Pages', 'Events', 'News Room'];
       const insightCategoryLabels = insightCategories.map((c) => c.label);
       const allCategoryLabels = [
         ...fixedLabels,
         ...insightCategoryLabels.filter((l) => !fixedLabels.includes(l)),
       ];
 
-      // Include all tabs even with 0 count, sorted by count descending
       const tabsWithoutAll = allCategoryLabels
         .map((label) => ({ label, count: categoryCounts[label] ?? 0 }))
+        .filter((tab) => tab.count > 0)
         .sort((a, b) => b.count - a.count);
 
       const tabs = [
@@ -368,13 +563,13 @@ export default {
         ...tabsWithoutAll,
       ];
 
-      // Apply category filter only for pagination
+      // Apply category filter
       const filteredResults =
         category && category !== 'All'
           ? allResults.filter((item) => item.category === category)
           : allResults;
 
-      // Default: newest first. sort=oldest reverses it. Items without date go last.
+      // Sort by date
       filteredResults.sort((a, b) => {
         if (!a.date && !b.date) return 0;
         if (!a.date) return 1;
