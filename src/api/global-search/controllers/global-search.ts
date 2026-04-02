@@ -63,6 +63,7 @@ export default {
                   ...baseWhere,
                   technologies: {
                     $or: [
+                      { label: { $containsi: searchTerm } },
                       { title: { $containsi: searchTerm } },
                       { description: { $containsi: searchTerm } },
                     ],
@@ -75,6 +76,7 @@ export default {
                   ...baseWhere,
                   services: {
                     $or: [
+                      { label: { $containsi: searchTerm } },
                       { title: { $containsi: searchTerm } },
                       { description: { $containsi: searchTerm } },
                     ],
@@ -161,6 +163,7 @@ export default {
                 ...baseWhere,
                 technologies: {
                   $or: [
+                    { label: { $containsi: searchTerm } },
                     { title: { $containsi: searchTerm } },
                     { description: { $containsi: searchTerm } },
                   ],
@@ -173,6 +176,7 @@ export default {
                 ...baseWhere,
                 services: {
                   $or: [
+                    { label: { $containsi: searchTerm } },
                     { title: { $containsi: searchTerm } },
                     { description: { $containsi: searchTerm } },
                   ],
