@@ -1,7 +1,7 @@
 import { Context } from 'koa';
 
 // Helper: extract banner title/description from a dynamiczone list (banner-section-list component)
-function extractBannerData(list: any[], lowerTerm?: string) {
+function extractBannerData(list: any[]) {
   const bannerSection = (list ?? []).find(
     (s: any) => s.__component === 'page-componets.banner-section-list'
   );
@@ -22,19 +22,7 @@ function matchesBanner(list: any[], lowerTerm: string): boolean {
   );
 }
 
-// Helper: check if home hero-section-one matches search term
-function matchesHero(list: any[], lowerTerm: string): boolean {
-  return (list ?? []).some(
-    (section: any) =>
-      section.__component === 'home.hero-section-one' &&
-      (section.list ?? []).some(
-        (item: any) =>
-          item.title?.toLowerCase().includes(lowerTerm) ||
-          item.description?.toLowerCase().includes(lowerTerm)
-      )
-  );
-}
-
+// Helper: check if home hero-section-one matches search term — unused, logic inlined in homeResult
 // Helper: normalize image media object
 function normalizeImage(media: any, fallbackAlt = '') {
   if (!media) return null;
@@ -105,6 +93,7 @@ export default {
         pages,
         events,
         newsRooms,
+        demos,
         // single types
         aboutUs,
         careerPage,
@@ -115,6 +104,7 @@ export default {
         caseStudyListPage,
         insightListPage,
         privacyPolicy,
+        demoListPage,
       ] = await Promise.all([
 
         // ── Case Studies ──────────────────────────────────────────────────────
@@ -291,6 +281,17 @@ export default {
           populate: { image: true },
         }),
 
+        // ── Demos (collection) ────────────────────────────────────────────────
+        strapi.db.query('api::book-demo.book-demo').findMany({
+          where: {
+            publishedAt: { $notNull: true },
+            $or: [
+              { title: { $containsi: searchTerm } },
+              { description: { $containsi: searchTerm } },
+            ],
+          },
+        }),
+
         // ── About Us (single) ─────────────────────────────────────────────────
         strapi.db.query('api::about-us.about-us').findOne({ populate: bannerDynamicPopulate }),
 
@@ -330,6 +331,13 @@ export default {
         // ── Privacy Policy (single) ───────────────────────────────────────────
         strapi.db.query('api::privacy-policy.privacy-policy').findOne({
           populate: { description: true },
+        }),
+
+        // ── Demo List (single) ────────────────────────────────────────────────
+        strapi.db.query('api::demo-list.demo-list').findOne({
+          populate: {
+            list: { on: { 'demo-page.demo-banner-list': { populate: { list: true } } } },
+          },
         }),
       ]);
 
@@ -447,6 +455,19 @@ export default {
         type: 'news-room',
       }));
 
+      const normalizedDemos = (demos as any[]).map((item) => ({
+        id: item.id,
+        title: item.title,
+        description: item.description ?? null,
+        slug: null,
+        date: item.date ?? item.publishedAt ?? null,
+        image: null,
+        category: 'Demos',
+        type: 'demo',
+        buttonText: item.buttonText ?? null,
+        buttonLink: item.buttonLink ?? null,
+      }));
+
       // Single types — banner-section-list based
       const singleBannerPages = [
         normalizeSingleBanner(aboutUs, 'About Us', '/about-us'),
@@ -454,23 +475,23 @@ export default {
         normalizeSingleBanner(contactUsPage, 'Contact Us', '/contact-us'),
       ].filter(Boolean);
 
-      // Home — hero-section-one based
+      // Home — hero-section-one based — search ALL items in the list
       const homeResult = (() => {
         if (!homePage) return null;
         const heroSection = (homePage.list ?? []).find(
           (s: any) => s.__component === 'home.hero-section-one'
         );
-        const firstItem = heroSection?.list?.[0] ?? null;
-        const title = firstItem?.title ?? null;
-        const description = firstItem?.description ?? null;
-        const matches =
-          title?.toLowerCase().includes(lowerTerm) ||
-          description?.toLowerCase().includes(lowerTerm);
-        if (!matches) return null;
+        const items: any[] = heroSection?.list ?? [];
+        const matched = items.find(
+          (item: any) =>
+            item.title?.toLowerCase().includes(lowerTerm) ||
+            item.description?.toLowerCase().includes(lowerTerm)
+        );
+        if (!matched) return null;
         return {
           id: 'single-home',
-          title: title ?? 'Home',
-          description: description ?? null,
+          title: matched.title ?? 'Home',
+          description: matched.description ?? null,
           slug: '/',
           date: homePage.publishedAt ?? homePage.updatedAt ?? null,
           image: null,
@@ -531,6 +552,7 @@ export default {
         ...normalizedPages,
         ...normalizedEvents,
         ...normalizedNewsRooms,
+        ...normalizedDemos,
         ...singleBannerPages,
         ...(homeResult ? [homeResult] : []),
         ...(normalizeSingleDemoBanner(eventListPage, 'Events', '/events') ? [normalizeSingleDemoBanner(eventListPage, 'Events', '/events')] : []),
@@ -538,6 +560,7 @@ export default {
         ...(normalizeSingleDirectBanner(caseStudyListPage, 'Case Studies', '/case-studies') ? [normalizeSingleDirectBanner(caseStudyListPage, 'Case Studies', '/case-studies')] : []),
         ...(normalizeSingleDirectBanner(insightListPage, 'Insights', '/insights') ? [normalizeSingleDirectBanner(insightListPage, 'Insights', '/insights')] : []),
         ...(privacyResult ? [privacyResult] : []),
+        ...(normalizeSingleDemoBanner(demoListPage, 'Demo', '/book-a-demo') ? [normalizeSingleDemoBanner(demoListPage, 'Demo', '/book-a-demo')] : []),
       ];
 
       // Build tabs
@@ -546,7 +569,7 @@ export default {
         return acc;
       }, {});
 
-      const fixedLabels = ['Case Studies', 'Pages', 'Events', 'News Room'];
+      const fixedLabels = ['Case Studies', 'Pages', 'Events', 'News Room', 'Demos'];
       const insightCategoryLabels = insightCategories.map((c) => c.label);
       const allCategoryLabels = [
         ...fixedLabels,
