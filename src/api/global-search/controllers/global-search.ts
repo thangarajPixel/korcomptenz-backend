@@ -583,15 +583,33 @@ export default {
         ...(normalizeSingleDemoBanner(demoListPage, 'Demo', '/book-a-demo') ? [normalizeSingleDemoBanner(demoListPage, 'Demo', '/book-a-demo')] : []),
       ];
 
-      // Post-filter: enforce word-boundary match on title + description
-      // DB queries use $containsi (broad), this narrows to word-start matches only
+      // Post-filter: enforce word-boundary match on title, description, bannerTitle,
+      // and relation labels (technologies, services, industries, regions, outcome)
       const wordFiltered = allResults.filter((item) => {
-        const text = `${item.title ?? ''} ${(item as any).description ?? ''} ${(item as any).bannerTitle ?? ''}`;
+        const i = item as any;
+        const relationText = [
+          ...(i.technologies ?? []).map((t: any) => t.label ?? ''),
+          ...(i.services ?? []).map((s: any) => s.label ?? ''),
+          ...(i.industries ?? []).map((x: any) => x.label ?? ''),
+          ...(i.regions ?? []).map((x: any) => x.label ?? ''),
+          ...(i.outcome ?? []).map((x: any) => x.label ?? ''),
+        ].join(' ');
+        const text = `${i.title ?? ''} ${i.description ?? ''} ${i.bannerTitle ?? ''} ${relationText}`;
         return wordBoundaryRegex.test(text);
       });
 
+      // Deduplicate by slug+type across all results
+      const seenSlugs = new Set<string>();
+      const dedupedResults = wordFiltered.filter((item) => {
+        if (!item.slug) return true;
+        const key = `${item.type}::${item.slug}`;
+        if (seenSlugs.has(key)) return false;
+        seenSlugs.add(key);
+        return true;
+      });
+
       // Build tabs
-      const categoryCounts = wordFiltered.reduce<Record<string, number>>((acc, item) => {
+      const categoryCounts = dedupedResults.reduce<Record<string, number>>((acc, item) => {
         acc[item.category] = (acc[item.category] ?? 0) + 1;
         return acc;
       }, {});
@@ -609,15 +627,15 @@ export default {
         .sort((a, b) => b.count - a.count);
 
       const tabs = [
-        { label: 'All', count: wordFiltered.length },
+        { label: 'All', count: dedupedResults.length },
         ...tabsWithoutAll,
       ];
 
       // Apply category filter
       const filteredResults =
         category && category !== 'All'
-          ? wordFiltered.filter((item) => item.category === category)
-          : wordFiltered;
+          ? dedupedResults.filter((item) => item.category === category)
+          : dedupedResults;
 
       // Sort by date
       filteredResults.sort((a, b) => {
