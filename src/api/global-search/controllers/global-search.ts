@@ -10,14 +10,14 @@ function extractBannerData(list: any[]) {
 }
 
 // Helper: check if a single-type's dynamiczone banner matches search term
-function matchesBanner(list: any[], lowerTerm: string): boolean {
+function matchesBanner(list: any[], regex: RegExp): boolean {
   return (list ?? []).some(
     (section: any) =>
       section.__component === 'page-componets.banner-section-list' &&
       (section.list ?? []).some(
         (item: any) =>
-          item.title?.toLowerCase().includes(lowerTerm) ||
-          item.description?.toLowerCase().includes(lowerTerm)
+          regex.test(item.title ?? '') ||
+          regex.test(item.description ?? '')
       )
   );
 }
@@ -50,7 +50,24 @@ export default {
       }
 
       const searchTerm = q.trim();
-      const lowerTerm = searchTerm.toLowerCase();
+
+      // Load stopwords from env, filter tokens against them
+      const stopwords = new Set(
+        (process.env.SEARCH_STOPWORDS ?? '').split(',').map((w) => w.trim().toLowerCase()).filter(Boolean)
+      );
+
+      // Split query into individual tokens, strip stopwords
+      const tokens = searchTerm.split(/\s+/).filter((t) => t && !stopwords.has(t.toLowerCase()));
+
+      if (tokens.length === 0) {
+        return ctx.badRequest('Search query contains only stopwords. Please use more specific terms.');
+      }
+
+      const escapedTokens = tokens.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+      const wordBoundaryRegex = new RegExp(
+        escapedTokens.map((t) => `\\b${t}\\b`).join('|'),
+        'i'
+      );
       const currentPage = Math.max(1, parseInt(page ?? '1', 10) || 1);
       const limit = Math.min(100, Math.max(1, parseInt(pageSize ?? '10', 10) || 10));
       const offset = (currentPage - 1) * limit;
@@ -125,8 +142,8 @@ export default {
                 where: {
                   ...baseWhere,
                   $or: [
-                    { title: { $containsi: searchTerm } },
-                    { heroSection: { description: { $containsi: searchTerm } } },
+                    ...tokens.map((t) => ({ title: { $containsi: t } })),
+                    ...tokens.map((t) => ({ heroSection: { description: { $containsi: t } } })),
                   ],
                 },
                 populate,
@@ -136,9 +153,9 @@ export default {
                   ...baseWhere,
                   technologies: {
                     $or: [
-                      { label: { $containsi: searchTerm } },
-                      { title: { $containsi: searchTerm } },
-                      { description: { $containsi: searchTerm } },
+                      ...tokens.map((t) => ({ label: { $containsi: t } })),
+                      ...tokens.map((t) => ({ title: { $containsi: t } })),
+                      ...tokens.map((t) => ({ description: { $containsi: t } })),
                     ],
                   },
                 },
@@ -149,24 +166,24 @@ export default {
                   ...baseWhere,
                   services: {
                     $or: [
-                      { label: { $containsi: searchTerm } },
-                      { title: { $containsi: searchTerm } },
-                      { description: { $containsi: searchTerm } },
+                      ...tokens.map((t) => ({ label: { $containsi: t } })),
+                      ...tokens.map((t) => ({ title: { $containsi: t } })),
+                      ...tokens.map((t) => ({ description: { $containsi: t } })),
                     ],
                   },
                 },
                 populate,
               }),
               strapi.db.query('api::case-study.case-study').findMany({
-                where: { ...baseWhere, outcome: { label: { $containsi: searchTerm } } },
+                where: { ...baseWhere, outcome: { $or: tokens.map((t) => ({ label: { $containsi: t } })) } },
                 populate,
               }),
               strapi.db.query('api::case-study.case-study').findMany({
-                where: { ...baseWhere, case_industries: { label: { $containsi: searchTerm } } },
+                where: { ...baseWhere, case_industries: { $or: tokens.map((t) => ({ label: { $containsi: t } })) } },
                 populate,
               }),
               strapi.db.query('api::case-study.case-study').findMany({
-                where: { ...baseWhere, regions: { label: { $containsi: searchTerm } } },
+                where: { ...baseWhere, regions: { $or: tokens.map((t) => ({ label: { $containsi: t } })) } },
                 populate,
               }),
             ]);
@@ -192,8 +209,8 @@ export default {
               where: {
                 ...baseWhere,
                 $or: [
-                  { title: { $containsi: searchTerm } },
-                  { heroSection: { description: { $containsi: searchTerm } } },
+                  ...tokens.map((t) => ({ title: { $containsi: t } })),
+                  ...tokens.map((t) => ({ heroSection: { description: { $containsi: t } } })),
                 ],
               },
               populate,
@@ -203,9 +220,9 @@ export default {
                 ...baseWhere,
                 technologies: {
                   $or: [
-                    { label: { $containsi: searchTerm } },
-                    { title: { $containsi: searchTerm } },
-                    { description: { $containsi: searchTerm } },
+                    ...tokens.map((t) => ({ label: { $containsi: t } })),
+                    ...tokens.map((t) => ({ title: { $containsi: t } })),
+                    ...tokens.map((t) => ({ description: { $containsi: t } })),
                   ],
                 },
               },
@@ -216,9 +233,9 @@ export default {
                 ...baseWhere,
                 services: {
                   $or: [
-                    { label: { $containsi: searchTerm } },
-                    { title: { $containsi: searchTerm } },
-                    { description: { $containsi: searchTerm } },
+                    ...tokens.map((t) => ({ label: { $containsi: t } })),
+                    ...tokens.map((t) => ({ title: { $containsi: t } })),
+                    ...tokens.map((t) => ({ description: { $containsi: t } })),
                   ],
                 },
               },
@@ -238,7 +255,10 @@ export default {
         (async () => {
           const [byTitle, byBanner] = await Promise.all([
             strapi.db.query('api::page.page').findMany({
-              where: { publishedAt: { $notNull: true }, pageTitle: { $containsi: searchTerm } },
+              where: {
+                publishedAt: { $notNull: true },
+                $or: tokens.map((t) => ({ pageTitle: { $containsi: t } })),
+              },
               populate: bannerDynamicPopulate,
             }),
             strapi.db.query('api::page.page').findMany({
@@ -247,7 +267,7 @@ export default {
             }),
           ]);
 
-          const byBannerFiltered = (byBanner as any[]).filter((p) => matchesBanner(p.list, lowerTerm));
+          const byBannerFiltered = (byBanner as any[]).filter((p) => matchesBanner(p.list, wordBoundaryRegex));
 
           const seen = new Set<number>();
           const merged: any[] = [];
@@ -262,8 +282,8 @@ export default {
           where: {
             publishedAt: { $notNull: true },
             $or: [
-              { title: { $containsi: searchTerm } },
-              { description: { $containsi: searchTerm } },
+              ...tokens.map((t) => ({ title: { $containsi: t } })),
+              ...tokens.map((t) => ({ description: { $containsi: t } })),
             ],
           },
           populate: { image: true },
@@ -274,8 +294,8 @@ export default {
           where: {
             publishedAt: { $notNull: true },
             $or: [
-              { title: { $containsi: searchTerm } },
-              { description: { $containsi: searchTerm } },
+              ...tokens.map((t) => ({ title: { $containsi: t } })),
+              ...tokens.map((t) => ({ description: { $containsi: t } })),
             ],
           },
           populate: { image: true },
@@ -286,8 +306,8 @@ export default {
           where: {
             publishedAt: { $notNull: true },
             $or: [
-              { title: { $containsi: searchTerm } },
-              { description: { $containsi: searchTerm } },
+              ...tokens.map((t) => ({ title: { $containsi: t } })),
+              ...tokens.map((t) => ({ description: { $containsi: t } })),
             ],
           },
         }),
@@ -348,8 +368,8 @@ export default {
         if (!item) return null;
         const { bannerTitle, description } = extractBannerData(item.list ?? []);
         const matches =
-          bannerTitle?.toLowerCase().includes(lowerTerm) ||
-          description?.toLowerCase().includes(lowerTerm);
+          wordBoundaryRegex.test(bannerTitle ?? '') ||
+          wordBoundaryRegex.test(description ?? '');
         if (!matches) return null;
         return {
           id: `single-${label.toLowerCase().replace(/\s+/g, '-')}`,
@@ -368,8 +388,8 @@ export default {
         if (!item?.banner) return null;
         const { title, description } = item.banner;
         const matches =
-          title?.toLowerCase().includes(lowerTerm) ||
-          description?.toLowerCase().includes(lowerTerm);
+          wordBoundaryRegex.test(title ?? '') ||
+          wordBoundaryRegex.test(description ?? '');
         if (!matches) return null;
         return {
           id: `single-${label.toLowerCase().replace(/\s+/g, '-')}`,
@@ -484,8 +504,8 @@ export default {
         const items: any[] = heroSection?.list ?? [];
         const matched = items.find(
           (item: any) =>
-            item.title?.toLowerCase().includes(lowerTerm) ||
-            item.description?.toLowerCase().includes(lowerTerm)
+            wordBoundaryRegex.test(item.title ?? '') ||
+            wordBoundaryRegex.test(item.description ?? '')
         );
         if (!matched) return null;
         return {
@@ -510,8 +530,8 @@ export default {
         const title = firstItem?.title ?? null;
         const description = firstItem?.description ?? null;
         const matches =
-          title?.toLowerCase().includes(lowerTerm) ||
-          description?.toLowerCase().includes(lowerTerm);
+          wordBoundaryRegex.test(title ?? '') ||
+          wordBoundaryRegex.test(description ?? '');
         if (!matches) return null;
         return {
           id: `single-${label.toLowerCase().replace(/\s+/g, '-')}`,
@@ -531,8 +551,8 @@ export default {
         const title = privacyPolicy.title ?? null;
         const description = (privacyPolicy.description ?? []).map((d: any) => d.description).join(' ');
         const matches =
-          title?.toLowerCase().includes(lowerTerm) ||
-          description?.toLowerCase().includes(lowerTerm);
+          wordBoundaryRegex.test(title ?? '') ||
+          wordBoundaryRegex.test(description);
         if (!matches) return null;
         return {
           id: 'single-privacy-policy',
@@ -563,8 +583,15 @@ export default {
         ...(normalizeSingleDemoBanner(demoListPage, 'Demo', '/book-a-demo') ? [normalizeSingleDemoBanner(demoListPage, 'Demo', '/book-a-demo')] : []),
       ];
 
+      // Post-filter: enforce word-boundary match on title + description
+      // DB queries use $containsi (broad), this narrows to word-start matches only
+      const wordFiltered = allResults.filter((item) => {
+        const text = `${item.title ?? ''} ${(item as any).description ?? ''} ${(item as any).bannerTitle ?? ''}`;
+        return wordBoundaryRegex.test(text);
+      });
+
       // Build tabs
-      const categoryCounts = allResults.reduce<Record<string, number>>((acc, item) => {
+      const categoryCounts = wordFiltered.reduce<Record<string, number>>((acc, item) => {
         acc[item.category] = (acc[item.category] ?? 0) + 1;
         return acc;
       }, {});
@@ -582,15 +609,15 @@ export default {
         .sort((a, b) => b.count - a.count);
 
       const tabs = [
-        { label: 'All', count: allResults.length },
+        { label: 'All', count: wordFiltered.length },
         ...tabsWithoutAll,
       ];
 
       // Apply category filter
       const filteredResults =
         category && category !== 'All'
-          ? allResults.filter((item) => item.category === category)
-          : allResults;
+          ? wordFiltered.filter((item) => item.category === category)
+          : wordFiltered;
 
       // Sort by date
       filteredResults.sort((a, b) => {
