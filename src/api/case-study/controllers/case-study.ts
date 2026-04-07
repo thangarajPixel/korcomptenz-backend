@@ -58,6 +58,7 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
           regions: true,
           services: true,
           technologies: true,
+          seo: true,
         },
         where: {
           $and: [

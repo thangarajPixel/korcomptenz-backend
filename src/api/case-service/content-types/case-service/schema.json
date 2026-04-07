@@ -29,6 +29,11 @@
       "options": {
         "preset": "defaultHtml"
       }
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
     }
   }
 }
