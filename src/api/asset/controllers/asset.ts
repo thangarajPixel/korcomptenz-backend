@@ -31,28 +31,29 @@ export default factories.createCoreController(
 
       return await super.findOne(ctx);
     },
-  async findBySlug(ctx) {
-  const slug = decodeURIComponent(ctx.params.slug);
+    async findBySlug(ctx) {
+      const slug = decodeURIComponent(ctx.params.slug);
 
-  if (!slug) {
-    return ctx.badRequest('Slug is required');
-  }
+      if (!slug) {
+        return ctx.badRequest('Slug is required');
+      }
 
-  const asset = await strapi.db
-    .query('api::asset.asset')
-    .findOne({
-      where: { slug },
-      populate: {
-        file: true,
-      },
-    });
+      const asset = await strapi.db
+        .query('api::asset.asset')
+        .findOne({
+          where: { slug },
+          populate: {
+            file: true,
+            seo: true,
+          },
+        });
 
-  if (!asset?.file) {
-    return ctx.notFound('Asset or file not found');
-  }
+      if (!asset) {
+        return ctx.notFound('Asset not found');
+      }
 
-  return this.transformResponse(asset.file);
-}
+      return this.transformResponse(asset);
+    }
 
 
   })
