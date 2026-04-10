@@ -52,7 +52,8 @@ export default factories.createCoreController(
         return ctx.notFound('Asset not found');
       }
 
-      return this.transformResponse(asset);
+      const { file, seo, ...rest } = asset;
+      return this.transformResponse({ url: file?.url ?? null, seo: seo ?? null });
     }
 
 
