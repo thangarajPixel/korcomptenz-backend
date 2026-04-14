@@ -59,7 +59,7 @@ export default {
         entry('/insights', now, 'daily', '0.9'),
         entry('/case-studies', now, 'daily', '0.9'),
         entry('/events', now, 'weekly', '0.8'),
-        entry('/news', now, 'weekly', '0.8'),
+        entry('/newsletter', now, 'weekly', '0.8'),
         entry('/book-a-demo', now, 'weekly', '0.7'),
         entry('/privacy-policy', now, 'monthly', '0.5'),
 
@@ -82,7 +82,7 @@ export default {
 
         // News room
         ...(newsRooms as any[]).map((n) =>
-          entry(`/news/${n.slug}`, n.updatedAt ?? now, 'weekly', '0.7')
+          entry(`/newsroom/${n.slug}`, n.updatedAt ?? now, 'weekly', '0.7')
         ),
       ];
 
