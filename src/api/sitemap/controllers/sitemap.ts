@@ -3,7 +3,7 @@ import { Context } from 'koa';
 const BASE_URL = (process.env.SITE_URL ?? 'https://www.korcomptenz.com').replace(/\/$/, '');
 const API_URL = (process.env.PUBLIC_URL ?? BASE_URL).replace(/\/$/, '');
 
-// ── XML helpers ───────────────────────────────────────────────────────────────
+// ── XML helpers
 
 function xmlEscape(str: string) {
   return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -37,7 +37,7 @@ function sendXml(ctx: Context, xml: string) {
   ctx.body = xml;
 }
 
-// ── URL entry helpers ─────────────────────────────────────────────────────────
+// ── URL entry helpers
 
 function entry(loc: string, lastmod: string, changefreq = 'weekly', priority = '0.8') {
   const normalized = loc.replace(/\/+/g, '/').replace(/^([^/])/, '/$1');
@@ -82,7 +82,7 @@ function insightTypeKey(content: string, categorySlug?: string): string {
   }
 }
 
-// ── Controller ────────────────────────────────────────────────────────────────
+// ── Controller 
 
 export default {
 
@@ -130,7 +130,7 @@ export default {
     }
   },
 
-  // GET /api/sitemap/categorized  → JSON for frontend sitemap page
+  // categorized 
   async categorized(ctx: Context) {
     try {
       const now = new Date().toISOString();
@@ -232,17 +232,16 @@ export default {
         if (!insightGroups[key]) insightGroups[key] = [];
         insightGroups[key].push({ title: i.title, url: toUrl(BASE_URL, `${prefix}/${i.slug}`), lastmod: i.updatedAt ?? now });
       }
-      const insightsSection = {
-        title: 'Insights',
-        url: `${BASE_URL}/insights`,
-        lastmod: now,
-        children: Object.entries(insightGroups).map(([label, items]) => ({
+      // Insights — each category/type as its own top-level section
+      const insightSections = Object.entries(insightGroups).map(([label, items]) => {
+        const slug = label.toLowerCase().replace(/\s+/g, '-');
+        return {
           title: label,
-          url: null,
+          url: `${BASE_URL}/sitemap-${slug}.xml`,
           lastmod: now,
           children: items,
-        })),
-      };
+        };
+      });
 
       // Pages
       const pagesSection = {
@@ -262,7 +261,7 @@ export default {
           { title: 'Services and Ecosystems', url: `${BASE_URL}/sitemap-services-and-technologies.xml`, lastmod: now, children: [...services, ...ecosystem] },
           { title: 'Industries', url: `${BASE_URL}/sitemap-industries.xml`, lastmod: now, children: industries },
           { ...caseStudiesSection, title: 'Casestudies', url: `${BASE_URL}/sitemap-casestudies.xml` },
-          { ...insightsSection, title: 'Insights', url: `${BASE_URL}/sitemap-insights.xml` },
+          ...insightSections,
           { title: 'All the rest of the pages', url: `${BASE_URL}/sitemap-other-pages.xml`, lastmod: now, children: pagesSection.children },
         ],
       });
@@ -273,7 +272,7 @@ export default {
   },
 };
 
-// ── Type handler ──────────────────────────────────────────────────────────────
+// ── Type handler 
 
 async function handleType(ctx: Context, type: string, now: string) {
   switch (type) {
