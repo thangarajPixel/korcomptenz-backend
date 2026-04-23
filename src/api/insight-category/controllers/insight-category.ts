@@ -14,6 +14,7 @@ export default factories.createCoreController(
           image1: true,
           image2: true,
           image3: true,
+          seo: true,
         },
       };
 
@@ -27,6 +28,7 @@ export default factories.createCoreController(
           image1: true,
           image2: true,
           image3: true,
+          seo: true,
         },
       };
 
