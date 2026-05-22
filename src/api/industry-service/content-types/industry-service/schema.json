@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "industry_services",
+  "info": {
+    "singularName": "industry-service",
+    "pluralName": "industry-services",
+    "displayName": "industry-service"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    }
+  }
+}

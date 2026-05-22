@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_form_fields_industry_forms",
+  "info": {
+    "displayName": "industry-form",
+    "icon": "connector"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "disclaimerDescription": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "firstNameLabel": {
+      "type": "string"
+    },
+    "lastNameLabel": {
+      "type": "string"
+    },
+    "emailLabel": {
+      "type": "string"
+    },
+    "companyLabel": {
+      "type": "string"
+    },
+    "phoneLabel": {
+      "type": "string"
+    },
+    "serviceLabel": {
+      "type": "string"
+    },
+    "messageLabel": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

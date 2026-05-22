@@ -1134,6 +1134,45 @@ export interface FormFieldsFreeConsultationForm extends Struct.ComponentSchema {
   };
 }
 
+export interface FormFieldsIndustryForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_industry_forms';
+  info: {
+    displayName: 'industry-form';
+    icon: 'connector';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    companyLabel: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    disclaimerDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailLabel: Schema.Attribute.String;
+    firstNameLabel: Schema.Attribute.String;
+    lastNameLabel: Schema.Attribute.String;
+    messageLabel: Schema.Attribute.String;
+    phoneLabel: Schema.Attribute.String;
+    serviceLabel: Schema.Attribute.String;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface FormFieldsInsightReserveSpot extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_insight_reserve_spots';
   info: {
@@ -4518,6 +4557,7 @@ declare module '@strapi/strapi' {
       'form-fields.form': FormFieldsForm;
       'form-fields.forrester-report-download': FormFieldsForresterReportDownload;
       'form-fields.free-consultation-form': FormFieldsFreeConsultationForm;
+      'form-fields.industry-form': FormFieldsIndustryForm;
       'form-fields.insight-reserve-spot': FormFieldsInsightReserveSpot;
       'form-fields.news-room-form': FormFieldsNewsRoomForm;
       'form-fields.newsletter-subscription': FormFieldsNewsletterSubscription;

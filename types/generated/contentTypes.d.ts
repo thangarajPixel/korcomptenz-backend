@@ -1375,6 +1375,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'reserve-my-fabcon-form',
         'forrester-report',
         'newsletter-subscription',
+        'industry-form',
       ]
     > &
       Schema.Attribute.Required;
@@ -1391,6 +1392,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.fabcon-book-meet',
         'form-fields.forrester-report-download',
         'form-fields.newsletter-subscription',
+        'form-fields.industry-form',
       ]
     > &
       Schema.Attribute.Required &
@@ -1516,6 +1518,74 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiIndustryLeadIndustryLead
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'industry_leads';
+  info: {
+    displayName: 'industry-lead';
+    pluralName: 'industry-leads';
+    singularName: 'industry-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    firstName: Schema.Attribute.String & Schema.Attribute.Required;
+    lastName: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::industry-lead.industry-lead'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text & Schema.Attribute.Required;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    service: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::industry-service.industry-service'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiIndustryServiceIndustryService
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'industry_services';
+  info: {
+    displayName: 'industry-service';
+    pluralName: 'industry-services';
+    singularName: 'industry-service';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::industry-service.industry-service'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -2932,6 +3002,8 @@ declare module '@strapi/strapi' {
       'api::forrester-report.forrester-report': ApiForresterReportForresterReport;
       'api::free-consultation-lead.free-consultation-lead': ApiFreeConsultationLeadFreeConsultationLead;
       'api::home.home': ApiHomeHome;
+      'api::industry-lead.industry-lead': ApiIndustryLeadIndustryLead;
+      'api::industry-service.industry-service': ApiIndustryServiceIndustryService;
       'api::insight-author.insight-author': ApiInsightAuthorInsightAuthor;
       'api::insight-category.insight-category': ApiInsightCategoryInsightCategory;
       'api::insight-list-page.insight-list-page': ApiInsightListPageInsightListPage;
