@@ -105,7 +105,8 @@
         "page-componets.slider-service-section",
         "page-componets.microsoft-gold-certified",
         "page-componets.sap-questionnaire",
-        "page-componets.banking-financial-banner"
+        "page-componets.banking-financial-banner",
+        "page-componets.industry-build-data"
       ]
     }
   }

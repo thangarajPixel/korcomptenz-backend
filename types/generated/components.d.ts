@@ -3331,6 +3331,36 @@ export interface PageComponetsImageSection extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsIndustryBuildData extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_industry_build_data';
+  info: {
+    displayName: 'industry-build-data';
+    icon: 'paperPlane';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean;
+    mobileImage: Schema.Attribute.Media<'images', true>;
+    subHeading: Schema.Attribute.String;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface PageComponetsInsightsSection extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_insights_sections';
   info: {
@@ -4540,6 +4570,7 @@ declare module '@strapi/strapi' {
       'page-componets.gram-banner': PageComponetsGramBanner;
       'page-componets.image': PageComponetsImage;
       'page-componets.image-section': PageComponetsImageSection;
+      'page-componets.industry-build-data': PageComponetsIndustryBuildData;
       'page-componets.insights-section': PageComponetsInsightsSection;
       'page-componets.insights-section-card': PageComponetsInsightsSectionCard;
       'page-componets.inspire-section': PageComponetsInspireSection;

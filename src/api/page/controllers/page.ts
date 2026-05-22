@@ -877,6 +877,12 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "page-componets.industry-build-data": {
+                  populate: {
+                    image: true,
+                    mobileImage: true,
+                  },
+                },
               },
             },
             seo: true,
