@@ -3406,6 +3406,42 @@ export interface PageComponetsIndustryBuildData extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsIndustryFeaturedContent
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_industry_featured_contents';
+  info: {
+    displayName: 'industry-featured-content';
+    icon: 'exit';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    list: Schema.Attribute.Component<
+      'sub-page-componets.industry-featured-list',
+      true
+    >;
+    subHeading: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface PageComponetsIndustryIntelligentExperience
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_industry_intelligent_experiences';
@@ -4383,6 +4419,41 @@ export interface SubPageComponetsImageList extends Struct.ComponentSchema {
   };
 }
 
+export interface SubPageComponetsIndustryFeaturedList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_industry_featured_lists';
+  info: {
+    displayName: 'industry-featured-list';
+    icon: 'crown';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.String;
+    bgImage: Schema.Attribute.Media<'images'>;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    isBgImage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isFirstCard: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isTarget: Schema.Attribute.Boolean;
+    linkType: Schema.Attribute.Enumeration<
+      ['Third Party', 'Download', 'Video']
+    >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface SubPageComponetsList extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_lists';
   info: {
@@ -4684,6 +4755,7 @@ declare module '@strapi/strapi' {
       'page-componets.image': PageComponetsImage;
       'page-componets.image-section': PageComponetsImageSection;
       'page-componets.industry-build-data': PageComponetsIndustryBuildData;
+      'page-componets.industry-featured-content': PageComponetsIndustryFeaturedContent;
       'page-componets.industry-intelligent-experience': PageComponetsIndustryIntelligentExperience;
       'page-componets.industry-solution-spotlight': PageComponetsIndustrySolutionSpotlight;
       'page-componets.insights-section': PageComponetsInsightsSection;
@@ -4737,6 +4809,7 @@ declare module '@strapi/strapi' {
       'sub-page-componets.footer-list': SubPageComponetsFooterList;
       'sub-page-componets.gram-banner-list': SubPageComponetsGramBannerList;
       'sub-page-componets.image-list': SubPageComponetsImageList;
+      'sub-page-componets.industry-featured-list': SubPageComponetsIndustryFeaturedList;
       'sub-page-componets.list': SubPageComponetsList;
       'sub-page-componets.pricing-plan': SubPageComponetsPricingPlan;
       'sub-page-componets.responsive-image': SubPageComponetsResponsiveImage;

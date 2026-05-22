@@ -907,6 +907,16 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "page-componets.industry-featured-content": {
+                  populate: {
+                    list: {
+                      populate: {
+                        bgImage: true,
+                        image: true,
+                      },
+                    },
+                  },
+                },
               },
             },
             seo: true,

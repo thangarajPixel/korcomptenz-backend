@@ -108,7 +108,8 @@
         "page-componets.banking-financial-banner",
         "page-componets.industry-build-data",
         "page-componets.industry-solution-spotlight",
-        "page-componets.industry-intelligent-experience"
+        "page-componets.industry-intelligent-experience",
+        "page-componets.industry-featured-content"
       ]
     }
   }

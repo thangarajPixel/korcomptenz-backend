@@ -2221,6 +2221,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.industry-build-data',
         'page-componets.industry-solution-spotlight',
         'page-componets.industry-intelligent-experience',
+        'page-componets.industry-featured-content',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
