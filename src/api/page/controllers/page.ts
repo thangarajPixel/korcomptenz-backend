@@ -866,7 +866,7 @@ export default factories.createCoreController(
                 "page-componets.banking-financial-banner": {
                   populate: {
                     image: true,
-                    mobileImage: true,
+                    imageMobile: true,
                     list: {
                       populate: {
                         imageMobile: true,
