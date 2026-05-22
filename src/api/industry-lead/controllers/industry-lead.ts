@@ -168,16 +168,16 @@ export default factories.createCoreController('api::industry-lead.industry-lead'
               </td>
             </tr>
 
-            <tr>
-              <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Submitted From:</td>
-              <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
-                <a href="https://www.korcomptenz.com/industries/${slug}"
-                   target="_blank"
-                   style="color:#249176;">
-                  https://www.korcomptenz.com/industries/${slug}
-                </a>
-              </td>
-            </tr>
+            // <tr>
+            //   <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Submitted From:</td>
+            //   <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+            //     <a href="https://www.korcomptenz.com/industries/${slug}"
+            //        target="_blank"
+            //        style="color:#249176;">
+            //       https://www.korcomptenz.com/industries/${slug}
+            //     </a>
+            //   </td>
+            // </tr>
           </table>
         </td>
       </tr>
