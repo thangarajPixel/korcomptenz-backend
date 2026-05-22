@@ -883,6 +883,18 @@ export default factories.createCoreController(
                     mobileImage: true,
                   },
                 },
+                "page-componets.industry-solution-spotlight": {
+                  populate: {
+                    list: {
+                      populate: {
+                        imageMobile: true,
+                        image: true,
+                        logo: true,
+                        logoMobile: true,
+                      },
+                    },
+                  },
+                },
               },
             },
             seo: true,

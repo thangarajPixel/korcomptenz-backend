@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_page_componets_industry_build_data",
+  "collectionName": "components_page_componets_industry_solution_spotlights",
   "info": {
-    "displayName": "industry-build-data",
-    "icon": "paperPlane"
+    "displayName": "industry-solution-spotlight",
+    "icon": "command"
   },
   "options": {},
   "attributes": {
@@ -27,28 +27,10 @@
         "preset": "defaultHtml"
       }
     },
-    "buttonText": {
-      "type": "string"
-    },
-    "buttonLink": {
-      "type": "string"
-    },
-    "isTarget": {
-      "type": "boolean"
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "mobileImage": {
-      "type": "media",
-      "multiple": true,
-      "allowedTypes": [
-        "images"
-      ]
+    "list": {
+      "type": "component",
+      "component": "sub-page-componets.footer-list",
+      "repeatable": true
     }
   },
   "config": {}

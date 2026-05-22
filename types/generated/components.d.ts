@@ -3350,7 +3350,46 @@ export interface PageComponetsIndustryBuildData extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     isTarget: Schema.Attribute.Boolean;
     mobileImage: Schema.Attribute.Media<'images', true>;
-    subHeading: Schema.Attribute.String;
+    subHeading: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
+export interface PageComponetsIndustrySolutionSpotlight
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_industry_solution_spotlights';
+  info: {
+    displayName: 'industry-solution-spotlight';
+    icon: 'command';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    list: Schema.Attribute.Component<'sub-page-componets.footer-list', true>;
+    subHeading: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     title: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -4238,6 +4277,7 @@ export interface SubPageComponetsFooterList extends Struct.ComponentSchema {
       >;
     image: Schema.Attribute.Media<'images'>;
     isTarget: Schema.Attribute.Boolean;
+    linkType: Schema.Attribute.Enumeration<['ThirdParty', 'Download']>;
     title: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -4571,6 +4611,7 @@ declare module '@strapi/strapi' {
       'page-componets.image': PageComponetsImage;
       'page-componets.image-section': PageComponetsImageSection;
       'page-componets.industry-build-data': PageComponetsIndustryBuildData;
+      'page-componets.industry-solution-spotlight': PageComponetsIndustrySolutionSpotlight;
       'page-componets.insights-section': PageComponetsInsightsSection;
       'page-componets.insights-section-card': PageComponetsInsightsSectionCard;
       'page-componets.inspire-section': PageComponetsInspireSection;

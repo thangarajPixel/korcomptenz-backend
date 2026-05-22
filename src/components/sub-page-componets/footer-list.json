@@ -34,6 +34,13 @@
     },
     "isTarget": {
       "type": "boolean"
+    },
+    "linkType": {
+      "type": "enumeration",
+      "enum": [
+        "ThirdParty",
+        "Download"
+      ]
     }
   },
   "config": {}
