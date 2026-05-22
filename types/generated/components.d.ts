@@ -3367,6 +3367,39 @@ export interface PageComponetsIndustryBuildData extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsIndustryIntelligentExperience
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_industry_intelligent_experiences';
+  info: {
+    displayName: 'industry-intelligent-experience';
+    icon: 'alien';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    list: Schema.Attribute.Component<'sub-page-componets.footer-list', true>;
+    subHeading: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface PageComponetsIndustrySolutionSpotlight
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_industry_solution_spotlights';
@@ -4611,6 +4644,7 @@ declare module '@strapi/strapi' {
       'page-componets.image': PageComponetsImage;
       'page-componets.image-section': PageComponetsImageSection;
       'page-componets.industry-build-data': PageComponetsIndustryBuildData;
+      'page-componets.industry-intelligent-experience': PageComponetsIndustryIntelligentExperience;
       'page-componets.industry-solution-spotlight': PageComponetsIndustrySolutionSpotlight;
       'page-componets.insights-section': PageComponetsInsightsSection;
       'page-componets.insights-section-card': PageComponetsInsightsSectionCard;

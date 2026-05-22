@@ -895,6 +895,18 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "page-componets.industry-intelligent-experience": {
+                  populate: {
+                    list: {
+                      populate: {
+                        imageMobile: true,
+                        image: true,
+                        logo: true,
+                        logoMobile: true,
+                      },
+                    },
+                  },
+                },
               },
             },
             seo: true,
