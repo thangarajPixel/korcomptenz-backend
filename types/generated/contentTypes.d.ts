@@ -2147,6 +2147,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.slider-service-section',
         'page-componets.microsoft-gold-certified',
         'page-componets.sap-questionnaire',
+        'page-componets.banking-financial-banner',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

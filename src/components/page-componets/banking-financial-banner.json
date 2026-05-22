@@ -1,0 +1,85 @@
+{
+  "collectionName": "components_page_componets_banking_financial_banners",
+  "info": {
+    "displayName": "banking-financial-Banner"
+  },
+  "options": {},
+  "attributes": {
+    "subtitle": {
+      "type": "string"
+    },
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "imageMobile": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "isTarget": {
+      "type": "boolean"
+    },
+    "isHasFooter": {
+      "type": "boolean"
+    },
+    "list": {
+      "type": "component",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isHasFooter"
+            },
+            true
+          ]
+        }
+      },
+      "component": "sub-page-componets.footer-list",
+      "repeatable": true
+    },
+    "noofcolumns": {
+      "type": "enumeration",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isHasFooter"
+            },
+            true
+          ]
+        }
+      },
+      "enum": [
+        "col-span-4",
+        "col-span-3"
+      ]
+    }
+  },
+  "config": {}
+}

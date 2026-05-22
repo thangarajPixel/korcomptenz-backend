@@ -2103,6 +2103,39 @@ export interface NotFoundNotFound extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsBankingFinancialBanner
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_banking_financial_banners';
+  info: {
+    displayName: 'banking-financial-Banner';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    imageMobile: Schema.Attribute.Media<'images'>;
+    isHasFooter: Schema.Attribute.Boolean;
+    isTarget: Schema.Attribute.Boolean;
+    list: Schema.Attribute.Component<'sub-page-componets.footer-list', true>;
+    noofcolumns: Schema.Attribute.Enumeration<['col-span-4', 'col-span-3']>;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface PageComponetsBannerSectionList extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_banner_section_lists';
   info: {
@@ -4158,6 +4191,33 @@ export interface SubPageComponetsDigitialStats extends Struct.ComponentSchema {
   };
 }
 
+export interface SubPageComponetsFooterList extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_footer_lists';
+  info: {
+    displayName: 'footerList';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface SubPageComponetsGramBannerList extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_gram_banner_lists';
   info: {
@@ -4418,6 +4478,7 @@ declare module '@strapi/strapi' {
       'news-and-event.simple-image-gallery': NewsAndEventSimpleImageGallery;
       'news-and-event.testimonal-list': NewsAndEventTestimonalList;
       'not-found.not-found': NotFoundNotFound;
+      'page-componets.banking-financial-banner': PageComponetsBankingFinancialBanner;
       'page-componets.banner-section-list': PageComponetsBannerSectionList;
       'page-componets.benefit-data': PageComponetsBenefitData;
       'page-componets.benifit-cards': PageComponetsBenifitCards;
@@ -4527,6 +4588,7 @@ declare module '@strapi/strapi' {
       'sub-page-componets.digitial-countries': SubPageComponetsDigitialCountries;
       'sub-page-componets.digitial-features': SubPageComponetsDigitialFeatures;
       'sub-page-componets.digitial-stats': SubPageComponetsDigitialStats;
+      'sub-page-componets.footer-list': SubPageComponetsFooterList;
       'sub-page-componets.gram-banner-list': SubPageComponetsGramBannerList;
       'sub-page-componets.image-list': SubPageComponetsImageList;
       'sub-page-componets.list': SubPageComponetsList;
