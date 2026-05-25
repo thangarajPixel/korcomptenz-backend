@@ -81,6 +81,15 @@
         "Download",
         "Video"
       ]
+    },
+    "buttonColor": {
+      "type": "enumeration",
+      "enum": [
+        "Primary",
+        "White",
+        "Blue",
+        "Black"
+      ]
     }
   },
   "config": {}

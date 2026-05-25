@@ -4904,6 +4904,9 @@ export interface SubPageComponetsIndustryFeaturedList
   attributes: {
     bgColor: Schema.Attribute.String;
     bgImage: Schema.Attribute.Media<'images'>;
+    buttonColor: Schema.Attribute.Enumeration<
+      ['Primary', 'White', 'Blue', 'Black']
+    >;
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
