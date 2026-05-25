@@ -917,6 +917,15 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "page-componets.cloud-recognition": {
+                  populate: {
+                    list: {
+                      populate: {
+                        image: true,
+                      },
+                    },
+                  },
+                },
               },
             },
             seo: true,

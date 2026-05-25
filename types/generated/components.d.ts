@@ -2271,6 +2271,34 @@ export interface PageComponetsCard extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsCloudRecognition extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_cloud_recognitions';
+  info: {
+    displayName: 'cloud-recognition';
+    icon: 'crown';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    list: Schema.Attribute.Component<
+      'sub-page-componets.cloud-recognition-list',
+      true
+    >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface PageComponetsCombinedAboutCardSlider
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_combined_about_card_sliders';
@@ -4330,6 +4358,34 @@ export interface SubPageComponetsBuildDataRightSection
   };
 }
 
+export interface SubPageComponetsCloudRecognitionList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_cloud_recognition_lists';
+  info: {
+    displayName: 'cloud-recognition-list';
+    icon: 'heart';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    isTitleDescription: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface SubPageComponetsDigitialCountries
   extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_digitial_countries';
@@ -4699,6 +4755,7 @@ declare module '@strapi/strapi' {
       'page-componets.build-data': PageComponetsBuildData;
       'page-componets.build-datas': PageComponetsBuildDatas;
       'page-componets.card': PageComponetsCard;
+      'page-componets.cloud-recognition': PageComponetsCloudRecognition;
       'page-componets.combined-about-card-slider': PageComponetsCombinedAboutCardSlider;
       'page-componets.custom-footer': PageComponetsCustomFooter;
       'page-componets.custom-footer-list': PageComponetsCustomFooterList;
@@ -4803,6 +4860,7 @@ declare module '@strapi/strapi' {
       'service.banner-section-data': ServiceBannerSectionData;
       'sub-page-componets.badges': SubPageComponetsBadges;
       'sub-page-componets.build-data-right-section': SubPageComponetsBuildDataRightSection;
+      'sub-page-componets.cloud-recognition-list': SubPageComponetsCloudRecognitionList;
       'sub-page-componets.digitial-countries': SubPageComponetsDigitialCountries;
       'sub-page-componets.digitial-features': SubPageComponetsDigitialFeatures;
       'sub-page-componets.digitial-stats': SubPageComponetsDigitialStats;
