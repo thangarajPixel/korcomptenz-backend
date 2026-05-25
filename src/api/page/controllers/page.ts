@@ -973,6 +973,16 @@ export default factories.createCoreController(
                     }
                   },
                 },
+                "page-componets.cloud-banner": {
+                  populate: {
+                    image: true,
+                    list: {
+                      populate: {
+                        subList: true,
+                      }
+                    }
+                  },
+                },
               },
             },
             seo: true,

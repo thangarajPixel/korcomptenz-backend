@@ -2231,6 +2231,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.cloud-first-call',
         'page-componets.cloud-ai-power',
         'page-componets.cloud-readiness-report',
+        'page-componets.cloud-banner',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

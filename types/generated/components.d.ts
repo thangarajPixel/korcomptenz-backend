@@ -2330,6 +2330,49 @@ export interface PageComponetsCloudAiPower extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsCloudBanner extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_cloud_banners';
+  info: {
+    displayName: 'cloud-banner';
+    icon: 'cloud';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.String;
+    buttonLinkOne: Schema.Attribute.String;
+    buttonLinkTwo: Schema.Attribute.String;
+    buttonTextOne: Schema.Attribute.String;
+    buttonTextTwo: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    isTargetOne: Schema.Attribute.Boolean;
+    isTargetTwo: Schema.Attribute.Boolean;
+    list: Schema.Attribute.Component<
+      'sub-page-componets.cloud-banner-list',
+      false
+    >;
+    subHeading: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface PageComponetsCloudFirstCall extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_cloud_first_calls';
   info: {
@@ -4658,6 +4701,22 @@ export interface SubPageComponetsCloudAiPowerList
   };
 }
 
+export interface SubPageComponetsCloudBannerList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_cloud_banner_lists';
+  info: {
+    displayName: 'cloud-banner-list';
+    icon: 'envelop';
+  };
+  attributes: {
+    subList: Schema.Attribute.Component<
+      'sub-page-componets.title-description',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SubPageComponetsCloudFirstCallList
   extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_cloud_first_call_lists';
@@ -5173,6 +5232,7 @@ declare module '@strapi/strapi' {
       'page-componets.build-datas': PageComponetsBuildDatas;
       'page-componets.card': PageComponetsCard;
       'page-componets.cloud-ai-power': PageComponetsCloudAiPower;
+      'page-componets.cloud-banner': PageComponetsCloudBanner;
       'page-componets.cloud-first-call': PageComponetsCloudFirstCall;
       'page-componets.cloud-one-platform': PageComponetsCloudOnePlatform;
       'page-componets.cloud-readiness-report': PageComponetsCloudReadinessReport;
@@ -5284,6 +5344,7 @@ declare module '@strapi/strapi' {
       'sub-page-componets.badges': SubPageComponetsBadges;
       'sub-page-componets.build-data-right-section': SubPageComponetsBuildDataRightSection;
       'sub-page-componets.cloud-ai-power-list': SubPageComponetsCloudAiPowerList;
+      'sub-page-componets.cloud-banner-list': SubPageComponetsCloudBannerList;
       'sub-page-componets.cloud-first-call-list': SubPageComponetsCloudFirstCallList;
       'sub-page-componets.cloud-recognition-list': SubPageComponetsCloudRecognitionList;
       'sub-page-componets.digitial-countries': SubPageComponetsDigitialCountries;
