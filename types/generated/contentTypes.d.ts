@@ -2227,6 +2227,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.cloud-technology',
         'page-componets.cloud-one-platform',
         'page-componets.cloud-first-call',
+        'page-componets.cloud-ai-power',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

@@ -954,6 +954,16 @@ export default factories.createCoreController(
                     listFive: true,
                   },
                 },
+                "page-componets.cloud-ai-power": {
+                  populate: {
+                    list: {
+                      populate: {
+                        bgImage: true,
+                        subList: true,
+                      },
+                    },
+                  },
+                },
               },
             },
             seo: true,

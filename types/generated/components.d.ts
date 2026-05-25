@@ -2271,6 +2271,41 @@ export interface PageComponetsCard extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsCloudAiPower extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_cloud_ai_powers';
+  info: {
+    displayName: 'cloud-ai-power';
+    icon: 'eye';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    list: Schema.Attribute.Component<
+      'sub-page-componets.cloud-ai-power-list',
+      true
+    >;
+    subHeading: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface PageComponetsCloudFirstCall extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_cloud_first_calls';
   info: {
@@ -4516,6 +4551,47 @@ export interface SubPageComponetsBuildDataRightSection
   };
 }
 
+export interface SubPageComponetsCloudAiPowerList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_cloud_ai_power_lists';
+  info: {
+    displayName: 'cloud-ai-power-list';
+    icon: 'shirt';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.String;
+    bgImage: Schema.Attribute.Media<'images'>;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    isTarget: Schema.Attribute.Boolean;
+    subList: Schema.Attribute.Component<
+      'sub-page-componets.title-description',
+      true
+    >;
+    tabTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface SubPageComponetsCloudFirstCallList
   extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_cloud_first_call_lists';
@@ -4972,6 +5048,7 @@ declare module '@strapi/strapi' {
       'page-componets.build-data': PageComponetsBuildData;
       'page-componets.build-datas': PageComponetsBuildDatas;
       'page-componets.card': PageComponetsCard;
+      'page-componets.cloud-ai-power': PageComponetsCloudAiPower;
       'page-componets.cloud-first-call': PageComponetsCloudFirstCall;
       'page-componets.cloud-one-platform': PageComponetsCloudOnePlatform;
       'page-componets.cloud-recognition': PageComponetsCloudRecognition;
@@ -5081,6 +5158,7 @@ declare module '@strapi/strapi' {
       'service.banner-section-data': ServiceBannerSectionData;
       'sub-page-componets.badges': SubPageComponetsBadges;
       'sub-page-componets.build-data-right-section': SubPageComponetsBuildDataRightSection;
+      'sub-page-componets.cloud-ai-power-list': SubPageComponetsCloudAiPowerList;
       'sub-page-componets.cloud-first-call-list': SubPageComponetsCloudFirstCallList;
       'sub-page-componets.cloud-recognition-list': SubPageComponetsCloudRecognitionList;
       'sub-page-componets.digitial-countries': SubPageComponetsDigitialCountries;

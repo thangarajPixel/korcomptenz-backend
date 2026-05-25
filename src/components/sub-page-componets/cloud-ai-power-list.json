@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_sub_page_componets_cloud_ai_power_lists",
+  "info": {
+    "displayName": "cloud-ai-power-list",
+    "icon": "shirt"
+  },
+  "options": {},
+  "attributes": {
+    "tabTitle": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "bgImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "bgColor": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "isTarget": {
+      "type": "boolean"
+    },
+    "subList": {
+      "type": "component",
+      "component": "sub-page-componets.title-description",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
