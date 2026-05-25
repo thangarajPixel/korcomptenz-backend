@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sub_page_componets_title_multi_descriptions",
+  "info": {
+    "displayName": "title-multi-description",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "description": {
+      "type": "component",
+      "component": "sub-page-componets.description",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

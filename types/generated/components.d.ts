@@ -3802,6 +3802,45 @@ export interface PageComponetsIndustryIntelligentExperience
   };
 }
 
+export interface PageComponetsIndustryServicePortfolio
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_industry_service_portfolios';
+  info: {
+    displayName: 'industry-service-portfolio';
+    icon: 'fileError';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    isTarget: Schema.Attribute.Boolean;
+    list: Schema.Attribute.Component<
+      'sub-page-componets.industry-service-list',
+      false
+    >;
+    subHeading: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface PageComponetsIndustrySolutionSpotlight
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_industry_solution_spotlights';
@@ -4777,6 +4816,23 @@ export interface SubPageComponetsCloudRecognitionList
   };
 }
 
+export interface SubPageComponetsDescription extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_descriptions';
+  info: {
+    displayName: 'description';
+    icon: 'cog';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface SubPageComponetsDigitialCountries
   extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_digitial_countries';
@@ -4933,6 +4989,58 @@ export interface SubPageComponetsIndustryFeaturedList
   };
 }
 
+export interface SubPageComponetsIndustryServiceList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_industry_service_lists';
+  info: {
+    displayName: 'industry-service-list';
+    icon: 'filter';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    list: Schema.Attribute.Component<
+      'sub-page-componets.industry-service-sublist',
+      true
+    >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
+export interface SubPageComponetsIndustryServiceSublist
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_industry_service_sublists';
+  info: {
+    displayName: 'industry-service-sublist';
+    icon: 'cloud';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images'>;
+    subList: Schema.Attribute.Component<
+      'sub-page-componets.title-multi-description',
+      false
+    >;
+    tabTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface SubPageComponetsIndustrySpotlightList
   extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_industry_spotlight_lists';
@@ -5079,6 +5187,28 @@ export interface SubPageComponetsTitleDescription
           preset: 'defaultHtml';
         }
       >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
+export interface SubPageComponetsTitleMultiDescription
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_title_multi_descriptions';
+  info: {
+    displayName: 'title-multi-description';
+    icon: 'code';
+  };
+  attributes: {
+    description: Schema.Attribute.Component<
+      'sub-page-componets.description',
+      true
+    >;
     title: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -5300,6 +5430,7 @@ declare module '@strapi/strapi' {
       'page-componets.industry-build-data': PageComponetsIndustryBuildData;
       'page-componets.industry-featured-content': PageComponetsIndustryFeaturedContent;
       'page-componets.industry-intelligent-experience': PageComponetsIndustryIntelligentExperience;
+      'page-componets.industry-service-portfolio': PageComponetsIndustryServicePortfolio;
       'page-componets.industry-solution-spotlight': PageComponetsIndustrySolutionSpotlight;
       'page-componets.insights-section': PageComponetsInsightsSection;
       'page-componets.insights-section-card': PageComponetsInsightsSectionCard;
@@ -5350,6 +5481,7 @@ declare module '@strapi/strapi' {
       'sub-page-componets.cloud-banner-list': SubPageComponetsCloudBannerList;
       'sub-page-componets.cloud-first-call-list': SubPageComponetsCloudFirstCallList;
       'sub-page-componets.cloud-recognition-list': SubPageComponetsCloudRecognitionList;
+      'sub-page-componets.description': SubPageComponetsDescription;
       'sub-page-componets.digitial-countries': SubPageComponetsDigitialCountries;
       'sub-page-componets.digitial-features': SubPageComponetsDigitialFeatures;
       'sub-page-componets.digitial-stats': SubPageComponetsDigitialStats;
@@ -5358,6 +5490,8 @@ declare module '@strapi/strapi' {
       'sub-page-componets.image-list': SubPageComponetsImageList;
       'sub-page-componets.industry-experience-list': SubPageComponetsIndustryExperienceList;
       'sub-page-componets.industry-featured-list': SubPageComponetsIndustryFeaturedList;
+      'sub-page-componets.industry-service-list': SubPageComponetsIndustryServiceList;
+      'sub-page-componets.industry-service-sublist': SubPageComponetsIndustryServiceSublist;
       'sub-page-componets.industry-spotlight-list': SubPageComponetsIndustrySpotlightList;
       'sub-page-componets.list': SubPageComponetsList;
       'sub-page-componets.pricing-plan': SubPageComponetsPricingPlan;
@@ -5366,6 +5500,7 @@ declare module '@strapi/strapi' {
       'sub-page-componets.sublist': SubPageComponetsSublist;
       'sub-page-componets.tab-list': SubPageComponetsTabList;
       'sub-page-componets.title-description': SubPageComponetsTitleDescription;
+      'sub-page-componets.title-multi-description': SubPageComponetsTitleMultiDescription;
     }
   }
 }

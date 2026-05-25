@@ -917,6 +917,24 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "page-componets.industry-service-portfolio": {
+                  populate: {
+                    list: {
+                      populate: {
+                        list: {
+                          populate: {
+                            image: true,
+                            subList: {
+                              populate: {
+                                description: true
+                              }
+                            }
+                          }
+                        }
+                      },
+                    },
+                  },
+                },
                 "page-componets.cloud-recognition": {
                   populate: {
                     list: {
