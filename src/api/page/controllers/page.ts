@@ -964,6 +964,15 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "page-componets.cloud-readiness-report": {
+                  populate: {
+                    form: {
+                      populate: {
+                        forms: true,
+                      },
+                    }
+                  },
+                },
               },
             },
             seo: true,

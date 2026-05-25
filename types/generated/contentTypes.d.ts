@@ -1376,6 +1376,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'forrester-report',
         'newsletter-subscription',
         'industry-form',
+        'cloud-form',
       ]
     > &
       Schema.Attribute.Required;
@@ -1393,6 +1394,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.forrester-report-download',
         'form-fields.newsletter-subscription',
         'form-fields.industry-form',
+        'form-fields.cloud-form',
       ]
     > &
       Schema.Attribute.Required &
@@ -2228,6 +2230,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.cloud-one-platform',
         'page-componets.cloud-first-call',
         'page-componets.cloud-ai-power',
+        'page-componets.cloud-readiness-report',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

@@ -1044,6 +1044,30 @@ export interface FormFieldsCaseForm extends Struct.ComponentSchema {
   };
 }
 
+export interface FormFieldsCloudForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_cloud_forms';
+  info: {
+    displayName: 'cloud-form';
+    icon: 'eye';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    companyLabel: Schema.Attribute.String;
+    firstNameLabel: Schema.Attribute.String;
+    infrastructureLabel: Schema.Attribute.String;
+    lastNameLabel: Schema.Attribute.String;
+    migrationUrgencyLabel: Schema.Attribute.String;
+    roleLabel: Schema.Attribute.String;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface FormFieldsContactUsForm extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_contact_us_forms';
   info: {
@@ -2391,6 +2415,42 @@ export interface PageComponetsCloudOnePlatform extends Struct.ComponentSchema {
         }
       >;
     videoUrl: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsCloudReadinessReport
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_cloud_readiness_reports';
+  info: {
+    displayName: 'cloud-readiness-report';
+    icon: 'check';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    isTarget: Schema.Attribute.Boolean;
+    subHeading: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
   };
 }
 
@@ -4972,6 +5032,7 @@ declare module '@strapi/strapi' {
       'form-fields.book-demo-form': FormFieldsBookDemoForm;
       'form-fields.career': FormFieldsCareer;
       'form-fields.case-form': FormFieldsCaseForm;
+      'form-fields.cloud-form': FormFieldsCloudForm;
       'form-fields.contact-us-form': FormFieldsContactUsForm;
       'form-fields.fabcon-book-meet': FormFieldsFabconBookMeet;
       'form-fields.form': FormFieldsForm;
@@ -5051,6 +5112,7 @@ declare module '@strapi/strapi' {
       'page-componets.cloud-ai-power': PageComponetsCloudAiPower;
       'page-componets.cloud-first-call': PageComponetsCloudFirstCall;
       'page-componets.cloud-one-platform': PageComponetsCloudOnePlatform;
+      'page-componets.cloud-readiness-report': PageComponetsCloudReadinessReport;
       'page-componets.cloud-recognition': PageComponetsCloudRecognition;
       'page-componets.cloud-technology': PageComponetsCloudTechnology;
       'page-componets.cloud-warning-signs': PageComponetsCloudWarningSigns;

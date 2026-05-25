@@ -25,7 +25,8 @@
         "form-fields.fabcon-book-meet",
         "form-fields.forrester-report-download",
         "form-fields.newsletter-subscription",
-        "form-fields.industry-form"
+        "form-fields.industry-form",
+        "form-fields.cloud-form"
       ],
       "required": true,
       "min": 1,
@@ -49,7 +50,8 @@
         "reserve-my-fabcon-form",
         "forrester-report",
         "newsletter-subscription",
-        "industry-form"
+        "industry-form",
+        "cloud-form"
       ]
     }
   }
