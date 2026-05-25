@@ -110,7 +110,8 @@
         "page-componets.industry-solution-spotlight",
         "page-componets.industry-intelligent-experience",
         "page-componets.industry-featured-content",
-        "page-componets.cloud-recognition"
+        "page-componets.cloud-recognition",
+        "page-componets.cloud-warning-signs"
       ]
     }
   }

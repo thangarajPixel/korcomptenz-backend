@@ -926,6 +926,11 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "page-componets.cloud-warning-signs": {
+                  populate: {
+                    list: true,
+                  },
+                },
               },
             },
             seo: true,

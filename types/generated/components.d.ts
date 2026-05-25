@@ -2299,6 +2299,41 @@ export interface PageComponetsCloudRecognition extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsCloudWarningSigns extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_cloud_warning_signs';
+  info: {
+    displayName: 'cloud-warning-signs';
+    icon: 'expand';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    list: Schema.Attribute.Component<
+      'sub-page-componets.title-description',
+      true
+    >;
+    subHeading: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface PageComponetsCombinedAboutCardSlider
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_combined_about_card_sliders';
@@ -4611,6 +4646,31 @@ export interface SubPageComponetsTabList extends Struct.ComponentSchema {
   };
 }
 
+export interface SubPageComponetsTitleDescription
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_title_descriptions';
+  info: {
+    displayName: 'title-description';
+    icon: 'feather';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -4756,6 +4816,7 @@ declare module '@strapi/strapi' {
       'page-componets.build-datas': PageComponetsBuildDatas;
       'page-componets.card': PageComponetsCard;
       'page-componets.cloud-recognition': PageComponetsCloudRecognition;
+      'page-componets.cloud-warning-signs': PageComponetsCloudWarningSigns;
       'page-componets.combined-about-card-slider': PageComponetsCombinedAboutCardSlider;
       'page-componets.custom-footer': PageComponetsCustomFooter;
       'page-componets.custom-footer-list': PageComponetsCustomFooterList;
@@ -4874,6 +4935,7 @@ declare module '@strapi/strapi' {
       'sub-page-componets.sub-list': SubPageComponetsSubList;
       'sub-page-componets.sublist': SubPageComponetsSublist;
       'sub-page-componets.tab-list': SubPageComponetsTabList;
+      'sub-page-componets.title-description': SubPageComponetsTitleDescription;
     }
   }
 }
