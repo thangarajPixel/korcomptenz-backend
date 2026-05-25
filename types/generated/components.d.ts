@@ -2299,6 +2299,41 @@ export interface PageComponetsCloudRecognition extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsCloudTechnology extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_cloud_technologies';
+  info: {
+    displayName: 'cloud-technology';
+    icon: 'check';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    list: Schema.Attribute.Component<
+      'sub-page-componets.cloud-recognition-list',
+      true
+    >;
+    subHeading: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface PageComponetsCloudWarningSigns extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_cloud_warning_signs';
   info: {
@@ -4816,6 +4851,7 @@ declare module '@strapi/strapi' {
       'page-componets.build-datas': PageComponetsBuildDatas;
       'page-componets.card': PageComponetsCard;
       'page-componets.cloud-recognition': PageComponetsCloudRecognition;
+      'page-componets.cloud-technology': PageComponetsCloudTechnology;
       'page-componets.cloud-warning-signs': PageComponetsCloudWarningSigns;
       'page-componets.combined-about-card-slider': PageComponetsCombinedAboutCardSlider;
       'page-componets.custom-footer': PageComponetsCustomFooter;

@@ -931,6 +931,15 @@ export default factories.createCoreController(
                     list: true,
                   },
                 },
+                "page-componets.cloud-technology": {
+                  populate: {
+                    list: {
+                      populate: {
+                        image: true,
+                      },
+                    },
+                  },
+                },
               },
             },
             seo: true,
