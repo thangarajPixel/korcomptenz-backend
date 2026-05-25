@@ -2225,6 +2225,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.cloud-recognition',
         'page-componets.cloud-warning-signs',
         'page-componets.cloud-technology',
+        'page-componets.cloud-one-platform',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

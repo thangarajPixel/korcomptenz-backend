@@ -2271,6 +2271,43 @@ export interface PageComponetsCard extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsCloudOnePlatform extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_cloud_one_platforms';
+  info: {
+    displayName: 'cloud-one-platform';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean;
+    isVideoUrl: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    subHeading: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    videoUrl: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsCloudRecognition extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_cloud_recognitions';
   info: {
@@ -4851,6 +4888,7 @@ declare module '@strapi/strapi' {
       'page-componets.build-data': PageComponetsBuildData;
       'page-componets.build-datas': PageComponetsBuildDatas;
       'page-componets.card': PageComponetsCard;
+      'page-componets.cloud-one-platform': PageComponetsCloudOnePlatform;
       'page-componets.cloud-recognition': PageComponetsCloudRecognition;
       'page-componets.cloud-technology': PageComponetsCloudTechnology;
       'page-componets.cloud-warning-signs': PageComponetsCloudWarningSigns;

@@ -1,0 +1,65 @@
+{
+  "collectionName": "components_page_componets_cloud_one_platforms",
+  "info": {
+    "displayName": "cloud-one-platform",
+    "icon": "chartBubble"
+  },
+  "options": {},
+  "attributes": {
+    "subHeading": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "isTarget": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "isVideoUrl": {
+      "type": "boolean",
+      "default": false
+    },
+    "videoUrl": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isVideoUrl"
+            },
+            true
+          ]
+        }
+      }
+    }
+  },
+  "config": {}
+}

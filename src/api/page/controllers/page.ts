@@ -940,6 +940,11 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "page-componets.cloud-one-platform": {
+                  populate: {
+                    image: true,
+                  },
+                },
               },
             },
             seo: true,
