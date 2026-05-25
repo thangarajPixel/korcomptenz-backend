@@ -3738,7 +3738,10 @@ export interface PageComponetsIndustryIntelligentExperience
           preset: 'defaultHtml';
         }
       >;
-    list: Schema.Attribute.Component<'sub-page-componets.footer-list', true>;
+    list: Schema.Attribute.Component<
+      'sub-page-componets.industry-experience-list',
+      true
+    >;
     subHeading: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -3771,7 +3774,10 @@ export interface PageComponetsIndustrySolutionSpotlight
           preset: 'defaultHtml';
         }
       >;
-    list: Schema.Attribute.Component<'sub-page-componets.footer-list', true>;
+    list: Schema.Attribute.Component<
+      'sub-page-componets.industry-spotlight-list',
+      true
+    >;
     subHeading: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -4756,9 +4762,7 @@ export interface SubPageComponetsFooterList extends Struct.ComponentSchema {
     displayName: 'footerList';
   };
   attributes: {
-    bgColor: Schema.Attribute.String;
     buttonLink: Schema.Attribute.String;
-    buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -4768,7 +4772,6 @@ export interface SubPageComponetsFooterList extends Struct.ComponentSchema {
       >;
     image: Schema.Attribute.Media<'images'>;
     isTarget: Schema.Attribute.Boolean;
-    linkType: Schema.Attribute.Enumeration<['ThirdParty', 'Download']>;
     title: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -4802,6 +4805,36 @@ export interface SubPageComponetsImageList extends Struct.ComponentSchema {
   };
 }
 
+export interface SubPageComponetsIndustryExperienceList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_industry_experience_lists';
+  info: {
+    displayName: 'industry-experience-list';
+    icon: 'cloud';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean;
+    linkType: Schema.Attribute.Enumeration<['Third Party', 'Download']>;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface SubPageComponetsIndustryFeaturedList
   extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_industry_featured_lists';
@@ -4828,6 +4861,36 @@ export interface SubPageComponetsIndustryFeaturedList
     linkType: Schema.Attribute.Enumeration<
       ['Third Party', 'Download', 'Video']
     >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
+export interface SubPageComponetsIndustrySpotlightList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_industry_spotlight_lists';
+  info: {
+    displayName: 'industry-spotlight-list';
+    icon: 'cog';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.String;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    isTarget: Schema.Attribute.Boolean;
     title: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -5229,7 +5292,9 @@ declare module '@strapi/strapi' {
       'sub-page-componets.footer-list': SubPageComponetsFooterList;
       'sub-page-componets.gram-banner-list': SubPageComponetsGramBannerList;
       'sub-page-componets.image-list': SubPageComponetsImageList;
+      'sub-page-componets.industry-experience-list': SubPageComponetsIndustryExperienceList;
       'sub-page-componets.industry-featured-list': SubPageComponetsIndustryFeaturedList;
+      'sub-page-componets.industry-spotlight-list': SubPageComponetsIndustrySpotlightList;
       'sub-page-componets.list': SubPageComponetsList;
       'sub-page-componets.pricing-plan': SubPageComponetsPricingPlan;
       'sub-page-componets.responsive-image': SubPageComponetsResponsiveImage;

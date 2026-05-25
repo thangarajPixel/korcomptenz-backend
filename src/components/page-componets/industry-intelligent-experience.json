@@ -29,7 +29,7 @@
     },
     "list": {
       "type": "component",
-      "component": "sub-page-componets.footer-list",
+      "component": "sub-page-componets.industry-experience-list",
       "repeatable": true
     }
   },

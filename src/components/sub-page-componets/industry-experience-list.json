@@ -1,7 +1,8 @@
 {
-  "collectionName": "components_sub_page_componets_footer_lists",
+  "collectionName": "components_sub_page_componets_industry_experience_lists",
   "info": {
-    "displayName": "footerList"
+    "displayName": "industry-experience-list",
+    "icon": "cloud"
   },
   "options": {},
   "attributes": {
@@ -26,11 +27,21 @@
         "preset": "defaultHtml"
       }
     },
+    "buttonText": {
+      "type": "string"
+    },
     "buttonLink": {
       "type": "string"
     },
     "isTarget": {
       "type": "boolean"
+    },
+    "linkType": {
+      "type": "enumeration",
+      "enum": [
+        "Third Party",
+        "Download"
+      ]
     }
   },
   "config": {}

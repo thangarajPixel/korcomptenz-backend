@@ -1,7 +1,8 @@
 {
-  "collectionName": "components_sub_page_componets_footer_lists",
+  "collectionName": "components_sub_page_componets_industry_spotlight_lists",
   "info": {
-    "displayName": "footerList"
+    "displayName": "industry-spotlight-list",
+    "icon": "cog"
   },
   "options": {},
   "attributes": {
@@ -25,6 +26,12 @@
       "options": {
         "preset": "defaultHtml"
       }
+    },
+    "bgColor": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
     },
     "buttonLink": {
       "type": "string"
