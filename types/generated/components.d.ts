@@ -2271,6 +2271,57 @@ export interface PageComponetsCard extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsCloudFirstCall extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_cloud_first_calls';
+  info: {
+    displayName: 'cloud-first-call';
+    icon: 'chartCircle';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    listFive: Schema.Attribute.Component<
+      'sub-page-componets.cloud-first-call-list',
+      false
+    >;
+    listFour: Schema.Attribute.Component<
+      'sub-page-componets.cloud-first-call-list',
+      false
+    >;
+    listOne: Schema.Attribute.Component<
+      'sub-page-componets.cloud-first-call-list',
+      false
+    >;
+    listThree: Schema.Attribute.Component<
+      'sub-page-componets.cloud-first-call-list',
+      false
+    >;
+    listTwo: Schema.Attribute.Component<
+      'sub-page-componets.cloud-first-call-list',
+      false
+    >;
+    subHeading: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface PageComponetsCloudOnePlatform extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_cloud_one_platforms';
   info: {
@@ -4465,6 +4516,38 @@ export interface SubPageComponetsBuildDataRightSection
   };
 }
 
+export interface SubPageComponetsCloudFirstCallList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_cloud_first_call_lists';
+  info: {
+    displayName: 'cloud-first-call-list';
+    icon: 'filter';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    duration: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface SubPageComponetsCloudRecognitionList
   extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_cloud_recognition_lists';
@@ -4602,6 +4685,7 @@ export interface SubPageComponetsIndustryFeaturedList
           preset: 'defaultHtml';
         }
       >;
+    image: Schema.Attribute.Media<'images'>;
     isBgImage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isFirstCard: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTarget: Schema.Attribute.Boolean;
@@ -4888,6 +4972,7 @@ declare module '@strapi/strapi' {
       'page-componets.build-data': PageComponetsBuildData;
       'page-componets.build-datas': PageComponetsBuildDatas;
       'page-componets.card': PageComponetsCard;
+      'page-componets.cloud-first-call': PageComponetsCloudFirstCall;
       'page-componets.cloud-one-platform': PageComponetsCloudOnePlatform;
       'page-componets.cloud-recognition': PageComponetsCloudRecognition;
       'page-componets.cloud-technology': PageComponetsCloudTechnology;
@@ -4996,6 +5081,7 @@ declare module '@strapi/strapi' {
       'service.banner-section-data': ServiceBannerSectionData;
       'sub-page-componets.badges': SubPageComponetsBadges;
       'sub-page-componets.build-data-right-section': SubPageComponetsBuildDataRightSection;
+      'sub-page-componets.cloud-first-call-list': SubPageComponetsCloudFirstCallList;
       'sub-page-componets.cloud-recognition-list': SubPageComponetsCloudRecognitionList;
       'sub-page-componets.digitial-countries': SubPageComponetsDigitialCountries;
       'sub-page-componets.digitial-features': SubPageComponetsDigitialFeatures;

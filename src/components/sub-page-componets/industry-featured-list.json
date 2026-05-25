@@ -33,6 +33,13 @@
     "isTarget": {
       "type": "boolean"
     },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "isBgImage": {
       "type": "boolean",
       "default": false

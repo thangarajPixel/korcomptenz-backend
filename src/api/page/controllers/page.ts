@@ -945,6 +945,15 @@ export default factories.createCoreController(
                     image: true,
                   },
                 },
+                "page-componets.cloud-first-call": {
+                  populate: {
+                    listOne: true,
+                    listTwo: true,
+                    listThree: true,
+                    listFour: true,
+                    listFive: true,
+                  },
+                },
               },
             },
             seo: true,
