@@ -4500,6 +4500,7 @@ export interface SubPageComponetsFooterList extends Struct.ComponentSchema {
     displayName: 'footerList';
   };
   attributes: {
+    bgColor: Schema.Attribute.String;
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
