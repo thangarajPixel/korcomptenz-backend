@@ -1014,6 +1014,134 @@ export interface ApiCaseTechnologyCaseTechnology
   };
 }
 
+export interface ApiCloudInfrastructureCloudInfrastructure
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'cloud_infrastructures';
+  info: {
+    displayName: 'cloud-infrastructure';
+    pluralName: 'cloud-infrastructures';
+    singularName: 'cloud-infrastructure';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cloud-infrastructure.cloud-infrastructure'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCloudLeadCloudLead extends Struct.CollectionTypeSchema {
+  collectionName: 'cloud_leads';
+  info: {
+    displayName: 'cloud-lead';
+    pluralName: 'cloud-leads';
+    singularName: 'cloud-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    firstName: Schema.Attribute.String & Schema.Attribute.Required;
+    infrastructure: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::cloud-infrastructure.cloud-infrastructure'
+    >;
+    lastName: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cloud-lead.cloud-lead'
+    > &
+      Schema.Attribute.Private;
+    migrationUrgency: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::cloud-migration-urgency.cloud-migration-urgency'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.Relation<'oneToOne', 'api::cloud-role.cloud-role'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCloudMigrationUrgencyCloudMigrationUrgency
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'cloud_migration_urgencies';
+  info: {
+    displayName: 'cloud-migration-urgency';
+    pluralName: 'cloud-migration-urgencies';
+    singularName: 'cloud-migration-urgency';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cloud-migration-urgency.cloud-migration-urgency'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCloudRoleCloudRole extends Struct.CollectionTypeSchema {
+  collectionName: 'cloud_roles';
+  info: {
+    displayName: 'cloud-role';
+    pluralName: 'cloud-roles';
+    singularName: 'cloud-role';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cloud-role.cloud-role'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
   collectionName: 'company_details';
   info: {
@@ -3003,6 +3131,10 @@ declare module '@strapi/strapi' {
       'api::case-study-sponser.case-study-sponser': ApiCaseStudySponserCaseStudySponser;
       'api::case-study.case-study': ApiCaseStudyCaseStudy;
       'api::case-technology.case-technology': ApiCaseTechnologyCaseTechnology;
+      'api::cloud-infrastructure.cloud-infrastructure': ApiCloudInfrastructureCloudInfrastructure;
+      'api::cloud-lead.cloud-lead': ApiCloudLeadCloudLead;
+      'api::cloud-migration-urgency.cloud-migration-urgency': ApiCloudMigrationUrgencyCloudMigrationUrgency;
+      'api::cloud-role.cloud-role': ApiCloudRoleCloudRole;
       'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;
       'api::contact-us-lead.contact-us-lead': ApiContactUsLeadContactUsLead;
       'api::contact-us.contact-us': ApiContactUsContactUs;
