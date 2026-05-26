@@ -2373,6 +2373,41 @@ export interface PageComponetsCloudBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsCloudBuiltPeople extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_cloud_built_people';
+  info: {
+    displayName: 'cloud-built-people';
+    icon: 'collapse';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    list: Schema.Attribute.Component<
+      'sub-page-componets.cloud-buil-list',
+      true
+    >;
+    subHeading: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface PageComponetsCloudFirstCall extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_cloud_first_calls';
   info: {
@@ -4756,6 +4791,44 @@ export interface SubPageComponetsCloudBannerList
   };
 }
 
+export interface SubPageComponetsCloudBuilList extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_cloud_buil_lists';
+  info: {
+    displayName: 'cloud-buil-list';
+    icon: 'chartCircle';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    message: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    roleSubtitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    roleTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface SubPageComponetsCloudFirstCallList
   extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_cloud_first_call_lists';
@@ -5366,6 +5439,7 @@ declare module '@strapi/strapi' {
       'page-componets.card': PageComponetsCard;
       'page-componets.cloud-ai-power': PageComponetsCloudAiPower;
       'page-componets.cloud-banner': PageComponetsCloudBanner;
+      'page-componets.cloud-built-people': PageComponetsCloudBuiltPeople;
       'page-componets.cloud-first-call': PageComponetsCloudFirstCall;
       'page-componets.cloud-one-platform': PageComponetsCloudOnePlatform;
       'page-componets.cloud-readiness-report': PageComponetsCloudReadinessReport;
@@ -5479,6 +5553,7 @@ declare module '@strapi/strapi' {
       'sub-page-componets.build-data-right-section': SubPageComponetsBuildDataRightSection;
       'sub-page-componets.cloud-ai-power-list': SubPageComponetsCloudAiPowerList;
       'sub-page-componets.cloud-banner-list': SubPageComponetsCloudBannerList;
+      'sub-page-componets.cloud-buil-list': SubPageComponetsCloudBuilList;
       'sub-page-componets.cloud-first-call-list': SubPageComponetsCloudFirstCallList;
       'sub-page-componets.cloud-recognition-list': SubPageComponetsCloudRecognitionList;
       'sub-page-componets.description': SubPageComponetsDescription;
