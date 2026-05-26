@@ -5,6 +5,9 @@
   },
   "options": {},
   "attributes": {
+    "bannerH1Tag": {
+      "type": "string"
+    },
     "imageMobile": {
       "type": "media",
       "multiple": false,

@@ -4047,6 +4047,7 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
   };
   attributes: {
     bannerCaption: Schema.Attribute.Text;
+    bannerH1Tag: Schema.Attribute.String;
     buttonText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Contact us'>;
     customFooter: Schema.Attribute.Component<
