@@ -2459,6 +2459,41 @@ export interface PageComponetsCloudFirstCall extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsCloudKeyOfferings extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_cloud_key_offerings';
+  info: {
+    displayName: 'cloud-key-offerings';
+    icon: 'scissors';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    list: Schema.Attribute.Component<
+      'sub-page-componets.cloud-offering-list',
+      true
+    >;
+    subHeading: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface PageComponetsCloudOnePlatform extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_cloud_one_platforms';
   info: {
@@ -4861,6 +4896,46 @@ export interface SubPageComponetsCloudFirstCallList
   };
 }
 
+export interface SubPageComponetsCloudOfferingList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_cloud_offering_lists';
+  info: {
+    displayName: 'cloud-offering-list';
+    icon: 'star';
+  };
+  attributes: {
+    subList: Schema.Attribute.Component<
+      'sub-page-componets.cloud-offering-sublist',
+      true
+    >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
+export interface SubPageComponetsCloudOfferingSublist
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_cloud_offering_sublists';
+  info: {
+    displayName: 'cloud-offering-sublist';
+    icon: 'filePdf';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface SubPageComponetsCloudRecognitionList
   extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_cloud_recognition_lists';
@@ -5441,6 +5516,7 @@ declare module '@strapi/strapi' {
       'page-componets.cloud-banner': PageComponetsCloudBanner;
       'page-componets.cloud-built-people': PageComponetsCloudBuiltPeople;
       'page-componets.cloud-first-call': PageComponetsCloudFirstCall;
+      'page-componets.cloud-key-offerings': PageComponetsCloudKeyOfferings;
       'page-componets.cloud-one-platform': PageComponetsCloudOnePlatform;
       'page-componets.cloud-readiness-report': PageComponetsCloudReadinessReport;
       'page-componets.cloud-recognition': PageComponetsCloudRecognition;
@@ -5555,6 +5631,8 @@ declare module '@strapi/strapi' {
       'sub-page-componets.cloud-banner-list': SubPageComponetsCloudBannerList;
       'sub-page-componets.cloud-buil-list': SubPageComponetsCloudBuilList;
       'sub-page-componets.cloud-first-call-list': SubPageComponetsCloudFirstCallList;
+      'sub-page-componets.cloud-offering-list': SubPageComponetsCloudOfferingList;
+      'sub-page-componets.cloud-offering-sublist': SubPageComponetsCloudOfferingSublist;
       'sub-page-componets.cloud-recognition-list': SubPageComponetsCloudRecognitionList;
       'sub-page-componets.description': SubPageComponetsDescription;
       'sub-page-componets.digitial-countries': SubPageComponetsDigitialCountries;

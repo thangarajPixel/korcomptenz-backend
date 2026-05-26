@@ -119,7 +119,8 @@
         "page-componets.cloud-readiness-report",
         "page-componets.cloud-banner",
         "page-componets.industry-service-portfolio",
-        "page-componets.cloud-built-people"
+        "page-componets.cloud-built-people",
+        "page-componets.cloud-key-offerings"
       ]
     }
   }

@@ -1001,9 +1001,13 @@ export default factories.createCoreController(
                     }
                   },
                 },
-                "page-componets.cloud-built-people": {
+                "page-componets.cloud-key-offerings": {
                   populate: {
-                    list: true,
+                    list: {
+                      populate: {
+                        subList: true,
+                      }
+                    },
                   },
                 },
               },
