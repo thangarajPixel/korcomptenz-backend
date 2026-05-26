@@ -926,7 +926,7 @@ export default factories.createCoreController(
                             image: true,
                             subList: {
                               populate: {
-                                description: true
+                                descriptionList: true
                               }
                             }
                           }

@@ -5235,6 +5235,26 @@ export interface SubPageComponetsIndustryFeaturedList
   };
 }
 
+export interface SubPageComponetsIndustryServiceBullets
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_industry_service_bullets';
+  info: {
+    displayName: 'industry-service-bullets';
+    icon: 'feather';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    isTarget: Schema.Attribute.Boolean;
+    link: Schema.Attribute.String;
+  };
+}
+
 export interface SubPageComponetsIndustryServiceList
   extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_industry_service_lists';
@@ -5451,8 +5471,8 @@ export interface SubPageComponetsTitleMultiDescription
     icon: 'code';
   };
   attributes: {
-    description: Schema.Attribute.Component<
-      'sub-page-componets.description',
+    descriptionList: Schema.Attribute.Component<
+      'sub-page-componets.industry-service-bullets',
       true
     >;
     title: Schema.Attribute.RichText &
@@ -5744,6 +5764,7 @@ declare module '@strapi/strapi' {
       'sub-page-componets.image-list': SubPageComponetsImageList;
       'sub-page-componets.industry-experience-list': SubPageComponetsIndustryExperienceList;
       'sub-page-componets.industry-featured-list': SubPageComponetsIndustryFeaturedList;
+      'sub-page-componets.industry-service-bullets': SubPageComponetsIndustryServiceBullets;
       'sub-page-componets.industry-service-list': SubPageComponetsIndustryServiceList;
       'sub-page-componets.industry-service-sublist': SubPageComponetsIndustryServiceSublist;
       'sub-page-componets.industry-spotlight-list': SubPageComponetsIndustrySpotlightList;

@@ -13,9 +13,9 @@
         "preset": "defaultHtml"
       }
     },
-    "description": {
+    "descriptionList": {
       "type": "component",
-      "component": "sub-page-componets.description",
+      "component": "sub-page-componets.industry-service-bullets",
       "repeatable": true
     }
   },
