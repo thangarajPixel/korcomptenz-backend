@@ -2494,6 +2494,42 @@ export interface PageComponetsCloudKeyOfferings extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsCloudMigrationHandle
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_cloud_migration_handles';
+  info: {
+    displayName: 'cloud-migration-handle';
+    icon: 'paperPlane';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    list: Schema.Attribute.Component<
+      'sub-page-componets.cloud-migration-list',
+      true
+    >;
+    subHeading: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface PageComponetsCloudOnePlatform extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_cloud_one_platforms';
   info: {
@@ -4896,6 +4932,68 @@ export interface SubPageComponetsCloudFirstCallList
   };
 }
 
+export interface SubPageComponetsCloudMigrationList
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_cloud_migration_lists';
+  info: {
+    displayName: 'cloud-migration-list';
+    icon: 'quote';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    disclaimer: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images'>;
+    subList: Schema.Attribute.Component<
+      'sub-page-componets.cloud-migration-sublist',
+      true
+    >;
+    tabTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    title: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
+export interface SubPageComponetsCloudMigrationSublist
+  extends Struct.ComponentSchema {
+  collectionName: 'components_sub_page_componets_cloud_migration_sublists';
+  info: {
+    displayName: 'cloud-migration-sublist';
+    icon: 'bell';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface SubPageComponetsCloudOfferingList
   extends Struct.ComponentSchema {
   collectionName: 'components_sub_page_componets_cloud_offering_lists';
@@ -5517,6 +5615,7 @@ declare module '@strapi/strapi' {
       'page-componets.cloud-built-people': PageComponetsCloudBuiltPeople;
       'page-componets.cloud-first-call': PageComponetsCloudFirstCall;
       'page-componets.cloud-key-offerings': PageComponetsCloudKeyOfferings;
+      'page-componets.cloud-migration-handle': PageComponetsCloudMigrationHandle;
       'page-componets.cloud-one-platform': PageComponetsCloudOnePlatform;
       'page-componets.cloud-readiness-report': PageComponetsCloudReadinessReport;
       'page-componets.cloud-recognition': PageComponetsCloudRecognition;
@@ -5631,6 +5730,8 @@ declare module '@strapi/strapi' {
       'sub-page-componets.cloud-banner-list': SubPageComponetsCloudBannerList;
       'sub-page-componets.cloud-buil-list': SubPageComponetsCloudBuilList;
       'sub-page-componets.cloud-first-call-list': SubPageComponetsCloudFirstCallList;
+      'sub-page-componets.cloud-migration-list': SubPageComponetsCloudMigrationList;
+      'sub-page-componets.cloud-migration-sublist': SubPageComponetsCloudMigrationSublist;
       'sub-page-componets.cloud-offering-list': SubPageComponetsCloudOfferingList;
       'sub-page-componets.cloud-offering-sublist': SubPageComponetsCloudOfferingSublist;
       'sub-page-componets.cloud-recognition-list': SubPageComponetsCloudRecognitionList;

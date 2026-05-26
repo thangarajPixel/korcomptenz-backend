@@ -120,7 +120,8 @@
         "page-componets.cloud-banner",
         "page-componets.industry-service-portfolio",
         "page-componets.cloud-built-people",
-        "page-componets.cloud-key-offerings"
+        "page-componets.cloud-key-offerings",
+        "page-componets.cloud-migration-handle"
       ]
     }
   }

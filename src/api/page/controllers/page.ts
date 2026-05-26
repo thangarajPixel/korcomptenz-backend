@@ -1010,6 +1010,16 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "page-componets.cloud-migration-handle": {
+                  populate: {
+                    list: {
+                      populate: {
+                        image: true,
+                        subList: true,
+                      }
+                    },
+                  },
+                },
               },
             },
             seo: true,
