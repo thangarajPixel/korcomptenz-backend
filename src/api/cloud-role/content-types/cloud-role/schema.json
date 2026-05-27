@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cloud_roles",
+  "info": {
+    "singularName": "cloud-role",
+    "pluralName": "cloud-roles",
+    "displayName": "cloud-role"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    }
+  }
+}

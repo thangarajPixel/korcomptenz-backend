@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_page_componets_cloud_technologies",
+  "info": {
+    "displayName": "cloud-technology",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "subHeading": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "list": {
+      "type": "component",
+      "component": "sub-page-componets.cloud-recognition-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

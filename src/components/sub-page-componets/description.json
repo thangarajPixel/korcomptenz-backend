@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sub_page_componets_descriptions",
+  "info": {
+    "displayName": "description",
+    "icon": "cog"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    }
+  },
+  "config": {}
+}

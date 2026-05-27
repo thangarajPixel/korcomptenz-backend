@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sub_page_componets_cloud_offering_lists",
+  "info": {
+    "displayName": "cloud-offering-list",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "subList": {
+      "type": "component",
+      "component": "sub-page-componets.cloud-offering-sublist",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

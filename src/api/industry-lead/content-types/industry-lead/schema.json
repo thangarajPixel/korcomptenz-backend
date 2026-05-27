@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "industry_leads",
+  "info": {
+    "singularName": "industry-lead",
+    "pluralName": "industry-leads",
+    "displayName": "industry-lead"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "company": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "service": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::industry-service.industry-service"
+    },
+    "message": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

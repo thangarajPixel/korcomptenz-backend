@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sub_page_componets_industry_service_bullets",
+  "info": {
+    "displayName": "industry-service-bullets",
+    "icon": "feather"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "link": {
+      "type": "string"
+    },
+    "isTarget": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

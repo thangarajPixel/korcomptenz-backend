@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_sub_page_componets_cloud_banner_lists",
+  "info": {
+    "displayName": "cloud-banner-list",
+    "icon": "envelop"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subList": {
+      "type": "component",
+      "component": "sub-page-componets.title-description",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

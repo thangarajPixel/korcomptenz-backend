@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cloud_migration_urgencies",
+  "info": {
+    "singularName": "cloud-migration-urgency",
+    "pluralName": "cloud-migration-urgencies",
+    "displayName": "cloud-migration-urgency"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cloud_infrastructures",
+  "info": {
+    "singularName": "cloud-infrastructure",
+    "pluralName": "cloud-infrastructures",
+    "displayName": "cloud-infrastructure"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    }
+  }
+}
