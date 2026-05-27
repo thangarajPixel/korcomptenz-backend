@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_page_componets_sap_practice_areas",
+  "info": {
+    "displayName": "sap-practice-areas",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtext": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "gridlisting": {
+      "type": "component",
+      "component": "page-componets.gridlisting",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

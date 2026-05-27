@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_page_componets_client_testimonials",
+  "info": {
+    "displayName": "client-testimonial",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtext": {
+      "type": "string"
+    },
+    "testimonials": {
+      "type": "component",
+      "component": "page-componets.testimonials",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

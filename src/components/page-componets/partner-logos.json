@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_page_componets_partner_logos",
+  "info": {
+    "displayName": "partner-logos",
+    "icon": "cast"
+  },
+  "options": {},
+  "attributes": {
+    "logoimage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

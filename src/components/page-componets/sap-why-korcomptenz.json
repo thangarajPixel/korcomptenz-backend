@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_page_componets_sap_why_korcomptenzs",
+  "info": {
+    "displayName": "sap-why-korcomptenz",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "subtext": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "introimage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "listbox": {
+      "type": "component",
+      "component": "page-componets.listbox",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

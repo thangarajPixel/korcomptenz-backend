@@ -190,6 +190,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+
               'page-componets.demonstrate-section': {
                 populate: {
                   list: {
@@ -446,6 +447,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                 },
               },
+
               'kor-cares.straight-slider': {
                 populate: {
                   list: {
@@ -864,9 +866,165 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                     }
                   }
                 }
-              }
+              },
+
+              /* KOR dev Team Start */
+              'page-componets.demand-how-kor-section': {
+                populate: {
+                  image: true,
+                  list: { populate: true },
+                },
+              },
+              'page-componets.key-metrics-section': {
+                populate: {
+                  images: {
+                    populate: {
+                      image: true,
+                    }
+                  },
+                  listLeft: true,
+                  backgroundImage: true,
+                  form: {
+                    populate: {
+                      forms: {
+                        on: {
+                          'form-fields.contact-us-form': {
+                            populate: {
+                              list: true
+                            }
+                          },
+                        },
+                      }
+                    }
+                  }
+                }
+              },
+
+              'page-componets.sap-why-korcomptenz': {
+                populate: {
+                  images: {
+                    populate: {
+                      image: true,
+                    }
+                  },
+                  subtext: true,
+                  title: true,
+                  description: true,
+
+                  listbox: {
+                    populate: {
+                      title: true,
+                      description: true,
+                      icon: true,
+
+                    },
+                  },
+                },
+              },
+
+              'page-componets.page-grid-view': {
+                populate: {
+
+                  Title: true,
+                  gridlist: true,
+                  description: true,
+                  tag: true,
+
+                }
+              },
+              'page-componets.our-offerings': {
+                populate: {
+                  subtitle: true,
+                  title: true,
+                  columntitle: {
+                    populate: {
+                      divtitle: true,
+                      interlinks: {
+                        populate: {
+                          urlname: true,
+                          urllink: true,
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+              'page-componets.sap-practice-areas': {
+                populate: {
+                  gridlisting: {
+                    buttontext: true,
+                    buttonurl: true,
+                    title: true,
+                    description: true,
+                    populate: {
+                      image: true,
+                    },
+                  },
+                  subtext: true,
+                  title: true,
+                  description: true,
+                },
+              },
+              'page-componets.what-to-expect': {
+                populate: {
+                  gridlisting: {
+                    buttontext: true,
+                    buttonurl: true,
+                    title: true,
+                    description: true,
+
+                  },
+                  subtext: true,
+                  title: true,
+                  description: true,
+                },
+              },
+              'page-componets.client-testimonial': {
+                populate: {
+                  testimonials: {
+                    clientname: true,
+                    designation: true,
+                    content: true,
+                    star: true,
+                    title: true,
+                  },
+                  subtext: true,
+                  title: true,
+
+                },
+              },
+              'page-componets.certifications-section': {
+                populate: {
+                  partnerlogos: {
+                    populate: {
+                      logoimage: true,
+                    },
+                  },
+                  description: true,
+                  title: true,
+
+                },
+              },
+              'page-componets.request-consultation': {
+                populate: {
+                  form: {
+
+                    populate: {
+
+                      forms: true
+
+                    }
+
+                  },
+                  description: true,
+                  title: true,
+                  subtext: true,
+
+                },
+              },
 
 
+              /* KOR dev Team End */
 
 
 
