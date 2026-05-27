@@ -52,6 +52,13 @@
         "images"
       ]
     },
+    "mobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "bgColor": {
       "type": "string"
     },

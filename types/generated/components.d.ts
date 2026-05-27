@@ -2356,6 +2356,7 @@ export interface PageComponetsCloudBanner extends Struct.ComponentSchema {
       'sub-page-componets.cloud-banner-list',
       false
     >;
+    mobileImage: Schema.Attribute.Media<'images'>;
     subHeading: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',

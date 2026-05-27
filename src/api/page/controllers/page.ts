@@ -994,6 +994,7 @@ export default factories.createCoreController(
                 "page-componets.cloud-banner": {
                   populate: {
                     image: true,
+                    mobileImage: true,
                     list: {
                       populate: {
                         subList: true,
