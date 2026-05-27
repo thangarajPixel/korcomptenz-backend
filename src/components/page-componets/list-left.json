@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_page_componets_list_lefts",
+  "info": {
+    "displayName": "listLeft"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

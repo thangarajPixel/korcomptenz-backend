@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_page_componets_gridlistings",
+  "info": {
+    "displayName": "gridlisting",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "buttontext": {
+      "type": "string"
+    },
+    "buttonurl": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}
