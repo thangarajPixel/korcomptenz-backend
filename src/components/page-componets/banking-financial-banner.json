@@ -25,16 +25,12 @@
     "imageMobile": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "image": {
       "type": "media",
       "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "buttonText": {
       "type": "string"
@@ -75,10 +71,7 @@
           ]
         }
       },
-      "enum": [
-        "col-span-4",
-        "col-span-3"
-      ]
+      "enum": ["col-span-4", "col-span-3"]
     }
   },
   "config": {}
