@@ -28,6 +28,10 @@
     "isTargetBlank": {
       "type": "boolean",
       "default": false
+    },
+    "isAlignCenter": {
+      "type": "boolean",
+      "default": false
     }
   },
   "config": {}
