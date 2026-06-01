@@ -2550,6 +2550,7 @@ export interface PageComponetsCloudOnePlatform extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     isTarget: Schema.Attribute.Boolean;
     isVideoUrl: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    mobileImage: Schema.Attribute.Media<'images'>;
     subHeading: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -3852,6 +3853,8 @@ export interface PageComponetsIndustryFeaturedContent
           preset: 'defaultHtml';
         }
       >;
+    isSubHeadingButton: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<
       'sub-page-componets.industry-featured-list',
       true
@@ -4013,6 +4016,7 @@ export interface PageComponetsInsightsSectionCard
     category: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    isAlignCenter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTargetBlank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;

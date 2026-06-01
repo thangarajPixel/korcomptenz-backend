@@ -13,6 +13,10 @@
         "preset": "defaultHtml"
       }
     },
+    "isSubHeadingButton": {
+      "type": "boolean",
+      "default": false
+    },
     "title": {
       "type": "customField",
       "customField": "plugin::ckeditor5.CKEditor",

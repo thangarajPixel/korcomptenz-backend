@@ -1108,6 +1108,7 @@ export default factories.createCoreController(
                 "page-componets.cloud-one-platform": {
                   populate: {
                     image: true,
+                    mobileImage: true,
                   },
                 },
                 "page-componets.cloud-first-call": {
@@ -1166,6 +1167,11 @@ export default factories.createCoreController(
                         subList: true,
                       },
                     },
+                  },
+                },
+                "page-componets.cloud-built-people": {
+                  populate: {
+                    list: true,
                   },
                 },
               },
