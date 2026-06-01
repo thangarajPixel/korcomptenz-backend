@@ -4013,6 +4013,7 @@ export interface PageComponetsInsightsSectionCard
     category: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
+    isAlignCenter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTargetBlank: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.String;
     title: Schema.Attribute.String;
