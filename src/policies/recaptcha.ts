@@ -12,8 +12,8 @@ export default async (ctx, config, { strapi }) => {
   // Correct path: token is nested inside ctx.request.body.data
   const { recaptchaToken, ...cleanData } = ctx.request.body.data || {};
 
-  // console.log('Received reCAPTCHA token:', recaptchaToken);
-  // console.log('Using secret key from config:', ctx.request.body);
+  console.log('Received reCAPTCHA token:', recaptchaToken);
+  console.log('Using secret key from config:', ctx.request.body);
 
   if (!recaptchaToken) {
     throw new PolicyError('reCAPTCHA token is missing', { status: 400 });
