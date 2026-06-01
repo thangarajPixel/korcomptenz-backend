@@ -3853,7 +3853,7 @@ export interface PageComponetsIndustryFeaturedContent
           preset: 'defaultHtml';
         }
       >;
-    isSubHeadingButton: Schema.Attribute.Boolean &
+    isButtonHeading: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<
       'sub-page-componets.industry-featured-list',
