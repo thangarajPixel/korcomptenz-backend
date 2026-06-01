@@ -961,6 +961,7 @@ export default factories.createCoreController(
                 "page-componets.cloud-one-platform": {
                   populate: {
                     image: true,
+                    mobileImage: true,
                   },
                 },
                 "page-componets.cloud-first-call": {

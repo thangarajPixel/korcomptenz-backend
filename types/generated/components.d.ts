@@ -2550,6 +2550,7 @@ export interface PageComponetsCloudOnePlatform extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     isTarget: Schema.Attribute.Boolean;
     isVideoUrl: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    mobileImage: Schema.Attribute.Media<'images'>;
     subHeading: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
