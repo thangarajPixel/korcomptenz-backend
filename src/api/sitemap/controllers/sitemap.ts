@@ -57,6 +57,14 @@ function dedup<T extends { loc: string }>(urls: T[]): T[] {
   });
 }
 
+function singularizeSlug(slug: string): string {
+  // Keep known irregular/special cases as-is
+  if (slug === 'webstories') return slug;
+  // Remove trailing 's' for simple plural slugs (e.g. ebooks → ebook, brochures → brochure)
+  if (slug.endsWith('s')) return slug.slice(0, -1);
+  return slug;
+}
+
 function insightPrefix(content: string, categorySlug?: string): string | null {
   switch (content) {
     case 'blog': return '/blog';
@@ -66,7 +74,7 @@ function insightPrefix(content: string, categorySlug?: string): string | null {
     case 'web-stories': return '/webstories';
     case 'thirdparty-link': return null;
     case 'file':
-    default: return categorySlug ? `/${categorySlug}` : '/insights';
+    default: return categorySlug ? `/${singularizeSlug(categorySlug)}` : '/insights';
   }
 }
 
@@ -156,7 +164,7 @@ export default {
         },
       }) as any;
 
-      const [caseStudies, insights, pages] = await Promise.all([
+      const [caseStudies, insights, pages, assets] = await Promise.all([
         strapi.db.query('api::case-study.case-study').findMany({
           where: { publishedAt: { $notNull: true } },
           select: ['title', 'slug', 'updatedAt'],
@@ -172,6 +180,10 @@ export default {
         strapi.db.query('api::page.page').findMany({
           where: { publishedAt: { $notNull: true } },
           select: ['pageTitle', 'slug', 'updatedAt'],
+        }),
+        strapi.db.query('api::asset.asset').findMany({
+          where: { publishedAt: { $notNull: true } },
+          select: ['title', 'slug', 'updatedAt'],
         }),
       ]);
 
@@ -255,6 +267,18 @@ export default {
         })),
       };
 
+      // Assets
+      const assetsSection = {
+        title: 'Assets',
+        url: `${BASE_URL}/sitemap-asset.xml`,
+        lastmod: now,
+        children: (assets as any[]).map((a) => ({
+          title: a.title,
+          url: `${BASE_URL}/asset/${a.slug}`,
+          lastmod: a.updatedAt ?? now,
+        })),
+      };
+
       return ctx.send({
         baseUrl: BASE_URL,
         sections: [
@@ -262,6 +286,7 @@ export default {
           { title: 'Industries', url: `${BASE_URL}/sitemap-industries.xml`, lastmod: now, children: industries },
           { ...caseStudiesSection, title: 'Casestudies', url: `${BASE_URL}/sitemap-casestudies.xml` },
           ...insightSections,
+          assetsSection,
           { title: 'All the rest of the pages', url: `${BASE_URL}/sitemap-other-pages.xml`, lastmod: now, children: pagesSection.children },
         ],
       });
