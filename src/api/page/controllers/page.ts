@@ -902,11 +902,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
 
               'page-componets.sap-why-korcomptenz': {
                 populate: {
-                  images: {
-                    populate: {
-                      image: true,
-                    }
-                  },
+                  introimage: true,
                   subtext: true,
                   title: true,
                   description: true,
@@ -915,7 +911,11 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                     populate: {
                       title: true,
                       description: true,
-                      icon: true,
+
+                      icon: {
+                        populate: "*", // ✅ key fix
+                      },
+
 
                     },
                   },
@@ -1002,7 +1002,7 @@ export default factories.createCoreController('api::page.page', ({ strapi }) => 
                   },
                   description: true,
                   title: true,
-
+                  backgroundimage: true,
                 },
               },
               'page-componets.request-consultation': {
