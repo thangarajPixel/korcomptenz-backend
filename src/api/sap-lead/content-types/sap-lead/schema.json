@@ -31,9 +31,7 @@
       "type": "text"
     },
     "pageSlug": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::page.page"
+      "type": "string"
     }
   }
 }

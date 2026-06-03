@@ -382,6 +382,7 @@ export default factories.createCoreController(
                         image: true,
                         logo: true,
                         logoMobile: true,
+                        formImage: true,
                         form: {
                           populate: {
                             forms: true,

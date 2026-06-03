@@ -2507,7 +2507,7 @@ export interface ApiSapLeadSapLead extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     message: Schema.Attribute.Text;
     organization: Schema.Attribute.String & Schema.Attribute.Required;
-    pageSlug: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
+    pageSlug: Schema.Attribute.String;
     phoneNumber: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;

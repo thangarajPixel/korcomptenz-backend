@@ -4765,6 +4765,20 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     footer: Schema.Attribute.Component<'case-study.partner', false>;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     formDescription: Schema.Attribute.RichText &
