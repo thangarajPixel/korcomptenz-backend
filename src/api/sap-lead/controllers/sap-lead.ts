@@ -9,25 +9,41 @@ export default factories.createCoreController('api::sap-lead.sap-lead', ({ strap
     try {
       const data = ctx.request.body.data;
 
-      // Save the lead first
-      await super.create(ctx);
+      // Save the lead first, then fetch it with the pageSlug relation populated
+      const response = await super.create(ctx);
+      const leadId = response?.data?.id;
 
       const SALES_EMAIL = strapi.config.get('emails.mail_to_emails.sales');
       const CC_EMAIL = strapi.config.get('emails.mail_to_emails.cc');
 
-      // Resolve page slug and formTitle from formPageId via banner-section-data
+      // Fetch the saved lead with pageSlug relation populated to get the page slug
+      const lead = await strapi.db.query('api::sap-lead.sap-lead').findOne({
+        where: { id: leadId },
+        populate: {
+          pageSlug: {
+            select: ['id', 'slug', 'pageTitle'],
+          },
+        },
+      }) as any;
+
+      // Build submitted-from URL from the related page's slug
       let pageUrl = 'https://www.korcomptenz.com';
+      if (lead?.pageSlug?.slug) {
+        pageUrl = `https://www.korcomptenz.com/${lead.pageSlug.slug}`.replace(/([^:])\/\/+/g, '$1/');
+      }
+
+      // Fetch the related page's banner formTitle
       let formTitle = 'New SAP Lead';
-      if (data?.formPageId) {
+      if (lead?.pageSlug?.id) {
         const page = await strapi.db.query('api::page.page').findOne({
-          where: { id: data.formPageId },
+          where: { id: lead.pageSlug.id },
           populate: {
             list: {
-              populate: {
-                list: {
+              on: {
+                'page-componets.banner-section-list': {
                   populate: {
-                    pageSlug: {
-                      select: ['slug'],
+                    list: {
+                      select: ['formTitle'],
                     },
                   },
                 },
@@ -36,22 +52,16 @@ export default factories.createCoreController('api::sap-lead.sap-lead', ({ strap
           },
         }) as any;
 
-        // Walk the dynamic zone to find banner-section-list → banner-section-data with pageSlug + formTitle
         if (page?.list?.length) {
-          for (const section of page.list) {
+          outer: for (const section of page.list) {
             const banners = section?.list;
             if (!Array.isArray(banners)) continue;
             for (const banner of banners) {
-              if (banner?.pageSlug?.slug) {
-                pageUrl = `https://www.korcomptenz.com/${banner.pageSlug.slug}`.replace(/([^:])\/\/+/g, '$1/');
-              }
               if (banner?.formTitle) {
-                // Strip HTML tags from the CKEditor rich-text value
                 formTitle = String(banner.formTitle).replace(/<[^>]*>/g, '').trim() || formTitle;
+                break outer;
               }
-              if (pageUrl !== 'https://www.korcomptenz.com') break;
             }
-            if (pageUrl !== 'https://www.korcomptenz.com') break;
           }
         }
       }
@@ -171,6 +181,8 @@ export default factories.createCoreController('api::sap-lead.sap-lead', ({ strap
           ${formTitle} – Korcomptenz
         </td>
       </tr>
+
+      <!-- Details Table -->
       <tr>
         <td style="padding:10px 20px 20px;font-family:Arial,sans-serif;">
           <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">

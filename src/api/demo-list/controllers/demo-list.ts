@@ -28,6 +28,11 @@ export default factories.createCoreController('api::demo-list.demo-list', ({ str
                     image: true,
                     logo: true,
                     logoMobile: true,
+                    form: {
+                      populate: {
+                        forms: true,
+                      },
+                    },
                   }
                 },
               }

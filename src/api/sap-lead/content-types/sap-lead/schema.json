@@ -30,8 +30,10 @@
     "message": {
       "type": "text"
     },
-    "formPageId": {
-      "type": "string"
+    "pageSlug": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
     }
   }
 }

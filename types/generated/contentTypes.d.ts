@@ -2498,7 +2498,6 @@ export interface ApiSapLeadSapLead extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    formPageId: Schema.Attribute.String;
     fullName: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -2508,6 +2507,7 @@ export interface ApiSapLeadSapLead extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     message: Schema.Attribute.Text;
     organization: Schema.Attribute.String & Schema.Attribute.Required;
+    pageSlug: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     phoneNumber: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
