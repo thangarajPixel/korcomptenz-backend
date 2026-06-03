@@ -1505,6 +1505,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'newsletter-subscription',
         'industry-form',
         'cloud-form',
+        'SAP-form',
       ]
     > &
       Schema.Attribute.Required;
@@ -1523,6 +1524,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.newsletter-subscription',
         'form-fields.industry-form',
         'form-fields.cloud-form',
+        'form-fields.sap-form',
       ]
     > &
       Schema.Attribute.Required &
@@ -2481,6 +2483,39 @@ export interface ApiReserveSpotLeadReserveSpotLead
   };
 }
 
+export interface ApiSapLeadSapLead extends Struct.CollectionTypeSchema {
+  collectionName: 'sap_leads';
+  info: {
+    displayName: 'sap-lead';
+    pluralName: 'sap-leads';
+    singularName: 'sap-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    businessEmail: Schema.Attribute.Email & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    formPageId: Schema.Attribute.String;
+    fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sap-lead.sap-lead'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    organization: Schema.Attribute.String & Schema.Attribute.Required;
+    phoneNumber: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiStreamlineFormLabelStreamlineFormLabel
   extends Struct.CollectionTypeSchema {
   collectionName: 'streamline_form_labels';
@@ -3169,6 +3204,7 @@ declare module '@strapi/strapi' {
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::reserve-lead.reserve-lead': ApiReserveLeadReserveLead;
       'api::reserve-spot-lead.reserve-spot-lead': ApiReserveSpotLeadReserveSpotLead;
+      'api::sap-lead.sap-lead': ApiSapLeadSapLead;
       'api::streamline-form-label.streamline-form-label': ApiStreamlineFormLabelStreamlineFormLabel;
       'api::streamline-form.streamline-form': ApiStreamlineFormStreamlineForm;
       'api::webinar-reserve-spot.webinar-reserve-spot': ApiWebinarReserveSpotWebinarReserveSpot;

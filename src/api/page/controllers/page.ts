@@ -46,11 +46,18 @@ export default factories.createCoreController(
                         image: true,
                         logo: true,
                         logoMobile: true,
+                        formImage: true,
                         footer: {
                           populate: {
                             logo: true,
                           },
                         },
+                        form: {
+                          populate: {
+                            forms: true,
+                          },
+                        },
+                        pageSlug: true,
                         customFooter: {
                           populate: {
                             image: true,
