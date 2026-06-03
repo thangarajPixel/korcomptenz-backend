@@ -130,30 +130,35 @@
       "type": "boolean",
       "default": false
     },
+    "formButtonText": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      }
+    },
     "formTitle": {
       "type": "customField",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      },
       "customField": "plugin::ckeditor5.CKEditor",
       "options": {
         "preset": "defaultHtml"
       }
-    },
-    "emailSubject": {
-      "type": "customField",
-      "customField": "plugin::ckeditor5.CKEditor",
-      "options": {
-        "preset": "defaultHtml"
-      }
-    },
-    "emailBody": {
-      "type": "customField",
-      "customField": "plugin::ckeditor5.CKEditor",
-      "options": {
-        "preset": "defaultHtml"
-      }
-    },
-    "isForm": {
-      "type": "boolean",
-      "default": false
     },
     "emailSubject": {
       "type": "customField",
@@ -173,23 +178,6 @@
       }
     },
     "emailBody": {
-      "type": "customField",
-      "conditions": {
-        "visible": {
-          "==": [
-            {
-              "var": "isForm"
-            },
-            true
-          ]
-        }
-      },
-      "customField": "plugin::ckeditor5.CKEditor",
-      "options": {
-        "preset": "defaultHtml"
-      }
-    },
-    "formTitle": {
       "type": "customField",
       "conditions": {
         "visible": {

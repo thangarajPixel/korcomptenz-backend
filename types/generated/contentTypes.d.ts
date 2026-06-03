@@ -936,6 +936,7 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
         }
       >;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formButtonText: Schema.Attribute.String;
     formDescription: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
