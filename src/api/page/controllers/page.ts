@@ -57,9 +57,6 @@ export default factories.createCoreController(
                             forms: true,
                           },
                         },
-                        // pageSlug: {
-                        //   fields: ['id', 'documentId', 'slug', 'pageTitle'],
-                        // },
                         customFooter: {
                           populate: {
                             image: true,
@@ -882,6 +879,12 @@ export default factories.createCoreController(
                   populate: {
                     image: true,
                     imageMobile: true,
+                    formImage: true,
+                    form: {
+                      populate: {
+                        forms: true,
+                      },
+                    },
                     list: {
                       populate: {
                         imageMobile: true,
