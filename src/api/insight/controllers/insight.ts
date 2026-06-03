@@ -230,6 +230,12 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
             }
           },
           featureImage: true,
+          sapForm: {
+            populate: {
+              forms: true,
+            },
+          },
+          formImage: true,
 
         },
       });
