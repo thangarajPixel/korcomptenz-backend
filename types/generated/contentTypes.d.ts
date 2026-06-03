@@ -921,8 +921,39 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
       'case-study.description-section',
       true
     >;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    formImage: Schema.Attribute.Media<'images'>;
+    formTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     heroSection: Schema.Attribute.Component<'case-study.hero-section', false>;
     isAttachment: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    isForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isHaveRelatedCase: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

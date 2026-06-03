@@ -54,6 +54,9 @@ async function resolvePageData(pageSlug: string): Promise<{
                 },
               },
             },
+            'page-componets.banking-financial-banner': {
+              select: ['formTitle', 'emailSubject', 'emailBody'],
+            },
           },
         },
       },
@@ -67,10 +70,18 @@ async function resolvePageData(pageSlug: string): Promise<{
     let emailBody = defaults.emailBody;
 
     outer: for (const section of page?.list ?? []) {
+      // banking-financial-banner: fields are directly on the section (no nested list)
+      if (section?.formTitle || section?.emailSubject || section?.emailBody) {
+        if (section?.formTitle) formTitle = stripHtml(section.formTitle) || formTitle;
+        if (section?.emailSubject) emailSubject = stripHtml(section.emailSubject) || emailSubject;
+        if (section?.emailBody) emailBody = section.emailBody;
+        break outer;
+      }
+      // banner-section-list: fields are nested inside section.list banners
       for (const banner of section?.list ?? []) {
         if (banner?.formTitle) formTitle = stripHtml(banner.formTitle) || formTitle;
         if (banner?.emailSubject) emailSubject = stripHtml(banner.emailSubject) || emailSubject;
-        if (banner?.emailBody) emailBody = banner.emailBody; // keep HTML for email body
+        if (banner?.emailBody) emailBody = banner.emailBody;
         if (formTitle !== defaults.formTitle) break outer;
       }
     }
@@ -134,15 +145,24 @@ async function resolvePageData(pageSlug: string): Promise<{
   if (prefix === 'case-studies') {
     const caseStudy = await strapi.db.query('api::case-study.case-study').findOne({
       where: { slug, publishedAt: { $notNull: true } },
-      select: ['title', 'slug'],
+      select: ['title', 'slug', 'formTitle', 'emailSubject', 'emailBody'],
     }) as any;
 
     if (!caseStudy) return defaults;
+
+    const formTitle = caseStudy.formTitle
+      ? stripHtml(caseStudy.formTitle)
+      : (caseStudy.title ?? defaults.formTitle);
+    const emailSubject = caseStudy.emailSubject
+      ? stripHtml(caseStudy.emailSubject)
+      : `${caseStudy.title ?? 'Case Study'} | Korcomptenz`;
+    const emailBody = caseStudy.emailBody ?? '';
+
     return {
       pageUrl: `${BASE_URL}/case-studies/${caseStudy.slug}`,
-      formTitle: caseStudy.title ?? defaults.formTitle,
-      emailSubject: `${caseStudy.title ?? 'Case Study'} | Korcomptenz`,
-      emailBody: '',
+      formTitle,
+      emailSubject,
+      emailBody,
     };
   }
 

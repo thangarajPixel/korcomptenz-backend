@@ -81,10 +81,21 @@
       ]
     },
     "isForm": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "emailSubject": {
       "type": "customField",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      },
       "customField": "plugin::ckeditor5.CKEditor",
       "options": {
         "preset": "defaultHtml"
@@ -92,6 +103,16 @@
     },
     "emailBody": {
       "type": "customField",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      },
       "customField": "plugin::ckeditor5.CKEditor",
       "options": {
         "preset": "defaultHtml"
@@ -99,6 +120,16 @@
     },
     "formTitle": {
       "type": "customField",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      },
       "customField": "plugin::ckeditor5.CKEditor",
       "options": {
         "preset": "defaultHtml"
@@ -106,6 +137,16 @@
     },
     "formDescription": {
       "type": "customField",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      },
       "customField": "plugin::ckeditor5.CKEditor",
       "options": {
         "preset": "defaultHtml"
@@ -113,6 +154,16 @@
     },
     "formImage": {
       "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      },
       "multiple": false,
       "allowedTypes": [
         "images"
@@ -121,7 +172,17 @@
     "form": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::form.form"
+      "target": "api::form.form",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      }
     }
   },
   "config": {}

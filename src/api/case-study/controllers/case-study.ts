@@ -208,7 +208,13 @@ export default factories.createCoreController('api::case-study.case-study', ({ s
             populate: {
               image: true
             }
-          }
+          },
+          form: {
+            populate: {
+              forms: true,
+            },
+          },
+          formImage: true,
         },
       });
       // if (!entity) {

@@ -2229,7 +2229,7 @@ export interface PageComponetsBankingFinancialBanner
       >;
     image: Schema.Attribute.Media<'images'>;
     imageMobile: Schema.Attribute.Media<'images'>;
-    isForm: Schema.Attribute.Boolean;
+    isForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isHasFooter: Schema.Attribute.Boolean;
     isTarget: Schema.Attribute.Boolean;
     list: Schema.Attribute.Component<'sub-page-componets.footer-list', true>;
