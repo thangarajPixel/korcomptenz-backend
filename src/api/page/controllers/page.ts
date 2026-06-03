@@ -57,7 +57,9 @@ export default factories.createCoreController(
                             forms: true,
                           },
                         },
-                        pageSlug: true,
+                        // pageSlug: {
+                        //   fields: ['id', 'documentId', 'slug', 'pageTitle'],
+                        // },
                         customFooter: {
                           populate: {
                             image: true,
@@ -1039,6 +1041,23 @@ export default factories.createCoreController(
             seo: true,
           },
         });
+
+        if (entity?.list) {
+          for (const section of entity.list) {
+            if (section.__component === "page-componets.banner-section-list") {
+              for (const item of section.list ?? []) {
+                if (item.isForm && !item.pageSlug) {
+                  item.pageSlug = {
+                    id: entity.id,
+                    documentId: entity.documentId,
+                    slug: entity.slug,
+                    pageTitle: entity.pageTitle,
+                  };
+                }
+              }
+            }
+          }
+        }
 
         if (!entity) {
           const notFoundPages = await strapi.db

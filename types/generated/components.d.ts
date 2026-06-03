@@ -4793,7 +4793,6 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
     link: Schema.Attribute.String;
     logo: Schema.Attribute.Media<'images'>;
     logoMobile: Schema.Attribute.Media<'images'>;
-    pageSlug: Schema.Attribute.Relation<'oneToOne', 'api::page.page'>;
     secondButton: Schema.Attribute.String;
     secondLink: Schema.Attribute.String;
     title: Schema.Attribute.String;

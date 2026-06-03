@@ -119,21 +119,6 @@
       "type": "boolean",
       "default": false
     },
-    "pageSlug": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::page.page",
-      "conditions": {
-        "visible": {
-          "==": [
-            {
-              "var": "isForm"
-            },
-            true
-          ]
-        }
-      }
-    },
     "formTitle": {
       "type": "customField",
       "conditions": {
