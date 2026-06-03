@@ -210,13 +210,10 @@ export default factories.createCoreController('api::sap-lead.sap-lead', ({ strap
 
           ${emailBody
             ? emailBody
-            : `Thank you for your interest in our solutions. We have received your inquiry and one of our consultants will be in touch with you shortly to schedule a discussion.<br/><br/>
-          In the meantime, feel free to explore more of our resources:<br/><br/>
-          <a href="https://www.korcomptenz.com/insights/" target="_blank">https://www.korcomptenz.com/insights/</a><br/>
-          <a href="https://www.korcomptenz.com/case-studies/" target="_blank">https://www.korcomptenz.com/case-studies/</a>`
+            : `Thank you for your interest in our solutions. We have received your inquiry and one of our consultants will be in touch with you shortly to schedule a discussion.<br/><br/>`
           }<br/><br/>
 
-          Thank you for your time and consideration.<br/><br/>
+          ${emailBody ? '' : 'Thank you for your time and consideration.<br/><br/>'}
 
           <strong>Sincerely,</strong><br/>
           KORCOMPTENZ<br/>
