@@ -1975,9 +1975,40 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
     date: Schema.Attribute.Date;
     downloadBlog: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     downloadButton: Schema.Attribute.String;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     featureImage: Schema.Attribute.Media<'images'>;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formButtonText: Schema.Attribute.String;
+    formDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    formImage: Schema.Attribute.Media<'images'>;
+    formTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     heroSection: Schema.Attribute.Component<'case-study.hero-section', false>;
+    isForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isLinkOnly: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTarget: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

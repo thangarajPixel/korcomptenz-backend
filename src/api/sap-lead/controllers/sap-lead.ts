@@ -93,15 +93,24 @@ async function resolvePageData(pageSlug: string): Promise<{
   if (prefix === 'blog') {
     const insight = await strapi.db.query('api::insight.insight').findOne({
       where: { slug, content: 'blog', publishedAt: { $notNull: true } },
-      select: ['title', 'slug'],
+      select: ['title', 'slug', 'formTitle', 'emailSubject', 'emailBody'],
     }) as any;
 
     if (!insight) return defaults;
+
+    const formTitle = insight.formTitle
+      ? stripHtml(insight.formTitle)
+      : (insight.title ?? defaults.formTitle);
+    const emailSubject = insight.emailSubject
+      ? stripHtml(insight.emailSubject)
+      : `${insight.title ?? 'Blog'} | Korcomptenz`;
+    const emailBody = insight.emailBody ?? '';
+
     return {
       pageUrl: `${BASE_URL}/blog/${insight.slug}`,
-      formTitle: insight.title ?? defaults.formTitle,
-      emailSubject: `${insight.title ?? 'Blog'} | Korcomptenz`,
-      emailBody: '',
+      formTitle,
+      emailSubject,
+      emailBody,
     };
   }
 
@@ -113,15 +122,24 @@ async function resolvePageData(pageSlug: string): Promise<{
         content: { $in: ['post-webinar', 'pre-webinar'] },
         publishedAt: { $notNull: true },
       },
-      select: ['title', 'slug'],
+      select: ['title', 'slug', 'formTitle', 'emailSubject', 'emailBody'],
     }) as any;
 
     if (!insight) return defaults;
+
+    const formTitle = insight.formTitle
+      ? stripHtml(insight.formTitle)
+      : (insight.title ?? defaults.formTitle);
+    const emailSubject = insight.emailSubject
+      ? stripHtml(insight.emailSubject)
+      : `${insight.title ?? 'Webinar'} | Korcomptenz`;
+    const emailBody = insight.emailBody ?? '';
+
     return {
       pageUrl: `${BASE_URL}/webinar/${insight.slug}`,
-      formTitle: insight.title ?? defaults.formTitle,
-      emailSubject: `${insight.title ?? 'Webinar'} | Korcomptenz`,
-      emailBody: '',
+      formTitle,
+      emailSubject,
+      emailBody,
     };
   }
 
