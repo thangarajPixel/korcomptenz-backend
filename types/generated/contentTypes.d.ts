@@ -2024,6 +2024,7 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
+    sapForm: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     services: Schema.Attribute.Relation<
       'oneToMany',

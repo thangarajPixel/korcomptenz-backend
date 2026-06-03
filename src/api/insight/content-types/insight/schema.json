@@ -363,6 +363,21 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "sapForm": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      }
     }
   }
 }

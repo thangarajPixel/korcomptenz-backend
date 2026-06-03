@@ -80,7 +80,7 @@ export default factories.createCoreController('api::insight.insight', ({ strapi 
           services: true,
           technologies: true,
           category: true,
-          form: {
+          sapForm: {
             populate: {
               forms: true,
             },
