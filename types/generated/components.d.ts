@@ -2050,10 +2050,42 @@ export interface NewsAndEventNewsBanner extends Struct.ComponentSchema {
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formButtonText: Schema.Attribute.String;
+    formDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    formImage: Schema.Attribute.Media<'images'>;
+    formTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
+    isForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isVideo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    sapForm: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     title: Schema.Attribute.Text;
     videoLink: Schema.Attribute.String;
   };

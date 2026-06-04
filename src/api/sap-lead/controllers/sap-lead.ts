@@ -148,14 +148,35 @@ async function resolvePageData(pageSlug: string): Promise<{
     const newsItem = await strapi.db.query('api::new-room.new-room').findOne({
       where: { slug, publishedAt: { $notNull: true } },
       select: ['title', 'slug'],
+      populate: {
+        list: {
+          on: {
+            'news-and-event.news-banner': {
+              select: ['formTitle', 'emailSubject', 'emailBody'],
+            },
+          },
+        },
+      },
     }) as any;
 
     if (!newsItem) return defaults;
+
+    // Extract formTitle/emailSubject/emailBody from the news-banner component
+    let formTitle = newsItem.title ?? defaults.formTitle;
+    let emailSubject = `${newsItem.title ?? 'Newsroom'} | Korcomptenz`;
+    let emailBody = '';
+
+    for (const section of newsItem?.list ?? []) {
+      if (section?.formTitle) formTitle = stripHtml(section.formTitle) || formTitle;
+      if (section?.emailSubject) emailSubject = stripHtml(section.emailSubject) || emailSubject;
+      if (section?.emailBody) { emailBody = section.emailBody; break; }
+    }
+
     return {
       pageUrl: `${BASE_URL}/newsroom/${newsItem.slug}`,
-      formTitle: newsItem.title ?? defaults.formTitle,
-      emailSubject: `${newsItem.title ?? 'Newsroom'} | Korcomptenz`,
-      emailBody: '',
+      formTitle,
+      emailSubject,
+      emailBody,
     };
   }
 
