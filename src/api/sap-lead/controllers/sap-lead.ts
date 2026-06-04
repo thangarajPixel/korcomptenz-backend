@@ -35,7 +35,7 @@ async function resolvePageData(pageSlug: string): Promise<{
 
   if (!pageSlug) return defaults;
 
-  const parts = pageSlug.split('/');
+  const parts = pageSlug.replace(/^\//, '').split('/');
   const prefix = parts.length > 1 ? parts[0].toLowerCase() : null;
   const slug = parts[parts.length - 1];
 
@@ -195,6 +195,7 @@ export default factories.createCoreController('api::sap-lead.sap-lead', ({ strap
   async create(ctx) {
     try {
       const data = ctx.request.body.data;
+      console.log('data', data)
 
       // Save the lead
       await super.create(ctx);
@@ -208,7 +209,7 @@ export default factories.createCoreController('api::sap-lead.sap-lead', ({ strap
       await strapi.plugin('email').service('email').send({
         to: data?.businessEmail,
         bcc: CC_EMAIL,
-        subject: 'Thank you for reaching out – Korcomptenz',
+        subject: emailSubject || 'Thank you for reaching out – Korcomptenz',
         html: `
 <!DOCTYPE html>
 <html lang="en">
@@ -273,7 +274,7 @@ export default factories.createCoreController('api::sap-lead.sap-lead', ({ strap
       await strapi.plugin('email').service('email').send({
         to: SALES_EMAIL,
         bcc: CC_EMAIL,
-        subject: emailSubject,
+        subject: `${formTitle} | Korcomptenz`,
         html: `
 <!DOCTYPE html>
 <html lang="en">
