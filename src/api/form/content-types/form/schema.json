@@ -26,7 +26,8 @@
         "form-fields.forrester-report-download",
         "form-fields.newsletter-subscription",
         "form-fields.industry-form",
-        "form-fields.cloud-form"
+        "form-fields.cloud-form",
+        "form-fields.sap-form"
       ],
       "required": true,
       "min": 1,
@@ -51,7 +52,8 @@
         "forrester-report",
         "newsletter-subscription",
         "industry-form",
-        "cloud-form"
+        "cloud-form",
+        "SAP-form"
       ]
     }
   }

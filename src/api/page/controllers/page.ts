@@ -46,9 +46,15 @@ export default factories.createCoreController(
                         image: true,
                         logo: true,
                         logoMobile: true,
+                        formImage: true,
                         footer: {
                           populate: {
                             logo: true,
+                          },
+                        },
+                        form: {
+                          populate: {
+                            forms: true,
                           },
                         },
                         customFooter: {
@@ -373,6 +379,12 @@ export default factories.createCoreController(
                         image: true,
                         logo: true,
                         logoMobile: true,
+                        formImage: true,
+                        form: {
+                          populate: {
+                            forms: true,
+                          },
+                        },
                       },
                     },
                     demoDetails: {
@@ -1014,6 +1026,12 @@ export default factories.createCoreController(
                   populate: {
                     image: true,
                     imageMobile: true,
+                    formImage: true,
+                    form: {
+                      populate: {
+                        forms: true,
+                      },
+                    },
                     list: {
                       populate: {
                         imageMobile: true,
@@ -1179,6 +1197,38 @@ export default factories.createCoreController(
             seo: true,
           },
         });
+
+        if (entity?.list) {
+          for (const section of entity.list) {
+            // ✅ Banner section list
+            if (section.__component === "page-componets.banner-section-list") {
+              for (const item of section.list ?? []) {
+                if (item.isForm && !item.pageSlug) {
+                  item.pageSlug = {
+                    id: entity.id,
+                    documentId: entity.documentId,
+                    slug: entity.slug,
+                    pageTitle: entity.pageTitle,
+                  };
+                }
+              }
+            }
+
+            // ✅ Demo banner list
+            if (section.__component === "demo-page.demo-banner-list") {
+              for (const item of section.list ?? []) {
+                if (item.isForm && !item.pageSlug) {
+                  item.pageSlug = {
+                    id: entity.id,
+                    documentId: entity.documentId,
+                    slug: entity.slug,
+                    pageTitle: entity.pageTitle,
+                  };
+                }
+              }
+            }
+          }
+        }
 
         if (!entity) {
           const notFoundPages = await strapi.db

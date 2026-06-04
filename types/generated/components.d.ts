@@ -1258,6 +1258,21 @@ export interface FormFieldsReserveSpotFields extends Struct.ComponentSchema {
   };
 }
 
+export interface FormFieldsSapForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_sap_forms';
+  info: {
+    displayName: 'SAP-form';
+    icon: 'eye';
+  };
+  attributes: {
+    businessEmailLabel: Schema.Attribute.String;
+    fullNameLabel: Schema.Attribute.String;
+    messageLabel: Schema.Attribute.String;
+    organizationLabel: Schema.Attribute.String;
+    phoneNumberLabel: Schema.Attribute.String;
+  };
+}
+
 export interface FormFieldsStreamlineForm extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_streamline_forms';
   info: {
@@ -2035,10 +2050,42 @@ export interface NewsAndEventNewsBanner extends Struct.ComponentSchema {
     buttonLink: Schema.Attribute.String;
     buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formButtonText: Schema.Attribute.String;
+    formDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    formImage: Schema.Attribute.Media<'images'>;
+    formTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
+    isForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isVideo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    sapForm: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     title: Schema.Attribute.Text;
     videoLink: Schema.Attribute.String;
   };
@@ -2182,8 +2229,39 @@ export interface PageComponetsBankingFinancialBanner
           preset: 'defaultHtml';
         }
       >;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    formImage: Schema.Attribute.Media<'images'>;
+    formTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
     imageMobile: Schema.Attribute.Media<'images'>;
+    isForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isHasFooter: Schema.Attribute.Boolean;
     isTarget: Schema.Attribute.Boolean;
     list: Schema.Attribute.Component<'sub-page-componets.footer-list', true>;
@@ -4750,11 +4828,42 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     footer: Schema.Attribute.Component<'case-study.partner', false>;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    formImage: Schema.Attribute.Media<'images'>;
+    formTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
     imageMobile: Schema.Attribute.Media<'images'>;
     isCustomFooter: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
+    isForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isHasFooter: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isListPage: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -5569,6 +5678,7 @@ declare module '@strapi/strapi' {
       'form-fields.news-room-form': FormFieldsNewsRoomForm;
       'form-fields.newsletter-subscription': FormFieldsNewsletterSubscription;
       'form-fields.reserve-spot-fields': FormFieldsReserveSpotFields;
+      'form-fields.sap-form': FormFieldsSapForm;
       'form-fields.streamline-form': FormFieldsStreamlineForm;
       'global.button': GlobalButton;
       'global.custom-list': GlobalCustomList;

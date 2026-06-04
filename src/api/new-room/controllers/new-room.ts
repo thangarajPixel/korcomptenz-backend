@@ -71,6 +71,12 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
                       }
                     }
                   },
+                  sapForm: {
+                    populate: {
+                      forms: true,
+                    },
+                  },
+                  formImage: true,
                 }
               },
               'news-and-event.color-custom-description': true,

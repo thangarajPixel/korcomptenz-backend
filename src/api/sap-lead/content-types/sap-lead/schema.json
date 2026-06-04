@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sap_leads",
+  "info": {
+    "singularName": "sap-lead",
+    "pluralName": "sap-leads",
+    "displayName": "sap-lead"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "businessEmail": {
+      "type": "email",
+      "required": true
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": true
+    },
+    "organization": {
+      "type": "string",
+      "required": true
+    },
+    "message": {
+      "type": "text"
+    },
+    "pageSlug": {
+      "type": "string"
+    }
+  }
+}
