@@ -921,8 +921,40 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
       'case-study.description-section',
       true
     >;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formButtonText: Schema.Attribute.String;
+    formDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    formImage: Schema.Attribute.Media<'images'>;
+    formTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     heroSection: Schema.Attribute.Component<'case-study.hero-section', false>;
     isAttachment: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    isForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isHaveRelatedCase: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1505,6 +1537,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'newsletter-subscription',
         'industry-form',
         'cloud-form',
+        'SAP-form',
       ]
     > &
       Schema.Attribute.Required;
@@ -1523,6 +1556,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.newsletter-subscription',
         'form-fields.industry-form',
         'form-fields.cloud-form',
+        'form-fields.sap-form',
       ]
     > &
       Schema.Attribute.Required &
@@ -1942,9 +1976,40 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
     date: Schema.Attribute.Date;
     downloadBlog: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     downloadButton: Schema.Attribute.String;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     featureImage: Schema.Attribute.Media<'images'>;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formButtonText: Schema.Attribute.String;
+    formDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    formImage: Schema.Attribute.Media<'images'>;
+    formTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     heroSection: Schema.Attribute.Component<'case-study.hero-section', false>;
+    isForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isLinkOnly: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTarget: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1959,6 +2024,7 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
+    sapForm: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     services: Schema.Attribute.Relation<
       'oneToMany',
@@ -2038,7 +2104,29 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    formTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
+    isForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.DynamicZone<
       [
         'news-and-event.news-description-only',
@@ -2481,6 +2569,39 @@ export interface ApiReserveSpotLeadReserveSpotLead
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     phone: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSapLeadSapLead extends Struct.CollectionTypeSchema {
+  collectionName: 'sap_leads';
+  info: {
+    displayName: 'sap-lead';
+    pluralName: 'sap-leads';
+    singularName: 'sap-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    businessEmail: Schema.Attribute.Email & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sap-lead.sap-lead'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    organization: Schema.Attribute.String & Schema.Attribute.Required;
+    pageSlug: Schema.Attribute.String;
+    phoneNumber: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -3176,6 +3297,7 @@ declare module '@strapi/strapi' {
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::reserve-lead.reserve-lead': ApiReserveLeadReserveLead;
       'api::reserve-spot-lead.reserve-spot-lead': ApiReserveSpotLeadReserveSpotLead;
+      'api::sap-lead.sap-lead': ApiSapLeadSapLead;
       'api::streamline-form-label.streamline-form-label': ApiStreamlineFormLabelStreamlineFormLabel;
       'api::streamline-form.streamline-form': ApiStreamlineFormStreamlineForm;
       'api::webinar-reserve-spot.webinar-reserve-spot': ApiWebinarReserveSpotWebinarReserveSpot;

@@ -61,6 +61,25 @@
       "type": "component",
       "component": "seo.seo",
       "repeatable": false
+    },
+    "isForm": {
+      "type": "boolean",
+      "default": false
+    },
+    "formTitle": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": { "preset": "defaultHtml" }
+    },
+    "emailSubject": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": { "preset": "defaultHtml" }
+    },
+    "emailBody": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": { "preset": "defaultHtml" }
     }
   }
 }
