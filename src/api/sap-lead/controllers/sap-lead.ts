@@ -41,52 +41,7 @@ async function resolvePageData(pageSlug: string): Promise<{
 
   // ── Page (no prefix) ────────────────────────────────────────────────────────
   if (!prefix) {
-    const page = await strapi.db.query('api::page.page').findOne({
-      where: { slug: `/${slug}`, publishedAt: { $notNull: true } },
-      select: ['slug'],
-      populate: {
-        list: {
-          on: {
-            'page-componets.banner-section-list': {
-              populate: {
-                list: {
-                  select: ['formTitle', 'emailSubject', 'emailBody'],
-                },
-              },
-            },
-            'page-componets.banking-financial-banner': {
-              select: ['formTitle', 'emailSubject', 'emailBody'],
-            },
-          },
-        },
-      },
-    }) as any;
-
-    if (!page) return defaults;
-
-    const pageUrl = `${BASE_URL}/${page.slug}`.replace(/([^:])\/\/+/g, '$1/');
-    let formTitle = defaults.formTitle;
-    let emailSubject = defaults.emailSubject;
-    let emailBody = defaults.emailBody;
-
-    outer: for (const section of page?.list ?? []) {
-      // banking-financial-banner: fields are directly on the section (no nested list)
-      if (section?.formTitle || section?.emailSubject || section?.emailBody) {
-        if (section?.formTitle) formTitle = stripHtml(section.formTitle) || formTitle;
-        if (section?.emailSubject) emailSubject = stripHtml(section.emailSubject) || emailSubject;
-        if (section?.emailBody) emailBody = section.emailBody;
-        break outer;
-      }
-      // banner-section-list: fields are nested inside section.list banners
-      for (const banner of section?.list ?? []) {
-        if (banner?.formTitle) formTitle = stripHtml(banner.formTitle) || formTitle;
-        if (banner?.emailSubject) emailSubject = stripHtml(banner.emailSubject) || emailSubject;
-        if (banner?.emailBody) emailBody = banner.emailBody;
-        if (formTitle !== defaults.formTitle) break outer;
-      }
-    }
-
-    return { pageUrl, formTitle, emailSubject, emailBody };
+    return await lookupPage(`/${slug}`, pageSlug);
   }
 
   // ── Blog ────────────────────────────────────────────────────────────────────
@@ -205,11 +160,68 @@ async function resolvePageData(pageSlug: string): Promise<{
     };
   }
 
-  // ── Unknown prefix — fall back to base URL ───────────────────────────────────
-  return {
-    ...defaults,
-    pageUrl: `${BASE_URL}/${pageSlug}`,
+  // ── Unknown prefix — try page API with full slug path ───────────────────────
+  return await lookupPage(`/${parts.join('/')}`, pageSlug);
+}
+
+async function lookupPage(fullSlug: string, originalSlug: string): Promise<{
+  pageUrl: string;
+  formTitle: string;
+  emailSubject: string;
+  emailBody: string;
+}> {
+  const defaults = {
+    pageUrl: `${BASE_URL}/${originalSlug.replace(/^\//, '')}`,
+    formTitle: 'New SAP Lead',
+    emailSubject: 'New SAP Lead | Korcomptenz',
+    emailBody: '',
   };
+
+  const page = await strapi.db.query('api::page.page').findOne({
+    where: { slug: fullSlug, publishedAt: { $notNull: true } },
+    select: ['slug'],
+    populate: {
+      list: {
+        on: {
+          'page-componets.banner-section-list': {
+            populate: {
+              list: {
+                select: ['formTitle', 'emailSubject', 'emailBody'],
+              },
+            },
+          },
+          'page-componets.banking-financial-banner': {
+            select: ['formTitle', 'emailSubject', 'emailBody'],
+          },
+        },
+      },
+    },
+  }) as any;
+
+  if (!page) return defaults;
+
+  const pageUrl = `${BASE_URL}${page.slug.startsWith('/') ? '' : '/'}${page.slug}`;
+  let formTitle = defaults.formTitle;
+  let emailSubject = defaults.emailSubject;
+  let emailBody = defaults.emailBody;
+
+  for (const section of page?.list ?? []) {
+    if (section?.formTitle || section?.emailSubject || section?.emailBody) {
+      if (section?.formTitle && formTitle === defaults.formTitle) formTitle = stripHtml(section.formTitle) || formTitle;
+      if (section?.emailSubject && emailSubject === defaults.emailSubject) emailSubject = stripHtml(section.emailSubject) || emailSubject;
+      if (section?.emailBody && !emailBody) emailBody = section.emailBody;
+      if (formTitle !== defaults.formTitle && emailSubject !== defaults.emailSubject && emailBody) break;
+      continue;
+    }
+    for (const banner of section?.list ?? []) {
+      if (banner?.formTitle && formTitle === defaults.formTitle) formTitle = stripHtml(banner.formTitle) || formTitle;
+      if (banner?.emailSubject && emailSubject === defaults.emailSubject) emailSubject = stripHtml(banner.emailSubject) || emailSubject;
+      if (banner?.emailBody && !emailBody) emailBody = banner.emailBody;
+      if (formTitle !== defaults.formTitle && emailSubject !== defaults.emailSubject && emailBody) break;
+    }
+  }
+
+  return { pageUrl, formTitle, emailSubject, emailBody };
 }
 
 export default factories.createCoreController('api::sap-lead.sap-lead', ({ strapi }) => ({
