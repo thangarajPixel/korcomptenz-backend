@@ -2452,6 +2452,9 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.cloud-built-people',
         'page-componets.cloud-key-offerings',
         'page-componets.cloud-migration-handle',
+        'page-componets.tab-section',
+        'page-componets.step-grid-section',
+        'page-componets.grid-system',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

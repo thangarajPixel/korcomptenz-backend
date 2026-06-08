@@ -2373,6 +2373,16 @@ export interface PageComponetsCard extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsChecklistitems extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_checklistitems';
+  info: {
+    displayName: 'checklistitems';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+  };
+}
+
 export interface PageComponetsCloudAiPower extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_cloud_ai_powers';
   info: {
@@ -3696,6 +3706,28 @@ export interface PageComponetsFaqTitle extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsFootergrid extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_footergrids';
+  info: {
+    displayName: 'footergrid';
+  };
+  attributes: {
+    footerdescription: Schema.Attribute.Blocks;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface PageComponetsFootergridlist extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_footergridlists';
+  info: {
+    displayName: 'footergridlist';
+  };
+  attributes: {
+    footerdescription: Schema.Attribute.Blocks;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface PageComponetsFullLifecycleBottom
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_full_lifecycle_bottoms';
@@ -3851,6 +3883,71 @@ export interface PageComponetsGramBanner extends Struct.ComponentSchema {
     mobileImage: Schema.Attribute.Media<'images'>;
     theme: Schema.Attribute.Enumeration<['default', 'dark', 'light', 'blank']>;
     title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsGridSystem extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_grid_systems';
+  info: {
+    displayName: 'grid-system';
+    icon: 'dashboard';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+    footergridlist: Schema.Attribute.Component<
+      'page-componets.footergridlist',
+      true
+    >;
+    footertext: Schema.Attribute.Text;
+    griditemlist: Schema.Attribute.Component<
+      'page-componets.griditemlist',
+      true
+    >;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsGriddetails extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_griddetails';
+  info: {
+    displayName: 'griddetails';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.Text;
+    buttonText: Schema.Attribute.Text;
+    checklistitems: Schema.Attribute.Component<
+      'page-componets.checklistitems',
+      true
+    >;
+    griddescription: Schema.Attribute.Blocks;
+    gridtitle: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface PageComponetsGriditemlist extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_griditemlists';
+  info: {
+    displayName: 'griditemlist';
+  };
+  attributes: {
+    griddescription: Schema.Attribute.Blocks;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    listitems: Schema.Attribute.Component<'page-componets.listitems', true>;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsGridlist extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_gridlists';
+  info: {
+    displayName: 'gridlist';
+  };
+  attributes: {
+    griddetails: Schema.Attribute.Component<'page-componets.griddetails', true>;
+    number: Schema.Attribute.BigInteger;
+    steptitle: Schema.Attribute.Text;
   };
 }
 
@@ -4217,6 +4314,18 @@ export interface PageComponetsLightSliderList extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     list: Schema.Attribute.Component<'page-componets.light-slider-card', true>;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsListitems extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_listitems';
+  info: {
+    displayName: 'listitems';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    listdescription: Schema.Attribute.Blocks;
     title: Schema.Attribute.Text;
   };
 }
@@ -4630,6 +4739,19 @@ export interface PageComponetsSolutionsData extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsStepGridSection extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_step_grid_sections';
+  info: {
+    displayName: 'step-grid-section';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+    gridlist: Schema.Attribute.Component<'page-componets.gridlist', true>;
+    highlighttext: Schema.Attribute.Text;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface PageComponetsStickyCard extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_sticky_cards';
   info: {
@@ -4745,6 +4867,45 @@ export interface PageComponetsStretchableSection
     image: Schema.Attribute.Media<'images' | 'files'>;
     list: Schema.Attribute.Component<'page-componets.stretchable-card', true>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsTabSection extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_tab_sections';
+  info: {
+    displayName: 'tab-section';
+    icon: 'dashboard';
+  };
+  attributes: {
+    highlighttext: Schema.Attribute.Text;
+    tablist: Schema.Attribute.Component<'page-componets.tablist', true>;
+    title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsTablist extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_tablists';
+  info: {
+    displayName: 'tablist';
+  };
+  attributes: {
+    tablistdetails: Schema.Attribute.Component<
+      'page-componets.tablistdeatils',
+      true
+    >;
+    tabtitle: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsTablistdeatils extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_tablistdeatils';
+  info: {
+    displayName: 'tablistdeatils';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.Text;
   };
 }
 
@@ -5746,6 +5907,7 @@ declare module '@strapi/strapi' {
       'page-componets.build-data': PageComponetsBuildData;
       'page-componets.build-datas': PageComponetsBuildDatas;
       'page-componets.card': PageComponetsCard;
+      'page-componets.checklistitems': PageComponetsChecklistitems;
       'page-componets.cloud-ai-power': PageComponetsCloudAiPower;
       'page-componets.cloud-banner': PageComponetsCloudBanner;
       'page-componets.cloud-built-people': PageComponetsCloudBuiltPeople;
@@ -5803,6 +5965,8 @@ declare module '@strapi/strapi' {
       'page-componets.fabcon-smart-forge': PageComponetsFabconSmartForge;
       'page-componets.faq': PageComponetsFaq;
       'page-componets.faq-title': PageComponetsFaqTitle;
+      'page-componets.footergrid': PageComponetsFootergrid;
+      'page-componets.footergridlist': PageComponetsFootergridlist;
       'page-componets.full-lifecycle-bottom': PageComponetsFullLifecycleBottom;
       'page-componets.full-lifecycle-bottom-card': PageComponetsFullLifecycleBottomCard;
       'page-componets.full-lifecycle-mid': PageComponetsFullLifecycleMid;
@@ -5810,6 +5974,10 @@ declare module '@strapi/strapi' {
       'page-componets.full-lifecycle-top': PageComponetsFullLifecycleTop;
       'page-componets.full-lifecycle-top-list': PageComponetsFullLifecycleTopList;
       'page-componets.gram-banner': PageComponetsGramBanner;
+      'page-componets.grid-system': PageComponetsGridSystem;
+      'page-componets.griddetails': PageComponetsGriddetails;
+      'page-componets.griditemlist': PageComponetsGriditemlist;
+      'page-componets.gridlist': PageComponetsGridlist;
       'page-componets.image': PageComponetsImage;
       'page-componets.image-section': PageComponetsImageSection;
       'page-componets.industry-build-data': PageComponetsIndustryBuildData;
@@ -5826,6 +5994,7 @@ declare module '@strapi/strapi' {
       'page-componets.light-slider-card': PageComponetsLightSliderCard;
       'page-componets.light-slider-group-list': PageComponetsLightSliderGroupList;
       'page-componets.light-slider-list': PageComponetsLightSliderList;
+      'page-componets.listitems': PageComponetsListitems;
       'page-componets.microsoft-gold-certified': PageComponetsMicrosoftGoldCertified;
       'page-componets.microsoft-gold-certified-card1': PageComponetsMicrosoftGoldCertifiedCard1;
       'page-componets.microsoft-gold-certified-card2': PageComponetsMicrosoftGoldCertifiedCard2;
@@ -5849,12 +6018,16 @@ declare module '@strapi/strapi' {
       'page-componets.smart-forge-operational-roadblock-list': PageComponetsSmartForgeOperationalRoadblockList;
       'page-componets.solutions': PageComponetsSolutions;
       'page-componets.solutions-data': PageComponetsSolutionsData;
+      'page-componets.step-grid-section': PageComponetsStepGridSection;
       'page-componets.sticky-card': PageComponetsStickyCard;
       'page-componets.sticky-cards-list': PageComponetsStickyCardsList;
       'page-componets.sticky-title-card': PageComponetsStickyTitleCard;
       'page-componets.sticky-title-list': PageComponetsStickyTitleList;
       'page-componets.stretchable-card': PageComponetsStretchableCard;
       'page-componets.stretchable-section': PageComponetsStretchableSection;
+      'page-componets.tab-section': PageComponetsTabSection;
+      'page-componets.tablist': PageComponetsTablist;
+      'page-componets.tablistdeatils': PageComponetsTablistdeatils;
       'page-componets.tech-data': PageComponetsTechData;
       'page-componets.why-we-are': PageComponetsWhyWeAre;
       'page-componets.why-we-are-list': PageComponetsWhyWeAreList;

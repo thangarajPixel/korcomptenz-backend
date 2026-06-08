@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_page_componets_step_grid_sections",
+  "info": {
+    "displayName": "step-grid-section"
+  },
+  "options": {},
+  "attributes": {
+    "highlighttext": {
+      "type": "text"
+    },
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "gridlist": {
+      "type": "component",
+      "component": "page-componets.gridlist",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

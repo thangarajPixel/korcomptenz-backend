@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_page_componets_tablists",
+  "info": {
+    "displayName": "tablist"
+  },
+  "options": {},
+  "attributes": {
+    "tabtitle": {
+      "type": "text"
+    },
+    "tablistdetails": {
+      "type": "component",
+      "component": "page-componets.tablistdeatils",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

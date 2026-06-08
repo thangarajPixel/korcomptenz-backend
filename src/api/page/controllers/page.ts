@@ -1072,6 +1072,33 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                 "page-componets.tab-section": {
+                  populate: {
+                    tablist: {
+                      populate: {
+                        tablistdetails: {
+                          populate: {
+                            icon: true,
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+                "page-componets.step-grid-section": {
+                  populate: {
+                    gridlist: {
+                      populate: {
+                        griddetails: {
+                          populate: {
+                            image: true,
+                            checklistitems: true,
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
                 "page-componets.industry-featured-content": {
                   populate: {
                     list: {
