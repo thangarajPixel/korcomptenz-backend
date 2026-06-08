@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_page_componets_microsoft_roadmaps",
+  "info": {
+    "displayName": "microsoft-roadmap",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "gridlist": {
+      "type": "component",
+      "component": "page-componets.listbox",
+      "repeatable": true
+    },
+    "footertext": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

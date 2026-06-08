@@ -2040,6 +2040,16 @@ export interface NewsAndEventCompoundsNewsroom extends Struct.ComponentSchema {
   };
 }
 
+export interface NewsAndEventCountryList extends Struct.ComponentSchema {
+  collectionName: 'components_news_and_event_country_lists';
+  info: {
+    displayName: 'country-list';
+  };
+  attributes: {
+    countryName: Schema.Attribute.String;
+  };
+}
+
 export interface NewsAndEventNewsBanner extends Struct.ComponentSchema {
   collectionName: 'components_news_and_event_news_banners';
   info: {
@@ -2892,6 +2902,19 @@ export interface PageComponetsDarkSliderList extends Struct.ComponentSchema {
     isPerRowThree: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isSwap: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     slides: Schema.Attribute.Component<'page-componets.dark-slider-card', true>;
+  };
+}
+
+export interface PageComponetsDemandHowKorSection
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_demand_how_kor_sections';
+  info: {
+    displayName: 'demand-how-kor-section';
+    icon: 'apps';
+  };
+  attributes: {
+    howkorlist: Schema.Attribute.Component<'page-componets.list', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -3890,6 +3913,20 @@ export interface PageComponetsGramBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsGridlist extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_gridlists';
+  info: {
+    displayName: 'gridlist';
+    icon: 'apps';
+  };
+  attributes: {
+    buttontext: Schema.Attribute.String;
+    buttonurl: Schema.Attribute.String;
+    listdescription: Schema.Attribute.Blocks;
+    listtitle: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsGridlisting extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_gridlistings';
   info: {
@@ -4201,6 +4238,18 @@ export interface PageComponetsInspireSectionCard
   };
 }
 
+export interface PageComponetsInterlinks extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_interlinks';
+  info: {
+    displayName: 'Interlinks';
+    icon: 'manyWays';
+  };
+  attributes: {
+    urllink: Schema.Attribute.String;
+    urlname: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsKeyMetricsSection extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_key_metrics_sections';
   info: {
@@ -4284,6 +4333,19 @@ export interface PageComponetsLightSliderList extends Struct.ComponentSchema {
     image: Schema.Attribute.Media<'images'>;
     list: Schema.Attribute.Component<'page-componets.light-slider-card', true>;
     title: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsList extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_lists';
+  info: {
+    displayName: 'list';
+    icon: 'bulletList';
+  };
+  attributes: {
+    Description: Schema.Attribute.Blocks;
+    pointnumber: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -4387,6 +4449,37 @@ export interface PageComponetsMicrosoftGoldCertifiedCard2
   };
 }
 
+export interface PageComponetsMicrosoftRoadmap extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_microsoft_roadmaps';
+  info: {
+    displayName: 'microsoft-roadmap';
+    icon: 'apps';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    footertext: Schema.Attribute.Text;
+    gridlist: Schema.Attribute.Component<'page-componets.listbox', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsMicrosoftWhyBusiness
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_microsoft_why_businesses';
+  info: {
+    displayName: 'microsoft-why-business';
+    icon: 'apps';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    gridlist: Schema.Attribute.Component<'page-componets.listbox', true>;
+    introimage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsMidFabconDataAnalytics
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_mid_fabcon_data_analytics';
@@ -4453,6 +4546,48 @@ export interface PageComponetsMidmarketEnterprisesList
     image: Schema.Attribute.Media<'images'>;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsOfferingcolumns extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_offeringcolumns';
+  info: {
+    displayName: 'offeringcolumns';
+    icon: 'apps';
+  };
+  attributes: {
+    divtitle: Schema.Attribute.String;
+    interlinks: Schema.Attribute.Component<'page-componets.interlinks', true>;
+  };
+}
+
+export interface PageComponetsOurOfferings extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_our_offerings';
+  info: {
+    displayName: 'our-offerings';
+    icon: 'cursor';
+  };
+  attributes: {
+    columntitle: Schema.Attribute.Component<
+      'page-componets.offeringcolumns',
+      true
+    >;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsPageGridView extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_page_grid_views';
+  info: {
+    displayName: 'page-grid-view';
+    icon: 'apps';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText;
+    gridlist: Schema.Attribute.Component<'page-componets.gridlist', true>;
+    tag: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
   };
 }
 
@@ -5922,6 +6057,7 @@ declare module '@strapi/strapi' {
       'news-and-event.build-data': NewsAndEventBuildData;
       'news-and-event.color-custom-description': NewsAndEventColorCustomDescription;
       'news-and-event.compounds-newsroom': NewsAndEventCompoundsNewsroom;
+      'news-and-event.country-list': NewsAndEventCountryList;
       'news-and-event.news-banner': NewsAndEventNewsBanner;
       'news-and-event.news-description-only': NewsAndEventNewsDescriptionOnly;
       'news-and-event.news-event-list': NewsAndEventNewsEventList;
@@ -5956,6 +6092,7 @@ declare module '@strapi/strapi' {
       'page-componets.custom-footer-list': PageComponetsCustomFooterList;
       'page-componets.dark-slider-card': PageComponetsDarkSliderCard;
       'page-componets.dark-slider-list': PageComponetsDarkSliderList;
+      'page-componets.demand-how-kor-section': PageComponetsDemandHowKorSection;
       'page-componets.demonstrate-card': PageComponetsDemonstrateCard;
       'page-componets.demonstrate-section': PageComponetsDemonstrateSection;
       'page-componets.digital-about': PageComponetsDigitalAbout;
@@ -6004,6 +6141,7 @@ declare module '@strapi/strapi' {
       'page-componets.full-lifecycle-top': PageComponetsFullLifecycleTop;
       'page-componets.full-lifecycle-top-list': PageComponetsFullLifecycleTopList;
       'page-componets.gram-banner': PageComponetsGramBanner;
+      'page-componets.gridlist': PageComponetsGridlist;
       'page-componets.gridlisting': PageComponetsGridlisting;
       'page-componets.image': PageComponetsImage;
       'page-componets.image-section': PageComponetsImageSection;
@@ -6016,20 +6154,27 @@ declare module '@strapi/strapi' {
       'page-componets.insights-section-card': PageComponetsInsightsSectionCard;
       'page-componets.inspire-section': PageComponetsInspireSection;
       'page-componets.inspire-section-card': PageComponetsInspireSectionCard;
+      'page-componets.interlinks': PageComponetsInterlinks;
       'page-componets.key-metrics-section': PageComponetsKeyMetricsSection;
       'page-componets.kpi-partner': PageComponetsKpiPartner;
       'page-componets.kpi-partner-items': PageComponetsKpiPartnerItems;
       'page-componets.light-slider-card': PageComponetsLightSliderCard;
       'page-componets.light-slider-group-list': PageComponetsLightSliderGroupList;
       'page-componets.light-slider-list': PageComponetsLightSliderList;
+      'page-componets.list': PageComponetsList;
       'page-componets.list-left': PageComponetsListLeft;
       'page-componets.listbox': PageComponetsListbox;
       'page-componets.microsoft-gold-certified': PageComponetsMicrosoftGoldCertified;
       'page-componets.microsoft-gold-certified-card1': PageComponetsMicrosoftGoldCertifiedCard1;
       'page-componets.microsoft-gold-certified-card2': PageComponetsMicrosoftGoldCertifiedCard2;
+      'page-componets.microsoft-roadmap': PageComponetsMicrosoftRoadmap;
+      'page-componets.microsoft-why-business': PageComponetsMicrosoftWhyBusiness;
       'page-componets.mid-fabcon-data-analytics': PageComponetsMidFabconDataAnalytics;
       'page-componets.midmarket-enterprises': PageComponetsMidmarketEnterprises;
       'page-componets.midmarket-enterprises-list': PageComponetsMidmarketEnterprisesList;
+      'page-componets.offeringcolumns': PageComponetsOfferingcolumns;
+      'page-componets.our-offerings': PageComponetsOurOfferings;
+      'page-componets.page-grid-view': PageComponetsPageGridView;
       'page-componets.partner-logos': PageComponetsPartnerLogos;
       'page-componets.pricing-section': PageComponetsPricingSection;
       'page-componets.request-consultation': PageComponetsRequestConsultation;

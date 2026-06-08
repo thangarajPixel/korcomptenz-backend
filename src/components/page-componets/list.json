@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_page_componets_lists",
+  "info": {
+    "displayName": "list",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "pointnumber": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

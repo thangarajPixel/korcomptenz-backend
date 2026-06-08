@@ -929,7 +929,43 @@ export default factories.createCoreController(
                     },
                   },
                 },
+'page-componets.microsoft-why-business': {
+                populate: {
 
+                  title: true,
+                  description: true,
+                  introimage: true,
+                  images: {
+                    populate: {
+                      image: true,
+                    }
+                  },
+                  gridlist: {
+                    populate: {
+                      title: true,
+                      description: true,
+                      icon: true,
+
+                    },
+                  },
+                },
+              },
+              'page-componets.microsoft-roadmap': {
+                populate: {
+
+                  title: true,
+                  description: true,
+                  footertext: true,
+                  gridlist: {
+                    populate: {
+                      title: true,
+                      description: true,
+                      icon: true,
+
+                    },
+                  },
+                },
+              },
                 "page-componets.page-grid-view": {
                   populate: {
                     Title: true,

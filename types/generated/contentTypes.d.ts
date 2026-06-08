@@ -2441,6 +2441,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.what-to-expect',
         'page-componets.client-testimonial',
         'page-componets.certifications-section',
+        'page-componets.microsoft-why-business',
+        'page-componets.microsoft-roadmap',
         'page-componets.request-consultation',
         'page-componets.banking-financial-banner',
         'page-componets.industry-build-data',

@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_page_componets_microsoft_why_businesses",
+  "info": {
+    "displayName": "microsoft-why-business",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "introimage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "gridlist": {
+      "type": "component",
+      "component": "page-componets.listbox",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

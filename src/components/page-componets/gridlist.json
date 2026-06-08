@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_page_componets_gridlists",
+  "info": {
+    "displayName": "gridlist",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "listtitle": {
+      "type": "string"
+    },
+    "listdescription": {
+      "type": "blocks"
+    },
+    "buttontext": {
+      "type": "string"
+    },
+    "buttonurl": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
