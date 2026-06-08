@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_page_componets_griddetails",
+  "info": {
+    "displayName": "griddetails"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "gridtitle": {
+      "type": "text"
+    },
+    "griddescription": {
+      "type": "blocks"
+    },
+    "checklistitems": {
+      "type": "component",
+      "component": "page-componets.checklistitems",
+      "repeatable": true
+    },
+    "buttonText": {
+      "type": "text"
+    },
+    "buttonLink": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

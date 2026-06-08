@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_page_componets_gridlists",
+  "info": {
+    "displayName": "gridlist"
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "biginteger"
+    },
+    "steptitle": {
+      "type": "text"
+    },
+    "griddetails": {
+      "type": "component",
+      "component": "page-componets.griddetails",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

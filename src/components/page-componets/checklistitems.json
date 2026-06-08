@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_page_componets_checklistitems",
+  "info": {
+    "displayName": "checklistitems"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

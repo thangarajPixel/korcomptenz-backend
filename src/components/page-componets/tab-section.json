@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_page_componets_tab_sections",
+  "info": {
+    "displayName": "tab-section",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "highlighttext": {
+      "type": "text"
+    },
+    "tablist": {
+      "type": "component",
+      "component": "page-componets.tablist",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
