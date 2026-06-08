@@ -2372,6 +2372,7 @@ export interface PageComponetsCard extends Struct.ComponentSchema {
     value: Schema.Attribute.String;
   };
 }
+
 export interface PageComponetsCertificationsSection
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_certifications_sections';
@@ -2392,6 +2393,16 @@ export interface PageComponetsCertificationsSection
   };
 }
 
+export interface PageComponetsChecklistitems extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_checklistitems';
+  info: {
+    displayName: 'checklistitems';
+  };
+  attributes: {
+    description: Schema.Attribute.Blocks;
+  };
+}
+
 export interface PageComponetsClientTestimonial extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_client_testimonials';
   info: {
@@ -2405,15 +2416,6 @@ export interface PageComponetsClientTestimonial extends Struct.ComponentSchema {
       true
     >;
     title: Schema.Attribute.String;
-  };
-}
-export interface PageComponetsChecklistitems extends Struct.ComponentSchema {
-  collectionName: 'components_page_componets_checklistitems';
-  info: {
-    displayName: 'checklistitems';
-  };
-  attributes: {
-    description: Schema.Attribute.Blocks;
   };
 }
 
@@ -3740,28 +3742,6 @@ export interface PageComponetsFaqTitle extends Struct.ComponentSchema {
   };
 }
 
-export interface PageComponetsFootergrid extends Struct.ComponentSchema {
-  collectionName: 'components_page_componets_footergrids';
-  info: {
-    displayName: 'footergrid';
-  };
-  attributes: {
-    footerdescription: Schema.Attribute.Blocks;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-  };
-}
-
-export interface PageComponetsFootergridlist extends Struct.ComponentSchema {
-  collectionName: 'components_page_componets_footergridlists';
-  info: {
-    displayName: 'footergridlist';
-  };
-  attributes: {
-    footerdescription: Schema.Attribute.Blocks;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-  };
-}
-
 export interface PageComponetsFullLifecycleBottom
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_full_lifecycle_bottoms';
@@ -3920,42 +3900,6 @@ export interface PageComponetsGramBanner extends Struct.ComponentSchema {
   };
 }
 
-export interface PageComponetsGridlisting extends Struct.ComponentSchema {
-  collectionName: 'components_page_componets_gridlistings';
-  info: {
-    displayName: 'gridlisting';
-    icon: 'landscape';
-  };
-  attributes: {
-    buttontext: Schema.Attribute.String;
-    buttonurl: Schema.Attribute.String;
-    description: Schema.Attribute.RichText;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    title: Schema.Attribute.String;
-  };
-}
-export interface PageComponetsGridSystem extends Struct.ComponentSchema {
-  collectionName: 'components_page_componets_grid_systems';
-  info: {
-    displayName: 'grid-system';
-    icon: 'dashboard';
-  };
-  attributes: {
-    description: Schema.Attribute.Blocks;
-    footergridlist: Schema.Attribute.Component<
-      'page-componets.footergridlist',
-      true
-    >;
-    footertext: Schema.Attribute.Text;
-    griditemlist: Schema.Attribute.Component<
-      'page-componets.griditemlist',
-      true
-    >;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    title: Schema.Attribute.Text;
-  };
-}
-
 export interface PageComponetsGriddetails extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_griddetails';
   info: {
@@ -3974,19 +3918,6 @@ export interface PageComponetsGriddetails extends Struct.ComponentSchema {
   };
 }
 
-export interface PageComponetsGriditemlist extends Struct.ComponentSchema {
-  collectionName: 'components_page_componets_griditemlists';
-  info: {
-    displayName: 'griditemlist';
-  };
-  attributes: {
-    griddescription: Schema.Attribute.Blocks;
-    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    listitems: Schema.Attribute.Component<'page-componets.listitems', true>;
-    title: Schema.Attribute.Text;
-  };
-}
-
 export interface PageComponetsGridlist extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_gridlists';
   info: {
@@ -3996,6 +3927,21 @@ export interface PageComponetsGridlist extends Struct.ComponentSchema {
     griddetails: Schema.Attribute.Component<'page-componets.griddetails', true>;
     number: Schema.Attribute.BigInteger;
     steptitle: Schema.Attribute.Text;
+  };
+}
+
+export interface PageComponetsGridlisting extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_gridlistings';
+  info: {
+    displayName: 'gridlisting';
+    icon: 'landscape';
+  };
+  attributes: {
+    buttontext: Schema.Attribute.String;
+    buttonurl: Schema.Attribute.String;
+    description: Schema.Attribute.RichText;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -4401,19 +4347,6 @@ export interface PageComponetsListbox extends Struct.ComponentSchema {
     description: Schema.Attribute.RichText;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Schema.Attribute.String;
-  };
-}
-
-export interface PageComponetsListitems extends Struct.ComponentSchema {
-  collectionName: 'components_page_componets_listitems';
-  info: {
-    displayName: 'listitems';
-  };
-  attributes: {
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    listdescription: Schema.Attribute.Blocks;
-    title: Schema.Attribute.Text;
-
   };
 }
 
@@ -6098,8 +6031,8 @@ declare module '@strapi/strapi' {
       'page-componets.build-datas': PageComponetsBuildDatas;
       'page-componets.card': PageComponetsCard;
       'page-componets.certifications-section': PageComponetsCertificationsSection;
-      'page-componets.client-testimonial': PageComponetsClientTestimonial;
       'page-componets.checklistitems': PageComponetsChecklistitems;
+      'page-componets.client-testimonial': PageComponetsClientTestimonial;
       'page-componets.cloud-ai-power': PageComponetsCloudAiPower;
       'page-componets.cloud-banner': PageComponetsCloudBanner;
       'page-componets.cloud-built-people': PageComponetsCloudBuiltPeople;
@@ -6157,8 +6090,6 @@ declare module '@strapi/strapi' {
       'page-componets.fabcon-smart-forge': PageComponetsFabconSmartForge;
       'page-componets.faq': PageComponetsFaq;
       'page-componets.faq-title': PageComponetsFaqTitle;
-      'page-componets.footergrid': PageComponetsFootergrid;
-      'page-componets.footergridlist': PageComponetsFootergridlist;
       'page-componets.full-lifecycle-bottom': PageComponetsFullLifecycleBottom;
       'page-componets.full-lifecycle-bottom-card': PageComponetsFullLifecycleBottomCard;
       'page-componets.full-lifecycle-mid': PageComponetsFullLifecycleMid;
@@ -6166,11 +6097,9 @@ declare module '@strapi/strapi' {
       'page-componets.full-lifecycle-top': PageComponetsFullLifecycleTop;
       'page-componets.full-lifecycle-top-list': PageComponetsFullLifecycleTopList;
       'page-componets.gram-banner': PageComponetsGramBanner;
-      'page-componets.gridlisting': PageComponetsGridlisting;
-      'page-componets.grid-system': PageComponetsGridSystem;
       'page-componets.griddetails': PageComponetsGriddetails;
-      'page-componets.griditemlist': PageComponetsGriditemlist;
       'page-componets.gridlist': PageComponetsGridlist;
+      'page-componets.gridlisting': PageComponetsGridlisting;
       'page-componets.image': PageComponetsImage;
       'page-componets.image-section': PageComponetsImageSection;
       'page-componets.industry-build-data': PageComponetsIndustryBuildData;
@@ -6190,7 +6119,6 @@ declare module '@strapi/strapi' {
       'page-componets.light-slider-list': PageComponetsLightSliderList;
       'page-componets.list-left': PageComponetsListLeft;
       'page-componets.listbox': PageComponetsListbox;
-      'page-componets.listitems': PageComponetsListitems;
       'page-componets.microsoft-gold-certified': PageComponetsMicrosoftGoldCertified;
       'page-componets.microsoft-gold-certified-card1': PageComponetsMicrosoftGoldCertifiedCard1;
       'page-componets.microsoft-gold-certified-card2': PageComponetsMicrosoftGoldCertifiedCard2;
