@@ -1,0 +1,72 @@
+{
+  "collectionName": "components_page_componets_cloud_banners",
+  "info": {
+    "displayName": "cloud-banner",
+    "icon": "cloud"
+  },
+  "options": {},
+  "attributes": {
+    "subHeading": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "buttonTextOne": {
+      "type": "string"
+    },
+    "buttonLinkOne": {
+      "type": "string"
+    },
+    "isTargetOne": {
+      "type": "boolean"
+    },
+    "buttonTextTwo": {
+      "type": "string"
+    },
+    "buttonLinkTwo": {
+      "type": "string"
+    },
+    "isTargetTwo": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "mobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "bgColor": {
+      "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "component": "sub-page-componets.cloud-banner-list",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

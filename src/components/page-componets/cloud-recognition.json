@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_page_componets_cloud_recognitions",
+  "info": {
+    "displayName": "cloud-recognition",
+    "icon": "crown"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "list": {
+      "type": "component",
+      "component": "sub-page-componets.cloud-recognition-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

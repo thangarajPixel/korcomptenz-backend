@@ -1,0 +1,96 @@
+{
+  "collectionName": "components_sub_page_componets_industry_featured_lists",
+  "info": {
+    "displayName": "industry-featured-list",
+    "icon": "crown"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "isFirstCard": {
+      "type": "boolean",
+      "default": false
+    },
+    "isTarget": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "isBgImage": {
+      "type": "boolean",
+      "default": false
+    },
+    "bgColor": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isBgImage"
+            },
+            false
+          ]
+        }
+      }
+    },
+    "bgImage": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isBgImage"
+            },
+            true
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "linkType": {
+      "type": "enumeration",
+      "enum": [
+        "Third Party",
+        "Download",
+        "Video"
+      ]
+    },
+    "buttonColor": {
+      "type": "enumeration",
+      "enum": [
+        "Primary",
+        "White",
+        "Blue",
+        "Black"
+      ]
+    }
+  },
+  "config": {}
+}

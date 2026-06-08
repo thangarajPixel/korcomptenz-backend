@@ -921,8 +921,40 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
       'case-study.description-section',
       true
     >;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formButtonText: Schema.Attribute.String;
+    formDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    formImage: Schema.Attribute.Media<'images'>;
+    formTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     heroSection: Schema.Attribute.Component<'case-study.hero-section', false>;
     isAttachment: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    isForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isHaveRelatedCase: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1008,6 +1040,134 @@ export interface ApiCaseTechnologyCaseTechnology
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCloudInfrastructureCloudInfrastructure
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'cloud_infrastructures';
+  info: {
+    displayName: 'cloud-infrastructure';
+    pluralName: 'cloud-infrastructures';
+    singularName: 'cloud-infrastructure';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cloud-infrastructure.cloud-infrastructure'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCloudLeadCloudLead extends Struct.CollectionTypeSchema {
+  collectionName: 'cloud_leads';
+  info: {
+    displayName: 'cloud-lead';
+    pluralName: 'cloud-leads';
+    singularName: 'cloud-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    firstName: Schema.Attribute.String & Schema.Attribute.Required;
+    infrastructure: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::cloud-infrastructure.cloud-infrastructure'
+    >;
+    lastName: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cloud-lead.cloud-lead'
+    > &
+      Schema.Attribute.Private;
+    migrationUrgency: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::cloud-migration-urgency.cloud-migration-urgency'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    role: Schema.Attribute.Relation<'oneToOne', 'api::cloud-role.cloud-role'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCloudMigrationUrgencyCloudMigrationUrgency
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'cloud_migration_urgencies';
+  info: {
+    displayName: 'cloud-migration-urgency';
+    pluralName: 'cloud-migration-urgencies';
+    singularName: 'cloud-migration-urgency';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cloud-migration-urgency.cloud-migration-urgency'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCloudRoleCloudRole extends Struct.CollectionTypeSchema {
+  collectionName: 'cloud_roles';
+  info: {
+    displayName: 'cloud-role';
+    pluralName: 'cloud-roles';
+    singularName: 'cloud-role';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::cloud-role.cloud-role'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1375,6 +1535,9 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'reserve-my-fabcon-form',
         'forrester-report',
         'newsletter-subscription',
+        'industry-form',
+        'cloud-form',
+        'SAP-form',
       ]
     > &
       Schema.Attribute.Required;
@@ -1391,6 +1554,9 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.fabcon-book-meet',
         'form-fields.forrester-report-download',
         'form-fields.newsletter-subscription',
+        'form-fields.industry-form',
+        'form-fields.cloud-form',
+        'form-fields.sap-form',
       ]
     > &
       Schema.Attribute.Required &
@@ -1522,6 +1688,74 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiIndustryLeadIndustryLead
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'industry_leads';
+  info: {
+    displayName: 'industry-lead';
+    pluralName: 'industry-leads';
+    singularName: 'industry-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    firstName: Schema.Attribute.String & Schema.Attribute.Required;
+    lastName: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::industry-lead.industry-lead'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text & Schema.Attribute.Required;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    service: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::industry-service.industry-service'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiIndustryServiceIndustryService
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'industry_services';
+  info: {
+    displayName: 'industry-service';
+    pluralName: 'industry-services';
+    singularName: 'industry-service';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::industry-service.industry-service'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiInsightAuthorInsightAuthor
   extends Struct.CollectionTypeSchema {
   collectionName: 'insight_authors';
@@ -1586,6 +1820,7 @@ export interface ApiInsightCategoryInsightCategory
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     slug: Schema.Attribute.UID<'label'> & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1741,9 +1976,40 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
     date: Schema.Attribute.Date;
     downloadBlog: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     downloadButton: Schema.Attribute.String;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     featureImage: Schema.Attribute.Media<'images'>;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formButtonText: Schema.Attribute.String;
+    formDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    formImage: Schema.Attribute.Media<'images'>;
+    formTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     heroSection: Schema.Attribute.Component<'case-study.hero-section', false>;
+    isForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isLinkOnly: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTarget: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1758,6 +2024,7 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
       false
     >;
     publishedAt: Schema.Attribute.DateTime;
+    sapForm: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     services: Schema.Attribute.Relation<
       'oneToMany',
@@ -1837,7 +2104,29 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    formTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
+    isForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.DynamicZone<
       [
         'news-and-event.news-description-only',
@@ -2146,6 +2435,23 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.slider-service-section',
         'page-componets.microsoft-gold-certified',
         'page-componets.sap-questionnaire',
+        'page-componets.banking-financial-banner',
+        'page-componets.industry-build-data',
+        'page-componets.industry-solution-spotlight',
+        'page-componets.industry-intelligent-experience',
+        'page-componets.industry-featured-content',
+        'page-componets.cloud-recognition',
+        'page-componets.cloud-warning-signs',
+        'page-componets.cloud-technology',
+        'page-componets.cloud-one-platform',
+        'page-componets.cloud-first-call',
+        'page-componets.cloud-ai-power',
+        'page-componets.cloud-readiness-report',
+        'page-componets.cloud-banner',
+        'page-componets.industry-service-portfolio',
+        'page-componets.cloud-built-people',
+        'page-componets.cloud-key-offerings',
+        'page-componets.cloud-migration-handle',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -2256,6 +2562,39 @@ export interface ApiReserveSpotLeadReserveSpotLead
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     phone: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSapLeadSapLead extends Struct.CollectionTypeSchema {
+  collectionName: 'sap_leads';
+  info: {
+    displayName: 'sap-lead';
+    pluralName: 'sap-leads';
+    singularName: 'sap-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    businessEmail: Schema.Attribute.Email & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fullName: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sap-lead.sap-lead'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    organization: Schema.Attribute.String & Schema.Attribute.Required;
+    pageSlug: Schema.Attribute.String;
+    phoneNumber: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -2913,6 +3252,10 @@ declare module '@strapi/strapi' {
       'api::case-study-sponser.case-study-sponser': ApiCaseStudySponserCaseStudySponser;
       'api::case-study.case-study': ApiCaseStudyCaseStudy;
       'api::case-technology.case-technology': ApiCaseTechnologyCaseTechnology;
+      'api::cloud-infrastructure.cloud-infrastructure': ApiCloudInfrastructureCloudInfrastructure;
+      'api::cloud-lead.cloud-lead': ApiCloudLeadCloudLead;
+      'api::cloud-migration-urgency.cloud-migration-urgency': ApiCloudMigrationUrgencyCloudMigrationUrgency;
+      'api::cloud-role.cloud-role': ApiCloudRoleCloudRole;
       'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;
       'api::contact-us-lead.contact-us-lead': ApiContactUsLeadContactUsLead;
       'api::contact-us.contact-us': ApiContactUsContactUs;
@@ -2927,6 +3270,8 @@ declare module '@strapi/strapi' {
       'api::forrester-report.forrester-report': ApiForresterReportForresterReport;
       'api::free-consultation-lead.free-consultation-lead': ApiFreeConsultationLeadFreeConsultationLead;
       'api::home.home': ApiHomeHome;
+      'api::industry-lead.industry-lead': ApiIndustryLeadIndustryLead;
+      'api::industry-service.industry-service': ApiIndustryServiceIndustryService;
       'api::insight-author.insight-author': ApiInsightAuthorInsightAuthor;
       'api::insight-category.insight-category': ApiInsightCategoryInsightCategory;
       'api::insight-list-page.insight-list-page': ApiInsightListPageInsightListPage;
@@ -2945,6 +3290,7 @@ declare module '@strapi/strapi' {
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::reserve-lead.reserve-lead': ApiReserveLeadReserveLead;
       'api::reserve-spot-lead.reserve-spot-lead': ApiReserveSpotLeadReserveSpotLead;
+      'api::sap-lead.sap-lead': ApiSapLeadSapLead;
       'api::streamline-form-label.streamline-form-label': ApiStreamlineFormLabelStreamlineFormLabel;
       'api::streamline-form.streamline-form': ApiStreamlineFormStreamlineForm;
       'api::webinar-reserve-spot.webinar-reserve-spot': ApiWebinarReserveSpotWebinarReserveSpot;

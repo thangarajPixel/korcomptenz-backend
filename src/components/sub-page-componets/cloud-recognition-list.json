@@ -1,0 +1,56 @@
+{
+  "collectionName": "components_sub_page_componets_cloud_recognition_lists",
+  "info": {
+    "displayName": "cloud-recognition-list",
+    "icon": "heart"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "isTitleDescription": {
+      "type": "boolean",
+      "default": false
+    },
+    "title": {
+      "type": "customField",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isTitleDescription"
+            },
+            true
+          ]
+        }
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "description": {
+      "type": "customField",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isTitleDescription"
+            },
+            true
+          ]
+        }
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    }
+  },
+  "config": {}
+}

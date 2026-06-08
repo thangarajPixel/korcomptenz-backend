@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_form_fields_cloud_forms",
+  "info": {
+    "displayName": "cloud-form",
+    "icon": "eye"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "firstNameLabel": {
+      "type": "string"
+    },
+    "lastNameLabel": {
+      "type": "string"
+    },
+    "companyLabel": {
+      "type": "string"
+    },
+    "roleLabel": {
+      "type": "string"
+    },
+    "infrastructureLabel": {
+      "type": "string"
+    },
+    "migrationUrgencyLabel": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

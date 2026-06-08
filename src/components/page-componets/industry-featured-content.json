@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_page_componets_industry_featured_contents",
+  "info": {
+    "displayName": "industry-featured-content",
+    "icon": "exit"
+  },
+  "options": {},
+  "attributes": {
+    "subHeading": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "isButtonHeading": {
+      "type": "boolean",
+      "default": false
+    },
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "list": {
+      "type": "component",
+      "component": "sub-page-componets.industry-featured-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

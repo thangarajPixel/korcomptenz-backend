@@ -104,7 +104,24 @@
         "page-componets.sap-implementation",
         "page-componets.slider-service-section",
         "page-componets.microsoft-gold-certified",
-        "page-componets.sap-questionnaire"
+        "page-componets.sap-questionnaire",
+        "page-componets.banking-financial-banner",
+        "page-componets.industry-build-data",
+        "page-componets.industry-solution-spotlight",
+        "page-componets.industry-intelligent-experience",
+        "page-componets.industry-featured-content",
+        "page-componets.cloud-recognition",
+        "page-componets.cloud-warning-signs",
+        "page-componets.cloud-technology",
+        "page-componets.cloud-one-platform",
+        "page-componets.cloud-first-call",
+        "page-componets.cloud-ai-power",
+        "page-componets.cloud-readiness-report",
+        "page-componets.cloud-banner",
+        "page-componets.industry-service-portfolio",
+        "page-componets.cloud-built-people",
+        "page-componets.cloud-key-offerings",
+        "page-componets.cloud-migration-handle"
       ]
     }
   }

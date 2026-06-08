@@ -1,0 +1,57 @@
+{
+  "collectionName": "components_page_componets_cloud_first_calls",
+  "info": {
+    "displayName": "cloud-first-call",
+    "icon": "chartCircle"
+  },
+  "options": {},
+  "attributes": {
+    "subHeading": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "listOne": {
+      "type": "component",
+      "component": "sub-page-componets.cloud-first-call-list",
+      "repeatable": false
+    },
+    "listTwo": {
+      "type": "component",
+      "component": "sub-page-componets.cloud-first-call-list",
+      "repeatable": false
+    },
+    "listThree": {
+      "type": "component",
+      "component": "sub-page-componets.cloud-first-call-list",
+      "repeatable": false
+    },
+    "listFour": {
+      "type": "component",
+      "component": "sub-page-componets.cloud-first-call-list",
+      "repeatable": false
+    },
+    "listFive": {
+      "type": "component",
+      "component": "sub-page-componets.cloud-first-call-list",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_sub_page_componets_cloud_migration_lists",
+  "info": {
+    "displayName": "cloud-migration-list",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "tabTitle": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "disclaimer": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "subList": {
+      "type": "component",
+      "component": "sub-page-componets.cloud-migration-sublist",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

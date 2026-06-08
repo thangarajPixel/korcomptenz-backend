@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_form_fields_sap_forms",
+  "info": {
+    "displayName": "SAP-form",
+    "icon": "eye"
+  },
+  "options": {},
+  "attributes": {
+    "fullNameLabel": {
+      "type": "string"
+    },
+    "businessEmailLabel": {
+      "type": "string"
+    },
+    "phoneNumberLabel": {
+      "type": "string"
+    },
+    "organizationLabel": {
+      "type": "string"
+    },
+    "messageLabel": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

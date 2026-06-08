@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_sub_page_componets_industry_experience_lists",
+  "info": {
+    "displayName": "industry-experience-list",
+    "icon": "cloud"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "isTarget": {
+      "type": "boolean"
+    },
+    "linkType": {
+      "type": "enumeration",
+      "enum": [
+        "Third Party",
+        "Download"
+      ]
+    }
+  },
+  "config": {}
+}

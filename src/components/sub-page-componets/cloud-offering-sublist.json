@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sub_page_componets_cloud_offering_sublists",
+  "info": {
+    "displayName": "cloud-offering-sublist",
+    "icon": "filePdf"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    }
+  },
+  "config": {}
+}
