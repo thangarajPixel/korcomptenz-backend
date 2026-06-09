@@ -1072,7 +1072,7 @@ export default factories.createCoreController(
                     },
                   },
                 },
-                 "page-componets.tab-section": {
+                "page-componets.tab-section": {
                   populate: {
                     tablist: {
                       populate: {
@@ -1095,6 +1095,27 @@ export default factories.createCoreController(
                             checklistitems: true,
                           },
                         },
+                      },
+                    },
+                  },
+                },
+                "page-componets.grid-system": {
+                  populate: {
+                    centericon: true,
+                    griditemlist: {
+                      populate: {
+                        icon: true,
+                        listitems: {
+                          populate: {
+                            image: true,
+                          },
+                        },
+                      },
+                    },
+
+                    footergridlist: {
+                      populate: {
+                        icon: true,
                       },
                     },
                   },

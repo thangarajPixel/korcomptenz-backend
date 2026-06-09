@@ -3893,6 +3893,11 @@ export interface PageComponetsGridSystem extends Struct.ComponentSchema {
     icon: 'dashboard';
   };
   attributes: {
+    centerdescription: Schema.Attribute.Blocks;
+    centericon: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    centertitle: Schema.Attribute.Text;
     description: Schema.Attribute.Blocks;
     footergridlist: Schema.Attribute.Component<
       'page-componets.footergridlist',
@@ -3903,7 +3908,6 @@ export interface PageComponetsGridSystem extends Struct.ComponentSchema {
       'page-componets.griditemlist',
       true
     >;
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Schema.Attribute.Text;
   };
 }

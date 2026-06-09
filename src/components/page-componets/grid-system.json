@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_page_componets_grid_systems",
+  "info": {
+    "displayName": "grid-system",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "centericon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "centertitle": {
+      "type": "text"
+    },
+    "centerdescription": {
+      "type": "blocks"
+    },
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "griditemlist": {
+      "type": "component",
+      "component": "page-componets.griditemlist",
+      "repeatable": true
+    },
+    "footertext": {
+      "type": "text"
+    },
+    "footergridlist": {
+      "type": "component",
+      "component": "page-componets.footergridlist",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
