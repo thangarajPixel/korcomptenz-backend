@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_page_componets_griditemlists",
+  "info": {
+    "displayName": "griditemlist"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "text"
+    },
+    "griddescription": {
+      "type": "blocks"
+    },
+    "listitems": {
+      "type": "component",
+      "component": "page-componets.listitems",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

@@ -3900,6 +3900,32 @@ export interface PageComponetsGramBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsGridSystem extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_grid_systems';
+  info: {
+    displayName: 'grid-system';
+    icon: 'dashboard';
+  };
+  attributes: {
+    centerdescription: Schema.Attribute.Blocks;
+    centericon: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    centertitle: Schema.Attribute.Text;
+    description: Schema.Attribute.Blocks;
+    footergridlist: Schema.Attribute.Component<
+      'page-componets.footergridlist',
+      true
+    >;
+    footertext: Schema.Attribute.Text;
+    griditemlist: Schema.Attribute.Component<
+      'page-componets.griditemlist',
+      true
+    >;
+    title: Schema.Attribute.Text;
+  };
+}
+
 export interface PageComponetsGriddetails extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_griddetails';
   info: {

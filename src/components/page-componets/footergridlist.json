@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_page_componets_footergridlists",
+  "info": {
+    "displayName": "footergridlist"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "footerdescription": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}
