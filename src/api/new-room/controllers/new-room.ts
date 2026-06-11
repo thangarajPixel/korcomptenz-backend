@@ -96,7 +96,22 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
                   button: true,
                 },
               },
-              'page-componets.gram-banner': true
+              'page-componets.gram-banner': true,
+              'page-componets.fabcon-led-transformation': true,
+              'page-componets.step-grid-section': {
+                populate: {
+                  gridlist: {
+                    populate: {
+                      griddetails: {
+                        populate: {
+                          image: true,
+                          checklistitems: true,
+                        },
+                      },
+                    },
+                  },
+                },
+              },
             }
           }, seo: true
         },
