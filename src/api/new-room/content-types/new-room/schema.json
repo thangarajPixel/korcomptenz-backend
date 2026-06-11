@@ -54,6 +54,8 @@
         "news-and-event.testimonal-list",
         "news-and-event.build-data",
         "page-componets.gram-banner",
+        "page-componets.fabcon-led-transformation",
+        "page-componets.step-grid-section",
         "seo.seo"
       ]
     },
