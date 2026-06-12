@@ -90,7 +90,64 @@ function insightTypeKey(content: string, categorySlug?: string): string {
   }
 }
 
-// ── Controller 
+// ── Collect all layout menu URLs (services, industries, ecosystem)
+async function collectLayoutUrls(now: string): Promise<ReturnType<typeof entry>[]> {
+  const layout = await strapi.db.query('api::layout.layout').findOne({
+    populate: {
+      serviceMenu: {
+        populate: {
+          footerLink: true,
+          items: { populate: { href: true, child: { populate: { href: true } } } },
+        },
+      },
+      industriesMenu: {
+        populate: {
+          sections: { populate: { href: true, items: { populate: { href: true } } } },
+        },
+      },
+      ecosystemMenu: {
+        populate: {
+          item: { populate: { child: { populate: { href: true } } } },
+        },
+      },
+    },
+  }) as any;
+
+  const urls: ReturnType<typeof entry>[] = [];
+
+  // Services
+  for (const menu of layout?.serviceMenu ?? []) {
+    if (menu?.footerLink?.slug) urls.push(entry(`/${menu.footerLink.slug}`, now));
+    for (const item of menu?.items ?? []) {
+      if (item?.href?.slug) urls.push(entry(`/${item.href.slug}`, now));
+      for (const child of item?.child ?? []) {
+        if (child?.href?.slug) urls.push(entry(`/${child.href.slug}`, now));
+      }
+    }
+  }
+
+  // Industries
+  for (const col of layout?.industriesMenu ?? []) {
+    for (const section of col?.sections ?? []) {
+      if (section?.href?.slug) urls.push(entry(`/${section.href.slug}`, now));
+      for (const item of section?.items ?? []) {
+        if (item?.href?.slug) urls.push(entry(`/${item.href.slug}`, now));
+      }
+    }
+  }
+
+  // Ecosystem
+  for (const eco of layout?.ecosystemMenu ?? []) {
+    if (eco?.item?.link) urls.push(entry(eco.item.link, now));
+    for (const child of eco?.item?.child ?? []) {
+      if (child?.href?.slug) urls.push(entry(`/${child.href.slug}`, now));
+    }
+  }
+
+  return urls;
+}
+
+// ── Controller
 
 export default {
 
@@ -113,12 +170,13 @@ export default {
       const fixedTypes = [
         'other-pages',
         'casestudies',
-        'services-and-technologies',
-        'industries',
         'blogs',
         'podcasts',
         'webinars',
         'webstories',
+        'demos',
+        'events',
+        'newsroom',
       ];
       const categoryTypes = (insightCategories as any[])
         .map((c) => c.slug)
@@ -138,33 +196,12 @@ export default {
     }
   },
 
-  // categorized 
+  // categorized
   async categorized(ctx: Context) {
     try {
       const now = new Date().toISOString();
 
-      const layout = await strapi.db.query('api::layout.layout').findOne({
-        populate: {
-          serviceMenu: {
-            populate: {
-              footerLink: true,
-              items: { populate: { href: true, child: { populate: { href: true } } } },
-            },
-          },
-          industriesMenu: {
-            populate: {
-              sections: { populate: { href: true, items: { populate: { href: true } } } },
-            },
-          },
-          ecosystemMenu: {
-            populate: {
-              item: { populate: { child: { populate: { href: true } } } },
-            },
-          },
-        },
-      }) as any;
-
-      const [caseStudies, insights, pages, assets] = await Promise.all([
+      const [caseStudies, insights, pages, newsroomItems, eventItems, demoItems] = await Promise.all([
         strapi.db.query('api::case-study.case-study').findMany({
           where: { publishedAt: { $notNull: true } },
           select: ['title', 'slug', 'updatedAt'],
@@ -181,52 +218,68 @@ export default {
           where: { publishedAt: { $notNull: true } },
           select: ['pageTitle', 'slug', 'updatedAt'],
         }),
-        strapi.db.query('api::asset.asset').findMany({
+        strapi.db.query('api::new-room.new-room').findMany({
           where: { publishedAt: { $notNull: true } },
           select: ['title', 'slug', 'updatedAt'],
         }),
+        strapi.db.query('api::event.event').findMany({
+          where: { publishedAt: { $notNull: true } },
+          select: ['title', 'buttonLink', 'updatedAt'],
+        }),
+        strapi.db.query('api::book-demo.book-demo').findMany({
+          where: { publishedAt: { $notNull: true } },
+          select: ['title', 'buttonLink', 'updatedAt'],
+        }),
       ]);
 
-      // Services
-      const services = (layout?.serviceMenu ?? []).map((section: any) => ({
-        title: section.title,
-        url: section.footerLink?.slug ? toUrl(BASE_URL, section.footerLink.slug) : null,
+      // Build a set of URLs already covered by demos, events, newsroom
+      // so we can exclude them from other-pages
+      const excludedUrls = new Set<string>();
+
+      // Demos
+      const demosSection = {
+        title: 'Demos',
+        url: `${BASE_URL}/sitemap-demos.xml`,
         lastmod: now,
-        children: (section.items ?? []).flatMap((item: any) => {
-          const main = item.href?.slug ? [{ title: item.title, url: toUrl(BASE_URL, item.href.slug), lastmod: now }] : [];
-          const children = (item.child ?? [])
-            .filter((c: any) => c.href?.slug)
-            .map((c: any) => ({ title: c.title, url: toUrl(BASE_URL, c.href.slug), lastmod: now }));
-          return [...main, ...children];
+        children: (demoItems as any[])
+          .filter((d) => d.buttonLink)
+          .map((d) => {
+            const url = `${BASE_URL}/${d.buttonLink.replace(/^\//, '')}`;
+            excludedUrls.add(url);
+            return { title: d.title, url, lastmod: d.updatedAt ?? now };
+          }),
+      };
+
+      // Events
+      const eventsSection = {
+        title: 'Events',
+        url: `${BASE_URL}/sitemap-events.xml`,
+        lastmod: now,
+        children: (eventItems as any[])
+          .filter((e) => e.buttonLink)
+          .map((e) => {
+            const url = `${BASE_URL}/${e.buttonLink.replace(/^\//, '')}`;
+            excludedUrls.add(url);
+            return { title: e.title, url, lastmod: e.updatedAt ?? now };
+          }),
+      };
+
+      // Newsroom
+      const newsroomSection = {
+        title: 'Newsroom',
+        url: `${BASE_URL}/sitemap-newsroom.xml`,
+        lastmod: now,
+        children: (newsroomItems as any[]).map((n) => {
+          const url = `${BASE_URL}/newsroom/${n.slug}`;
+          excludedUrls.add(url);
+          return { title: n.title, url, lastmod: n.updatedAt ?? now };
         }),
-      }));
-
-      // Industries
-      const industries = (layout?.industriesMenu ?? []).flatMap((col: any) =>
-        (col.sections ?? []).map((section: any) => ({
-          title: section.title,
-          url: section.href?.slug ? toUrl(BASE_URL, section.href.slug) : null,
-          lastmod: now,
-          children: (section.items ?? [])
-            .filter((i: any) => i.href?.slug)
-            .map((i: any) => ({ title: i.title, url: toUrl(BASE_URL, i.href.slug), lastmod: now })),
-        }))
-      );
-
-      // Ecosystem
-      const ecosystem = (layout?.ecosystemMenu ?? []).map((eco: any) => ({
-        title: eco.item?.title,
-        url: eco.item?.link ? toUrl(BASE_URL, eco.item.link) : null,
-        lastmod: now,
-        children: (eco.item?.child ?? [])
-          .filter((c: any) => c.href?.slug)
-          .map((c: any) => ({ title: c.title, url: toUrl(BASE_URL, c.href.slug), lastmod: now })),
-      }));
+      };
 
       // Case Studies
       const caseStudiesSection = {
-        title: 'Case Studies',
-        url: `${BASE_URL}/case-studies`,
+        title: 'Casestudies',
+        url: `${BASE_URL}/sitemap-casestudies.xml`,
         lastmod: now,
         children: (caseStudies as any[]).map((c) => ({
           title: c.title,
@@ -244,50 +297,71 @@ export default {
         if (!insightGroups[key]) insightGroups[key] = [];
         insightGroups[key].push({ title: i.title, url: toUrl(BASE_URL, `${prefix}/${i.slug}`), lastmod: i.updatedAt ?? now });
       }
-      // Insights — each category/type as its own top-level section
       const insightSections = Object.entries(insightGroups).map(([label, items]) => {
         const slug = label.toLowerCase().replace(/\s+/g, '-');
-        return {
-          title: label,
-          url: `${BASE_URL}/sitemap-${slug}.xml`,
-          lastmod: now,
-          children: items,
-        };
+        return { title: label, url: `${BASE_URL}/sitemap-${slug}.xml`, lastmod: now, children: items };
       });
 
-      // Pages
-      const pagesSection = {
-        title: 'Pages',
-        url: `${BASE_URL}`,
-        lastmod: now,
-        children: (pages as any[]).map((p) => ({
-          title: p.pageTitle,
-          url: toUrl(BASE_URL, p.slug),
-          lastmod: p.updatedAt ?? now,
-        })),
-      };
+      // Layout URLs (services, industries, ecosystem)
+      const layoutUrls = await collectLayoutUrls(now);
 
-      // Assets
-      const assetsSection = {
-        title: 'Assets',
-        url: `${BASE_URL}/sitemap-asset.xml`,
+      // Static pages always in other-pages
+      const staticPages = [
+        { title: 'Home', url: `${BASE_URL}/`, lastmod: now },
+        { title: 'About Us', url: `${BASE_URL}/about-us`, lastmod: now },
+        { title: 'Career', url: `${BASE_URL}/career`, lastmod: now },
+        { title: 'Contact Us', url: `${BASE_URL}/contact-us`, lastmod: now },
+        { title: 'Insights', url: `${BASE_URL}/insights`, lastmod: now },
+        { title: 'Case Studies', url: `${BASE_URL}/case-studies`, lastmod: now },
+        { title: 'Events', url: `${BASE_URL}/events`, lastmod: now },
+        { title: 'News', url: `${BASE_URL}/news`, lastmod: now },
+        { title: 'Book a Demo', url: `${BASE_URL}/book-a-demo`, lastmod: now },
+        { title: 'Privacy Policy', url: `${BASE_URL}/privacy-policy`, lastmod: now },
+        { title: 'Newsletter', url: `${BASE_URL}/newsletter`, lastmod: now },
+      ];
+
+      // Dynamic page entries
+      const dynamicPages = (pages as any[]).map((p) => ({
+        title: p.pageTitle,
+        url: toUrl(BASE_URL, p.slug),
+        lastmod: p.updatedAt ?? now,
+      }));
+
+      // Layout entries as children objects
+      const layoutChildren = layoutUrls.map((u) => ({
+        title: u.loc.replace(BASE_URL, ''),
+        url: u.loc,
+        lastmod: u.lastmod,
+      }));
+
+      // Combine all, deduplicate by URL, exclude already-covered sections
+      const seenUrls = new Set<string>();
+      const otherChildren: { title: string; url: string; lastmod: string }[] = [];
+
+      for (const item of [...staticPages, ...dynamicPages, ...layoutChildren]) {
+        const normalized = item.url.replace(/\/$/, '');
+        if (seenUrls.has(normalized)) continue;
+        if (excludedUrls.has(item.url) || excludedUrls.has(normalized)) continue;
+        seenUrls.add(normalized);
+        otherChildren.push(item);
+      }
+
+      const otherPagesSection = {
+        title: 'All the rest of the pages',
+        url: `${BASE_URL}/sitemap-other-pages.xml`,
         lastmod: now,
-        children: (assets as any[]).map((a) => ({
-          title: a.title,
-          url: `${BASE_URL}/asset/${a.slug}`,
-          lastmod: a.updatedAt ?? now,
-        })),
+        children: otherChildren,
       };
 
       return ctx.send({
         baseUrl: BASE_URL,
         sections: [
-          { title: 'Services and Ecosystems', url: `${BASE_URL}/sitemap-services-and-technologies.xml`, lastmod: now, children: [...services, ...ecosystem] },
-          { title: 'Industries', url: `${BASE_URL}/sitemap-industries.xml`, lastmod: now, children: industries },
-          { ...caseStudiesSection, title: 'Casestudies', url: `${BASE_URL}/sitemap-casestudies.xml` },
+          caseStudiesSection,
+          demosSection,
+          eventsSection,
+          newsroomSection,
           ...insightSections,
-          assetsSection,
-          { title: 'All the rest of the pages', url: `${BASE_URL}/sitemap-other-pages.xml`, lastmod: now, children: pagesSection.children },
+          otherPagesSection,
         ],
       });
     } catch (error) {
@@ -297,16 +371,43 @@ export default {
   },
 };
 
-// ── Type handler 
+// ── Type handler
 
 async function handleType(ctx: Context, type: string, now: string) {
   switch (type) {
     case 'other-pages':
     case 'pages': {
+      // All pages from page collection
       const rows = await strapi.db.query('api::page.page').findMany({
         where: { publishedAt: { $notNull: true } },
         select: ['slug', 'updatedAt'],
       });
+
+      // All layout menu URLs (services, industries, ecosystem)
+      const layoutUrls = await collectLayoutUrls(now);
+
+      // URLs already covered by demos/events/newsroom — collect and exclude
+      const [demoRows, eventRows, newsroomRows] = await Promise.all([
+        strapi.db.query('api::book-demo.book-demo').findMany({
+          where: { publishedAt: { $notNull: true } },
+          select: ['buttonLink'],
+        }),
+        strapi.db.query('api::event.event').findMany({
+          where: { publishedAt: { $notNull: true } },
+          select: ['buttonLink'],
+        }),
+        strapi.db.query('api::new-room.new-room').findMany({
+          where: { publishedAt: { $notNull: true } },
+          select: ['slug'],
+        }),
+      ]);
+
+      const excludedLocs = new Set<string>([
+        ...(demoRows as any[]).filter((d) => d.buttonLink).map((d) => entry(`/${d.buttonLink.replace(/^\//, '')}`, now).loc),
+        ...(eventRows as any[]).filter((e) => e.buttonLink).map((e) => entry(`/${e.buttonLink.replace(/^\//, '')}`, now).loc),
+        ...(newsroomRows as any[]).map((n) => entry(`/newsroom/${n.slug}`, now).loc),
+      ]);
+
       const staticPages = [
         entry('/', now, 'daily', '1'),
         entry('/about-us', now, 'weekly', '0.8'),
@@ -318,11 +419,17 @@ async function handleType(ctx: Context, type: string, now: string) {
         entry('/news', now, 'weekly', '0.8'),
         entry('/book-a-demo', now, 'weekly', '0.7'),
         entry('/privacy-policy', now, 'monthly', '0.5'),
+        entry('/newsletter', now, 'weekly', '0.8'),
       ];
+
       const dynamic = (rows as any[]).map((p) =>
         entry(`/${p.slug}`.replace('//', '/'), p.updatedAt ?? now)
       );
-      sendXml(ctx, buildUrlSet(dedup([...staticPages, ...dynamic])));
+
+      const all = dedup([...staticPages, ...dynamic, ...layoutUrls])
+        .filter((u) => !excludedLocs.has(u.loc));
+
+      sendXml(ctx, buildUrlSet(all));
       return;
     }
 
@@ -344,77 +451,51 @@ async function handleType(ctx: Context, type: string, now: string) {
         select: ['slug', 'updatedAt'],
       });
       sendXml(ctx, buildUrlSet(dedup(
-        (rows as any[]).map((n) => entry(`/news/${n.slug}`, n.updatedAt ?? now))
+        (rows as any[]).map((n) => entry(`/newsroom/${n.slug}`, n.updatedAt ?? now))
       )));
       return;
     }
 
-    case 'services-and-technologies': {
-      // Fetch layout to get service and ecosystem menu slugs
-      const layout = await strapi.db.query('api::layout.layout').findOne({
-        populate: {
-          serviceMenu: {
-            populate: {
-              footerLink: true,
-              items: { populate: { href: true, child: { populate: { href: true } } } },
-            },
-          },
-          ecosystemMenu: {
-            populate: {
-              item: { populate: { child: { populate: { href: true } } } },
-            },
-          },
-        },
-      }) as any;
-
-      const urls: ReturnType<typeof entry>[] = [];
-
-      // Services
-      for (const menu of layout?.serviceMenu ?? []) {
-        if (menu?.footerLink?.slug) urls.push(entry(`/${menu.footerLink.slug}`, now));
-        for (const item of menu?.items ?? []) {
-          if (item?.href?.slug) urls.push(entry(`/${item.href.slug}`, now));
-          for (const child of item?.child ?? []) {
-            if (child?.href?.slug) urls.push(entry(`/${child.href.slug}`, now));
-          }
-        }
-      }
-
-      // Ecosystem
-      for (const eco of layout?.ecosystemMenu ?? []) {
-        if (eco?.item?.link) urls.push(entry(eco.item.link, now));
-        for (const child of eco?.item?.child ?? []) {
-          if (child?.href?.slug) urls.push(entry(`/${child.href.slug}`, now));
-        }
-      }
-
-      sendXml(ctx, buildUrlSet(dedup(urls)));
+    case 'demos': {
+      const rows = await strapi.db.query('api::book-demo.book-demo').findMany({
+        where: { publishedAt: { $notNull: true } },
+        select: ['buttonLink', 'updatedAt'],
+      });
+      sendXml(ctx, buildUrlSet(dedup(
+        (rows as any[])
+          .filter((d) => d.buttonLink)
+          .map((d) => entry(`/${d.buttonLink.replace(/^\//, '')}`, d.updatedAt ?? now))
+      )));
       return;
     }
 
-    case 'industries': {
-      // Fetch layout to get industries menu slugs
-      const layout = await strapi.db.query('api::layout.layout').findOne({
-        populate: {
-          industriesMenu: {
-            populate: {
-              sections: { populate: { href: true, items: { populate: { href: true } } } },
-            },
-          },
-        },
-      }) as any;
+    case 'events': {
+      const rows = await strapi.db.query('api::event.event').findMany({
+        where: { publishedAt: { $notNull: true } },
+        select: ['buttonLink', 'updatedAt'],
+      });
+      sendXml(ctx, buildUrlSet(dedup(
+        (rows as any[])
+          .filter((e) => e.buttonLink)
+          .map((e) => entry(`/${e.buttonLink.replace(/^\//, '')}`, e.updatedAt ?? now))
+      )));
+      return;
+    }
 
-      const urls: ReturnType<typeof entry>[] = [];
-      for (const col of layout?.industriesMenu ?? []) {
-        for (const section of col?.sections ?? []) {
-          if (section?.href?.slug) urls.push(entry(`/${section.href.slug}`, now));
-          for (const item of section?.items ?? []) {
-            if (item?.href?.slug) urls.push(entry(`/${item.href.slug}`, now));
-          }
-        }
-      }
+    case 'newsroom': {
+      const rows = await strapi.db.query('api::new-room.new-room').findMany({
+        where: { publishedAt: { $notNull: true } },
+        select: ['slug', 'updatedAt'],
+      });
+      sendXml(ctx, buildUrlSet(dedup(
+        (rows as any[]).map((n) => entry(`/newsroom/${n.slug}`, n.updatedAt ?? now))
+      )));
+      return;
+    }
 
-      sendXml(ctx, buildUrlSet(dedup(urls)));
+    case 'newsletter': {
+      // Newsletter pages are now included in other-pages sitemap
+      sendXml(ctx, buildUrlSet([]));
       return;
     }
 
