@@ -122,6 +122,15 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
                   },
                 },
               },
+              'page-componets.cloud-readiness-report': {
+                  populate: {
+                    form: {
+                      populate: {
+                        forms: true,
+                      },
+                    },
+                  },
+                },
             }
           }, seo: true
         },
