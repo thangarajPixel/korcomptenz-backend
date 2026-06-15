@@ -97,7 +97,17 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
                 },
               },
               'page-componets.gram-banner': true,
-              'page-componets.fabcon-led-transformation': true,
+              'page-componets.fabcon-led-transformation': {
+                  populate: {
+                    image: true,
+                    backgroundImage: true,
+                    list: {
+                      populate: {
+                        image: true,
+                      },
+                    },
+                  },
+                },
               'page-componets.step-grid-section': {
                 populate: {
                   gridlist: {
