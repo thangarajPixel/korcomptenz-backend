@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_page_componets_whygridlistings",
+  "info": {
+    "displayName": "whygridlisting",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "buttontext": {
+      "type": "string",
+      "default": "Read More"
+    },
+    "buttonurl": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

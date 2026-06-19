@@ -22,6 +22,7 @@ export default factories.createCoreController(
         strapi.log.error("Page find error:", error);
         return ctx.internalServerError("Failed to fetch page data");
       }
+
     },
     async findOneBySlug(ctx) {
       try {
@@ -1019,6 +1020,54 @@ export default factories.createCoreController(
                     subtext: true,
                   },
                 },
+                "page-componets.tab-section": {
+                  populate: {
+                    tablist: {
+                      populate: {
+                        tablistdetails: {
+                          populate: {
+                            icon: true,
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+                "page-componets.step-grid-section": {
+                  populate: {
+                    gridlist: {
+                      populate: {
+                        griddetails: {
+                          populate: {
+                            image: true,
+                            checklistitems: true,
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+                "page-componets.grid-system": {
+                  populate: {
+                    centericon: true,
+                    griditemlist: {
+                      populate: {
+                        icon: true,
+                        listitems: {
+                          populate: {
+                            image: true,
+                          },
+                        },
+                      },
+                    },
+
+                    footergridlist: {
+                      populate: {
+                        icon: true,
+                      },
+                    },
+                  },
+                },
 
                 /* KOR dev Team End */
 
@@ -1068,54 +1117,6 @@ export default factories.createCoreController(
                         image: true,
                         logo: true,
                         logoMobile: true,
-                      },
-                    },
-                  },
-                },
-                "page-componets.tab-section": {
-                  populate: {
-                    tablist: {
-                      populate: {
-                        tablistdetails: {
-                          populate: {
-                            icon: true,
-                          },
-                        },
-                      },
-                    },
-                  },
-                },
-                "page-componets.step-grid-section": {
-                  populate: {
-                    gridlist: {
-                      populate: {
-                        griddetails: {
-                          populate: {
-                            image: true,
-                            checklistitems: true,
-                          },
-                        },
-                      },
-                    },
-                  },
-                },
-                "page-componets.grid-system": {
-                  populate: {
-                    centericon: true,
-                    griditemlist: {
-                      populate: {
-                        icon: true,
-                        listitems: {
-                          populate: {
-                            image: true,
-                          },
-                        },
-                      },
-                    },
-
-                    footergridlist: {
-                      populate: {
-                        icon: true,
                       },
                     },
                   },

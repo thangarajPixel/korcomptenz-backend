@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_page_componets_certifications_sections",
+  "info": {
+    "displayName": "certifications-section",
+    "icon": "shield"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "backgroundimage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "partnerlogos": {
+      "type": "component",
+      "component": "page-componets.partner-logos",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

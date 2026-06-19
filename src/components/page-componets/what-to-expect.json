@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_page_componets_what_to_expects",
+  "info": {
+    "displayName": "what-to-expect",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtext": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "gridlisting": {
+      "type": "component",
+      "component": "page-componets.whygridlisting",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

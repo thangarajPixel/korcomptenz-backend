@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_page_componets_request_consultations",
+  "info": {
+    "displayName": "request-consultation",
+    "icon": "calendar"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtext": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form"
+    }
+  },
+  "config": {}
+}

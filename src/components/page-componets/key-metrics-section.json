@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_page_componets_key_metrics_sections",
+  "info": {
+    "displayName": "key-metrics-section",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "listLeft": {
+      "type": "component",
+      "component": "page-componets.list-left",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

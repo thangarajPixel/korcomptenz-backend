@@ -2454,8 +2454,14 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.cloud-migration-handle',
         'page-componets.tab-section',
         'page-componets.step-grid-section',
-        
         'page-componets.grid-system',
+        'page-componets.key-metrics-section',
+        'page-componets.sap-why-korcomptenz',
+        'page-componets.sap-practice-areas',
+        'page-componets.what-to-expect',
+        'page-componets.client-testimonial',
+        'page-componets.certifications-section',
+        'page-componets.request-consultation',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
