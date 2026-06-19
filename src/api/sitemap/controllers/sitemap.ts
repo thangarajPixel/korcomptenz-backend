@@ -58,9 +58,7 @@ function dedup<T extends { loc: string }>(urls: T[]): T[] {
 }
 
 function singularizeSlug(slug: string): string {
-  // Keep known irregular/special cases as-is
   if (slug === 'webstories') return slug;
-  // Remove trailing 's' for simple plural slugs (e.g. ebooks → ebook, brochures → brochure)
   if (slug.endsWith('s')) return slug.slice(0, -1);
   return slug;
 }
@@ -177,6 +175,7 @@ export default {
         'demos',
         'events',
         'newsroom',
+        'assets',
       ];
       const categoryTypes = (insightCategories as any[])
         .map((c) => c.slug)
@@ -201,17 +200,24 @@ export default {
     try {
       const now = new Date().toISOString();
 
-      const [caseStudies, insights, pages, newsroomItems, eventItems, demoItems] = await Promise.all([
+      const [
+        caseStudies,
+        insights,
+        pages,
+        newsroomItems,
+        eventItems,
+        demoItems,
+        assetItems,
+        caseTechnologyItems,
+        caseServiceItems,
+      ] = await Promise.all([
         strapi.db.query('api::case-study.case-study').findMany({
           where: { publishedAt: { $notNull: true } },
           select: ['title', 'slug', 'updatedAt'],
         }),
         strapi.db.query('api::insight.insight').findMany({
-          where: {
-            publishedAt: { $notNull: true },
-            $or: [{ isLinkOnly: { $eq: false } }, { isLinkOnly: { $null: true } }],
-          },
-          select: ['title', 'slug', 'content', 'updatedAt'],
+          where: { publishedAt: { $notNull: true } },
+          select: ['title', 'slug', 'content', 'updatedAt', 'isLinkOnly'],
           populate: { category: { select: ['slug', 'label'] } },
         }),
         strapi.db.query('api::page.page').findMany({
@@ -230,10 +236,21 @@ export default {
           where: { publishedAt: { $notNull: true } },
           select: ['title', 'buttonLink', 'updatedAt'],
         }),
+        strapi.db.query('api::asset.asset').findMany({
+          where: { publishedAt: { $notNull: true } },
+          select: ['title', 'slug', 'updatedAt'],
+        }),
+        strapi.db.query('api::case-technology.case-technology').findMany({
+          where: { publishedAt: { $notNull: true } },
+          select: ['label', 'slug', 'updatedAt'],
+        }),
+        strapi.db.query('api::case-service.case-service').findMany({
+          where: { publishedAt: { $notNull: true } },
+          select: ['label', 'slug', 'updatedAt'],
+        }),
       ]);
 
       // Build a set of URLs already covered by demos, events, newsroom
-      // so we can exclude them from other-pages
       const excludedUrls = new Set<string>();
 
       // Demos
@@ -276,21 +293,38 @@ export default {
         }),
       };
 
-      // Case Studies
+      // Case Studies — individual entries + technology/service filter pages all as children
       const caseStudiesSection = {
         title: 'Casestudies',
         url: `${BASE_URL}/sitemap-casestudies.xml`,
         lastmod: now,
-        children: (caseStudies as any[]).map((c) => ({
-          title: c.title,
-          url: `${BASE_URL}/case-studies/${c.slug}`,
-          lastmod: c.updatedAt ?? now,
-        })),
+        children: [
+          ...(caseStudies as any[]).map((c) => ({
+            title: c.title,
+            url: `${BASE_URL}/case-studies/${c.slug}`,
+            lastmod: c.updatedAt ?? now,
+          })),
+          ...(caseTechnologyItems as any[])
+            .filter((t) => t.slug)
+            .map((t) => ({
+              title: t.label ?? t.slug,
+              url: `${BASE_URL}/case-study/${t.slug}`,
+              lastmod: t.updatedAt ?? now,
+            })),
+          ...(caseServiceItems as any[])
+            .filter((s) => s.slug)
+            .map((s) => ({
+              title: s.label ?? s.slug,
+              url: `${BASE_URL}/case-study/${s.slug}`,
+              lastmod: s.updatedAt ?? now,
+            })),
+        ],
       };
 
       // Insights grouped by type
       const insightGroups: Record<string, any[]> = {};
       for (const i of insights as any[]) {
+        if (i.content === 'thirdparty-link') continue;
         const prefix = insightPrefix(i.content, i.category?.slug);
         if (!prefix) continue;
         const key = i.category?.label ?? insightTypeKey(i.content, i.category?.slug);
@@ -305,36 +339,45 @@ export default {
       // Layout URLs (services, industries, ecosystem)
       const layoutUrls = await collectLayoutUrls(now);
 
-      // Static pages always in other-pages
+      // Static pages
       const staticPages = [
         { title: 'Home', url: `${BASE_URL}/`, lastmod: now },
         { title: 'About Us', url: `${BASE_URL}/about-us`, lastmod: now },
         { title: 'Career', url: `${BASE_URL}/career`, lastmod: now },
         { title: 'Contact Us', url: `${BASE_URL}/contact-us`, lastmod: now },
         { title: 'Insights', url: `${BASE_URL}/insights`, lastmod: now },
+        { title: 'Insights - Blogs', url: `${BASE_URL}/insights/blogs`, lastmod: now },
+        { title: 'Insights - Whitepapers', url: `${BASE_URL}/insights/whitepapers`, lastmod: now },
+        { title: 'Insights - Brochures', url: `${BASE_URL}/insights/brochures`, lastmod: now },
+        { title: 'Insights - Podcasts', url: `${BASE_URL}/insights/podcasts`, lastmod: now },
+        { title: 'Insights - Web Stories', url: `${BASE_URL}/insights/webstories`, lastmod: now },
+        { title: 'Insights - Infographics', url: `${BASE_URL}/insights/infographics`, lastmod: now },
+        { title: 'Insights - Battlecards', url: `${BASE_URL}/insights/battlecards`, lastmod: now },
+        { title: 'Insights - Decision Guides', url: `${BASE_URL}/insights/decision-guides`, lastmod: now },
+        { title: 'Insights - eBooks', url: `${BASE_URL}/insights/ebooks`, lastmod: now },
+        { title: 'Insights - Webinars', url: `${BASE_URL}/insights/webinars`, lastmod: now },
         { title: 'Case Studies', url: `${BASE_URL}/case-studies`, lastmod: now },
         { title: 'Events', url: `${BASE_URL}/events`, lastmod: now },
         { title: 'News', url: `${BASE_URL}/news`, lastmod: now },
         { title: 'Book a Demo', url: `${BASE_URL}/book-a-demo`, lastmod: now },
+        { title: 'Live Demo', url: `${BASE_URL}/live-demo`, lastmod: now },
+        { title: 'Search', url: `${BASE_URL}/search`, lastmod: now },
         { title: 'Privacy Policy', url: `${BASE_URL}/privacy-policy`, lastmod: now },
         { title: 'Newsletter', url: `${BASE_URL}/newsletter`, lastmod: now },
       ];
 
-      // Dynamic page entries
       const dynamicPages = (pages as any[]).map((p) => ({
         title: p.pageTitle,
         url: toUrl(BASE_URL, p.slug),
         lastmod: p.updatedAt ?? now,
       }));
 
-      // Layout entries as children objects
       const layoutChildren = layoutUrls.map((u) => ({
         title: u.loc.replace(BASE_URL, ''),
         url: u.loc,
         lastmod: u.lastmod,
       }));
 
-      // Combine all, deduplicate by URL, exclude already-covered sections
       const seenUrls = new Set<string>();
       const otherChildren: { title: string; url: string; lastmod: string }[] = [];
 
@@ -353,6 +396,20 @@ export default {
         children: otherChildren,
       };
 
+      // Assets
+      const assetsSection = {
+        title: 'Assets',
+        url: `${BASE_URL}/sitemap-assets.xml`,
+        lastmod: now,
+        children: (assetItems as any[])
+          .filter((a) => a.slug)
+          .map((a) => ({
+            title: a.title,
+            url: `${BASE_URL}/asset/${a.slug}`,
+            lastmod: a.updatedAt ?? now,
+          })),
+      };
+
       return ctx.send({
         baseUrl: BASE_URL,
         sections: [
@@ -360,6 +417,7 @@ export default {
           demosSection,
           eventsSection,
           newsroomSection,
+          assetsSection,
           ...insightSections,
           otherPagesSection,
         ],
@@ -377,16 +435,13 @@ async function handleType(ctx: Context, type: string, now: string) {
   switch (type) {
     case 'other-pages':
     case 'pages': {
-      // All pages from page collection
       const rows = await strapi.db.query('api::page.page').findMany({
         where: { publishedAt: { $notNull: true } },
         select: ['slug', 'updatedAt'],
       });
 
-      // All layout menu URLs (services, industries, ecosystem)
       const layoutUrls = await collectLayoutUrls(now);
 
-      // URLs already covered by demos/events/newsroom — collect and exclude
       const [demoRows, eventRows, newsroomRows] = await Promise.all([
         strapi.db.query('api::book-demo.book-demo').findMany({
           where: { publishedAt: { $notNull: true } },
@@ -414,10 +469,22 @@ async function handleType(ctx: Context, type: string, now: string) {
         entry('/career', now, 'weekly', '0.8'),
         entry('/contact-us', now, 'weekly', '0.8'),
         entry('/insights', now, 'daily', '0.9'),
+        entry('/insights/blogs', now, 'daily', '0.9'),
+        entry('/insights/whitepapers', now, 'weekly', '0.8'),
+        entry('/insights/brochures', now, 'weekly', '0.8'),
+        entry('/insights/podcasts', now, 'weekly', '0.8'),
+        entry('/insights/webstories', now, 'weekly', '0.8'),
+        entry('/insights/infographics', now, 'weekly', '0.8'),
+        entry('/insights/battlecards', now, 'weekly', '0.8'),
+        entry('/insights/decision-guides', now, 'weekly', '0.8'),
+        entry('/insights/ebooks', now, 'weekly', '0.8'),
+        entry('/insights/webinars', now, 'weekly', '0.8'),
         entry('/case-studies', now, 'daily', '0.9'),
         entry('/events', now, 'weekly', '0.8'),
         entry('/news', now, 'weekly', '0.8'),
         entry('/book-a-demo', now, 'weekly', '0.7'),
+        entry('/live-demo', now, 'weekly', '0.8'),
+        entry('/search', now, 'weekly', '0.7'),
         entry('/privacy-policy', now, 'monthly', '0.5'),
         entry('/newsletter', now, 'weekly', '0.8'),
       ];
@@ -435,13 +502,26 @@ async function handleType(ctx: Context, type: string, now: string) {
 
     case 'casestudies':
     case 'case-studies': {
-      const rows = await strapi.db.query('api::case-study.case-study').findMany({
-        where: { publishedAt: { $notNull: true } },
-        select: ['slug', 'updatedAt'],
-      });
-      sendXml(ctx, buildUrlSet(dedup(
-        (rows as any[]).map((c) => entry(`/case-studies/${c.slug}`, c.updatedAt ?? now))
-      )));
+      // Individual case studies + technology filter pages + service filter pages
+      const [rows, techRows, serviceRows] = await Promise.all([
+        strapi.db.query('api::case-study.case-study').findMany({
+          where: { publishedAt: { $notNull: true } },
+          select: ['slug', 'updatedAt'],
+        }),
+        strapi.db.query('api::case-technology.case-technology').findMany({
+          where: { publishedAt: { $notNull: true } },
+          select: ['slug', 'updatedAt'],
+        }),
+        strapi.db.query('api::case-service.case-service').findMany({
+          where: { publishedAt: { $notNull: true } },
+          select: ['slug', 'updatedAt'],
+        }),
+      ]);
+      sendXml(ctx, buildUrlSet(dedup([
+        ...(rows as any[]).map((c) => entry(`/case-studies/${c.slug}`, c.updatedAt ?? now)),
+        ...(techRows as any[]).filter((t) => t.slug).map((t) => entry(`/case-study/${t.slug}`, t.updatedAt ?? now)),
+        ...(serviceRows as any[]).filter((s) => s.slug).map((s) => entry(`/case-study/${s.slug}`, s.updatedAt ?? now)),
+      ])));
       return;
     }
 
@@ -494,22 +574,33 @@ async function handleType(ctx: Context, type: string, now: string) {
     }
 
     case 'newsletter': {
-      // Newsletter pages are now included in other-pages sitemap
+      // Newsletter pages are included in other-pages sitemap
       sendXml(ctx, buildUrlSet([]));
+      return;
+    }
+
+    case 'assets': {
+      const rows = await strapi.db.query('api::asset.asset').findMany({
+        where: { publishedAt: { $notNull: true } },
+        select: ['slug', 'updatedAt'],
+      });
+      sendXml(ctx, buildUrlSet(dedup(
+        (rows as any[])
+          .filter((a) => a.slug)
+          .map((a) => entry(`/asset/${a.slug}`, a.updatedAt ?? now))
+      )));
       return;
     }
 
     default: {
       const insights = await strapi.db.query('api::insight.insight').findMany({
-        where: {
-          publishedAt: { $notNull: true },
-          $or: [{ isLinkOnly: { $eq: false } }, { isLinkOnly: { $null: true } }],
-        },
+        where: { publishedAt: { $notNull: true } },
         select: ['slug', 'updatedAt', 'content'],
         populate: { category: { select: ['slug'] } },
       });
 
       const urls = (insights as any[]).flatMap((i) => {
+        if (i.content === 'thirdparty-link') return [];
         const key = insightTypeKey(i.content, i.category?.slug);
         if (key === '__skip__' || key !== type) return [];
         const prefix = insightPrefix(i.content, i.category?.slug);
