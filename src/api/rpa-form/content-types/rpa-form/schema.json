@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rpa-form",
+  "info": {
+    "singularName": "rpa-form",
+    "pluralName": "rpa-forms",
+    "displayName": "rpaform"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Submit"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "isReserve": {
+      "type": "boolean"
+    },
+    "bannerInfo": {
+      "type": "component",
+      "component": "demo-page.demo-banner-info",
+      "repeatable": false
+    }
+  }
+}

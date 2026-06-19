@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_form_fields_rpa_pagr_forms",
+  "info": {
+    "displayName": "rpa-pagr-form",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "nameLabel": {
+      "type": "text"
+    },
+    "organizationLabel": {
+      "type": "text"
+    },
+    "emailLabel": {
+      "type": "text"
+    },
+    "phoneLabel": {
+      "type": "text"
+    },
+    "messageLabel": {
+      "type": "text"
+    },
+    "buttonText": {
+      "type": "text"
+    },
+    "downloadContent": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

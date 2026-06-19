@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_form_fields_rpa_forms",
+  "info": {
+    "displayName": "rpa-form",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "fullNameLabel": {
+      "type": "text"
+    },
+    "businessEmailLabel": {
+      "type": "text"
+    },
+    "phoneNumberLabel": {
+      "type": "text"
+    },
+    "organizationLabel": {
+      "type": "text"
+    },
+    "messageLabel": {
+      "type": "text"
+    },
+    "buttonLabel": {
+      "type": "text"
+    },
+    "downloadContent": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

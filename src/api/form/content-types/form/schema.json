@@ -27,7 +27,9 @@
         "form-fields.newsletter-subscription",
         "form-fields.industry-form",
         "form-fields.cloud-form",
-        "form-fields.sap-form"
+        "form-fields.sap-form",
+        "form-fields.rpa-form"
+        
       ],
       "required": true,
       "min": 1,
@@ -53,7 +55,8 @@
         "newsletter-subscription",
         "industry-form",
         "cloud-form",
-        "SAP-form"
+        "SAP-form",
+        "rpa-form"
       ]
     }
   }

@@ -708,15 +708,21 @@ export default factories.createCoreController(
                     backgroundImage: true,
                   },
                 },
-                "page-componets.fabcon-ai-powered": {
+                 "page-componets.fabcon-ai-powered": {
                   populate: {
                     list: {
                       populate: {
                         image: true,
                       },
+                       form: {
+                          populate: {
+                            forms: true,
+                          },
+                        },
                     },
                   },
                 },
+
                 "page-componets.fabcon-data-analytics": {
                   populate: {
                     backgroundImage: true,
@@ -1246,6 +1252,26 @@ export default factories.createCoreController(
             seo: true,
           },
         });
+
+        if (entity?.list) {
+          for (const section of entity.list) {
+            // ✅ Banner section list
+            if (section.__component === "page-componets.fabcon-ai-powered") {
+              for (const item of section.list ?? []) {
+                if (item.isForm && !item.pageSlug) {
+                  item.pageSlug = {
+                    id: entity.id,
+                    documentId: entity.documentId,
+                    slug: entity.slug,
+                    pageTitle: entity.pageTitle,
+                  };
+                }
+              }
+            }
+
+          }
+        }
+
 
         if (entity?.list) {
           for (const section of entity.list) {
