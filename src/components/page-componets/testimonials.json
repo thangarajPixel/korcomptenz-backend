@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_page_componets_testimonials",
+  "info": {
+    "displayName": "testimonials"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "clientname": {
+      "type": "string"
+    },
+    "designation": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "star": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}
