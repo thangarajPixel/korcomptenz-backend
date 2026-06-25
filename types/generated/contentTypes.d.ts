@@ -2139,6 +2139,9 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
         'news-and-event.testimonal-list',
         'news-and-event.build-data',
         'page-componets.gram-banner',
+        'page-componets.fabcon-led-transformation',
+        'page-componets.step-grid-section',
+        'page-componets.cloud-readiness-report',
         'seo.seo',
       ]
     >;
@@ -2204,6 +2207,7 @@ export interface ApiNewsLetterNewsLetter extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Date: Schema.Attribute.Date;
     description: Schema.Attribute.Text;
     externalLink: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
