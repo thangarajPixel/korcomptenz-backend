@@ -2439,6 +2439,13 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.slider-service-section',
         'page-componets.microsoft-gold-certified',
         'page-componets.sap-questionnaire',
+        'page-componets.key-metrics-section',
+        'page-componets.sap-why-korcomptenz',
+        'page-componets.sap-practice-areas',
+        'page-componets.what-to-expect',
+        'page-componets.client-testimonial',
+        'page-componets.certifications-section',
+        'page-componets.request-consultation',
         'page-componets.banking-financial-banner',
         'page-componets.industry-build-data',
         'page-componets.industry-solution-spotlight',
@@ -2466,6 +2473,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.client-testimonial',
         'page-componets.certifications-section',
         'page-componets.request-consultation',
+        'page-componets.grid-system',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
