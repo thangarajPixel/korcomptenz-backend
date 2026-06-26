@@ -5115,6 +5115,8 @@ export interface PageComponetsWhyWeAreList extends Struct.ComponentSchema {
     icon: 'briefcase';
   };
   attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttontext: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
