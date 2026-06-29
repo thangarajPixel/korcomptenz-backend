@@ -5099,6 +5099,8 @@ export interface PageComponetsWhyWeAre extends Struct.ComponentSchema {
     icon: 'briefcase';
   };
   attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttontext: Schema.Attribute.String;
     colSpan: Schema.Attribute.Enumeration<['grid-cols-3', 'grid-cols-4']>;
     description: Schema.Attribute.Text;
     isBgGray: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
