@@ -20,6 +20,12 @@
     "isTwoPerRow": {
       "type": "boolean",
       "default": false
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
     }
   },
   "config": {}

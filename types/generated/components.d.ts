@@ -953,6 +953,8 @@ export interface DemoPageDemoPartnership extends Struct.ComponentSchema {
     icon: 'collapse';
   };
   attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     isTwoPerRow: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     list: Schema.Attribute.Component<'case-study.partner', true>;
@@ -2897,6 +2899,8 @@ export interface PageComponetsDarkSliderList extends Struct.ComponentSchema {
     icon: 'briefcase';
   };
   attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
     descripition: Schema.Attribute.Text;
     heading: Schema.Attribute.String;
     isPerRowThree: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
