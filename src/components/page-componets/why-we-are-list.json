@@ -22,6 +22,12 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "buttontext": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
     }
   },
   "config": {}
