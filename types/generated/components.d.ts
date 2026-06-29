@@ -5195,6 +5195,7 @@ export interface ServiceBannerSectionData extends Struct.ComponentSchema {
       >;
     footer: Schema.Attribute.Component<'case-study.partner', false>;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formbuttonText: Schema.Attribute.String;
     formDescription: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
