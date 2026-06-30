@@ -18,7 +18,6 @@
     },
     "isPerRowThree": {
       "type": "boolean",
-      "default": false,
       "conditions": {
         "visible": {
           "==": [
@@ -28,12 +27,19 @@
             true
           ]
         }
-      }
+      },
+      "default": false
     },
     "slides": {
       "type": "component",
       "component": "page-componets.dark-slider-card",
       "repeatable": true
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
     }
   },
   "config": {}
