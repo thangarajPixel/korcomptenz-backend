@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_form_fields_isg_forms",
+  "info": {
+    "displayName": "ISG-Form"
+  },
+  "options": {},
+  "attributes": {
+    "fullNameLabel": {
+      "type": "string"
+    },
+    "businessEmailLabel": {
+      "type": "string"
+    },
+    "phoneNumberLabel": {
+      "type": "string"
+    },
+    "organizationLabel": {
+      "type": "string"
+    },
+    "messageLabel": {
+      "type": "string"
+    },
+    "submitbuttontext": {
+      "type": "string"
+    },
+    "downloadpdf_name": {
+      "type": "string"
+    },
+    "downloadpdf_url": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

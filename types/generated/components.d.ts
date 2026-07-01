@@ -1217,6 +1217,23 @@ export interface FormFieldsInsightReserveSpot extends Struct.ComponentSchema {
   };
 }
 
+export interface FormFieldsIsgForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_isg_forms';
+  info: {
+    displayName: 'ISG-Form';
+  };
+  attributes: {
+    businessEmailLabel: Schema.Attribute.String;
+    downloadpdf_name: Schema.Attribute.String;
+    downloadpdf_url: Schema.Attribute.String;
+    fullNameLabel: Schema.Attribute.String;
+    messageLabel: Schema.Attribute.String;
+    organizationLabel: Schema.Attribute.String;
+    phoneNumberLabel: Schema.Attribute.String;
+    submitbuttontext: Schema.Attribute.String;
+  };
+}
+
 export interface FormFieldsNewsRoomForm extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_news_room_forms';
   info: {
@@ -6027,6 +6044,7 @@ declare module '@strapi/strapi' {
       'form-fields.free-consultation-form': FormFieldsFreeConsultationForm;
       'form-fields.industry-form': FormFieldsIndustryForm;
       'form-fields.insight-reserve-spot': FormFieldsInsightReserveSpot;
+      'form-fields.isg-form': FormFieldsIsgForm;
       'form-fields.news-room-form': FormFieldsNewsRoomForm;
       'form-fields.newsletter-subscription': FormFieldsNewsletterSubscription;
       'form-fields.reserve-spot-fields': FormFieldsReserveSpotFields;
