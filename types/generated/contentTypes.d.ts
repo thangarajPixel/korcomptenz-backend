@@ -1538,6 +1538,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'industry-form',
         'cloud-form',
         'SAP-form',
+        'ISG-form',
       ]
     > &
       Schema.Attribute.Required;
@@ -1557,6 +1558,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.industry-form',
         'form-fields.cloud-form',
         'form-fields.sap-form',
+        'form-fields.isg-form',
       ]
     > &
       Schema.Attribute.Required &
@@ -2046,6 +2048,39 @@ export interface ApiInsightInsight extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     webinar: Schema.Attribute.Component<'insight-section.webinar', false>;
     webStories: Schema.Attribute.Component<'insight-section.web-stories', true>;
+  };
+}
+
+export interface ApiIsgLeadIsgLead extends Struct.CollectionTypeSchema {
+  collectionName: 'isg_leads';
+  info: {
+    displayName: 'isg-lead';
+    pluralName: 'isg-leads';
+    singularName: 'isg-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    businessEmail: Schema.Attribute.Email;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fullName: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::isg-lead.isg-lead'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.String;
+    organization: Schema.Attribute.String;
+    pageSlug: Schema.Attribute.String;
+    phoneNumber: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -3300,6 +3335,7 @@ declare module '@strapi/strapi' {
       'api::insight-page.insight-page': ApiInsightPageInsightPage;
       'api::insight-tag.insight-tag': ApiInsightTagInsightTag;
       'api::insight.insight': ApiInsightInsight;
+      'api::isg-lead.isg-lead': ApiIsgLeadIsgLead;
       'api::layout.layout': ApiLayoutLayout;
       'api::new-room.new-room': ApiNewRoomNewRoom;
       'api::news-letter-list.news-letter-list': ApiNewsLetterListNewsLetterList;
