@@ -4289,9 +4289,12 @@ export interface PageComponetsInspireSectionCard
         }
       >;
     image: Schema.Attribute.Media<'images'>;
+    isvideopopup: Schema.Attribute.Boolean;
     link: Schema.Attribute.String;
     position: Schema.Attribute.Enumeration<['bottom', 'top', 'topAbove']>;
+    targetblank: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
+    VideoLink: Schema.Attribute.String;
   };
 }
 
