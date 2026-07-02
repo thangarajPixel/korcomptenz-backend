@@ -37,6 +37,25 @@
     },
     "link": {
       "type": "string"
+    },
+    "isvideopopup": {
+      "type": "boolean"
+    },
+    "targetblank": {
+      "type": "boolean"
+    },
+    "VideoLink": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isvideopopup"
+            },
+            true
+          ]
+        }
+      }
     }
   },
   "config": {}
