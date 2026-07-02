@@ -3010,6 +3010,8 @@ export interface PageComponetsDigitalAnalyticsList1
     displayName: 'digital-analytics-list1';
   };
   attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -3017,6 +3019,7 @@ export interface PageComponetsDigitalAnalyticsList1
           preset: 'defaultHtml';
         }
       >;
+    isTarget: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
   };
 }
@@ -3126,6 +3129,13 @@ export interface PageComponetsDigitalCardSlider extends Struct.ComponentSchema {
     icon: 'slideshow';
   };
   attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     list: Schema.Attribute.Component<
       'page-componets.digital-card-slider-list',
       true
@@ -4289,12 +4299,9 @@ export interface PageComponetsInspireSectionCard
         }
       >;
     image: Schema.Attribute.Media<'images'>;
-    isvideopopup: Schema.Attribute.Boolean;
     link: Schema.Attribute.String;
     position: Schema.Attribute.Enumeration<['bottom', 'top', 'topAbove']>;
-    targetblank: Schema.Attribute.Boolean;
     title: Schema.Attribute.String;
-    VideoLink: Schema.Attribute.String;
   };
 }
 
