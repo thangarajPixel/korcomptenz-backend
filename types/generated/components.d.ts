@@ -5020,6 +5020,9 @@ export interface PageComponetsStretchableSection
     icon: 'command';
   };
   attributes: {
+    colSpan: Schema.Attribute.Enumeration<
+      ['grid-cols-2', 'grid-cols-3', 'grid-cols-4', 'grid-cols-5']
+    >;
     description: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -5030,6 +5033,13 @@ export interface PageComponetsStretchableSection
     image: Schema.Attribute.Media<'images' | 'files'>;
     list: Schema.Attribute.Component<'page-componets.stretchable-card', true>;
     title: Schema.Attribute.String;
+    title_description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
   };
 }
 
@@ -5290,6 +5300,7 @@ export interface SubPageComponetsBuildDataRightSection
       'sub-page-componets.responsive-image',
       false
     >;
+    rightsideTitle: Schema.Attribute.String;
     videoButtonText: Schema.Attribute.String;
     videoLink: Schema.Attribute.String;
   };
