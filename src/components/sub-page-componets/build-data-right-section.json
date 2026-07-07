@@ -43,6 +43,19 @@
       "component": "sub-page-componets.responsive-image",
       "repeatable": false
     },
+    "rightsideTitle": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "content"
+            },
+            "description"
+          ]
+        }
+      }
+    },
     "description": {
       "type": "customField",
       "conditions": {
