@@ -14,6 +14,15 @@
       "options": {
         "preset": "defaultHtml"
       }
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "isTarget": {
+      "type": "boolean"
     }
   },
   "config": {}
