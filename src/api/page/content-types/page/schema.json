@@ -139,7 +139,8 @@
         "page-componets.client-testimonial",
         "page-componets.certifications-section",
         "page-componets.request-consultation",
-        "page-componets.grid-system"
+        "page-componets.grid-system",
+        "page-componets.altiaris-checklist"
       ]
     }
   }

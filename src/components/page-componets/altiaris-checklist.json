@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_page_componets_altiaris_checklists",
+  "info": {
+    "displayName": "altiaris-checklist"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "buttonText": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "altiarisgridlist": {
+      "type": "component",
+      "component": "page-componets.altiaris-grid-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

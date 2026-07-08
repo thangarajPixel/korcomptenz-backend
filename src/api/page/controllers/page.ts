@@ -1043,6 +1043,16 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "page-componets.altiaris-checklist": {
+                  populate: {
+                    image: true,
+                    altiarisgridlist: {
+                      populate: {
+                        image: true,
+                      },
+                    },
+                  },
+                },
                 "page-componets.step-grid-section": {
                   populate: {
                     gridlist: {
