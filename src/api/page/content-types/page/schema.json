@@ -131,7 +131,8 @@
         "page-componets.what-to-expect",
         "page-componets.client-testimonial",
         "page-componets.certifications-section",
-        "page-componets.request-consultation"
+        "page-componets.request-consultation",
+        "page-componets.altiaris-checklist"
       ]
     }
   }

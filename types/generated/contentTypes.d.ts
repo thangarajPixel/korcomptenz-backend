@@ -2501,6 +2501,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.client-testimonial',
         'page-componets.certifications-section',
         'page-componets.request-consultation',
+        'page-componets.altiaris-checklist',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
