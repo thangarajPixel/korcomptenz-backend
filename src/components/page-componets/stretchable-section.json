@@ -9,6 +9,13 @@
     "title": {
       "type": "string"
     },
+    "title_description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
     "image": {
       "type": "media",
       "multiple": false,
@@ -28,6 +35,15 @@
       "options": {
         "preset": "defaultHtml"
       }
+    },
+    "colSpan": {
+      "type": "enumeration",
+      "enum": [
+        "grid-cols-2",
+        "grid-cols-3",
+        "grid-cols-4",
+        "grid-cols-5"
+      ]
     }
   },
   "config": {}
