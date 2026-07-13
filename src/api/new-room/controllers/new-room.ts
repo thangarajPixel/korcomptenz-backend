@@ -58,6 +58,7 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
               'news-and-event.news-banner': {
                 populate: {
                   image: true,
+                  imageMobile: true,
                   form: {
                     populate: {
                       forms: {

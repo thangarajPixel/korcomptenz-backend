@@ -26,6 +26,26 @@
         "images"
       ]
     },
+    "imageMobile": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isVideo"
+            },
+            false
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
     "isVideo": {
       "type": "boolean",
       "default": false

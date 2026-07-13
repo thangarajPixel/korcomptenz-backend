@@ -687,6 +687,7 @@ export default factories.createCoreController(
                 "news-and-event.news-banner": {
                   populate: {
                     image: true,
+                    imageMobile: true,
                     form: {
                       populate: {
                         forms: {
