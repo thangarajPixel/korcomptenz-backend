@@ -63,6 +63,19 @@
         }
       }
     },
+    "mobileVideo": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isVideo"
+            },
+            true
+          ]
+        }
+      }
+    },
     "form": {
       "type": "relation",
       "relation": "oneToOne",

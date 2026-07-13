@@ -2107,6 +2107,7 @@ export interface NewsAndEventNewsBanner extends Struct.ComponentSchema {
     isForm: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     isVideo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    mobileVideo: Schema.Attribute.String;
     sapForm: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
     title: Schema.Attribute.Text;
     videoLink: Schema.Attribute.String;
