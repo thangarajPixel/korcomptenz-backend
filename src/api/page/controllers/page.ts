@@ -1030,59 +1030,8 @@ export default factories.createCoreController(
                   title: true,
                   subtext: true,
 
-                },
-                "page-componets.tab-section": {
-                  populate: {
-                    tablist: {
-                      populate: {
-                        tablistdetails: {
-                          populate: {
-                            icon: true,
-                          },
-                        },
-                      },
-                    },
-                  },
-                },
-                "page-componets.step-grid-section": {
-                  populate: {
-                    gridlist: {
-                      populate: {
-                        griddetails: {
-                          populate: {
-                            image: true,
-                            checklistitems: true,
-                          },
-                        },
-                      },
-                    },
-                  },
-                },
-                "page-componets.grid-system": {
-                  populate: {
-                    centericon: true,
-                    griditemlist: {
-                      populate: {
-                        icon: true,
-                        listitems: {
-                          populate: {
-                            image: true,
-                          },
-                        },
-                      },
-                    },
-
-                    footergridlist: {
-                      populate: {
-                        icon: true,
-                      },
-                    },
-                  },
-                },
+                },   
               },
-
-
-
                 /* KOR dev Team End */
 
                 "page-componets.banking-financial-banner": {
@@ -1261,6 +1210,55 @@ export default factories.createCoreController(
                     altiarisgridlist: {
                       populate: {
                         image: true,
+                      },
+                    },
+                  },
+                },
+                "page-componets.tab-section": {
+                  populate: {
+                    tablist: {
+                      populate: {
+                        tablistdetails: {
+                          populate: {
+                            icon: true,
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+                 
+                "page-componets.step-grid-section": {
+                  populate: {
+                    gridlist: {
+                      populate: {
+                        griddetails: {
+                          populate: {
+                            image: true,
+                            checklistitems: true,
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+                "page-componets.grid-system": {
+                  populate: {
+                    centericon: true,
+                    griditemlist: {
+                      populate: {
+                        icon: true,
+                        listitems: {
+                          populate: {
+                            image: true,
+                          },
+                        },
+                      },
+                    },
+
+                    footergridlist: {
+                      populate: {
+                        icon: true,
                       },
                     },
                   },
