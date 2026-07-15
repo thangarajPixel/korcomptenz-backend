@@ -1033,16 +1033,6 @@ export default factories.createCoreController(
                     },
                   },
                 },
-                "page-componets.altiaris-checklist": {
-                  populate: {
-                    image: true,
-                    altiarisgridlist: {
-                      populate: {
-                        image: true,
-                      },
-                    },
-                  },
-                },
                 "page-componets.step-grid-section": {
                   populate: {
                     gridlist: {
@@ -1249,6 +1239,16 @@ export default factories.createCoreController(
                 "page-componets.cloud-built-people": {
                   populate: {
                     list: true,
+                  },
+                },
+                  "page-componets.altiaris-checklist": {
+                  populate: {
+                    image: true,
+                    altiarisgridlist: {
+                      populate: {
+                        image: true,
+                      },
+                    },
                   },
                 },
               },
