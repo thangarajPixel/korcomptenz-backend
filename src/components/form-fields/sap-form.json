@@ -20,6 +20,11 @@
     },
     "messageLabel": {
       "type": "string"
+    },
+    "informationlist": {
+      "type": "component",
+      "component": "page-componets.information-list",
+      "repeatable": true
     }
   },
   "config": {}

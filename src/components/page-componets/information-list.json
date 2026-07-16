@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_page_componets_information_lists",
+  "info": {
+    "displayName": "information-list"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

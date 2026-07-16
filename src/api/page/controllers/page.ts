@@ -54,10 +54,18 @@ export default factories.createCoreController(
                           },
                         },
                         form: {
-                          populate: {
-                            forms: true,
-                          },
-                        },
+  populate: {
+    forms: {
+      on: {
+        "form-fields.sap-form": {
+          populate: {
+            informationlist: true,
+          },
+        },
+      },
+    },
+  },
+},
                         customFooter: {
                           populate: {
                             image: true,

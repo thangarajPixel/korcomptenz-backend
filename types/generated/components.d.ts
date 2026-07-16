@@ -1286,6 +1286,10 @@ export interface FormFieldsSapForm extends Struct.ComponentSchema {
   attributes: {
     businessEmailLabel: Schema.Attribute.String;
     fullNameLabel: Schema.Attribute.String;
+    informationlist: Schema.Attribute.Component<
+      'page-componets.information-list',
+      true
+    >;
     messageLabel: Schema.Attribute.String;
     organizationLabel: Schema.Attribute.String;
     phoneNumberLabel: Schema.Attribute.String;
@@ -4281,6 +4285,16 @@ export interface PageComponetsIndustrySolutionSpotlight
   };
 }
 
+export interface PageComponetsInformationList extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_information_lists';
+  info: {
+    displayName: 'information-list';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+  };
+}
+
 export interface PageComponetsInsightsSection extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_insights_sections';
   info: {
@@ -6269,6 +6283,7 @@ declare module '@strapi/strapi' {
       'page-componets.industry-intelligent-experience': PageComponetsIndustryIntelligentExperience;
       'page-componets.industry-service-portfolio': PageComponetsIndustryServicePortfolio;
       'page-componets.industry-solution-spotlight': PageComponetsIndustrySolutionSpotlight;
+      'page-componets.information-list': PageComponetsInformationList;
       'page-componets.insights-section': PageComponetsInsightsSection;
       'page-componets.insights-section-card': PageComponetsInsightsSectionCard;
       'page-componets.inspire-section': PageComponetsInspireSection;
