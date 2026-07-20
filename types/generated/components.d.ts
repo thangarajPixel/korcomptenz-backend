@@ -4113,6 +4113,7 @@ export interface PageComponetsIndustryBuildData extends Struct.ComponentSchema {
         }
       >;
     image: Schema.Attribute.Media<'images'>;
+    isBlueBg: Schema.Attribute.Boolean;
     isTarget: Schema.Attribute.Boolean;
     mobileImage: Schema.Attribute.Media<'images', true>;
     subHeading: Schema.Attribute.RichText &
