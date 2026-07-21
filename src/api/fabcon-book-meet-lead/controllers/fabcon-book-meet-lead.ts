@@ -36,7 +36,7 @@ export default factories.createCoreController(
         await strapi.plugin('email').service('email').send({
           to: lead.email,
           bcc: CC_EMAIL,
-          subject: 'Thank you for your interest ',
+          subject: 'See You at Community Summit 2026 – Meeting Request Confirmed',
           html: `
 <!DOCTYPE html>
 <html lang="en">
@@ -67,15 +67,15 @@ export default factories.createCoreController(
 
         <tr>
         <td style="text-align:left;padding:20px;font-family:'Arial',Sans-serif;font-weight:400;font-size:14px;line-height:24px;color:#040505;">
-          <strong>Hi, ${lead.fullName}</strong><br/><br/>
-          
-          Thank you for your interest in meeting with Korcomptenz at FABCON 2026.<br/>
+          <strong>Hi ${lead.fullName} ,</strong><br/><br/>
 
-          We've received your request, and a member of our team will be in touch shortly to confirm your meeting time.<br/>
+          Thank you for your interest in meeting with Korcomptenz at  <strong> Community Summit North America 2026.  </strong><br/>
 
-          In the meantime, we invite you to visit us at our booth during the event to explore live demos and speak directly with our data and AI leaders.<br/>
+         We’ve received your meeting request, and a member of our team will contact you shortly to confirm the details.<br/>
 
-          We look forward to connecting with you at FABCON.<br/>
+          While you're at the event, we invite you to visit us at  <strong>Booth #709 </strong> to explore our latest Microsoft Dynamics 365, AI, and Autonomous ERP solutions, watch live demonstrations, and connect with our industry experts.<br/>
+
+          We look forward to meeting you in Nashville and discussing how we can help accelerate your digital transformation journey.<br/>
 
           <strong>Best regards,</strong><br/>
           KORCOMPTENZ<br/>
@@ -99,7 +99,7 @@ export default factories.createCoreController(
         await strapi.plugin('email').service('email').send({
           to: SALES_EMAIL,
           bcc: CC_EMAIL,
-          subject: 'Fabcon Meeting Request Received',
+          subject: 'Community Summit Meeting Request Received',
           html: `
 <!DOCTYPE html>
 <html lang="en">
@@ -107,7 +107,7 @@ export default factories.createCoreController(
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-  <title>FABCON</title>
+  <title>Community Conference</title>
   <link rel="shortcut icon" type="image/x-icon"
     href="https://your-cdn.blob.core.windows.net/fabcon/fabcon_logo.png" />
   <style type="text/css">
@@ -127,8 +127,8 @@ export default factories.createCoreController(
     <tr>
       <td
         style="text-align:center;padding:10px;background:#FFF;font-family:Arial,sans-serif;border-bottom:3px solid #249176;">
-        <a href="https://www.fabcon.com/" target="_blank">
-          <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="FABCON Logo" style="width: 250px;" />
+        <a href="https://www.korcomptenz.com/" target="_blank">
+          <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="KOR Logo" style="width: 250px;" />
         </a>
       </td>
     </tr>
