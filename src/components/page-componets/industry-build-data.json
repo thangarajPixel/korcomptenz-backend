@@ -49,6 +49,9 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "isBlueBg": {
+      "type": "boolean"
     }
   },
   "config": {}
