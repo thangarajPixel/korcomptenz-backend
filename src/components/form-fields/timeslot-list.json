@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_form_fields_timeslot_lists",
+  "info": {
+    "displayName": "Timeslot-List"
+  },
+  "options": {},
+  "attributes": {
+    "dates": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

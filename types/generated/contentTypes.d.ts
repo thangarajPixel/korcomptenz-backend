@@ -1174,6 +1174,39 @@ export interface ApiCloudRoleCloudRole extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCommunityBookMeetLeadCommunityBookMeetLead
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'community_book_meet_leads';
+  info: {
+    displayName: 'community-book-meet-lead';
+    pluralName: 'community-book-meet-leads';
+    singularName: 'community-book-meet-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String;
+    fullName: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::community-book-meet-lead.community-book-meet-lead'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    timeSlot: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCompanyDetailCompanyDetail extends Struct.SingleTypeSchema {
   collectionName: 'company_details';
   info: {
@@ -1539,6 +1572,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'cloud-form',
         'SAP-form',
         'ISG-form',
+        'community-summit-form',
       ]
     > &
       Schema.Attribute.Required;
@@ -1559,6 +1593,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.cloud-form',
         'form-fields.sap-form',
         'form-fields.isg-form',
+        'form-fields.community-summit-meeting',
       ]
     > &
       Schema.Attribute.Required &
@@ -2502,6 +2537,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.certifications-section',
         'page-componets.request-consultation',
         'page-componets.altiaris-checklist',
+        'page-componets.community-conference-banner',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -3306,6 +3342,7 @@ declare module '@strapi/strapi' {
       'api::cloud-lead.cloud-lead': ApiCloudLeadCloudLead;
       'api::cloud-migration-urgency.cloud-migration-urgency': ApiCloudMigrationUrgencyCloudMigrationUrgency;
       'api::cloud-role.cloud-role': ApiCloudRoleCloudRole;
+      'api::community-book-meet-lead.community-book-meet-lead': ApiCommunityBookMeetLeadCommunityBookMeetLead;
       'api::company-detail.company-detail': ApiCompanyDetailCompanyDetail;
       'api::contact-us-lead.contact-us-lead': ApiContactUsLeadContactUsLead;
       'api::contact-us.contact-us': ApiContactUsContactUs;
