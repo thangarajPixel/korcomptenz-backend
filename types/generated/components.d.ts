@@ -1070,6 +1070,24 @@ export interface FormFieldsCloudForm extends Struct.ComponentSchema {
   };
 }
 
+export interface FormFieldsCommunitySummitMeeting
+  extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_community_summit_meetings';
+  info: {
+    displayName: 'Community-Summit-Meeting';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    company: Schema.Attribute.String;
+    email: Schema.Attribute.String;
+    fullName: Schema.Attribute.String;
+    message: Schema.Attribute.String;
+    timeSlot: Schema.Attribute.String;
+    TimeslotList: Schema.Attribute.Component<'form-fields.timeslot-list', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface FormFieldsContactUsForm extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_contact_us_forms';
   info: {
@@ -1315,6 +1333,16 @@ export interface FormFieldsStreamlineForm extends Struct.ComponentSchema {
     question7Label: Schema.Attribute.Text;
     question8Label: Schema.Attribute.Text;
     question9Label: Schema.Attribute.Text;
+  };
+}
+
+export interface FormFieldsTimeslotList extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_timeslot_lists';
+  info: {
+    displayName: 'Timeslot-List';
+  };
+  attributes: {
+    dates: Schema.Attribute.String;
   };
 }
 
@@ -2908,6 +2936,60 @@ export interface PageComponetsCombinedAboutCardSlider
   };
 }
 
+export interface PageComponetsCommunityConferenceBanner
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_community_conference_banners';
+  info: {
+    displayName: 'community-conference-banner';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    communityColor: Schema.Attribute.Enumeration<['title1', 'title2']>;
+    date: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'emailSubject'>;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formbuttonText: Schema.Attribute.String;
+    formDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    formImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    formTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    isTarget: Schema.Attribute.Boolean;
+    location: Schema.Attribute.String;
+    title1: Schema.Attribute.String;
+    title2: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsCustomFooter extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_custom_footers';
   info: {
@@ -3696,8 +3778,33 @@ export interface PageComponetsFabconFabricCommunityConference
           preset: 'defaultHtml';
         }
       >;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.String;
     fabconColor: Schema.Attribute.Enumeration<['title1', 'title2']>;
     form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formbuttonText: Schema.Attribute.String;
+    formDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    formImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    formTitle: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    isForm: Schema.Attribute.Boolean;
     isTarget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     location: Schema.Attribute.String;
     title1: Schema.Attribute.Text;
@@ -6110,6 +6217,7 @@ declare module '@strapi/strapi' {
       'form-fields.career': FormFieldsCareer;
       'form-fields.case-form': FormFieldsCaseForm;
       'form-fields.cloud-form': FormFieldsCloudForm;
+      'form-fields.community-summit-meeting': FormFieldsCommunitySummitMeeting;
       'form-fields.contact-us-form': FormFieldsContactUsForm;
       'form-fields.fabcon-book-meet': FormFieldsFabconBookMeet;
       'form-fields.form': FormFieldsForm;
@@ -6123,6 +6231,7 @@ declare module '@strapi/strapi' {
       'form-fields.reserve-spot-fields': FormFieldsReserveSpotFields;
       'form-fields.sap-form': FormFieldsSapForm;
       'form-fields.streamline-form': FormFieldsStreamlineForm;
+      'form-fields.timeslot-list': FormFieldsTimeslotList;
       'global.button': GlobalButton;
       'global.custom-list': GlobalCustomList;
       'global.editor-descripiton': GlobalEditorDescripiton;
@@ -6205,6 +6314,7 @@ declare module '@strapi/strapi' {
       'page-componets.cloud-technology': PageComponetsCloudTechnology;
       'page-componets.cloud-warning-signs': PageComponetsCloudWarningSigns;
       'page-componets.combined-about-card-slider': PageComponetsCombinedAboutCardSlider;
+      'page-componets.community-conference-banner': PageComponetsCommunityConferenceBanner;
       'page-componets.custom-footer': PageComponetsCustomFooter;
       'page-componets.custom-footer-list': PageComponetsCustomFooterList;
       'page-componets.dark-slider-card': PageComponetsDarkSliderCard;

@@ -801,6 +801,24 @@ export default factories.createCoreController(
                     },
                   },
                 },
+           "page-componets.community-conference-banner": {
+  populate: {
+    backgroundImage: true,
+    form: {
+      populate: {
+        forms: {
+          on: {
+            "form-fields.community-summit-meeting": {
+              populate: {
+                TimeslotList: true,
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+},
                 "page-componets.fabcon-decision-fabric": {
                   populate: {
                     backgroundImage: true,

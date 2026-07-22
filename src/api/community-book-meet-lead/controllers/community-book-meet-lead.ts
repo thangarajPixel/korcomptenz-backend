@@ -1,11 +1,11 @@
 /**
- * fabcon-book-meet-lead controller
+ * community-book-meet-lead controller
  */
 
-import { factories } from '@strapi/strapi';
+import { factories } from '@strapi/strapi'
 
 export default factories.createCoreController(
-  'api::fabcon-book-meet-lead.fabcon-book-meet-lead',
+  'api::community-book-meet-lead.community-book-meet-lead',
   ({ strapi }) => ({
 
     async create(ctx) {
@@ -19,7 +19,7 @@ export default factories.createCoreController(
 
 
         const lead = await strapi.entityService.findOne(
-          'api::fabcon-book-meet-lead.fabcon-book-meet-lead',
+          'api::community-book-meet-lead.community-book-meet-lead',
           leadId
         ) as any;
         // console.log('Lead Details:', lead);
@@ -68,14 +68,14 @@ export default factories.createCoreController(
         <tr>
         <td style="text-align:left;padding:20px;font-family:'Arial',Sans-serif;font-weight:400;font-size:14px;line-height:24px;color:#040505;">
           <strong>Hi ${lead.fullName} ,</strong><br/><br/>
-
-          Thank you for your interest in meeting with Korcomptenz at  <strong> Community Summit North America 2026.  </strong><br/>
+          
+         Thank you for your interest in meeting with Korcomptenz at <strong> Community Summit North America 2026. </strong><br/>
 
          We’ve received your meeting request, and a member of our team will contact you shortly to confirm the details.<br/>
 
-          While you're at the event, we invite you to visit us at  <strong>Booth #709 </strong> to explore our latest Microsoft Dynamics 365, AI, and Autonomous ERP solutions, watch live demonstrations, and connect with our industry experts.<br/>
+          While you're at the event, we invite you to visit us at <strong>Booth #709</strong> to explore our latest Microsoft Dynamics 365, AI, and Autonomous ERP solutions, watch live demonstrations, and connect with our industry experts.<br/>
 
-          We look forward to meeting you in Nashville and discussing how we can help accelerate your digital transformation journey.<br/>
+         We look forward to meeting you in Nashville and discussing how we can help accelerate your digital transformation journey.<br/>
 
           <strong>Best regards,</strong><br/>
           KORCOMPTENZ<br/>
@@ -107,9 +107,9 @@ export default factories.createCoreController(
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-  <title>Community Conference</title>
+  <title>Community Summit Meeting Request Received </title>
   <link rel="shortcut icon" type="image/x-icon"
-    href="https://your-cdn.blob.core.windows.net/fabcon/fabcon_logo.png" />
+    href="https://your-cdn.blob.core.windows.net/COMMUNITY/COMMUNITY_logo.png" />
   <style type="text/css">
     html {
       padding: 0;
@@ -127,8 +127,8 @@ export default factories.createCoreController(
     <tr>
       <td
         style="text-align:center;padding:10px;background:#FFF;font-family:Arial,sans-serif;border-bottom:3px solid #249176;">
-        <a href="https://www.korcomptenz.com/" target="_blank">
-          <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="KOR Logo" style="width: 250px;" />
+        <a href="https://www.fabcon.com/" target="_blank">
+          <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="COMMUNITY Logo" style="width: 250px;" />
         </a>
       </td>
     </tr>

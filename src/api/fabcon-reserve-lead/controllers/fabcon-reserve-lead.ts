@@ -32,7 +32,7 @@ export default factories.createCoreController('api::fabcon-reserve-lead.fabcon-r
         await strapi.plugin('email').service('email').send({
           to: lead.email,
           bcc: CC_EMAIL,
-          subject: 'Thank you for your interest',
+          subject: 'See You at Community Summit 2026 – Meeting Request Confirmed',
           html: `
 <!DOCTYPE html>
 <html lang="en">
@@ -61,15 +61,16 @@ export default factories.createCoreController('api::fabcon-reserve-lead.fabcon-r
 
       <tr>
         <td style="text-align:left;padding:20px;font-family:'Arial',Sans-serif;font-weight:400;font-size:14px;line-height:24px;color:#040505;">
-          <strong>Hi, ${lead.fullName}</strong><br/><br/>
+          <strong>Hi ${lead.fullName} ,</strong><br/><br/>
           
-          Thank you for your interest in meeting with Korcomptenz at FABCON 2026.<br/>
 
-          We've received your request, and a member of our team will be in touch shortly to confirm your meeting time.<br/>
+          Thank you for your interest in meeting with Korcomptenz at <strong>Community Summit North America 2026.</strong> <br/>
 
-          In the meantime, we invite you to visit us at our booth during the event to explore live demos and speak directly with our data and AI leaders.<br/>
+         We’ve received your meeting request, and a member of our team will contact you shortly to confirm the details. <br/>
 
-          We look forward to connecting with you at FABCON.<br/>
+          While you're at the event, we invite you to visit us at <strong>Booth #709</strong> to explore our latest Microsoft Dynamics 365, AI, and Autonomous ERP solutions, watch live demonstrations, and connect with our industry experts.<br/>
+
+          We look forward to meeting you in Nashville and discussing how we can help accelerate your digital transformation journey. <br/>
 
           <strong>Best regards,</strong><br/>
           KORCOMPTENZ<br/>
