@@ -1543,6 +1543,38 @@ export interface ApiFabconTimeSlotFabconTimeSlot
   };
 }
 
+export interface ApiFooterLeadFooterLead extends Struct.CollectionTypeSchema {
+  collectionName: 'footer_leads';
+  info: {
+    displayName: 'footer-lead';
+    pluralName: 'footer-leads';
+    singularName: 'footer-lead';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Email: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::footer-lead.footer-lead'
+    > &
+      Schema.Attribute.Private;
+    Message: Schema.Attribute.String;
+    Name: Schema.Attribute.String;
+    pageSlug: Schema.Attribute.String;
+    phoneNumber: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFormForm extends Struct.CollectionTypeSchema {
   collectionName: 'forms';
   info: {
@@ -1573,6 +1605,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'SAP-form',
         'ISG-form',
         'community-summit-form',
+        'footer-form',
       ]
     > &
       Schema.Attribute.Required;
@@ -1594,6 +1627,7 @@ export interface ApiFormForm extends Struct.CollectionTypeSchema {
         'form-fields.sap-form',
         'form-fields.isg-form',
         'form-fields.community-summit-meeting',
+        'form-fields.footer-form',
       ]
     > &
       Schema.Attribute.Required &
@@ -3361,6 +3395,7 @@ declare module '@strapi/strapi' {
       'api::fabcon-book-meet-lead.fabcon-book-meet-lead': ApiFabconBookMeetLeadFabconBookMeetLead;
       'api::fabcon-reserve-lead.fabcon-reserve-lead': ApiFabconReserveLeadFabconReserveLead;
       'api::fabcon-time-slot.fabcon-time-slot': ApiFabconTimeSlotFabconTimeSlot;
+      'api::footer-lead.footer-lead': ApiFooterLeadFooterLead;
       'api::form.form': ApiFormForm;
       'api::forrester-report.forrester-report': ApiForresterReportForresterReport;
       'api::free-consultation-lead.free-consultation-lead': ApiFreeConsultationLeadFreeConsultationLead;

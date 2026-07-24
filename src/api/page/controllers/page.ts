@@ -216,7 +216,15 @@ export default factories.createCoreController(
                     techslides: true,
                   },
                 },
-                "home.schedule-call": true,
+                'home.schedule-call': {
+                  populate: {
+                     form: {
+                      populate: {
+                        forms: true,
+                      },
+                    },
+                  },
+                },
                 "page-componets.why-we-are": {
                   populate: {
                     list: {
@@ -1222,7 +1230,7 @@ export default factories.createCoreController(
                     list: true,
                   },
                 },
-                  "page-componets.altiaris-checklist": {
+                "page-componets.altiaris-checklist": {
                   populate: {
                     image: true,
                     altiarisgridlist: {
