@@ -24,6 +24,127 @@
     },
     "topDescription": {
       "type": "text"
+    },
+    "isForm": {
+      "type": "boolean"
+    },
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "formTitle": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "formDescription": {
+      "type": "customField",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "emailSubject": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "emailBody": {
+      "type": "customField",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "adminEmailSubject": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      }
+    },
+    "adminEmailBody": {
+      "type": "customField",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      },
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "formbuttonText": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isForm"
+            },
+            true
+          ]
+        }
+      }
     }
   },
   "config": {}

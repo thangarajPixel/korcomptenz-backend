@@ -28,7 +28,8 @@
         "form-fields.industry-form",
         "form-fields.cloud-form",
         "form-fields.sap-form",
-        "form-fields.isg-form"
+        "form-fields.isg-form",
+        "form-fields.footer-form"
       ],
       "required": true,
       "min": 1,
@@ -55,7 +56,8 @@
         "industry-form",
         "cloud-form",
         "SAP-form",
-        "ISG-form"
+        "ISG-form",
+        "footer-form"
       ]
     }
   }

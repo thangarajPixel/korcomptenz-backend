@@ -1112,6 +1112,21 @@ export interface FormFieldsFabconBookMeet extends Struct.ComponentSchema {
   };
 }
 
+export interface FormFieldsFooterForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_footer_forms';
+  info: {
+    displayName: 'footer-form';
+  };
+  attributes: {
+    buttonText: Schema.Attribute.String;
+    emailLabel: Schema.Attribute.String;
+    messageLabel: Schema.Attribute.String;
+    nameLabel: Schema.Attribute.String;
+    phoneLabel: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface FormFieldsForm extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_forms';
   info: {
@@ -1555,6 +1570,14 @@ export interface HomeScheduleCall extends Struct.ComponentSchema {
     displayName: 'schedule-call';
   };
   attributes: {
+    adminEmailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    adminEmailSubject: Schema.Attribute.String;
     buttonText: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Schedule a Call'>;
     description: Schema.Attribute.RichText &
@@ -1564,6 +1587,25 @@ export interface HomeScheduleCall extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
+    emailBody: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    emailSubject: Schema.Attribute.String;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    formbuttonText: Schema.Attribute.String;
+    formDescription: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    formTitle: Schema.Attribute.String;
+    isForm: Schema.Attribute.Boolean;
     link: Schema.Attribute.String;
     title: Schema.Attribute.Text;
     topDescription: Schema.Attribute.Text;
@@ -6112,6 +6154,7 @@ declare module '@strapi/strapi' {
       'form-fields.cloud-form': FormFieldsCloudForm;
       'form-fields.contact-us-form': FormFieldsContactUsForm;
       'form-fields.fabcon-book-meet': FormFieldsFabconBookMeet;
+      'form-fields.footer-form': FormFieldsFooterForm;
       'form-fields.form': FormFieldsForm;
       'form-fields.forrester-report-download': FormFieldsForresterReportDownload;
       'form-fields.free-consultation-form': FormFieldsFreeConsultationForm;

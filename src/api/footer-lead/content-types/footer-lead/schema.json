@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "footer_leads",
+  "info": {
+    "singularName": "footer-lead",
+    "pluralName": "footer-leads",
+    "displayName": "footer-lead"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "Message": {
+      "type": "string"
+    },
+    "pageSlug": {
+      "type": "string"
+    }
+  }
+}
