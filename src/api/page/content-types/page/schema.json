@@ -132,7 +132,10 @@
         "page-componets.client-testimonial",
         "page-componets.certifications-section",
         "page-componets.request-consultation",
-        "page-componets.altiaris-checklist"
+        "page-componets.altiaris-checklist",
+        "page-componets.newsletter-banner",
+        "page-componets.newsletter-leadership-message",
+        "page-componets.newsletter-description"
       ]
     }
   }

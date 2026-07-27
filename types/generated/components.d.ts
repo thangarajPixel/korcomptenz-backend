@@ -4637,6 +4637,67 @@ export interface PageComponetsMidmarketEnterprisesList
   };
 }
 
+export interface PageComponetsNewsletterBanner extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_newsletter_banners';
+  info: {
+    displayName: 'newsletter-banner';
+  };
+  attributes: {
+    eventDate: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'September 2, 2025'>;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    whatsIncludeContent: Schema.Attribute.Component<
+      'sub-page-componets.list',
+      false
+    >;
+  };
+}
+
+export interface PageComponetsNewsletterDescription
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_newsletter_descriptions';
+  info: {
+    displayName: 'newsletter-description';
+  };
+  attributes: {
+    bgColor: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    hrCode: Schema.Attribute.Boolean;
+    isgradiant: Schema.Attribute.Boolean;
+    subtext: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface PageComponetsNewsletterLeadershipMessage
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_newsletter_leadership_messages';
+  info: {
+    displayName: 'newsletter-leadership-message';
+  };
+  attributes: {
+    AuthorImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    LeadershipMessage: Schema.Attribute.String;
+    Title: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsPartnerLogos extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_partner_logos';
   info: {
@@ -5907,7 +5968,8 @@ export interface SubPageComponetsList extends Struct.ComponentSchema {
         }
       >;
     sublist: Schema.Attribute.Component<'sub-page-componets.sub-list', true>;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'What\u2019s Inside'>;
   };
 }
 
@@ -5961,6 +6023,7 @@ export interface SubPageComponetsSubList extends Struct.ComponentSchema {
           preset: 'defaultHtml';
         }
       >;
+    sectionLink: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
 }
@@ -6289,6 +6352,9 @@ declare module '@strapi/strapi' {
       'page-componets.mid-fabcon-data-analytics': PageComponetsMidFabconDataAnalytics;
       'page-componets.midmarket-enterprises': PageComponetsMidmarketEnterprises;
       'page-componets.midmarket-enterprises-list': PageComponetsMidmarketEnterprisesList;
+      'page-componets.newsletter-banner': PageComponetsNewsletterBanner;
+      'page-componets.newsletter-description': PageComponetsNewsletterDescription;
+      'page-componets.newsletter-leadership-message': PageComponetsNewsletterLeadershipMessage;
       'page-componets.partner-logos': PageComponetsPartnerLogos;
       'page-componets.pricing-section': PageComponetsPricingSection;
       'page-componets.request-consultation': PageComponetsRequestConsultation;

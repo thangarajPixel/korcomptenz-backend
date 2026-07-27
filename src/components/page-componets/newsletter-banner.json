@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_page_componets_newsletter_banners",
+  "info": {
+    "displayName": "newsletter-banner"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "eventDate": {
+      "type": "string",
+      "default": "September 2, 2025"
+    },
+    "whatsIncludeContent": {
+      "type": "component",
+      "component": "sub-page-componets.list",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

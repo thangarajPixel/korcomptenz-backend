@@ -2502,6 +2502,9 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.certifications-section',
         'page-componets.request-consultation',
         'page-componets.altiaris-checklist',
+        'page-componets.newsletter-banner',
+        'page-componets.newsletter-leadership-message',
+        'page-componets.newsletter-description',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

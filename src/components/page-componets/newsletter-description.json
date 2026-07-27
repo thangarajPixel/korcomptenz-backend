@@ -1,11 +1,14 @@
 {
-  "collectionName": "components_sub_page_componets_sub_lists",
+  "collectionName": "components_page_componets_newsletter_descriptions",
   "info": {
-    "displayName": "sub-list"
+    "displayName": "newsletter-description"
   },
   "options": {},
   "attributes": {
-    "title": {
+    "subtext": {
+      "type": "string"
+    },
+    "Title": {
       "type": "string"
     },
     "description": {
@@ -15,8 +18,14 @@
         "preset": "defaultHtml"
       }
     },
-    "sectionLink": {
+    "bgColor": {
       "type": "string"
+    },
+    "hrCode": {
+      "type": "boolean"
+    },
+    "isgradiant": {
+      "type": "boolean"
     }
   },
   "config": {}
