@@ -1,10 +1,11 @@
 /**
- * fabcon-reserve-lead controller
+ * community-book-meet-lead controller
  */
 
 import { factories } from '@strapi/strapi'
 
-export default factories.createCoreController('api::fabcon-reserve-lead.fabcon-reserve-lead',
+export default factories.createCoreController(
+  'api::community-book-meet-lead.community-book-meet-lead',
   ({ strapi }) => ({
 
     async create(ctx) {
@@ -18,12 +19,15 @@ export default factories.createCoreController('api::fabcon-reserve-lead.fabcon-r
 
 
         const lead = await strapi.entityService.findOne(
-          'api::fabcon-reserve-lead.fabcon-reserve-lead',
+          'api::community-book-meet-lead.community-book-meet-lead',
           leadId
         ) as any;
+        // console.log('Lead Details:', lead);
 
         const SALES_EMAIL = strapi.config.get('emails.mail_to_emails.sales');
         const CC_EMAIL = strapi.config.get('emails.mail_to_emails.cc');
+
+        const fullName = `${lead.firstName || ''} ${lead.lastName || ''}`;
 
 
         //  EMAIL TO USER
@@ -59,18 +63,19 @@ export default factories.createCoreController('api::fabcon-reserve-lead.fabcon-r
         </td>
       </tr>
 
-      <tr>
+   
+
+        <tr>
         <td style="text-align:left;padding:20px;font-family:'Arial',Sans-serif;font-weight:400;font-size:14px;line-height:24px;color:#040505;">
           <strong>Hi ${lead.fullName} ,</strong><br/><br/>
           
+         Thank you for your interest in meeting with Korcomptenz at <strong> Community Summit North America 2026. </strong><br/>
 
-          Thank you for your interest in meeting with Korcomptenz at <strong>Community Summit North America 2026.</strong> <br/>
-
-         We’ve received your meeting request, and a member of our team will contact you shortly to confirm the details. <br/>
+         We’ve received your meeting request, and a member of our team will contact you shortly to confirm the details.<br/>
 
           While you're at the event, we invite you to visit us at <strong>Booth #709</strong> to explore our latest Microsoft Dynamics 365, AI, and Autonomous ERP solutions, watch live demonstrations, and connect with our industry experts.<br/>
 
-          We look forward to meeting you in Nashville and discussing how we can help accelerate your digital transformation journey. <br/>
+         We look forward to meeting you in Nashville and discussing how we can help accelerate your digital transformation journey.<br/>
 
           <strong>Best regards,</strong><br/>
           KORCOMPTENZ<br/>
@@ -94,7 +99,7 @@ export default factories.createCoreController('api::fabcon-reserve-lead.fabcon-r
         await strapi.plugin('email').service('email').send({
           to: SALES_EMAIL,
           bcc: CC_EMAIL,
-          subject: 'Fabcon Meeting Request Received',
+          subject: 'Community Summit Meeting Request Received',
           html: `
 <!DOCTYPE html>
 <html lang="en">
@@ -102,9 +107,9 @@ export default factories.createCoreController('api::fabcon-reserve-lead.fabcon-r
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-  <title>FABCON</title>
+  <title>Community Summit Meeting Request Received </title>
   <link rel="shortcut icon" type="image/x-icon"
-    href="https://your-cdn.blob.core.windows.net/fabcon/fabcon_logo.png" />
+    href="https://your-cdn.blob.core.windows.net/COMMUNITY/COMMUNITY_logo.png" />
   <style type="text/css">
     html {
       padding: 0;
@@ -123,11 +128,11 @@ export default factories.createCoreController('api::fabcon-reserve-lead.fabcon-r
       <td
         style="text-align:center;padding:10px;background:#FFF;font-family:Arial,sans-serif;border-bottom:3px solid #249176;">
         <a href="https://www.fabcon.com/" target="_blank">
-          <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="FABCON Logo" style="width: 250px;" />
+          <img src="https://aue2kormlworkspacetest01.blob.core.windows.net/korcomptenz/full_logo_0fc6f0ad2b.png" alt="COMMUNITY Logo" style="width: 250px;" />
         </a>
       </td>
     </tr>
-  
+   
     <tr>
       <td style="padding:10px 20px;font-family:Arial,sans-serif;">
         <table width="100%" cellpadding="0" cellspacing="0">
@@ -161,7 +166,6 @@ export default factories.createCoreController('api::fabcon-reserve-lead.fabcon-r
               ${lead.message || ''}
             </td>
           </tr>
-
            <tr >
             <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Submitted From:</td>
               <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
@@ -189,7 +193,6 @@ export default factories.createCoreController('api::fabcon-reserve-lead.fabcon-r
 </html>
   `,
         });
-
         //  Custom response
         return {
           data: {

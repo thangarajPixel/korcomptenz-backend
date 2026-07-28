@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_form_fields_community_summit_meetings",
+  "info": {
+    "displayName": "Community-Summit-Meeting"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "fullName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "timeSlot": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "TimeslotList": {
+      "type": "component",
+      "component": "form-fields.timeslot-list",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
