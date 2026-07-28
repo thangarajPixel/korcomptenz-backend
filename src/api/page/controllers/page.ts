@@ -233,13 +233,23 @@ export default factories.createCoreController(
                     },
                   },
                 },
-                 "page-componets.Newsletter-leadership-message": {
+                "page-componets.newsletter-leadership-message": {
                   populate: {
                     AuthorImage: true,
                   },
                 },
-                "page-componets.Newsletter-description": {
-                   populate: true 
+                "page-componets.newsletter-description": {
+                  populate: true
+                },
+                "page-componets.newsletter-footer": {
+                  populate: {
+                    logo: true,
+                    form: {
+                      populate: {
+                        forms: true,
+                      },
+                    },
+                  },
                 },
                 "page-componets.gram-banner": {
                   populate: {

@@ -135,7 +135,8 @@
         "page-componets.altiaris-checklist",
         "page-componets.newsletter-banner",
         "page-componets.newsletter-leadership-message",
-        "page-componets.newsletter-description"
+        "page-componets.newsletter-description",
+        "page-componets.newsletter-footer"
       ]
     }
   }

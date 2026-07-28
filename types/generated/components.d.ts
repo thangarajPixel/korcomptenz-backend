@@ -4676,6 +4676,29 @@ export interface PageComponetsNewsletterDescription
   };
 }
 
+export interface PageComponetsNewsletterFooter extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_newsletter_footers';
+  info: {
+    displayName: 'newsletter-footer';
+  };
+  attributes: {
+    date: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    expertTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Expert-led Transformations and Impact-led Growt'>;
+    form: Schema.Attribute.Relation<'oneToOne', 'api::form.form'>;
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Stay tuned for our next newsletter'>;
+  };
+}
+
 export interface PageComponetsNewsletterLeadershipMessage
   extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_newsletter_leadership_messages';
@@ -6354,6 +6377,7 @@ declare module '@strapi/strapi' {
       'page-componets.midmarket-enterprises-list': PageComponetsMidmarketEnterprisesList;
       'page-componets.newsletter-banner': PageComponetsNewsletterBanner;
       'page-componets.newsletter-description': PageComponetsNewsletterDescription;
+      'page-componets.newsletter-footer': PageComponetsNewsletterFooter;
       'page-componets.newsletter-leadership-message': PageComponetsNewsletterLeadershipMessage;
       'page-componets.partner-logos': PageComponetsPartnerLogos;
       'page-componets.pricing-section': PageComponetsPricingSection;
