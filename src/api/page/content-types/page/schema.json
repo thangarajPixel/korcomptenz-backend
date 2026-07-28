@@ -141,7 +141,10 @@
         "page-componets.request-consultation",
         "page-componets.grid-system",
         "page-componets.altiaris-checklist",
-        "page-componets.community-conference-banner"
+        "page-componets.community-conference-banner",
+        "page-componets.newsletter-banner",
+        "page-componets.newsletter-leadership-message",
+        "page-componets.newsletter-description"
       ]
     }
   }

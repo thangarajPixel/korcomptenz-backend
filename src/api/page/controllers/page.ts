@@ -234,6 +234,21 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "page-componets.newsletter-banner": {
+                  populate: {
+                    whatsIncludeContent: {
+                      populate: ["sublist"],
+                    },
+                  },
+                },
+                 "page-componets.Newsletter-leadership-message": {
+                  populate: {
+                    AuthorImage: true,
+                  },
+                },
+                "page-componets.Newsletter-description": {
+                   populate: true 
+                },
                 "page-componets.gram-banner": {
                   populate: {
                     image: true,

@@ -2580,6 +2580,9 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.grid-system',
         'page-componets.altiaris-checklist',
         'page-componets.community-conference-banner',
+        'page-componets.newsletter-banner',
+        'page-componets.newsletter-leadership-message',
+        'page-componets.newsletter-description',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
