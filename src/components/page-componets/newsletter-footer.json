@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_page_componets_newsletter_footers",
+  "info": {
+    "displayName": "newsletter-footer"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Stay tuned for our next newsletter"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "expertTitle": {
+      "type": "string",
+      "default": "Expert-led Transformations and Impact-led Growt"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "date": {
+      "type": "string"
+    },
+    "form": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form.form"
+    }
+  },
+  "config": {}
+}
