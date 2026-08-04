@@ -1,0 +1,64 @@
+{
+  "collectionName": "components_page_componets_cta_banners",
+  "info": {
+    "displayName": "CTA-Banner"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "isBgImage": {
+      "type": "boolean"
+    },
+    "backroundImage": {
+      "type": "media",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "isBgImage"
+            },
+            true
+          ]
+        }
+      },
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "bgColor": {
+      "type": "string"
+    },
+    "TitleColor": {
+      "type": "string"
+    },
+    "DescriptionColor": {
+      "type": "string"
+    },
+    "ButtonTextColor": {
+      "type": "string"
+    },
+    "buttonBgColor": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
