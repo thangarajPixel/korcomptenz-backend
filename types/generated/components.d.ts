@@ -3032,6 +3032,34 @@ export interface PageComponetsCommunityConferenceBanner
   };
 }
 
+export interface PageComponetsCtaBanner extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_cta_banners';
+  info: {
+    displayName: 'CTA-Banner';
+  };
+  attributes: {
+    backroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    bgColor: Schema.Attribute.String;
+    buttonBgColor: Schema.Attribute.String;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    ButtonTextColor: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    DescriptionColor: Schema.Attribute.String;
+    isBgImage: Schema.Attribute.Boolean;
+    Title: Schema.Attribute.String;
+    TitleColor: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsCustomFooter extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_custom_footers';
   info: {
@@ -6444,6 +6472,7 @@ declare module '@strapi/strapi' {
       'page-componets.cloud-warning-signs': PageComponetsCloudWarningSigns;
       'page-componets.combined-about-card-slider': PageComponetsCombinedAboutCardSlider;
       'page-componets.community-conference-banner': PageComponetsCommunityConferenceBanner;
+      'page-componets.cta-banner': PageComponetsCtaBanner;
       'page-componets.custom-footer': PageComponetsCustomFooter;
       'page-componets.custom-footer-list': PageComponetsCustomFooterList;
       'page-componets.dark-slider-card': PageComponetsDarkSliderCard;

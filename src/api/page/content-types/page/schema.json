@@ -145,7 +145,8 @@
         "page-componets.newsletter-banner",
         "page-componets.newsletter-leadership-message",
         "page-componets.newsletter-description",
-        "page-componets.newsletter-footer"
+        "page-componets.newsletter-footer",
+        "page-componets.cta-banner"
       ]
     }
   }

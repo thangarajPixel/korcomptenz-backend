@@ -570,6 +570,11 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "page-componets.cta-banner": {
+                  populate: {
+                    backroundImage: true,
+                  },
+                },
                 "page-componets.digital-services-section": {
                   populate: {
                     list: {
