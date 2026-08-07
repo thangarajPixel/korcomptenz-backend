@@ -2584,6 +2584,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.newsletter-leadership-message',
         'page-componets.newsletter-description',
         'page-componets.newsletter-footer',
+        'page-componets.cta-banner',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
