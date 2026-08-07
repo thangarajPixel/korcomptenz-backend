@@ -4045,6 +4045,35 @@ export interface PageComponetsFullLifecycleTopList
   };
 }
 
+export interface PageComponetsFullWidthGramBanner
+  extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_full_width_gram_banners';
+  info: {
+    displayName: 'full-width-gram-banner';
+  };
+  attributes: {
+    backroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    bgColor: Schema.Attribute.String;
+    buttonBgColor: Schema.Attribute.String;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    ButtonTextColor: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    DescriptionColor: Schema.Attribute.String;
+    isBgImage: Schema.Attribute.Boolean;
+    Title: Schema.Attribute.String;
+    TitleColor: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsGramBanner extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_gram_banners';
   info: {
@@ -6367,6 +6396,7 @@ declare module '@strapi/strapi' {
       'page-componets.full-lifecycle-mid-list1': PageComponetsFullLifecycleMidList1;
       'page-componets.full-lifecycle-top': PageComponetsFullLifecycleTop;
       'page-componets.full-lifecycle-top-list': PageComponetsFullLifecycleTopList;
+      'page-componets.full-width-gram-banner': PageComponetsFullWidthGramBanner;
       'page-componets.gram-banner': PageComponetsGramBanner;
       'page-componets.grid-system': PageComponetsGridSystem;
       'page-componets.griddetails': PageComponetsGriddetails;

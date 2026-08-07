@@ -133,7 +133,8 @@
         "page-componets.certifications-section",
         "page-componets.request-consultation",
         "page-componets.altiaris-checklist",
-        "page-componets.community-conference-banner"
+        "page-componets.community-conference-banner",
+        "page-componets.full-width-gram-banner"
       ]
     }
   }

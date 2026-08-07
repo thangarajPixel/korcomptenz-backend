@@ -2538,6 +2538,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.request-consultation',
         'page-componets.altiaris-checklist',
         'page-componets.community-conference-banner',
+        'page-componets.full-width-gram-banner',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
