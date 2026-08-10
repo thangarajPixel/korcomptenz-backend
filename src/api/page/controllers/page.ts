@@ -583,6 +583,9 @@ export default factories.createCoreController(
                 "page-componets.digital-analytics": {
                   populate: true,
                 },
+                "page-componets.custom-script": {
+                  populate: true,
+                },
                 "page-componets.digital-full-lifecycle": {
                   populate: {
                     top: {

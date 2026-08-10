@@ -3014,6 +3014,22 @@ export interface PageComponetsCustomFooterList extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsCustomScript extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_custom_scripts';
+  info: {
+    displayName: 'custom-script';
+  };
+  attributes: {
+    customcode: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface PageComponetsDarkSliderCard extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_dark_slider_cards';
   info: {
@@ -6317,6 +6333,7 @@ declare module '@strapi/strapi' {
       'page-componets.community-conference-banner': PageComponetsCommunityConferenceBanner;
       'page-componets.custom-footer': PageComponetsCustomFooter;
       'page-componets.custom-footer-list': PageComponetsCustomFooterList;
+      'page-componets.custom-script': PageComponetsCustomScript;
       'page-componets.dark-slider-card': PageComponetsDarkSliderCard;
       'page-componets.dark-slider-list': PageComponetsDarkSliderList;
       'page-componets.demonstrate-card': PageComponetsDemonstrateCard;
