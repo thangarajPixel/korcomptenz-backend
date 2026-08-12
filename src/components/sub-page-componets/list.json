@@ -5,13 +5,14 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
     "sublist": {
       "type": "component",
       "component": "sub-page-componets.sub-list",
       "repeatable": true
+    },
+    "title": {
+      "type": "string",
+      "default": "What’s Inside"
     },
     "description": {
       "type": "customField",

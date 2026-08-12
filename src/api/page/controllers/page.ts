@@ -226,6 +226,31 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "page-componets.newsletter-banner": {
+                  populate: {
+                    whatsIncludeContent: {
+                      populate: ["sublist"],
+                    },
+                  },
+                },
+                "page-componets.newsletter-leadership-message": {
+                  populate: {
+                    AuthorImage: true,
+                  },
+                },
+                "page-componets.newsletter-description": {
+                  populate: true
+                },
+                "page-componets.newsletter-footer": {
+                  populate: {
+                    logo: true,
+                    form: {
+                      populate: {
+                        forms: true,
+                      },
+                    },
+                  },
+                },
                 "page-componets.gram-banner": {
                   populate: {
                     image: true,
@@ -1260,7 +1285,7 @@ export default factories.createCoreController(
                     list: true,
                   },
                 },
-                  "page-componets.altiaris-checklist": {
+                "page-componets.altiaris-checklist": {
                   populate: {
                     image: true,
                     altiarisgridlist: {

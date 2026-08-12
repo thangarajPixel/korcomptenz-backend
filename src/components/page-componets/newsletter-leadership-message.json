@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_page_componets_newsletter_leadership_messages",
+  "info": {
+    "displayName": "newsletter-leadership-message"
+  },
+  "options": {},
+  "attributes": {
+    "LeadershipMessage": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "AuthorImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}
