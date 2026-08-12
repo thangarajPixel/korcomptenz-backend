@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_page_componets_custom_scripts",
+  "info": {
+    "displayName": "custom-script"
+  },
+  "options": {},
+  "attributes": {
+    "customcode": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    }
+  },
+  "config": {}
+}
