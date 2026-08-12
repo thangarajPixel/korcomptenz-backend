@@ -1186,12 +1186,14 @@ export interface ApiCommunityBookMeetLeadCommunityBookMeetLead
     draftAndPublish: true;
   };
   attributes: {
+    bussinessAreas: Schema.Attribute.String;
     company: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     email: Schema.Attribute.String;
     fullName: Schema.Attribute.String;
+    jobtitle: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1199,6 +1201,7 @@ export interface ApiCommunityBookMeetLeadCommunityBookMeetLead
     > &
       Schema.Attribute.Private;
     message: Schema.Attribute.String;
+    preferredTime: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     timeSlot: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -2586,6 +2589,8 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.newsletter-footer',
         'page-componets.cta-banner',
         'page-componets.full-width-gram-banner',
+        'page-componets.custom-script',
+
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

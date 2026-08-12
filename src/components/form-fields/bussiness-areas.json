@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_form_fields_bussiness_areas",
+  "info": {
+    "displayName": "bussinessAreas"
+  },
+  "options": {},
+  "attributes": {
+    "Values": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

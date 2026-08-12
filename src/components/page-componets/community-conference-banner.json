@@ -38,7 +38,7 @@
     "date": {
       "type": "string"
     },
-    "location": {
+    "formFooterText": {
       "type": "string"
     },
     "buttonText": {

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_page_componets_business_areas",
+  "info": {
+    "displayName": "BusinessAreas"
+  },
+  "options": {},
+  "attributes": {
+    "Values": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

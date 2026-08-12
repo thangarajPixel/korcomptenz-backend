@@ -154,10 +154,29 @@ export default factories.createCoreController(
               ${lead.company || ''}
             </td>
           </tr>
+         
+          <tr>
+            <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">jobtitle:</td>
+            <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+              ${lead.jobtitle || ''}
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">bussinessAreas:</td>
+            <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+              ${lead.bussinessAreas || ''}
+            </td>
+          </tr>
           <tr style="background:#f4f5f7;">
             <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">Time Slot:</td>
             <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
               ${lead.timeSlot || ''}
+            </td>
+          </tr>
+           <tr>
+            <td style="padding:10px;font-weight:500;border-bottom:1px solid #CCC;text-align:left;">preferredTime:</td>
+            <td style="padding:10px;border-bottom:1px solid #CCC;text-align:left;">
+              ${lead.preferredTime || ''}
             </td>
           </tr>
           <tr >

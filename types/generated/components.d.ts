@@ -999,6 +999,16 @@ export interface FormFieldsBookDemoForm extends Struct.ComponentSchema {
   };
 }
 
+export interface FormFieldsBussinessAreas extends Struct.ComponentSchema {
+  collectionName: 'components_form_fields_bussiness_areas';
+  info: {
+    displayName: 'bussinessAreas';
+  };
+  attributes: {
+    Values: Schema.Attribute.String;
+  };
+}
+
 export interface FormFieldsCareer extends Struct.ComponentSchema {
   collectionName: 'components_form_fields_careers';
   info: {
@@ -1077,11 +1087,18 @@ export interface FormFieldsCommunitySummitMeeting
     displayName: 'Community-Summit-Meeting';
   };
   attributes: {
+    businessAreaTitle: Schema.Attribute.String;
+    bussinessAreasList: Schema.Attribute.Component<
+      'form-fields.bussiness-areas',
+      true
+    >;
     buttonText: Schema.Attribute.String;
     company: Schema.Attribute.String;
     email: Schema.Attribute.String;
     fullName: Schema.Attribute.String;
+    jobtitleLabel: Schema.Attribute.String;
     message: Schema.Attribute.String;
+    preferredTime: Schema.Attribute.String;
     timeSlot: Schema.Attribute.String;
     TimeslotList: Schema.Attribute.Component<'form-fields.timeslot-list', true>;
     title: Schema.Attribute.String;
@@ -2495,6 +2512,16 @@ export interface PageComponetsBuildDatas extends Struct.ComponentSchema {
   };
 }
 
+export interface PageComponetsBusinessAreas extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_business_areas';
+  info: {
+    displayName: 'BusinessAreas';
+  };
+  attributes: {
+    Values: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsCard extends Struct.ComponentSchema {
   collectionName: 'components_service_cards';
   info: {
@@ -3017,6 +3044,7 @@ export interface PageComponetsCommunityConferenceBanner
           preset: 'defaultHtml';
         }
       >;
+    formFooterText: Schema.Attribute.String;
     formImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     formTitle: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
@@ -3026,7 +3054,6 @@ export interface PageComponetsCommunityConferenceBanner
         }
       >;
     isTarget: Schema.Attribute.Boolean;
-    location: Schema.Attribute.String;
     title1: Schema.Attribute.String;
     title2: Schema.Attribute.String;
   };
@@ -6415,6 +6442,7 @@ declare module '@strapi/strapi' {
       'demo-page.demo-time-descripition': DemoPageDemoTimeDescripition;
       'demo-page.experts-section': DemoPageExpertsSection;
       'form-fields.book-demo-form': FormFieldsBookDemoForm;
+      'form-fields.bussiness-areas': FormFieldsBussinessAreas;
       'form-fields.career': FormFieldsCareer;
       'form-fields.case-form': FormFieldsCaseForm;
       'form-fields.cloud-form': FormFieldsCloudForm;
@@ -6500,6 +6528,7 @@ declare module '@strapi/strapi' {
       'page-componets.benifit-cards': PageComponetsBenifitCards;
       'page-componets.build-data': PageComponetsBuildData;
       'page-componets.build-datas': PageComponetsBuildDatas;
+      'page-componets.business-areas': PageComponetsBusinessAreas;
       'page-componets.card': PageComponetsCard;
       'page-componets.certifications-section': PageComponetsCertificationsSection;
       'page-componets.checklistitems': PageComponetsChecklistitems;
