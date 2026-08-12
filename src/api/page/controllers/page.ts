@@ -553,6 +553,11 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "page-componets.full-width-gram-banner": {
+                  populate: {
+                    backroundImage: true,
+                  },
+                },
                 "page-componets.kpi-partner": {
                   populate: {
                     items: {
