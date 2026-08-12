@@ -847,6 +847,7 @@ export default factories.createCoreController(
             "form-fields.community-summit-meeting": {
               populate: {
                 TimeslotList: true,
+                bussinessAreasList: true,
               },
             },
           },

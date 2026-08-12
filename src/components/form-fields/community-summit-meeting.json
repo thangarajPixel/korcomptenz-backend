@@ -30,6 +30,20 @@
       "type": "component",
       "component": "form-fields.timeslot-list",
       "repeatable": true
+    },
+    "preferredTime": {
+      "type": "string"
+    },
+    "businessAreaTitle": {
+      "type": "string"
+    },
+    "jobtitleLabel": {
+      "type": "string"
+    },
+    "bussinessAreasList": {
+      "type": "component",
+      "component": "form-fields.bussiness-areas",
+      "repeatable": true
     }
   },
   "config": {}

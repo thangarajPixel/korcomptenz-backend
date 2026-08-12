@@ -25,6 +25,15 @@
     },
     "message": {
       "type": "string"
+    },
+    "jobtitle": {
+      "type": "string"
+    },
+    "preferredTime": {
+      "type": "string"
+    },
+    "bussinessAreas": {
+      "type": "string"
     }
   }
 }
