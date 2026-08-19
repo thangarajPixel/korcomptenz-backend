@@ -21,7 +21,9 @@
     "@strapi/provider-email-nodemailer": "^5.31.0",
     "@strapi/provider-email-sendgrid": "^5.33.2",
     "@strapi/strapi": "5.23.0",
+    "better-sqlite3": "^12.10.0",
     "mysql2": "3.9.8",
+    "pm2": "^7.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -41,5 +43,6 @@
   "strapi": {
     "uuid": "78dbf010-91fb-4390-8d70-debae59e18e1",
     "installId": "da612ffb453c7621da5ec793eb5b4765c2464fe798dd1e90873a3d5b47f230a7"
-  }
+  },
+  "packageManager": "yarn@4.15.0+sha512.07ec708ac11e2eaa4ea2b04cfbb272812f7e74a753f1595eaef4486c663a98306a30cca3e6fc40f7a0b168dcfb3a2490b6a5e0501e20fb69cc36f563dd161c53"
 }
