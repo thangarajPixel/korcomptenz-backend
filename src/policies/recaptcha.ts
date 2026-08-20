@@ -22,6 +22,18 @@ interface TurnstileVerificationResponse {
   'error-codes'?: string[];
 }
 
+// Cloudflare's official dummy/test secret keys (publicly documented, not
+// project-specific) always return a token with no `action` in the siteverify
+// response, since there's no real widget session behind a dummy token. The
+// per-route action check is skipped only for these exact values so local
+// testing with Cloudflare's test keys isn't rejected; real secrets are
+// unaffected. https://developers.cloudflare.com/turnstile/troubleshooting/testing/
+const CLOUDFLARE_TEST_SECRET_KEYS = new Set([
+  '1x0000000000000000000000000000000AA',
+  '2x0000000000000000000000000000000AA',
+  '3x0000000000000000000000000000000AA',
+]);
+
 export default async (ctx, config, { strapi }) => {
   // Correct path: token is nested inside ctx.request.body.data
   const { turnstileToken, ...cleanData } = ctx.request.body.data || {};
@@ -42,36 +54,46 @@ export default async (ctx, config, { strapi }) => {
   }
 
   try {
-    const cloudflareResponse = await fetch(
-      'https://challenges.cloudflare.com/turnstile/v0/siteverify',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({ secret, response: turnstileToken }),
-      }
-    );
-
-    const verification =
-      (await cloudflareResponse.json()) as TurnstileVerificationResponse;
-
-    if (!verification.success) {
-      throw withStatus(new PolicyError('Captcha verification failed'), 403);
+  const cloudflareResponse = await fetch(
+    'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        secret,
+        response: turnstileToken,
+      }),
     }
+  );
 
-    const expectedAction = config?.action;
-    if (expectedAction && verification.action !== expectedAction) {
-      throw withStatus(new PolicyError('Invalid Turnstile action'), 403);
-    }
+  const verification =
+    (await cloudflareResponse.json()) as TurnstileVerificationResponse;
 
-    //  Strip turnstileToken from body BEFORE Strapi validates it
-    ctx.request.body.data = cleanData;
+  if (!verification.success) {
+    throw withStatus(new PolicyError('Captcha verification failed'), 403);
+  }
 
-    console.log(' Turnstile token validated successfully');
-    // console.log(' Form data entering controller:', cleanData);
+  const expectedAction = config?.action;
+  const isTestSecret = CLOUDFLARE_TEST_SECRET_KEYS.has(secret);
 
+  if (
+    expectedAction &&
+    !isTestSecret &&
+    verification.action !== expectedAction
+  ) {
+    throw withStatus(new PolicyError('Invalid Turnstile action'), 403);
+  }
 
-    return true;
-  } catch (error) {
+  // Strip turnstileToken from body BEFORE Strapi validates it
+  ctx.request.body.data = cleanData;
+
+  // Store the validated token for later use
+  ctx.state.turnstileToken = turnstileToken;
+
+  console.log('Turnstile token validated successfully');
+
+  return true;
+}catch (error) {
     // Re-throw Strapi errors as-is, only wrap unexpected ones
     if (error instanceof PolicyError || error instanceof ApplicationError) {
       throw error;
