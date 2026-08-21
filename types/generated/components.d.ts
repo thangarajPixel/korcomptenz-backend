@@ -1559,6 +1559,20 @@ export interface HomeHeroSectionOne extends Struct.ComponentSchema {
   };
 }
 
+export interface HomeHomeSlidingSection extends Struct.ComponentSchema {
+  collectionName: 'components_home_home_sliding_sections';
+  info: {
+    displayName: 'home-sliding-section';
+  };
+  attributes: {
+    ArrowPosition: Schema.Attribute.Enumeration<['left', 'right', 'center']>;
+    BackroundColor: Schema.Attribute.String;
+    boxBorder: Schema.Attribute.Boolean;
+    SliderEntries: Schema.Attribute.Component<'home.slider-entries', true>;
+    Title: Schema.Attribute.String;
+  };
+}
+
 export interface HomeNavItem extends Struct.ComponentSchema {
   collectionName: 'components_home_nav_items';
   info: {
@@ -1685,6 +1699,29 @@ export interface HomeServicesSectionList extends Struct.ComponentSchema {
     label: Schema.Attribute.String;
     link: Schema.Attribute.String;
     videoLink: Schema.Attribute.String;
+  };
+}
+
+export interface HomeSliderEntries extends Struct.ComponentSchema {
+  collectionName: 'components_home_slider_entries';
+  info: {
+    displayName: 'SliderEntries';
+  };
+  attributes: {
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    Description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    isTarget: Schema.Attribute.Boolean;
+    isVideoLink: Schema.Attribute.Boolean;
+    swap: Schema.Attribute.Boolean;
+    Title: Schema.Attribute.String;
   };
 }
 
@@ -6474,12 +6511,14 @@ declare module '@strapi/strapi' {
       'global.video': GlobalVideo;
       'home.header': HomeHeader;
       'home.hero-section-one': HomeHeroSectionOne;
+      'home.home-sliding-section': HomeHomeSlidingSection;
       'home.nav-item': HomeNavItem;
       'home.opportunity': HomeOpportunity;
       'home.opportunity-profile': HomeOpportunityProfile;
       'home.schedule-call': HomeScheduleCall;
       'home.services-section': HomeServicesSection;
       'home.services-section-list': HomeServicesSectionList;
+      'home.slider-entries': HomeSliderEntries;
       'home.we-are-korcomptenz': HomeWeAreKorcomptenz;
       'insight-section.blog-section': InsightSectionBlogSection;
       'insight-section.insight-list': InsightSectionInsightList;

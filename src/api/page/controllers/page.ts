@@ -539,6 +539,16 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "home.home-sliding-section": {
+                  populate: {
+
+                    SliderEntries: {
+                      populate: {
+                        image: true,
+                      },
+                    },
+                  },
+                },
                 "career.mansonry-gallery-section": {
                   populate: {
                     list: {
@@ -845,25 +855,25 @@ export default factories.createCoreController(
                     },
                   },
                 },
-           "page-componets.community-conference-banner": {
-  populate: {
-    backgroundImage: true,
-    form: {
-      populate: {
-        forms: {
-          on: {
-            "form-fields.community-summit-meeting": {
-              populate: {
-                TimeslotList: true,
-                bussinessAreasList: true,
-              },
-            },
-          },
-        },
-      },
-    },
-  },
-},
+                "page-componets.community-conference-banner": {
+                  populate: {
+                    backgroundImage: true,
+                    form: {
+                      populate: {
+                        forms: {
+                          on: {
+                            "form-fields.community-summit-meeting": {
+                              populate: {
+                                TimeslotList: true,
+                                bussinessAreasList: true,
+                              },
+                            },
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
                 "page-componets.fabcon-decision-fabric": {
                   populate: {
                     backgroundImage: true,

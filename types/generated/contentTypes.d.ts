@@ -2590,7 +2590,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.cta-banner',
         'page-componets.full-width-gram-banner',
         'page-componets.custom-script',
-
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

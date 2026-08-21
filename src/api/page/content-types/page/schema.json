@@ -148,7 +148,8 @@
         "page-componets.newsletter-footer",
         "page-componets.cta-banner",
         "page-componets.full-width-gram-banner",
-        "page-componets.custom-script"
+        "page-componets.custom-script",
+        "home.home-sliding-section"
       ]
     }
   }
