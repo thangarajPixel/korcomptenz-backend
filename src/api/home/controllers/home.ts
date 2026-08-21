@@ -33,6 +33,16 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                 image: true,
               },
             },
+             "home.home-sliding-section": {
+                  populate: {
+
+                    SliderEntries: {
+                      populate: {
+                        image: true,
+                      },
+                    },
+                  },
+                },
             'home.services-section': {
               populate: {
                 list: {

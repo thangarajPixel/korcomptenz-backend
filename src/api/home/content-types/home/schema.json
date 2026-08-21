@@ -30,7 +30,8 @@
         "case-study.case-study-sticky-cards-list",
         "case-study.case-study-domain-data",
         "insight-section.insight-list",
-        "page-componets.slide-content"
+        "page-componets.slide-content",
+        "home.home-sliding-section"
       ]
     }
   }

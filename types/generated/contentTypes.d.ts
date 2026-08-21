@@ -1715,6 +1715,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
         'case-study.case-study-domain-data',
         'insight-section.insight-list',
         'page-componets.slide-content',
+        'home.home-sliding-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -2548,6 +2549,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'page-componets.cta-banner',
         'page-componets.full-width-gram-banner',
         'page-componets.custom-script',
+        'home.home-sliding-section',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

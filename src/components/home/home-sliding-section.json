@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_home_home_sliding_sections",
+  "info": {
+    "displayName": "home-sliding-section"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "BackroundColor": {
+      "type": "string"
+    },
+    "boxBorder": {
+      "type": "boolean"
+    },
+    "ArrowPosition": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right",
+        "center"
+      ]
+    },
+    "SliderEntries": {
+      "type": "component",
+      "component": "home.slider-entries",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
