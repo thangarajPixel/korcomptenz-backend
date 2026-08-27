@@ -132,3 +132,5 @@ build
 yarn.lock
 
 .env.production
+
+/.claude/
