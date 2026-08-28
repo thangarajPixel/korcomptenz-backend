@@ -12,6 +12,7 @@ module.exports = ({ env }) => {
           containerName: env("AZURE_CONTAINER_NAME"),
           defaultPath: env("AZURE_DEFAULT_PATH"),
           azureStorageApiVersion: "2023-11-03",
+          defaultCacheControl: env("AZURE_DEFAULT_CACHE_CONTROL"),
         },
         // 'image-manipulation': {
         //   enabled: true
