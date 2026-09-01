@@ -1,8 +1,7 @@
 export default ({ env }) => {
   return [
-    'strapi::logger',
-    'strapi::errors',
-    'strapi::security',
+    "strapi::logger",
+    "strapi::errors",
     {
       name: "strapi::security",
       config: {
@@ -14,40 +13,45 @@ export default ({ env }) => {
               "'self'",
               "data:",
               "blob:",
-              "https://market-assets.strapi.io", // Required for Strapi >= 4.10.6; you can remove it otherwise
-              env('AZURE_SERVICE_BASE_URL'),
+              "https://market-assets.strapi.io",
+              env("AZURE_SERVICE_BASE_URL"),
             ],
             "media-src": [
               "'self'",
               "data:",
               "blob:",
-              env('AZURE_SERVICE_BASE_URL'),
+              env("AZURE_SERVICE_BASE_URL"),
             ],
             upgradeInsecureRequests: null,
           },
         },
       },
     },
-    // {
-    //   name: 'strapi::cors',
-    //   config: {
-    //     origin: env('API_ALLOW_ORIGIN', ['*'])
-    //       ?.split(',')
-    //       ?.map((o) => o.trim()),
-    //     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
-    //     headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
-    //     keepHeaderOnError: true,
-    //   },
-    // },
-    'strapi::cors',
-    'strapi::poweredBy',
-    'strapi::query',
-    'strapi::body',
-    'strapi::session',
-    'strapi::favicon',
-    'strapi::public',
-    'global::email-blocker',
+    {
+      name: "strapi::cors",
+      config: {
+        origin: env.array("API_ALLOW_ORIGIN", [
+          "https://www.korcomptenz.com",
+          "https://korcomptenz.com",
+        ]),
+        methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+        headers: ["Content-Type", "Authorization", "Origin", "Accept"],
+        keepHeaderOnError: true,
+      },
+    },
+    "strapi::poweredBy",
+    "strapi::query",
+    {
+      name: "strapi::body",
+      config: {
+        jsonLimit: "2mb",
+        formLimit: "2mb",
+      },
+    },
+    "strapi::session",
+    "strapi::favicon",
+    "strapi::public",
+    "global::email-blocker",
+    "global::api-rate-limit",
   ];
-}
-
-
+};

@@ -6,7 +6,7 @@ export default {
       path: '/bulk-create',
       handler: 'insight.bulkCreate',
       config: {
-        auth: false,
+        auth: true,
       },
     },
     {

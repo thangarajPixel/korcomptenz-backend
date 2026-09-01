@@ -7,7 +7,7 @@ import { factories } from '@strapi/strapi';
 export default factories.createCoreRouter('api::insight.insight', {
   config: {
     bulkCreate: {
-      auth: false,
+      auth: true,
       policies: [],
       middlewares: [],
     },

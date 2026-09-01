@@ -74,6 +74,9 @@ module.exports = ({ env }) => {
             user: "apikey",
             pass: env("SENDGRID_API_KEY"),
           },
+          tls: {
+            rejectUnauthorized: true,
+          },
         },
         settings: {
           defaultFrom: env("MAIL_FROM", "info@korcomptenz.com"),

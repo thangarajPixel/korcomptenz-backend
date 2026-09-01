@@ -6,7 +6,7 @@ export default ({ env }) => ({
   },
   http: {
     serverOptions: {
-      timeout: 600000, // Set timeout to 10 minutes (adjust as needed)
+      timeout: 60000,
     },
   },
 });
