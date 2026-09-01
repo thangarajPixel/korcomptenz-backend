@@ -46,6 +46,7 @@ export default ({ env }) => {
     'strapi::session',
     'strapi::favicon',
     'strapi::public',
+    'strapi::compression',
     'global::email-blocker',
   ];
 }

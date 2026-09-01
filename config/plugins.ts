@@ -12,6 +12,7 @@ module.exports = ({ env }) => {
           containerName: env("AZURE_CONTAINER_NAME"),
           defaultPath: env("AZURE_DEFAULT_PATH"),
           azureStorageApiVersion: "2023-11-03",
+          defaultCacheControl: env("AZURE_DEFAULT_CACHE_CONTROL"),
         },
         // 'image-manipulation': {
         //   enabled: true
@@ -21,24 +22,29 @@ module.exports = ({ env }) => {
 
     /////////smtp using app password
 
-    // email: {
-    //   config: {
-    //     provider: 'nodemailer',
-    //     providerOptions: {
-    //       host: env('MAIL_HOST'),
-    //       port: env.int('MAIL_PORT'),
-    //       secure: true,
-    //       auth: {
-    //         user: env('MAIL_USERNAME'),
-    //         pass: env('MAIL_PASSWORD'),
-    //       },
-    //     },
-    //     settings: {
-    //       defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
-    //       defaultReplyTo: env('MAIL_FROM', 'info@korcomptenz.com'),
-    //     },
-    //   },
-    // },
+    email: {
+  config: {
+    provider: 'nodemailer',
+    providerOptions: {
+      host: env('MAIL_HOST'),
+      port: env.int('MAIL_PORT'),
+      // Set to true only for port 465. Use false for 587 or 25 (STARTTLS)
+      secure: env.int('MAIL_PORT') === 465, 
+      auth: {
+        user: env('MAIL_USERNAME'),
+        pass: env('MAIL_PASSWORD'),
+      },
+      // Required for local testing if your mail server uses self-signed certs
+      tls: {
+        rejectUnauthorized: false 
+      }
+    },
+    settings: {
+      defaultFrom: env('MAIL_FROM', 'info@korcomptenz.com'),
+      defaultReplyTo: env('MAIL_FROM', 'info@korcomptenz.com'),
+    },
+  },
+},
 
     // SMTP RELAY without auth
 
@@ -61,26 +67,26 @@ module.exports = ({ env }) => {
     //   },
     // },
 
-    /////////  sendgrid [provider nodemailer]
+    /////////  sendgrid [provider nodemailer] comment
 
-    email: {
-      config: {
-        provider: "nodemailer",
-        providerOptions: {
-          host: env("MAIL_HOST"),
-          port: env.int("MAIL_PORT"),
-          secure: false, //  false for 2525
-          auth: {
-            user: "apikey",
-            pass: env("SENDGRID_API_KEY"),
-          },
-        },
-        settings: {
-          defaultFrom: env("MAIL_FROM", "info@korcomptenz.com"),
-          defaultReplyTo: env("MAIL_FROM", "info@korcomptenz.com"),
-        },
-      },
-    },
+    // email: {
+    //   config: {
+    //     provider: "nodemailer",
+    //     providerOptions: {
+    //       host: env("MAIL_HOST"),
+    //       port: env.int("MAIL_PORT"),
+    //       secure: false, //  false for 2525
+    //       auth: {
+    //         user: "apikey",
+    //         pass: env("SENDGRID_API_KEY"),
+    //       },
+    //     },
+    //     settings: {
+    //       defaultFrom: env("MAIL_FROM", "info@korcomptenz.com"),
+    //       defaultReplyTo: env("MAIL_FROM", "info@korcomptenz.com"),
+    //     },
+    //   },
+    // },
 
     // sendgrid [provider @strapi/provider-email-sendgrid]
 
