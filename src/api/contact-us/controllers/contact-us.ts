@@ -86,6 +86,12 @@ export default factories.createCoreController('api::contact-us.contact-us', ({ s
                 }
               }
             },
+            "page-componets.custom-script": true,
+            "page-componets.full-width-gram-banner": {
+                  populate: {
+                    backroundImage: true,
+                  },
+                },
             'contact-us.news-letter': {
               populate: {
                 image: true,

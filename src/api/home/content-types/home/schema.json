@@ -31,7 +31,9 @@
         "case-study.case-study-domain-data",
         "insight-section.insight-list",
         "page-componets.slide-content",
-        "home.home-sliding-section"
+        "home.home-sliding-section",
+        "page-componets.custom-script",
+        "page-componets.full-width-gram-banner"
       ]
     }
   }
