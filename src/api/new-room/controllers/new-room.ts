@@ -55,6 +55,12 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
                   },
                 }
               },
+              "page-componets.custom-script": true,
+            "page-componets.full-width-gram-banner": {
+                  populate: {
+                    backroundImage: true,
+                  },
+                },
               'news-and-event.news-banner': {
                 populate: {
                   image: true,

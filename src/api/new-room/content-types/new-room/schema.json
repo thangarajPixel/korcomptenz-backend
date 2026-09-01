@@ -57,7 +57,9 @@
         "page-componets.fabcon-led-transformation",
         "page-componets.step-grid-section",
         "page-componets.cloud-readiness-report",
-        "seo.seo"
+        "seo.seo",
+        "page-componets.full-width-gram-banner",
+        "page-componets.custom-script"
       ]
     },
     "seo": {
@@ -72,17 +74,23 @@
     "formTitle": {
       "type": "customField",
       "customField": "plugin::ckeditor5.CKEditor",
-      "options": { "preset": "defaultHtml" }
+      "options": {
+        "preset": "defaultHtml"
+      }
     },
     "emailSubject": {
       "type": "customField",
       "customField": "plugin::ckeditor5.CKEditor",
-      "options": { "preset": "defaultHtml" }
+      "options": {
+        "preset": "defaultHtml"
+      }
     },
     "emailBody": {
       "type": "customField",
       "customField": "plugin::ckeditor5.CKEditor",
-      "options": { "preset": "defaultHtml" }
+      "options": {
+        "preset": "defaultHtml"
+      }
     }
   }
 }

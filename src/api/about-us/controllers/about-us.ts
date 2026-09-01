@@ -133,6 +133,12 @@ export default factories.createCoreController('api::about-us.about-us', ({ strap
                 },
               },
             },
+            "page-componets.custom-script": true,
+            "page-componets.full-width-gram-banner": {
+                  populate: {
+                    backroundImage: true,
+                  },
+                },
             'about-us.achievement-section': {
               populate: {
                 list: {
