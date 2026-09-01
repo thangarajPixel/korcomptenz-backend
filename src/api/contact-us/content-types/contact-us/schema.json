@@ -31,7 +31,9 @@
         "contact-us.contact-us-insight-list",
         "contact-us.contact-us-form-section",
         "contact-us.fixed-section",
-        "contact-us.logo-slider"
+        "contact-us.logo-slider",
+        "page-componets.full-width-gram-banner",
+        "page-componets.custom-script"
       ]
     }
   }

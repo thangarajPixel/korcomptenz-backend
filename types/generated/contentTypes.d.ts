@@ -403,6 +403,8 @@ export interface ApiAboutUsAboutUs extends Struct.SingleTypeSchema {
         'about-us.stats-section',
         'about-us.media-slider-section',
         'about-us.achievement-section',
+        'page-componets.full-width-gram-banner',
+        'page-componets.custom-script',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1316,6 +1318,8 @@ export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
         'contact-us.contact-us-form-section',
         'contact-us.fixed-section',
         'contact-us.logo-slider',
+        'page-componets.full-width-gram-banner',
+        'page-componets.custom-script',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -1749,6 +1753,9 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
         'case-study.case-study-domain-data',
         'insight-section.insight-list',
         'page-componets.slide-content',
+        'home.home-sliding-section',
+        'page-componets.custom-script',
+        'page-componets.full-width-gram-banner',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -2250,6 +2257,8 @@ export interface ApiNewRoomNewRoom extends Struct.CollectionTypeSchema {
         'page-componets.step-grid-section',
         'page-componets.cloud-readiness-report',
         'seo.seo',
+        'page-componets.full-width-gram-banner',
+        'page-componets.custom-script',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

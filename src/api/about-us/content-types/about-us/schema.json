@@ -32,7 +32,9 @@
         "about-us.people-showcase-list",
         "about-us.stats-section",
         "about-us.media-slider-section",
-        "about-us.achievement-section"
+        "about-us.achievement-section",
+        "page-componets.full-width-gram-banner",
+        "page-componets.custom-script"
       ]
     }
   }

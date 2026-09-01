@@ -61,6 +61,12 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                 },
               },
             },
+            "page-componets.custom-script": true,
+            "page-componets.full-width-gram-banner": {
+                  populate: {
+                    backroundImage: true,
+                  },
+                },
             'page-componets.sticky-cards-list': {
               populate: {
                 list: {
