@@ -141,7 +141,8 @@
         "page-componets.cta-banner",
         "page-componets.full-width-gram-banner",
         "page-componets.custom-script",
-        "home.home-sliding-section"
+        "home.home-sliding-section",
+        "page-componets.momentum-slider"
       ]
     }
   }

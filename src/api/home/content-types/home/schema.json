@@ -33,7 +33,8 @@
         "page-componets.slide-content",
         "home.home-sliding-section",
         "page-componets.custom-script",
-        "page-componets.full-width-gram-banner"
+        "page-componets.full-width-gram-banner",
+        "page-componets.momentum-slider"
       ]
     }
   }

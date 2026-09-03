@@ -59,7 +59,8 @@
         "page-componets.cloud-readiness-report",
         "seo.seo",
         "page-componets.full-width-gram-banner",
-        "page-componets.custom-script"
+        "page-componets.custom-script",
+        "page-componets.momentum-slider"
       ]
     },
     "seo": {

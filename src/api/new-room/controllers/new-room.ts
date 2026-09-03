@@ -61,6 +61,15 @@ export default factories.createCoreController('api::new-room.new-room', ({ strap
                     backroundImage: true,
                   },
                 },
+                "page-componets.momentum-slider": {
+                  populate: {
+                    Cards: {
+                      populate: {
+                        image: true,
+                      },
+                    },
+                  },
+                },
               'news-and-event.news-banner': {
                 populate: {
                   image: true,

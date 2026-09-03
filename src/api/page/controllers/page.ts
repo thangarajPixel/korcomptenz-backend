@@ -577,6 +577,15 @@ export default factories.createCoreController(
                     },
                   },
                 },
+                "page-componets.momentum-slider": {
+                  populate: {
+                    Cards: {
+                      populate: {
+                        image: true,
+                      },
+                    },
+                  },
+                },
                 "page-componets.cta-banner": {
                   populate: {
                     backroundImage: true,
