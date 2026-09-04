@@ -76,6 +76,15 @@ export default factories.createCoreController('api::home.home', ({ strapi }) => 
                 },
               },
             },
+            "page-componets.momentum-slider": {
+                  populate: {
+                    Cards: {
+                      populate: {
+                        image: true,
+                      },
+                    },
+                  },
+                },
             'page-componets.insights-section': {
               populate: {
                 list: {

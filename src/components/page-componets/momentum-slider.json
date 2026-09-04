@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_page_componets_momentum_sliders",
+  "info": {
+    "displayName": "momentum-slider"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      }
+    },
+    "Cards": {
+      "type": "component",
+      "component": "sub-page-componets.sublist",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

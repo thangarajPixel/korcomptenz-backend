@@ -4923,6 +4923,25 @@ export interface PageComponetsMidmarketEnterprisesList
   };
 }
 
+export interface PageComponetsMomentumSlider extends Struct.ComponentSchema {
+  collectionName: 'components_page_componets_momentum_sliders';
+  info: {
+    displayName: 'momentum-slider';
+  };
+  attributes: {
+    Cards: Schema.Attribute.Component<'sub-page-componets.sublist', true>;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface PageComponetsNewsletterBanner extends Struct.ComponentSchema {
   collectionName: 'components_page_componets_newsletter_banners';
   info: {
@@ -6672,6 +6691,7 @@ declare module '@strapi/strapi' {
       'page-componets.mid-fabcon-data-analytics': PageComponetsMidFabconDataAnalytics;
       'page-componets.midmarket-enterprises': PageComponetsMidmarketEnterprises;
       'page-componets.midmarket-enterprises-list': PageComponetsMidmarketEnterprisesList;
+      'page-componets.momentum-slider': PageComponetsMomentumSlider;
       'page-componets.newsletter-banner': PageComponetsNewsletterBanner;
       'page-componets.newsletter-description': PageComponetsNewsletterDescription;
       'page-componets.newsletter-footer': PageComponetsNewsletterFooter;

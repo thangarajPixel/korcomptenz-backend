@@ -139,6 +139,15 @@ export default factories.createCoreController('api::about-us.about-us', ({ strap
                     backroundImage: true,
                   },
                 },
+                "page-componets.momentum-slider": {
+                  populate: {
+                    Cards: {
+                      populate: {
+                        image: true,
+                      },
+                    },
+                  },
+                },
             'about-us.achievement-section': {
               populate: {
                 list: {

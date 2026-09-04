@@ -34,7 +34,8 @@
         "about-us.media-slider-section",
         "about-us.achievement-section",
         "page-componets.full-width-gram-banner",
-        "page-componets.custom-script"
+        "page-componets.custom-script",
+        "page-componets.momentum-slider"
       ]
     }
   }
